@@ -1,0 +1,30 @@
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--screen-2xl);
+  height: 3rem;
+  padding: 0 var(--side-padding);
+  margin: 0 auto;
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: var(--font-24);
+  transform: translate(-50%, -50%);
+}
+
+.right {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.sign {
+  font-size: var(--font-14);
+}

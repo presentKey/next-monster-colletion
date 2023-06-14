@@ -1,15 +1,16 @@
-import './css/reset.css';
 import './css/normalize.css';
+import './css/reset.css';
 import './css/globals.css';
 import { Noto_Sans_KR } from 'next/font/google';
-import { Jua } from 'next/font/google';
+import { Do_Hyeon } from 'next/font/google';
+import GlobalHeader from '@/components/common/GlobalHeader';
 
 const sans = Noto_Sans_KR({
   subsets: ['latin'],
   weight: ['400', '700'],
 });
 
-export const dongle = Jua({
+export const dohyeon = Do_Hyeon({
   subsets: ['latin'],
   weight: ['400'],
 });
@@ -26,7 +27,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ko'>
-      <body className={sans.className}>{children}</body>
+      <body className={sans.className}>
+        <GlobalHeader />
+        {children}
+      </body>
     </html>
   );
 }
