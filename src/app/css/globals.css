@@ -1,0 +1,18 @@
+:root {
+  /* color */
+  --color-gray-light: #e5e5e5;
+
+  /* screen width */
+  --screen-2xl: 96rem;
+
+  /* font size */
+  --font-24: 1.5rem;
+  --font-14: 0.875rem;
+
+  /* etc */
+  --side-padding: 0.75rem;
+}
+
+body {
+  min-height: 100vh;
+}
