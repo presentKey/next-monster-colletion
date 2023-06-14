@@ -92,6 +92,7 @@
         "severity": "warning"
       }
     ],
+    "media-feature-range-notation": "prefix",
     "media-feature-range-operator-space-before": [
       "always",
       {
