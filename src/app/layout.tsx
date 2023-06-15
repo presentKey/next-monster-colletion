@@ -1,9 +1,10 @@
 import './css/normalize.css';
 import './css/reset.css';
+import './css/responsive.css';
 import './css/globals.css';
 import { Noto_Sans_KR } from 'next/font/google';
 import { Do_Hyeon } from 'next/font/google';
-import GlobalHeader from '@/components/common/GlobalHeader';
+import GlobalHeader from '@/components/GlobalHeader/GlobalHeader';
 
 const sans = Noto_Sans_KR({
   subsets: ['latin'],
