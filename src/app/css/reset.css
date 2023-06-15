@@ -3,11 +3,6 @@
   margin: 0;
 }
 
-body {
-  min-height: 100vh;
-  background-color: var(--color-gray-light);
-}
-
 h1 {
   margin: 0;
 }
