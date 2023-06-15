@@ -1,15 +1,21 @@
 :root {
   /* color */
-  --color-gray-light: #e5e5e5;
-
-  /* screen width */
-  --screen-2xl: 96rem;
+  --color-brand: #9a62e6;
+  --color-border: #e5e5e5;
+  --color-border-dark: #8c8d96;
 
   /* font size */
-  --font-24: 1.5rem;
   --font-14: 0.875rem;
+  --font-18: 1.125rem;
+  --font-24: 1.5rem;
 
-  /* etc */
+  /* breakpoint */
+  --mobile-786: 48rem;
+  --desktop-1280: 80rem;
+  --desktop-1536: 96rem;
+
+  /* layout */
+  --screen-max-width: 96rem;
   --side-padding: 0.75rem;
 }
 

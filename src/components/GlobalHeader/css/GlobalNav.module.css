@@ -1,0 +1,21 @@
+.nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.sign,
+.elite,
+.bookmark {
+  padding: 0.25rem;
+  font-size: var(--font-14);
+  transition: color 0.2s linear;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sign:hover,
+  .elite:hover,
+  .bookmark:hover {
+    color: var(--color-brand);
+  }
+}
