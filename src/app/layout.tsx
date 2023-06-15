@@ -5,6 +5,7 @@ import './css/globals.css';
 import { Noto_Sans_KR } from 'next/font/google';
 import { Do_Hyeon } from 'next/font/google';
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader';
+import AuthContext from '@/context/AuthContext';
 
 const sans = Noto_Sans_KR({
   subsets: ['latin'],
@@ -29,8 +30,10 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <body className={sans.className}>
-        <GlobalHeader />
-        {children}
+        <AuthContext>
+          <GlobalHeader />
+          {children}
+        </AuthContext>
       </body>
     </html>
   );
