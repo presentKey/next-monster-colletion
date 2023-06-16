@@ -1,6 +1,6 @@
 'use client';
 import { ClientSafeProvider, signIn } from 'next-auth/react';
-import SignInButton from './SignInButton';
+import SocialLoginButton from './SocialLoginButton';
 
 type Props = {
   providers: Record<string, ClientSafeProvider>;
@@ -11,10 +11,9 @@ export default function SignIn({ providers, callbackUrl }: Props) {
   return (
     <>
       {Object.values(providers).map(({ name, id }) => (
-        <SignInButton
+        <SocialLoginButton
           key={id}
           name={name}
-          text={`${name} 로그인`}
           onClick={() => signIn(id, { callbackUrl })}
         />
       ))}
