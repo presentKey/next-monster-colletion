@@ -17,9 +17,14 @@ const icons = [
 export default function SignInButton({ name, text, onClick }: Props) {
   return (
     <button className={styles.button} type='button' onClick={onClick}>
-      <span className={styles.icon}>
-        {icons.map(({ title, icon }) => title === name && icon)}
-      </span>
+      {icons.map(
+        ({ title, icon }) =>
+          title === name && (
+            <span key={title} className={styles.icon}>
+              {icon}
+            </span>
+          )
+      )}
       {text}
     </button>
   );

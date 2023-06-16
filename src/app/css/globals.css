@@ -14,6 +14,9 @@
   --font-18: 1.125rem;
   --font-24: 1.5rem;
 
+  /* box shadow */
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+
   /* breakpoint */
   --mobile-786: 48rem;
   --desktop-1280: 80rem;
