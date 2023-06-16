@@ -5,6 +5,7 @@ import { getProviders } from 'next-auth/react';
 import SignIn from '@/components/SignIn/SignIn';
 import Notice from '@/components/Notice';
 import styles from './css/page.module.css';
+import Divider from '@/components/Divider';
 
 export default async function SignPage() {
   const session = await getServerSession(authOptions);
@@ -25,7 +26,7 @@ export default async function SignPage() {
         type='tip'
         text='로그인 시 북마크, 엘몬 컬렉션 정보가 저장됩니다.'
       />
-
+      <Divider />
       <SignIn providers={providers} />
     </section>
   );
