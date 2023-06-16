@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styles from './css/GlobalNav.module.css';
 import SunIcon from '../icons/SunIcon';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import SignButton from './SignButton';
 
 export default function GlobalNav() {
   const { data: session } = useSession();
@@ -18,9 +19,11 @@ export default function GlobalNav() {
       <button type='button'>
         <SunIcon />
       </button>
-      <button className={styles.sign} type='button' onClick={() => signIn()}>
-        {session ? '로그아웃' : '로그인'}
-      </button>
+      {session ? (
+        <SignButton text='로그아웃' onClick={() => signOut()} />
+      ) : (
+        <SignButton text='로그인' onClick={() => signIn()} />
+      )}
     </nav>
   );
 }
