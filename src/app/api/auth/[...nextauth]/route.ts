@@ -8,6 +8,9 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_OAUTH_SECRET || '',
     }),
   ],
+  pages: {
+    signIn: '/signin',
+  },
 };
 
 const handler = NextAuth(authOptions);
