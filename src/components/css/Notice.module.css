@@ -1,0 +1,36 @@
+.notice {
+  width: 100%;
+}
+
+.top {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  color: var(--color-white);
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.top.blue {
+  background-color: var(--color-blue);
+}
+
+.top.green {
+  background-color: var(--color-green);
+}
+
+.message {
+  padding: 0.5rem;
+  font-size: var(--font-14);
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.message.blue {
+  background-color: var(--color-blue-light);
+}
+
+.message.green {
+  background-color: var(--color-green-light);
+}
