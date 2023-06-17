@@ -1,8 +1,13 @@
+'use client';
 import Link from 'next/link';
 import styles from './css/GlobalNav.module.css';
 import SunIcon from '../icons/SunIcon';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import SignButton from './SignButton';
 
 export default function GlobalNav() {
+  const { data: session } = useSession();
+
   return (
     <nav className={styles.nav}>
       <Link href='/elite' className={`sm-hidden ${styles.elite}`}>
@@ -14,9 +19,11 @@ export default function GlobalNav() {
       <button type='button'>
         <SunIcon />
       </button>
-      <button className={styles.sign} type='button'>
-        로그인
-      </button>
+      {session ? (
+        <SignButton text='로그아웃' onClick={() => signOut()} />
+      ) : (
+        <SignButton text='로그인' onClick={() => signIn()} />
+      )}
     </nav>
   );
 }

@@ -1,19 +1,11 @@
-.nav {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.elite,
-.bookmark {
+.sign {
   padding: 0.25rem;
   font-size: var(--font-14);
   transition: color 0.2s linear;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .elite:hover,
-  .bookmark:hover {
+  .sign:hover {
     color: var(--color-brand);
   }
 }
