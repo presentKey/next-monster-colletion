@@ -1,5 +1,6 @@
 import styles from './css/Notice.module.css';
 import CheckIcon from './icons/CheckIcon';
+import ChevronIcon from './icons/ChevronIcon';
 import ExclamationIcon from './icons/ExclamationIcon';
 
 const notice = [
@@ -17,10 +18,10 @@ const notice = [
 
 type Props = {
   type: 'note' | 'tip';
-  text: string;
+  textList: string[];
 };
 
-export default function Notice({ type, text }: Props) {
+export default function Notice({ type, textList }: Props) {
   return (
     <div className={styles.notice}>
       {notice.map(
@@ -35,9 +36,16 @@ export default function Notice({ type, text }: Props) {
             </div>
           )
       )}
-      <p className={`${styles.message} ${styles[getNoticeStyle(type)]}`}>
-        {text}
-      </p>
+      <div className={`${styles.message} ${styles[getNoticeStyle(type)]}`}>
+        {textList.map((text, index) => (
+          <div className={styles.container} key={index}>
+            <span className={styles.icon}>
+              <ChevronIcon />
+            </span>
+            <p className={styles.text}>{text}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 .notice {
   width: 100%;
+  overflow: hidden;
   border-radius: 0.5rem;
   box-shadow: var(--shadow);
 }
@@ -31,4 +32,23 @@
 
 .message.green {
   background-color: var(--color-green-light);
+}
+
+.container {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.container:last-child {
+  margin-bottom: 0;
+}
+
+.icon {
+  position: absolute;
+  top: 0.0625rem;
+  left: 0;
+}
+
+.text {
+  margin-left: 1rem;
 }
