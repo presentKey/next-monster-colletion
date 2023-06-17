@@ -1,12 +1,12 @@
 'use client';
 import { createContext, useState, useContext, useEffect } from 'react';
 
-export type ContextProp = {
+export type ThemeContext = {
   darkMode: boolean;
   toggleDarkMode: () => void;
 };
 
-export const DarkModeContext = createContext<ContextProp | null>(null);
+export const DarkModeContext = createContext<ThemeContext | null>(null);
 
 type Props = {
   children: React.ReactNode;
