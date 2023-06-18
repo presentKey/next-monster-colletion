@@ -4,7 +4,6 @@ import MenuIcon from '../icons/MenuIcon';
 import Link from 'next/link';
 import GlobalNav from './GlobalNav';
 import SearchForm from '../SearchForm';
-import { DarkModeProvider } from '@/context/DarkModeContext';
 
 export default function GlobalHeader() {
   return (
@@ -17,9 +16,7 @@ export default function GlobalHeader() {
           몬스터컬렉션
         </Link>
         <SearchForm />
-        <DarkModeProvider>
-          <GlobalNav />
-        </DarkModeProvider>
+        <GlobalNav />
       </div>
     </header>
   );
