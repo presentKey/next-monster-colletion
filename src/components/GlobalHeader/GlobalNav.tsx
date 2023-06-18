@@ -19,7 +19,7 @@ export default function GlobalNav() {
       <Link className={`sm-hidden ${styles.bookmark}`} href='/bookmark'>
         북마크
       </Link>
-      <button type='button' onClick={toggleDarkMode}>
+      <button className={styles.theme} type='button' onClick={toggleDarkMode}>
         {darkMode && <SunIcon />}
         {!darkMode && <MoonIcon />}
       </button>

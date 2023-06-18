@@ -24,6 +24,7 @@
 .message {
   padding: 1rem 0.5rem;
   font-size: var(--font-14);
+  color: var(--color-dark);
 }
 
 .message.blue {
