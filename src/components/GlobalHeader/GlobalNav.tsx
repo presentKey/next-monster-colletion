@@ -1,9 +1,10 @@
 'use client';
 import Link from 'next/link';
 import styles from './css/GlobalNav.module.css';
-import SunIcon from '../icons/SunIcon';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import SignButton from './SignButton';
+import ThemeButton from './ThemeButton';
+import { DarkModeProvider } from '@/context/DarkModeContext';
 
 export default function GlobalNav() {
   const { data: session } = useSession();
@@ -16,9 +17,11 @@ export default function GlobalNav() {
       <Link className={`sm-hidden ${styles.bookmark}`} href='/bookmark'>
         북마크
       </Link>
-      <button type='button'>
-        <SunIcon />
-      </button>
+      <div className='sm-hidden'>
+        <DarkModeProvider>
+          <ThemeButton />
+        </DarkModeProvider>
+      </div>
       {session ? (
         <SignButton text='로그아웃' onClick={() => signOut()} />
       ) : (

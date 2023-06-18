@@ -9,7 +9,7 @@ export default function GlobalHeader() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <div className='sm-only'>
+        <div className={`sm-only ${styles.menu}`}>
           <MenuIcon />
         </div>
         <Link href='/' className={`${dohyeon.className} ${styles.title}`}>

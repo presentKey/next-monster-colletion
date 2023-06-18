@@ -8,7 +8,13 @@
 .bookmark {
   padding: 0.25rem;
   font-size: var(--font-14);
+  font-weight: bold;
+  color: var(--color-font);
   transition: color 0.2s linear;
+}
+
+.theme {
+  color: var(--color-brand);
 }
 
 @media (hover: hover) and (pointer: fine) {
