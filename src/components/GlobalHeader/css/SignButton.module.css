@@ -1,6 +1,8 @@
 .sign {
   padding: 0.25rem;
   font-size: var(--font-14);
+  font-weight: bold;
+  color: var(--color-font);
   transition: color 0.2s linear;
 }
 
