@@ -39,10 +39,10 @@ export function DarkModeProvider({ children }: Props) {
 
 function updateDarkMode(darkMode: boolean) {
   if (darkMode) {
-    document.documentElement.classList.add('dark');
+    document.documentElement.dataset.theme = 'dark';
     localStorage.theme = 'dark';
   } else {
-    document.documentElement.classList.remove('dark');
+    document.documentElement.dataset.theme = 'light';
     localStorage.theme = 'light';
   }
 }
