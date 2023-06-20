@@ -1,16 +1,19 @@
 import { getAllMainCategory } from '@/service/category';
+import CategoryCard from './CategoryCard';
+import styles from './css/HomeCategory.module.css';
 
 export default async function HomeCategory() {
   const categories = await getAllMainCategory();
-  console.log(categories);
 
   return (
-    <section>
-      <ul>
+    <section className={styles.category}>
+      <ol className={styles.list}>
         {categories.map((category) => (
-          <li key={category.path}>{category.title}</li>
+          <li className={styles.item} key={category.path}>
+            <CategoryCard category={category} />
+          </li>
         ))}
-      </ul>
+      </ol>
     </section>
   );
 }

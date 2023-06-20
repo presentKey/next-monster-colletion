@@ -6,6 +6,7 @@ export async function getAllMainCategory(): Promise<MainCategory[]> {
     .fetch(
       `*[_type == 'category'] | order(order asc){
             title,
+            path,
         }`
     );
 }
