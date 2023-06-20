@@ -9,6 +9,16 @@ export default {
       type: 'string',
     },
     {
+      title: 'Path',
+      name: 'path',
+      type: 'string',
+    },
+    {
+      title: 'Order',
+      name: 'order',
+      type: 'number',
+    },
+    {
       title: 'SubCategory',
       name: 'subCategory',
       type: 'array',
