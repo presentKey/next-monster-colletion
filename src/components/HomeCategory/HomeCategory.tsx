@@ -6,7 +6,7 @@ export default async function HomeCategory() {
   const categories = await getAllMainCategory();
 
   return (
-    <section className={styles.category}>
+    <section>
       <ol className={styles.list}>
         {categories.map((category) => (
           <li className={styles.item} key={category.path}>
