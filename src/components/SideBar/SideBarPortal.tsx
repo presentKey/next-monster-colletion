@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 type Props = {
@@ -5,11 +6,11 @@ type Props = {
 };
 
 export default function SideBarPortal({ children }: Props) {
-  if (typeof window === 'undefined') {
-    return null;
-  }
+  const [node, setNode] = useState<Element | null>(null);
 
-  const node = document.querySelector('#sidebar') as Element;
+  useEffect(() => setNode(document.querySelector('#sidebar')), []);
+
+  if (!node) return null;
 
   return createPortal(children, node);
 }
