@@ -1,0 +1,9 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--sidebar-level);
+  width: 16.25rem;
+  height: 100%;
+  background-color: var(--color-bg);
+}

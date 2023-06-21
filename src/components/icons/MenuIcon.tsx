@@ -1,6 +1,10 @@
 import styles from './css/MenuIcon.module.css';
 import { FiMenu } from 'react-icons/fi';
 
-export default function MenuIcon() {
-  return <FiMenu className={styles.icon} />;
+type Props = {
+  onClick: () => void;
+};
+
+export default function MenuIcon({ onClick }: Props) {
+  return <FiMenu className={styles.icon} onClick={onClick} />;
 }

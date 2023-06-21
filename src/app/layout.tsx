@@ -52,6 +52,7 @@ export default function RootLayout({
           <GlobalHeader />
           <main className={styles.main}>{children}</main>
         </AuthContext>
+        <div id='sidebar'></div>
       </body>
     </html>
   );
