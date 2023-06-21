@@ -5,6 +5,7 @@
   z-index: var(--sidebar-level);
   width: 16.25rem;
   height: 100%;
+  padding: 2rem var(--side-padding);
   overflow-y: scroll;
   overscroll-behavior: contain;
   background-color: var(--color-bg);

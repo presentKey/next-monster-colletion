@@ -1,3 +1,4 @@
+import ThemeButton from '../ThemeButton';
 import CloseIcon from '../icons/CloseIcon';
 import styles from './css/SideBar.module.css';
 
@@ -12,6 +13,7 @@ export default function SideBar({ open, onClose }: Props) {
       <button className={styles.close} type='button' onClick={onClose}>
         <CloseIcon />
       </button>
+      <ThemeButton />
       sidebar
     </aside>
   );
