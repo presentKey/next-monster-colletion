@@ -13,7 +13,10 @@ export default function SideBar({ open, onClose }: Props) {
       <button className={styles.close} type='button' onClick={onClose}>
         <CloseIcon />
       </button>
-      <ThemeButton />
+      <div className={styles.theme}>
+        <span>화면 테마</span>
+        <ThemeButton />
+      </div>
       sidebar
     </aside>
   );
