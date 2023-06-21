@@ -12,16 +12,38 @@
   box-shadow: var(--shadow-lg);
 }
 
+.card.row {
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: var(--color-bg);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.card.row .img {
+  margin-right: 0.5rem;
+}
+
 .img {
   display: inline-grid;
   transform-style: preserve-3d;
 }
 
-.card:hover {
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    background-color: var(--color-border);
+  }
+
+  .card:hover .img {
+    animation: rotate-axis 2s linear infinite;
+  }
+}
+
+.card:active {
   background-color: var(--color-border);
 }
 
-.card:hover .img {
+.card:active .img {
   animation: rotate-axis 2s linear infinite;
 }
 

@@ -20,7 +20,7 @@
 
 .close {
   position: absolute;
-  top: 0.5rem;
+  top: 0.8rem;
   right: 0.5rem;
   padding: 0.25rem;
   color: var(--color-font);
@@ -35,7 +35,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
+  margin: 0 -1rem;
+  font-size: var(--font-14);
+  font-weight: bold;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.item {
+  padding: 0 1rem;
   margin: 0 -1rem;
   border-bottom: 1px solid var(--color-border);
 }
