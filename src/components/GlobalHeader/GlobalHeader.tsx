@@ -1,9 +1,9 @@
 import styles from './css/GlobalHeader.module.css';
-import { dohyeon } from '@/app/layout';
 import Link from 'next/link';
 import GlobalNav from './GlobalNav';
 import SearchForm from '../SearchForm';
 import HamburgerMenu from './HamburgerMenu';
+import { dohyeon } from '@/utils/fonts';
 
 export default function GlobalHeader() {
   return (
