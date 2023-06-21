@@ -8,6 +8,8 @@ import { Do_Hyeon } from 'next/font/google';
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader';
 import AuthContext from '@/context/AuthContext';
 import { DarkModeProvider } from '@/context/DarkModeContext';
+import SideBar from '@/components/SideBar/SideBar';
+import RecoilContext from '@/context/RecoilContext';
 
 const sans = Noto_Sans_KR({
   subsets: ['latin'],
@@ -49,13 +51,15 @@ export default function RootLayout({
             __html: themeScript,
           }}
         />
-        <DarkModeProvider>
-          <AuthContext>
-            <GlobalHeader />
-            <main className={styles.main}>{children}</main>
-          </AuthContext>
-          <div id='sidebar'></div>
-        </DarkModeProvider>
+        <RecoilContext>
+          <DarkModeProvider>
+            <AuthContext>
+              <GlobalHeader />
+              <main className={styles.main}>{children}</main>
+            </AuthContext>
+            <SideBar />
+          </DarkModeProvider>
+        </RecoilContext>
       </body>
     </html>
   );
