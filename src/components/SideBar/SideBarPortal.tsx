@@ -10,7 +10,7 @@ export default function SideBarPortal({ children }: Props) {
 
   useEffect(() => setNode(document.querySelector('#sidebar')), []);
 
-  if (!node) return null;
+  if (!node) return <></>;
 
   return createPortal(children, node);
 }
