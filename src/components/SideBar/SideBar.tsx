@@ -1,5 +1,18 @@
+import CloseIcon from '../icons/CloseIcon';
 import styles from './css/SideBar.module.css';
 
-export default function SideBar() {
-  return <aside className={styles.sidebar}>사이드바</aside>;
+type Props = {
+  open: boolean;
+  onClose: () => void;
+};
+
+export default function SideBar({ open, onClose }: Props) {
+  return (
+    <aside className={`${styles.sidebar} ${open && styles['is-open']}`}>
+      <button className={styles.close} type='button' onClick={onClose}>
+        <CloseIcon />
+      </button>
+      sidebar
+    </aside>
+  );
 }

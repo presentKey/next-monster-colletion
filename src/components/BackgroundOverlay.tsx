@@ -1,5 +1,15 @@
 import styles from './css/BackgroundOverlay.module.css';
 
-export default function BackgroundOverlay() {
-  return <div className={styles.background} />;
+type Props = {
+  open: boolean;
+  onClose: () => void;
+};
+
+export default function BackgroundOverlay({ open, onClose }: Props) {
+  return (
+    <div
+      className={`${styles.background} ${open && styles['is-open']}`}
+      onClick={onClose}
+    />
+  );
 }

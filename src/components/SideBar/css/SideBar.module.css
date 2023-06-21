@@ -5,5 +5,17 @@
   z-index: var(--sidebar-level);
   width: 16.25rem;
   height: 100%;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
   background-color: var(--color-bg);
+  transition: transform 0.2s ease-in-out;
+  transform: translate3d(-16.25rem, 0, 0);
+}
+
+.sidebar.is-open {
+  transform: translate3d(0, 0, 0);
+}
+
+.close {
+  color: var(--color-font);
 }

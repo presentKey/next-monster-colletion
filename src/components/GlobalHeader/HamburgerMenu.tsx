@@ -7,17 +7,16 @@ import BackgroundOverlay from '../BackgroundOverlay';
 
 export default function HamburgerMenu() {
   const [open, setOpen] = useState(false);
-  const toggleMenu = () => setOpen(!open);
+  const toggleMenu = () => setOpen((prev) => !prev);
 
   return (
     <>
       <MenuIcon onClick={toggleMenu} />
-      {open && (
-        <SideBarPortal>
-          <SideBar />
-          <BackgroundOverlay />
-        </SideBarPortal>
-      )}
+
+      <SideBarPortal>
+        <SideBar open={open} onClose={toggleMenu} />
+        <BackgroundOverlay open={open} onClose={toggleMenu} />
+      </SideBarPortal>
     </>
   );
 }
