@@ -1,6 +1,9 @@
+import styles from './css/SwordFillIcon.module.css';
+
 export default function SwordFillIcon() {
   return (
     <svg
+      className={styles.icon}
       stroke='currentColor'
       fill='currentColor'
       strokeWidth='0'
