@@ -1,5 +1,6 @@
-import { BsBookmarkStarFill } from 'react-icons/bs';
+import { BsBookmarkStar } from 'react-icons/bs';
+import styles from './css/BookMarkIcon.module.css';
 
 export default function BookMarkIcon() {
-  return <BsBookmarkStarFill />;
+  return <BsBookmarkStar className={styles.icon} />;
 }

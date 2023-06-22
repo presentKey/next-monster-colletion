@@ -9,6 +9,7 @@ import { DarkModeProvider } from '@/context/DarkModeContext';
 import RecoilContext from '@/context/RecoilContext';
 import SideBar from '@/components/SideBar/SideBar';
 import { sans } from '@/utils/fonts';
+import BottomNav from '@/components/BottomNav';
 
 export const metadata = {
   title: 'Create Next App',
@@ -47,6 +48,7 @@ export default function RootLayout({
               <main className={styles.main}>{children}</main>
             </AuthContext>
             <SideBar />
+            <BottomNav />
           </DarkModeProvider>
         </RecoilContext>
       </body>
