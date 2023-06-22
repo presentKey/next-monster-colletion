@@ -5,11 +5,18 @@ import styles from './css/CategoryCard.module.css';
 
 type Props = {
   category: MainCategory;
+  direction?: 'row' | 'column';
 };
 
-export default function CategoryCard({ category: { title, path } }: Props) {
+export default function CategoryCard({
+  category: { title, path },
+  direction = 'column',
+}: Props) {
   return (
-    <Link className={styles.card} href={`/${path}`}>
+    <Link
+      className={`${styles.card} ${direction === 'row' && styles.row}`}
+      href={`/${path}`}
+    >
       <div className={styles.img}>
         <Image
           className={styles.front}
