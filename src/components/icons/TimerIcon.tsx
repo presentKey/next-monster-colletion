@@ -1,5 +1,5 @@
-import { MdTimer } from 'react-icons/md';
+import { MdOutlineTimer } from 'react-icons/md';
 
 export default function TimerIcon() {
-  return <MdTimer />;
+  return <MdOutlineTimer />;
 }
