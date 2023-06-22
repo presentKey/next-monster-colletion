@@ -5,7 +5,7 @@ import styles from './css/SideBarContent.module.css';
 import useSideBar from '@/recoil/SideBar/useSideBar';
 import BackgroundOverlay from '../BackgroundOverlay';
 import { MainCategory } from '@/model/category';
-import CategoryCard from '../HomeCategory/CategoryCard';
+import CategoryCard from '../CategoryCard';
 
 type Props = {
   categories: MainCategory[];

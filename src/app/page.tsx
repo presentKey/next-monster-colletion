@@ -1,4 +1,4 @@
-import HomeCategory from '@/components/HomeCategory/HomeCategory';
+import HomeCategory from '@/components/HomeCategory';
 
 export default function HomePage() {
   return (
