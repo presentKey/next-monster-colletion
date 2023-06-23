@@ -1,9 +1,9 @@
-import { getAllMainCategory } from '@/service/category';
 import CategoryCard from './CategoryCard';
 import styles from './css/HomeCategory.module.css';
+import { service } from '@/service/pickService';
 
 export default async function HomeCategory() {
-  const categories = await getAllMainCategory();
+  const categories = await service.category.getAllMainCategory();
 
   return (
     <section>
