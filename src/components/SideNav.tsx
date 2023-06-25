@@ -12,7 +12,7 @@ export default function SideNav({ categories }: Props) {
       <ol>
         {categories.map((category) => (
           <li className={styles.list} key={category.path}>
-            <CategoryCard category={category} direction='row' />
+            <CategoryCard category={category} direction='row' imgSize='small' />
           </li>
         ))}
       </ol>
