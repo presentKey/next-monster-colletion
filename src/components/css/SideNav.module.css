@@ -1,0 +1,7 @@
+.nav {
+  width: 11.25rem;
+}
+
+.list {
+  border-bottom: 1px solid var(--color-border);
+}
