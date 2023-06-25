@@ -15,7 +15,7 @@ export default function CategoryCard({
   return (
     <Link
       className={`${styles.card} ${direction === 'row' && styles.row}`}
-      href={`/${path}`}
+      href={`/category/${path}`}
     >
       <div className={styles.img}>
         <Image
