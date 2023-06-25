@@ -1,7 +1,9 @@
 .nav {
+  flex-shrink: 0;
   width: 11.25rem;
 }
 
 .list {
+  padding: 0.5rem 0;
   border-bottom: 1px solid var(--color-border);
 }

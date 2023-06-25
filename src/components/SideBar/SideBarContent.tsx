@@ -6,6 +6,7 @@ import useSideBar from '@/recoil/SideBar/useSideBar';
 import BackgroundOverlay from '../BackgroundOverlay';
 import { MainCategory } from '@/model/category';
 import CategoryCard from '../CategoryCard';
+import { useParams, usePathname } from 'next/navigation';
 
 type Props = {
   categories: MainCategory[];
@@ -13,6 +14,7 @@ type Props = {
 
 export default function SideBarContent({ categories }: Props) {
   const { open, toggleSideBar } = useSideBar();
+  const { slug } = useParams();
 
   return (
     <>
@@ -29,7 +31,7 @@ export default function SideBarContent({ categories }: Props) {
         <ol className={styles.list}>
           {categories.map((category) => (
             <li className={styles.item} key={category.path}>
-              <CategoryCard category={category} direction='row' />
+              <CategoryCard category={category} param={slug} direction='row' />
             </li>
           ))}
         </ol>
