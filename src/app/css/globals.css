@@ -37,6 +37,8 @@
   --side-padding: 0.75rem;
 
   /* z-index */
+  --category-detail-tab-level: 80;
+  --global-header-level: 90;
   --background-overlay-level: 100;
   --sidebar-level: 110;
 }

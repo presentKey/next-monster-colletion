@@ -1,8 +1,10 @@
+import styles from './page.module.css';
+
 export default function CategoryDetailPage() {
   return (
-    <section>
-      <article>카테고리 디테일</article>
-      <aside>카테고리 디테일 tab</aside>
-    </section>
+    <>
+      <article className={styles.information}>카테고리 디테일</article>
+      <aside className={styles.tab}>카테고리 디테일 tab</aside>
+    </>
   );
 }
