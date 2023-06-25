@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 import { getProviders } from 'next-auth/react';
 import SignIn from '@/components/SignIn/SignIn';
 import Notice from '@/components/Notice';
-import styles from './css/page.module.css';
+import styles from './page.module.css';
 import Divider from '@/components/Divider';
 
 const NOTE_TEXT = ['로그인을 하지 않아도 사이트를 이용할 수 있습니다.'];
