@@ -1,4 +1,4 @@
-import { MainCategory } from '@/model/category';
+import { CategoryDetailInformation, MainCategory } from '@/model/category';
 import { client } from './sanity';
 import { cache } from 'react';
 
@@ -14,4 +14,22 @@ export default class Category {
         }`
       );
   });
+
+  getCategoryDetailInfo = async (
+    path: string
+  ): Promise<CategoryDetailInformation> => {
+    return client //
+      .fetch(
+        `*[_type == 'category' && path == '${path}'][0]{
+            path,
+            subCategory[]{
+              title,
+              information[]->{
+                registers,
+                monsters[]->{name}
+              }
+            }
+          }`
+      );
+  };
 }
