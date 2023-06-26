@@ -7,10 +7,13 @@ export type MainCategory = {
 
 export type SubCategory = {
   title: string;
+};
+
+export type SubCategoryInformation = SubCategory & {
   information: RegisterInfoByCategory[];
 };
 
 export type CategoryDetailInformation = {
   path: string;
-  subCategory: SubCategory[];
+  subCategory: SubCategoryInformation[];
 };

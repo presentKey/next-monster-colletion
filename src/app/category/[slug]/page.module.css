@@ -1,20 +1,3 @@
 .information {
   width: 100%;
 }
-
-.tab {
-  position: fixed;
-  top: 3rem;
-  left: 0;
-}
-
-@media screen and (min-width: 48rem) {
-  .tab {
-    position: sticky;
-    top: 3rem;
-    z-index: var(--category-detail-tab-level);
-    flex-shrink: 0;
-    align-self: flex-start;
-    width: 11.25rem;
-  }
-}
