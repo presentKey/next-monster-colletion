@@ -1,6 +1,6 @@
 import { service } from '@/service/pickService';
 import SubCategoryTab from '@/components/SubCategoryTab';
-import RegisterByCategory from '@/components/RegisterByCategory';
+import RegisterByCategory from '@/components/RegisterByCategory/RegisterByCategory';
 
 type Props = {
   params: {

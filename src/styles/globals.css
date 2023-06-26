@@ -9,6 +9,7 @@
   --color-gray: #f2f2f2;
   --color-blue: #6eb1dd;
   --color-blue-light: #e8f2fa;
+  --color-blue-dark: #2290a1;
   --color-green: #7cc47a;
   --color-green-light: #e7f9e6;
   --color-red: #ef4b56;
@@ -18,6 +19,7 @@
 
   /* font size */
   --font-11: 0.6875rem;
+  --font-12: 0.75rem;
   --font-14: 0.875rem;
   --font-16: 1rem;
   --font-18: 1.125rem;
