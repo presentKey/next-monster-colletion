@@ -1,3 +1,10 @@
 .information {
   width: 100%;
+  padding-top: 3rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .information {
+    padding-top: 0;
+  }
 }
