@@ -1,6 +1,6 @@
 import { service } from '@/service/pickService';
-import styles from './page.module.css';
 import SubCategoryTab from '@/components/SubCategoryTab';
+import RegisterByCategory from '@/components/RegisterByCategory';
 
 type Props = {
   params: {
@@ -14,7 +14,7 @@ export default async function CategoryDetailPage({ params }: Props) {
 
   return (
     <>
-      <article className={styles.information}>카테고리 디테일</article>
+      <RegisterByCategory detail={detail} />
       <SubCategoryTab subCategories={subCategories} />
     </>
   );

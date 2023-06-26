@@ -1,0 +1,25 @@
+.information {
+  width: 100%;
+  padding-top: 3rem;
+}
+
+.sub-title {
+  padding: 0.5rem var(--side-padding);
+  margin-right: calc(0px - var(--side-padding));
+  margin-left: calc(0px - var(--side-padding));
+  font-size: var(--font-22);
+  line-height: 1;
+  color: var(--color-brand);
+  background-color: var(--color-gray);
+}
+
+@media screen and (min-width: 48rem) {
+  .information {
+    padding: 0.5rem var(--side-padding);
+  }
+
+  .sub-title {
+    margin: 0;
+    border-radius: 1rem;
+  }
+}
