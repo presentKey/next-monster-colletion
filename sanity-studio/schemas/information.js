@@ -1,8 +1,10 @@
 const STATES = [
   {title: '일반', value: 'N'},
   {title: '퀘스트', value: 'Q'},
+  {title: '파티 퀘스트', value: 'PQ'},
   {title: '보스', value: 'B'},
-  {title: '테마던전', value: 'T'},
+  {title: '던전', value: 'T'},
+  {title: '테마던전', value: 'TD'},
   {title: '몬스터파크', value: 'M'},
 ]
 
@@ -52,9 +54,15 @@ export default {
               },
             },
             {
-              title: 'Description',
-              name: 'description',
-              type: 'string',
+              title: 'IsDescriptionsGroup',
+              name: 'isDescriptionsGroup',
+              type: 'boolean',
+            },
+            {
+              title: 'Descriptions',
+              name: 'descriptions',
+              type: 'array',
+              of: [{title: 'Message', name: 'message', type: 'string'}],
             },
             {
               title: 'Job',
