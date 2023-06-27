@@ -1,8 +1,8 @@
-import './css/normalize.css';
-import './css/reset.css';
-import './css/responsive.css';
-import './css/globals.css';
-import styles from './css/layout.module.css';
+import '../styles/normalize.css';
+import '../styles/reset.css';
+import '../styles/responsive.css';
+import '../styles/globals.css';
+import styles from './layout.module.css';
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader';
 import AuthContext from '@/context/AuthContext';
 import { DarkModeProvider } from '@/context/DarkModeContext';

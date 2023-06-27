@@ -1,6 +1,6 @@
 {
   "extends": ["stylelint-config-recess-order", "stylelint-config-standard"],
-  "ignoreFiles": ["src/app/css/normalize.css"],
+  "ignoreFiles": ["src/styles/normalize.css"],
   "rules": {
     "alpha-value-notation": "number",
     "at-rule-empty-line-before": null,

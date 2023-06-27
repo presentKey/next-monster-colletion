@@ -1,0 +1,141 @@
+{
+  "path": "job",
+  "subCategory": [
+    {
+      "title": "은월",
+      "information": [
+        {
+          "registers": [
+            {
+              "tag": "N",
+              "_key": "ea862f0f7b31",
+              "job": "은월",
+              "description": "미우미우 마을을 벗어나기 전, 초반 스토리에서 등록 가능"
+            }
+          ],
+          "monsters": [
+            { "name": "애벌레" },
+            { "name": "무당벌레" },
+            { "name": "참새" },
+            { "name": "풍선쥐" },
+            { "name": "붉은 독 개구리" },
+            { "name": "푸른 독 개구리" },
+            { "name": "불량 병아리" },
+            { "name": "비행 병아리" },
+            { "name": "갈기털 하이에나" },
+            { "name": "송곳니 하이에나" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "엔젤릭버스터",
+      "information": [
+        {
+          "registers": [
+            {
+              "location": {
+                "sub": "1층 중앙 히든 포탈",
+                "main": "판테온 동쪽 숲"
+              },
+              "tag": "Q",
+              "_key": "b9b77ffb730b",
+              "quest": [
+                {
+                  "level": "25",
+                  "name": "성물 탈환 \u0026 근거지 소탕 \u0026 사라진 식량 반환1",
+                  "_key": "d17400a7ee12"
+                }
+              ]
+            }
+          ],
+          "monsters": null
+        },
+        {
+          "registers": [
+            {
+              "tag": "Q",
+              "_key": "a4dfb9fd161d",
+              "job": "엔젤릭버스터",
+              "quest": [
+                {
+                  "_key": "41603e1e188c",
+                  "level": "35",
+                  "name": "사라진 식량 반환2"
+                }
+              ],
+              "location": {
+                "sub": "1층 오른쪽 히든 포탈",
+                "main": "오렌지 톤 숲"
+              }
+            }
+          ],
+          "monsters": [
+            { "name": "변절한 하급사제" },
+            { "name": "변절한 중급사제" },
+            { "name": "변절자 우두머리" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "일리움",
+      "information": [
+        {
+          "registers": [
+            {
+              "description": "아쉴롬 마을을 벗어나기 전, 초반 스토리에서 등록 가능",
+              "tag": "N",
+              "_key": "80fa6e7ae4cc",
+              "job": "일리움"
+            }
+          ],
+          "monsters": [{ "name": "그린 그로슐라" }, { "name": "퍼플 에머시" }]
+        },
+        {
+          "registers": [
+            {
+              "job": "일리움",
+              "quest": [
+                { "_key": "9c68270451af", "level": "10", "name": "전투훈련" },
+                { "_key": "b04254f7a5dd", "description": "훈련실 안쪽 맵 입장" }
+              ],
+              "tag": "Q",
+              "_key": "1b088977ed4f"
+            }
+          ],
+          "monsters": [{ "name": "이동형 연습 로봇" }]
+        },
+        {
+          "registers": [
+            {
+              "job": "일리움",
+              "quest": [
+                {
+                  "name": "잃어버린 딘의 물건",
+                  "_key": "37b8bfe78a96",
+                  "level": "10"
+                },
+                {
+                  "description": "빈 강의실 안쪽 맵 입장",
+                  "_key": "c16fda21d077"
+                }
+              ],
+              "tag": "Q",
+              "_key": "cd5d6c29c196"
+            }
+          ],
+          "monsters": [{ "name": "오염된 연습 로봇" }]
+        }
+      ]
+    },
+    { "title": "카데나", "information": null },
+    { "title": "호영", "information": null },
+    { "title": "라라", "information": null },
+    { "title": "카인", "information": null },
+    { "title": "제로", "information": null },
+    { "information": null, "title": "데몬슬레이어" },
+    { "title": "미하일", "information": null },
+    { "title": "키네시스", "information": null }
+  ]
+}
