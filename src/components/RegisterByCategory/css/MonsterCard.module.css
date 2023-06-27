@@ -29,6 +29,7 @@
   padding: 0.1rem 0;
   overflow: hidden;
   font-size: var(--font-11);
+  color: var(--color-white);
   text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;

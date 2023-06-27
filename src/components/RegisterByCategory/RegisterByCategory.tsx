@@ -9,18 +9,15 @@ type Props = {
 
 export default function RegisterByCategory({ detail }: Props) {
   return (
-    <article className={styles.information}>
+    <div className={styles.container}>
       {detail.subCategory.map((sub) => (
-        <>
-          <h2
-            className={`${styles['sub-title']} ${dohyeon.className}`}
-            key={sub.title}
-          >
-            {sub.title}
+        <article className={styles.information} key={sub.title}>
+          <h2 className={`${styles.title} ${dohyeon.className}`}>
+            <span>{sub.title}</span>
           </h2>
           <InformationGroup information={sub.information} />
-        </>
+        </article>
       ))}
-    </article>
+    </div>
   );
 }
