@@ -41,6 +41,7 @@
   --side-padding: 0.75rem;
 
   /* z-index */
+  --bookmark-star-level: 10;
   --subcategory-tab-level: 80;
   --global-header-level: 90;
   --background-overlay-level: 100;
