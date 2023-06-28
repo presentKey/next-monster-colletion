@@ -12,10 +12,13 @@ export default function Registration({ registers }: Props) {
     <>
       {registers.map((register, index) => (
         <div className={styles.container} key={index}>
-          <span>{register?.tag}</span>
+          <span>{register?.tag?.id}</span>
           {register?.job && <Label text={register.job} />}
           {register?.descriptions && (
-            <Descriptions descriptions={register.descriptions} />
+            <Descriptions
+              descriptions={register.descriptions}
+              isGroup={register?.isDescriptionsGroup}
+            />
           )}
           <ol>
             {register?.quest?.map((q, index) => (

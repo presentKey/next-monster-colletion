@@ -22,3 +22,20 @@
   margin: 0 0.25rem;
   color: var(--color-brand);
 }
+
+/* isGroup === true */
+.list.group {
+  padding-left: 0;
+}
+
+.list.group .item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.list.group .item:last-child {
+  margin-bottom: 0;
+}
