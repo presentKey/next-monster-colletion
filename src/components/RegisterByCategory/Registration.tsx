@@ -13,7 +13,10 @@ export default function Registration({ registers }: Props) {
       {registers.map((register, index) => (
         <div className={styles.container} key={index}>
           <span>{register?.tag?.id}</span>
-          {register?.job && <Label text={register.job} />}
+          <div className={styles.labels}>
+            {register?.job && <Label text={register.job} />}
+            {register?.tag?.name && <Label text={register?.tag?.name} />}
+          </div>
           {register?.descriptions && (
             <Descriptions
               descriptions={register.descriptions}
