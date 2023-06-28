@@ -1,5 +1,7 @@
 import { Register } from '@/model/information';
 import Label from './Label';
+import Descriptions from './Descriptions';
+import styles from './css/Registration.module.css';
 
 type Props = {
   registers: Register[];
@@ -9,14 +11,12 @@ export default function Registration({ registers }: Props) {
   return (
     <>
       {registers.map((register, index) => (
-        <div key={index}>
+        <div className={styles.container} key={index}>
           <span>{register?.tag}</span>
           {register?.job && <Label text={register.job} />}
-          <ol>
-            {register?.descriptions?.map((text, index) => (
-              <li key={index}>{text}</li>
-            ))}
-          </ol>
+          {register?.descriptions && (
+            <Descriptions descriptions={register.descriptions} />
+          )}
           <ol>
             {register?.quest?.map((q, index) => (
               <div key={index}>
