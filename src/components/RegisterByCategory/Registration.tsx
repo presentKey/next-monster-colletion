@@ -4,6 +4,7 @@ import Descriptions from './Descriptions';
 import styles from './css/Registration.module.css';
 import Quest from './Quest';
 import Location from './Location';
+import TimerInfo from './TimerInfo';
 
 type Props = {
   registers: Register[];
@@ -32,7 +33,8 @@ export default function Registration({ registers }: Props) {
 
           {register?.location && <Location location={register.location} />}
 
-          <div>{register?.timer}</div>
+          {register?.timer && <TimerInfo timer={register.timer} />}
+
           <div>
             {register?.boss?.name}
             {register?.boss?.difficulty}

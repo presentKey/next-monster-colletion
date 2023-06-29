@@ -3,3 +3,12 @@
   height: 1.5rem;
   color: var(--color-font);
 }
+
+.icon.small {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon.red {
+  color: var(--color-red);
+}
