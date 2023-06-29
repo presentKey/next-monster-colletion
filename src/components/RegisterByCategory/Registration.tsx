@@ -3,6 +3,7 @@ import Label from './Label';
 import Descriptions from './Descriptions';
 import styles from './css/Registration.module.css';
 import Quest from './Quest';
+import Location from './Location';
 
 type Props = {
   registers: Register[];
@@ -29,10 +30,8 @@ export default function Registration({ registers }: Props) {
 
           {register?.quest && <Quest quests={register.quest} />}
 
-          <div>
-            {register?.location?.main}
-            {register?.location?.sub}
-          </div>
+          {register?.location && <Location location={register.location} />}
+
           <div>{register?.timer}</div>
           <div>
             {register?.boss?.name}

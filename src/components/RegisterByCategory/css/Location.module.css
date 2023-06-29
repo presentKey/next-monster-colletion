@@ -1,0 +1,33 @@
+.location {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-left: 1.25rem;
+}
+
+.icon {
+  position: absolute;
+  top: 0.063rem;
+  left: 0;
+}
+
+.container {
+  margin-right: 0.25rem;
+}
+
+.sub {
+  font-size: var(--font-13);
+  color: var(--color-font-second);
+}
+
+.sub::before {
+  margin: 0 0.25rem;
+  content: '→';
+}
+
+@media screen and (min-width: 48rem) {
+  .icon {
+    top: 0.125rem;
+  }
+}

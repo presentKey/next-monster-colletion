@@ -13,3 +13,8 @@
 .label.yellow {
   background-color: var(--color-yellow);
 }
+
+.label.blue {
+  color: var(--color-white);
+  background-color: var(--color-blue);
+}

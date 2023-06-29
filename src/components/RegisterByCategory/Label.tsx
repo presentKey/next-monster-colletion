@@ -3,7 +3,7 @@ import styles from './css/Label.module.css';
 type Props = {
   text: string;
   size?: 'small' | 'normal';
-  color?: 'green' | 'yellow';
+  color?: 'green' | 'yellow' | 'blue';
 };
 
 export default function Label({
@@ -14,10 +14,21 @@ export default function Label({
   return (
     <div
       className={`${styles.label} ${size === 'small' && styles.small} ${
-        color === 'yellow' && styles.yellow
+        color && styles[getColorStyle(color)]
       }`}
     >
       {text}
     </div>
   );
+}
+
+function getColorStyle(color: string) {
+  switch (color) {
+    case 'yellow':
+      return 'yellow';
+    case 'blue':
+      return 'blue';
+    default:
+      return 'green';
+  }
 }

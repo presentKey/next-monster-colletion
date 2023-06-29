@@ -13,10 +13,7 @@ export type Register = {
   isDescriptionsGroup: boolean;
   descriptions: string[];
   quest: Quest[];
-  location: {
-    main: string;
-    sub: string;
-  };
+  location: Location;
   timer: string;
   boss: {
     name: string;
@@ -34,4 +31,9 @@ export type Quest = {
   level: string;
   name: string;
   description: string;
+};
+
+export type Location = {
+  main: string;
+  sub: string;
 };

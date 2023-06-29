@@ -5,7 +5,7 @@
   --color-border-dark: #8c8d96;
   --color-bg: #fff;
   --color-font: #0f0f0f;
-  --color-font-second: #060606;
+  --color-font-second: #606060;
   --color-gray: #f2f2f2;
   --color-blue: #6eb1dd;
   --color-blue-light: #e8f2fa;
@@ -21,6 +21,7 @@
   /* font size */
   --font-11: 0.6875rem;
   --font-12: 0.75rem;
+  --font-13: 0.813rem;
   --font-14: 0.875rem;
   --font-16: 1rem;
   --font-18: 1.125rem;
