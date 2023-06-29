@@ -5,3 +5,11 @@
   background-color: var(--color-green-second);
   border-radius: 4rem;
 }
+
+.label.small {
+  font-size: var(--font-11);
+}
+
+.label.yellow {
+  background-color: var(--color-yellow);
+}

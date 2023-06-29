@@ -2,6 +2,7 @@ import { Register } from '@/model/information';
 import Label from './Label';
 import Descriptions from './Descriptions';
 import styles from './css/Registration.module.css';
+import Quest from './Quest';
 
 type Props = {
   registers: Register[];
@@ -13,25 +14,21 @@ export default function Registration({ registers }: Props) {
       {registers.map((register, index) => (
         <div className={styles.container} key={index}>
           <span>{register?.tag?.id}</span>
+
           <div className={styles.labels}>
             {register?.job && <Label text={register.job} />}
             {register?.tag?.name && <Label text={register?.tag?.name} />}
           </div>
+
           {register?.descriptions && (
             <Descriptions
               descriptions={register.descriptions}
               isGroup={register?.isDescriptionsGroup}
             />
           )}
-          <ol>
-            {register?.quest?.map((q, index) => (
-              <div key={index}>
-                <span>{q?.level}</span>
-                <span>{q?.name}</span>
-                <span>{q?.description}</span>
-              </div>
-            ))}
-          </ol>
+
+          {register?.quest && <Quest quests={register.quest} />}
+
           <div>
             {register?.location?.main}
             {register?.location?.sub}
