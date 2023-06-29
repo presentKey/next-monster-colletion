@@ -5,6 +5,7 @@ import styles from './css/Registration.module.css';
 import Quest from './Quest';
 import Location from './Location';
 import TimerInfo from './TimerInfo';
+import Boss from './Boss';
 
 type Props = {
   registers: Register[];
@@ -15,11 +16,10 @@ export default function Registration({ registers }: Props) {
     <>
       {registers.map((register, index) => (
         <div className={styles.container} key={index}>
-          <span>{register?.tag?.id}</span>
-
           <div className={styles.labels}>
             {register?.job && <Label text={register.job} />}
             {register?.tag?.name && <Label text={register?.tag?.name} />}
+            {register?.boss && <Label text='보스' />}
           </div>
 
           {register?.descriptions && (
@@ -35,11 +35,7 @@ export default function Registration({ registers }: Props) {
 
           {register?.timer && <TimerInfo timer={register.timer} />}
 
-          <div>
-            {register?.boss?.name}
-            {register?.boss?.difficulty}
-            {register?.boss?.description}
-          </div>
+          {register?.boss && <Boss boss={register.boss} />}
         </div>
       ))}
     </>

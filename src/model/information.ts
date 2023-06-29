@@ -15,11 +15,7 @@ export type Register = {
   quest: Quest[];
   location: Location;
   timer: string;
-  boss: {
-    name: string;
-    difficulty: string;
-    description: string;
-  };
+  boss: Boss;
 };
 
 export type RegisterInfoByCategory = {
@@ -36,4 +32,10 @@ export type Quest = {
 export type Location = {
   main: string;
   sub: string;
+};
+
+export type Boss = {
+  name: string;
+  difficulty: string;
+  description: string;
 };
