@@ -44,6 +44,7 @@
 
   /* z-index */
   --bookmark-star-level: 10;
+  --bottom-nav-level: 70;
   --subcategory-tab-level: 80;
   --global-header-level: 90;
   --background-overlay-level: 100;
