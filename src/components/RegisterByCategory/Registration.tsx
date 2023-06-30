@@ -1,4 +1,4 @@
-import { Register } from '@/model/information';
+import { LabelTag, Register } from '@/model/information';
 import Label from './Label';
 import Descriptions from './Descriptions';
 import styles from './css/Registration.module.css';
@@ -11,6 +11,8 @@ type Props = {
   registers: Register[];
 };
 
+const labelTags = ['PQ', 'B', 'O', 'TD', 'M'];
+
 export default function Registration({ registers }: Props) {
   return (
     <>
@@ -18,8 +20,9 @@ export default function Registration({ registers }: Props) {
         <div className={styles.container} key={index}>
           <div className={styles.labels}>
             {register?.job && <Label text={register.job} />}
-            {register?.tag?.name && <Label text={register?.tag?.name} />}
-            {register?.boss && <Label text='보스' />}
+            {labelTags.includes(register?.tag?.id) && (
+              <Label text={register.tag.name} id={register.tag.id} />
+            )}
           </div>
 
           {register?.descriptions && (

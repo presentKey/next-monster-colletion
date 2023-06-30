@@ -2,11 +2,7 @@ import { MonsterName } from './monster';
 
 export type Register = {
   tag: {
-    /**
-     * @desc: N(일반) | Q(퀘스트) | PQ(파티퀘스트)
-     * @desc: B(보스) | O(기타) | TD(테마던전) | M(몬스터파크)
-     * */
-    id: 'N' | 'Q' | 'PQ' | 'B' | 'O' | 'TD' | 'M';
+    id: LabelTag;
     name: 'string';
   };
   job: string;
@@ -17,6 +13,12 @@ export type Register = {
   timer: string;
   boss: Boss;
 };
+
+/**
+ * @desc: N(일반) | Q(퀘스트) | PQ(파티퀘스트)
+ * @desc: B(보스) | O(기타) | TD(테마던전) | M(몬스터파크)
+ * */
+export type LabelTag = 'PQ' | 'B' | 'O' | 'TD' | 'M';
 
 export type RegisterInfoByCategory = {
   registers: Register[];
