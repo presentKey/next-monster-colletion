@@ -19,3 +19,10 @@ export default async function CategoryDetailPage({ params }: Props) {
     </>
   );
 }
+
+export async function generateStaticParams() {
+  const categories = await service.category.getAllMainCategory();
+  return categories.map((category) => ({
+    slug: category.path,
+  }));
+}

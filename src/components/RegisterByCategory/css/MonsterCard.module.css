@@ -27,9 +27,12 @@
 
 .bookmark {
   position: absolute;
-  right: 0.1rem;
+  right: 0.063rem;
   bottom: 1rem;
   z-index: var(--bookmark-star-level);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   background-color: var(--color-white);
   border: 1px solid var(--color-blue-dark);

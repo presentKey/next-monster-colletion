@@ -3,7 +3,7 @@ const STATES = [
   {title: '퀘스트', value: 'Q'},
   {title: '파티 퀘스트', value: 'PQ'},
   {title: '보스', value: 'B'},
-  {title: '던전', value: 'T'},
+  {title: '기타', value: 'O'},
   {title: '테마던전', value: 'TD'},
   {title: '몬스터파크', value: 'M'},
 ]
@@ -47,11 +47,23 @@ export default {
             {
               title: 'Tag',
               name: 'tag',
-              type: 'string',
-              options: {
-                list: STATES,
-                layout: 'dropdown',
-              },
+              type: 'object',
+              fields: [
+                {
+                  title: 'Id',
+                  name: 'id',
+                  type: 'string',
+                  options: {
+                    list: STATES,
+                    layout: 'dropdown',
+                  },
+                },
+                {
+                  title: 'Name',
+                  name: 'name',
+                  type: 'string',
+                },
+              ],
             },
             {
               title: 'IsDescriptionsGroup',
@@ -143,7 +155,7 @@ export default {
           ],
           preview: {
             select: {
-              state: 'tag',
+              state: 'tag.id',
             },
             prepare: ({state}) => {
               const stateName =
@@ -156,14 +168,5 @@ export default {
         },
       ],
     },
-
-    // preview: {
-    //   select: {
-    //     media: 'monsters.0.image',
-    //   },
-    //   prepare: (selection) => {
-    //     return {...selection, title: '대표 이미지'}
-    //   },
-    // },
   ],
 }
