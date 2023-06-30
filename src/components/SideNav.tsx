@@ -1,6 +1,8 @@
+'use client';
 import { MainCategory } from '@/model/category';
 import CategoryCard from './CategoryCard';
 import styles from './css/SideNav.module.css';
+import ArrowBarIcon from './icons/ArrowBarIcon';
 
 type Props = {
   categories: MainCategory[];
@@ -10,9 +12,9 @@ type Props = {
 export default function SideNav({ categories, param }: Props) {
   return (
     <nav className={`sm-hidden ${styles.nav}`}>
-      <ol>
+      <ol className={styles.list}>
         {categories.map((category) => (
-          <li className={styles.list} key={category.path}>
+          <li className={styles.item} key={category.path}>
             <CategoryCard
               category={category}
               param={param}
@@ -21,6 +23,10 @@ export default function SideNav({ categories, param }: Props) {
             />
           </li>
         ))}
+
+        <button className={styles['toggle-button']} type='button'>
+          <ArrowBarIcon />
+        </button>
       </ol>
     </nav>
   );
