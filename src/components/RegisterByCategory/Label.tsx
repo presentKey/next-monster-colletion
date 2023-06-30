@@ -5,7 +5,7 @@ type Props = {
   text: string;
   id?: LabelTag;
   size?: 'small' | 'normal';
-  color?: 'green' | 'yellow' | 'blue';
+  color?: 'green-dark' | 'green' | 'yellow' | 'blue';
 };
 
 export default function Label({
@@ -19,6 +19,7 @@ export default function Label({
       className={`${styles.label} 
         ${size === 'small' && styles.small} 
         ${color && styles[getColorStyle(color)]}
+  
       `}
     >
       {id ? setMessage(id, text) : text}
@@ -35,7 +36,7 @@ function setMessage(id: LabelTag, text: string) {
     case 'M':
       return `${`몬스터파크: ${text}`}`;
     case 'PQ':
-      return '파티퀘스트';
+      return `${`파티퀘스트: ${text}`}`;
     case 'TD':
       return `${`테마던전: ${text}`}`;
   }
@@ -47,6 +48,8 @@ function getColorStyle(color: string) {
       return 'yellow';
     case 'blue':
       return 'blue';
+    case 'green-dark':
+      return 'green-dark';
     default:
       return 'green';
   }

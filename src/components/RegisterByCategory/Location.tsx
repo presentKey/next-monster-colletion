@@ -17,7 +17,7 @@ export default function Location({ location }: Props) {
         <span>{location?.main}</span>
         {location?.sub && <span className={styles.sub}>{location.sub}</span>}
       </p>
-      <Label text='위치복사' size='small' color='blue' />
+      <Label text='위치 복사' size='small' color='blue' />
     </div>
   );
 }

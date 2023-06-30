@@ -7,7 +7,7 @@
 }
 
 .label.small {
-  font-size: var(--font-11);
+  font-size: var(--font-12);
 }
 
 .label.yellow {
@@ -17,4 +17,8 @@
 .label.blue {
   color: var(--color-white);
   background-color: var(--color-blue);
+}
+
+.label.green-dark {
+  background-color: var(--color-green);
 }

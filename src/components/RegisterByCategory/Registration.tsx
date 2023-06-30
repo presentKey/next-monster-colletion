@@ -1,4 +1,4 @@
-import { LabelTag, Register } from '@/model/information';
+import { Register } from '@/model/information';
 import Label from './Label';
 import Descriptions from './Descriptions';
 import styles from './css/Registration.module.css';
@@ -19,7 +19,7 @@ export default function Registration({ registers }: Props) {
       {registers.map((register, index) => (
         <div className={styles.container} key={index}>
           <div className={styles.labels}>
-            {register?.job && <Label text={register.job} />}
+            {register?.job && <Label text={register.job} color='green-dark' />}
             {labelTags.includes(register?.tag?.id) && (
               <Label text={register.tag.name} id={register.tag.id} />
             )}
