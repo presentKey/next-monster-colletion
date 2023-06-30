@@ -7,10 +7,12 @@
         {
           "registers": [
             {
-              "tag": "N",
+              "tag": { "id": "N" },
               "_key": "ea862f0f7b31",
               "job": "은월",
-              "description": "미우미우 마을을 벗어나기 전, 초반 스토리에서 등록 가능"
+              "descriptions": [
+                "미우미우 마을을 벗어나기 전, 초반 스토리에서 등록 가능"
+              ]
             }
           ],
           "monsters": [
@@ -34,40 +36,45 @@
         {
           "registers": [
             {
+              "job": "엔젤릭버스터",
+              "quest": [
+                {
+                  "_key": "d17400a7ee12",
+                  "level": "25",
+                  "name": "성물 탈환 \u0026 근거지 소탕 \u0026 사라진 식량 반환1"
+                }
+              ],
               "location": {
                 "sub": "1층 중앙 히든 포탈",
                 "main": "판테온 동쪽 숲"
               },
-              "tag": "Q",
-              "_key": "b9b77ffb730b",
-              "quest": [
-                {
-                  "level": "25",
-                  "name": "성물 탈환 \u0026 근거지 소탕 \u0026 사라진 식량 반환1",
-                  "_key": "d17400a7ee12"
-                }
-              ]
+              "tag": { "id": "Q" },
+              "_key": "b9b77ffb730b"
             }
           ],
-          "monsters": null
+          "monsters": [
+            { "name": "수상한 하급사제" },
+            { "name": "수상한 중급사제" },
+            { "name": "수상한 상급사제" }
+          ]
         },
         {
           "registers": [
             {
-              "tag": "Q",
+              "location": {
+                "sub": "1층 오른쪽 히든 포탈",
+                "main": "오렌지 톤 숲"
+              },
+              "tag": { "id": "Q" },
               "_key": "a4dfb9fd161d",
               "job": "엔젤릭버스터",
               "quest": [
                 {
-                  "_key": "41603e1e188c",
                   "level": "35",
-                  "name": "사라진 식량 반환2"
+                  "name": "사라진 식량 반환2",
+                  "_key": "41603e1e188c"
                 }
-              ],
-              "location": {
-                "sub": "1층 오른쪽 히든 포탈",
-                "main": "오렌지 톤 숲"
-              }
+              ]
             }
           ],
           "monsters": [
@@ -84,8 +91,10 @@
         {
           "registers": [
             {
-              "description": "아쉴롬 마을을 벗어나기 전, 초반 스토리에서 등록 가능",
-              "tag": "N",
+              "descriptions": [
+                "아쉴롬 마을을 벗어나기 전, 초반 스토리에서 등록 가능"
+              ],
+              "tag": { "id": "N" },
               "_key": "80fa6e7ae4cc",
               "job": "일리움"
             }
@@ -93,49 +102,549 @@
           "monsters": [{ "name": "그린 그로슐라" }, { "name": "퍼플 에머시" }]
         },
         {
+          "monsters": [{ "name": "이동형 연습 로봇" }],
           "registers": [
             {
+              "tag": { "id": "Q" },
+              "_key": "1b088977ed4f",
               "job": "일리움",
               "quest": [
-                { "_key": "9c68270451af", "level": "10", "name": "전투훈련" },
-                { "_key": "b04254f7a5dd", "description": "훈련실 안쪽 맵 입장" }
-              ],
-              "tag": "Q",
-              "_key": "1b088977ed4f"
+                {
+                  "level": "10",
+                  "name": "전투훈련",
+                  "description": "훈련실 안쪽 맵 입장",
+                  "_key": "9c68270451af"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "monsters": [{ "name": "오염된 연습 로봇" }],
+          "registers": [
+            {
+              "tag": { "id": "Q" },
+              "_key": "cd5d6c29c196",
+              "job": "일리움",
+              "quest": [
+                {
+                  "description": "빈 강의실 안쪽 맵 입장",
+                  "_key": "37b8bfe78a96",
+                  "level": "10",
+                  "name": "잃어버린 딘의 물건"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "information": [
+        {
+          "registers": [
+            {
+              "tag": { "id": "Q" },
+              "_key": "aa328b21d624",
+              "job": "카데나",
+              "quest": [
+                {
+                  "name": "험상궃은 녀석들",
+                  "description": "Mr. 해저드의 부하 A 처치 후, 퀘스트 포기(반복)",
+                  "_key": "3fa615f4172f",
+                  "level": "28"
+                }
+              ]
             }
           ],
-          "monsters": [{ "name": "이동형 연습 로봇" }]
+          "monsters": [{ "name": "Mr. 해저드의 부하 A" }]
+        }
+      ],
+      "title": "카데나"
+    },
+    {
+      "information": [
+        {
+          "registers": [
+            {
+              "tag": { "id": "Q" },
+              "_key": "50ffbf7902a4",
+              "job": "호영",
+              "quest": [
+                {
+                  "level": "1",
+                  "name": "천지인의 도",
+                  "description": "도술 수련장 1 입장",
+                  "_key": "eb5ef2b3e470"
+                }
+              ]
+            }
+          ],
+          "monsters": [{ "name": "괴물송" }]
+        }
+      ],
+      "title": "호영"
+    },
+    {
+      "title": "라라",
+      "information": [
+        {
+          "registers": [
+            {
+              "tag": { "id": "Q" },
+              "_key": "21e1e0f66c41",
+              "job": "라라",
+              "quest": [
+                {
+                  "level": "10",
+                  "name": "화내는 건 좋지 않아요",
+                  "description": "몬스터 처치 후, 퀘스트 포기(반복)",
+                  "_key": "47a4e8f5c449"
+                }
+              ]
+            }
+          ],
+          "monsters": [
+            { "name": "험상궃은 혁" },
+            { "name": "건들거리는 명" },
+            { "name": "입맛다시는 열" }
+          ]
         },
         {
           "registers": [
             {
-              "job": "일리움",
+              "job": "라라",
               "quest": [
                 {
-                  "name": "잃어버린 딘의 물건",
-                  "_key": "37b8bfe78a96",
-                  "level": "10"
-                },
-                {
-                  "description": "빈 강의실 안쪽 맵 입장",
-                  "_key": "c16fda21d077"
+                  "name": "방울, 그리고 기물 2",
+                  "description": "맵 입장 조건 달성",
+                  "_key": "3bf70c146be1",
+                  "level": "26"
                 }
               ],
-              "tag": "Q",
-              "_key": "cd5d6c29c196"
+              "tag": { "id": "Q" },
+              "_key": "97028785e022"
             }
           ],
-          "monsters": [{ "name": "오염된 연습 로봇" }]
+          "monsters": [
+            { "name": "햇볕 찾는 둥그리공" },
+            { "name": "그늘 찾는 둥그리공" },
+            { "name": "끈끈이 잎새파리" },
+            { "name": "찐득이 잎새파리" }
+          ]
         }
       ]
     },
-    { "title": "카데나", "information": null },
-    { "title": "호영", "information": null },
-    { "title": "라라", "information": null },
-    { "title": "카인", "information": null },
-    { "title": "제로", "information": null },
-    { "information": null, "title": "데몬슬레이어" },
-    { "title": "미하일", "information": null },
-    { "title": "키네시스", "information": null }
+    {
+      "title": "카인",
+      "information": [
+        {
+          "registers": [
+            {
+              "tag": { "id": "Q" },
+              "_key": "15e3ebbbe22f",
+              "job": "카인",
+              "quest": [
+                {
+                  "name": "개인적인 감정",
+                  "description": "맵 입장 조건 달성",
+                  "_key": "77114ba75b4b",
+                  "level": "30"
+                }
+              ]
+            }
+          ],
+          "monsters": [
+            { "name": "경비로봇 D2-78" },
+            { "name": "경비로봇 C1-49" },
+            { "name": "숙련된 드라카즈" },
+            { "name": "능숙한 드라카즈" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "제로",
+      "information": [
+        {
+          "registers": [
+            {
+              "_key": "841de85bf654",
+              "job": "제로",
+              "descriptions": [
+                "허수아비 처치 후, 캐릭터 선택창 - 재접속(반복)"
+              ],
+              "tag": { "name": "챕터 1-1", "id": "O" }
+            }
+          ],
+          "monsters": [{ "name": "허수아비" }]
+        },
+        {
+          "registers": [
+            {
+              "tag": { "name": "챕터 1-2", "id": "O" },
+              "_key": "f5cfa4655416",
+              "job": "제로",
+              "descriptions": ["혼테일 처치 후, 퀘스트 포기(반복)"]
+            },
+            {
+              "boss": {
+                "difficulty": "노말",
+                "name": "혼테일",
+                "description": "노말 혼테일 처치 시, 혼테일 모몽 드랍"
+              },
+              "tag": { "id": "B" },
+              "_key": "cc021e5e9060"
+            }
+          ],
+          "monsters": [{ "name": "혼테일" }]
+        },
+        {
+          "registers": [
+            {
+              "tag": { "id": "O", "name": "챕터 6-1" },
+              "_key": "a60483c30e1b",
+              "job": "제로",
+              "descriptions": ["파파픽시 처치 후, 퀘스트 포기(반복)"]
+            },
+            {
+              "tag": { "id": "PQ", "name": "여신의 흔적" },
+              "_key": "410e4b5155e0",
+              "descriptions": ["여신의 흔적에서 등록 가능"]
+            }
+          ],
+          "monsters": [{ "name": "파파픽시" }]
+        },
+        {
+          "registers": [
+            {
+              "tag": { "name": "챕터 7-4", "id": "O" },
+              "_key": "4b76c15e94b1",
+              "job": "제로",
+              "descriptions": ["아카이럼 처치 후, 퀘스트 포기(반복)"]
+            }
+          ],
+          "monsters": [{ "name": "아카이럼" }]
+        },
+        {
+          "registers": [
+            {
+              "descriptions": ["피라미드 던전 (4, 5단계 맵)"],
+              "tag": { "id": "O", "name": "던전: 아리안트" },
+              "_key": "c1beddc25d53",
+              "job": "제로"
+            },
+            {
+              "tag": { "name": "네트의 피라미드", "id": "PQ" },
+              "_key": "c27993e9f96c",
+              "descriptions": ["네트의 피라미드에서 등록 가능"]
+            }
+          ],
+          "monsters": [{ "name": "호루스" }]
+        },
+        {
+          "registers": [
+            {
+              "tag": { "name": "던전: 아리안트", "id": "O" },
+              "_key": "e88deca9baa4",
+              "job": "제로",
+              "descriptions": ["피라미드 던전(7단계 맵)"]
+            },
+            {
+              "tag": { "id": "PQ", "name": "네트의 피라미드" },
+              "_key": "c36ff491e3b0",
+              "descriptions": ["네트의 피라미드에서 등록 가능"]
+            }
+          ],
+          "monsters": [{ "name": "신관 미이라" }]
+        },
+        {
+          "registers": [
+            {
+              "_key": "abb8dcf1a423",
+              "job": "제로",
+              "descriptions": ["선인들의 수련장 던전(5단계 맵)"],
+              "tag": { "id": "O", "name": "던전: 무릉" }
+            },
+            {
+              "location": { "main": "상급 수련장" },
+              "tag": { "id": "N" },
+              "_key": "a36a85c98e19",
+              "timer": "25"
+            }
+          ],
+          "monsters": [{ "name": "선인인형" }]
+        },
+        {
+          "registers": [
+            {
+              "_key": "42c8e27e3eae",
+              "job": "제로",
+              "descriptions": ["해적단의 소굴 던전(7단계 맵)"],
+              "tag": { "id": "O", "name": "던전: 무릉" }
+            },
+            {
+              "_key": "49341ba4c951",
+              "descriptions": ["해적 데비존에서 등록 가능"],
+              "tag": { "name": "해적 데비존", "id": "PQ" }
+            }
+          ],
+          "monsters": [{ "name": "데비존" }]
+        },
+        {
+          "monsters": [{ "name": "D.로이" }],
+          "registers": [
+            {
+              "job": "제로",
+              "descriptions": ["알카드노의 실험실 B 던전(3, 4단계 맵)"],
+              "tag": { "name": "던전: 마가티아", "id": "O" },
+              "_key": "4150e3808561"
+            }
+          ]
+        },
+        {
+          "registers": [
+            {
+              "tag": { "name": "던전: 루디브리엄", "id": "O" },
+              "_key": "f0c605a6d789",
+              "job": "제로",
+              "descriptions": ["시계탑 하층 던전(7단계 맵)"]
+            }
+          ],
+          "monsters": [{ "name": "알리샤르" }]
+        },
+        {
+          "registers": [
+            {
+              "tag": { "name": "던전: 루디브리엄", "id": "O" },
+              "_key": "5f9c5fe83570",
+              "job": "제로",
+              "descriptions": ["시계탑 최하층 던전(7단계 맵)"]
+            }
+          ],
+          "monsters": [{ "name": "파풀라투스" }]
+        },
+        {
+          "registers": [
+            {
+              "descriptions": ["크리티아스 외곽(5단계 맵)"],
+              "tag": { "name": "던전: 크리티아스", "id": "O" },
+              "_key": "2622bc7c63d4",
+              "job": "제로"
+            }
+          ],
+          "monsters": [{ "name": "자이언트 다크소울" }]
+        },
+        {
+          "registers": [
+            {
+              "tag": { "name": "던전: 리프레", "id": "O" },
+              "_key": "9116bcd37f00",
+              "job": "제로",
+              "descriptions": ["미나르 동쪽 숲(1~2단계 맵)"]
+            },
+            {
+              "_key": "41e63047f82d",
+              "descriptions": ["2단계, 3단계"],
+              "tag": { "id": "M", "name": "외딴 숲 위험 지역" }
+            }
+          ],
+          "monsters": [{ "name": "블러드 하프" }]
+        }
+      ]
+    },
+    {
+      "title": "데몬슬레이어",
+      "information": [
+        {
+          "monsters": [{ "name": "라이카" }],
+          "registers": [
+            {
+              "job": "데몬슬레이어",
+              "descriptions": [
+                "데몬슬레이어 생성 시, 초반 스토리 진행",
+                "라이카 3마리 처치 시, 캐릭터 선택창 재접속(반복)"
+              ],
+              "tag": { "id": "N" },
+              "_key": "6588eadcb2cd"
+            },
+            {
+              "_key": "bb0ae557f8e2",
+              "timer": "5",
+              "location": { "main": "망각의 길5" },
+              "tag": { "id": "N" }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "미하일",
+      "information": [
+        {
+          "registers": [
+            {
+              "tag": { "id": "B" },
+              "_key": "7d97bd043c32",
+              "boss": {
+                "description": "일정 시간 후, 소환",
+                "name": "아카이럼"
+              }
+            },
+            {
+              "_key": "2e6453775b95",
+              "job": "미하일",
+              "quest": [
+                {
+                  "level": "120",
+                  "name": "시간의 신전으로!",
+                  "_key": "7a1e20779c6c"
+                },
+                {
+                  "description": "아카이럼을 처치하지 않고 반복",
+                  "_key": "eef766b767c8",
+                  "name": "아카이럼의 최후"
+                }
+              ],
+              "tag": { "id": "Q" }
+            }
+          ],
+          "monsters": [{ "name": "이계의 사제" }]
+        }
+      ]
+    },
+    {
+      "title": "키네시스",
+      "information": [
+        {
+          "registers": [
+            {
+              "job": "키네시스",
+              "quest": [
+                {
+                  "_key": "83112b48e8d2",
+                  "level": "14",
+                  "name": "히어로의 등장"
+                },
+                {
+                  "name": "분석할 재료가 필요해",
+                  "description": "퀘스트를 완료하지 않고, 몬스터 처치",
+                  "_key": "190f7edeab84",
+                  "level": "14"
+                }
+              ],
+              "tag": { "id": "Q" },
+              "_key": "ae057b6f8664"
+            },
+            {
+              "tag": { "name": "프렌즈스토리", "id": "TD" },
+              "_key": "9d548da5aed4",
+              "descriptions": [
+                "특정 챕터의 1~3 스테이지 몬스터 처치 후, 캐릭터 선택창 - 재접속(반복)",
+                "챕터 1 : 시그너스는 어디로 3",
+                "챕터 2 : 그녀의 사진이라도 6",
+                "챕터 4 : 그림자가 수상해",
+                "챕터 5 : 의문의 전화 한통"
+              ],
+              "isDescriptionsGroup": true
+            },
+            {
+              "location": {
+                "sub": "오른쪽 포탈",
+                "main": "양호실, 음악실, 과학실, 독서실, 교무실, 옥상"
+              },
+              "tag": { "name": "프렌즈스토리", "id": "TD" },
+              "_key": "5defebca14e5",
+              "descriptions": [
+                "프렌스토리 클리어 시, 각 맵에 6종류의 더스트가 각 한 마리씩 등장"
+              ]
+            }
+          ],
+          "monsters": [
+            { "name": "슈팅 더스트" },
+            { "name": "플라잉 더스트" },
+            { "name": "롤링 더스트" }
+          ]
+        },
+        {
+          "registers": [
+            {
+              "job": "키네시스",
+              "quest": [
+                {
+                  "_key": "c84cb9f745f5",
+                  "level": "16",
+                  "name": "히어로 VS ???",
+                  "description": "3마리 중 2마리만 처치하고, 캐릭터 선택창 - 재접속(반복)"
+                }
+              ],
+              "tag": { "id": "Q" },
+              "_key": "cf4efcb781de"
+            }
+          ],
+          "monsters": [
+            { "name": "주먹다짐의 트러블메이커" },
+            { "name": "짝사랑의 트러블메이커" },
+            { "name": "이중인격의 트러블메이커" }
+          ]
+        },
+        {
+          "registers": [
+            {
+              "_key": "9c9ddbceb94b",
+              "descriptions": [
+                "각 챕터 마지막에 특정 트러블메이커 등장 - 퀘스트를 완료하지 않고, 포탈 재입장(반복)",
+                "프롤로그 : 주먹다짐의 트러블메이커",
+                "챕터 1 : 탐욕의 트러블메이커",
+                "챕터 2 : 짝사랑의 트러블메이커",
+                "챕터 3 : 모태솔로의 트러블메이커",
+                "챕터 4 : 이중인격의 트러블메이커",
+                "챕터 5 : 오징어의 트러블메이커",
+                "챕터 6 : 자존심의 트러블메이커"
+              ],
+              "isDescriptionsGroup": true,
+              "tag": { "name": "프렌즈스토리", "id": "TD" }
+            }
+          ],
+          "monsters": [
+            { "name": "주먹다짐의 트러블메이커" },
+            { "name": "짝사랑의 트러블메이커" },
+            { "name": "이중인격의 트러블메이커" }
+          ]
+        },
+        {
+          "registers": [
+            {
+              "job": "키네시스",
+              "quest": [
+                {
+                  "level": "75",
+                  "name": "위험에 빠진 유나 2 ",
+                  "description": "지하철 1~3번칸 맵 클리어 후, 캐릭터 선택창 - 재접속(반복)",
+                  "_key": "055c38077308"
+                }
+              ],
+              "tag": { "id": "Q" },
+              "_key": "2c1e2754513a"
+            }
+          ],
+          "monsters": [{ "name": "오멘" }, { "name": "마스터 오멘" }]
+        },
+        {
+          "registers": [
+            {
+              "tag": { "id": "N" },
+              "_key": "2af238beb592",
+              "descriptions": ["현상금 사냥꾼 - 어둠의 숲"]
+            }
+          ],
+          "monsters": [
+            { "name": "오멘" },
+            { "name": "마스터 오멘" },
+            { "name": "킹 오멘" }
+          ]
+        }
+      ]
+    }
   ]
 }
