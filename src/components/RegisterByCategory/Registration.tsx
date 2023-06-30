@@ -18,6 +18,10 @@ export default function Registration({ registers }: Props) {
     <>
       {registers.map((register, index) => (
         <div className={styles.container} key={index}>
+          {registers.length !== 1 && (
+            <span className={styles.index}>{`${index + 1}.`}</span>
+          )}
+
           <div className={styles.labels}>
             {register?.job && <Label text={register.job} color='green-dark' />}
             {labelTags.includes(register?.tag?.id) && (
