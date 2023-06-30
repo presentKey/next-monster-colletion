@@ -6,17 +6,21 @@
 
 .container::after {
   width: 100%;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   content: '';
   border-bottom: 1px dashed var(--color-border-dark);
 }
 
 .container:last-child::after {
-  border-bottom: none;
+  display: none;
 }
 
 .labels {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
   margin-bottom: 0.5rem;
+}
+
+.labels:empty {
+  display: none;
 }
