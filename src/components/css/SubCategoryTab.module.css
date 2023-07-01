@@ -10,6 +10,10 @@
   border-bottom: 1px solid var(--color-border);
 }
 
+.tab::-webkit-scrollbar {
+  display: none;
+}
+
 .list {
   display: inline-flex;
   flex-wrap: nowrap;
@@ -32,25 +36,28 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .tab::-webkit-scrollbar {
-    display: none;
-  }
-
   .item:hover {
     background-color: var(--color-border);
     border-radius: 0.5rem;
+  }
+
+  .item.is-active:hover {
+    filter: brightness(1.05);
   }
 }
 
 @media screen and (min-width: 48rem) {
   .tab {
     position: sticky;
-    top: 4rem;
+    top: 6rem;
     z-index: var(--category-detail-tab-level);
     flex-shrink: 0;
     align-self: flex-start;
-    width: 11.25rem;
+    width: 10rem;
+    max-height: calc(100vh - 7rem);
     padding-left: 0.5rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     border-bottom: none;
     border-left: 1px solid var(--color-border);
   }
@@ -68,6 +75,26 @@
   }
 
   .item.is-active {
+    background-color: var(--color-border);
     border-bottom: none;
+    border-radius: 0.5rem;
+  }
+
+  /* scrollbar */
+  .tab::-webkit-scrollbar {
+    display: block;
+    width: 4px;
+    height: 4px;
+  }
+  .tab::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+  }
+  .tab::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 100px;
+  }
+  .tab:hover::-webkit-scrollbar-thumb {
+    background: var(--color-border-dark);
   }
 }

@@ -15,22 +15,22 @@
 .card.row {
   flex-direction: row;
   justify-content: flex-start;
-  padding: 0.5rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
   background-color: var(--color-bg);
   border-radius: 1rem;
   box-shadow: none;
 }
 
 .card.row.is-active {
-  background-color: var(--color-brand);
+  background-color: var(--color-border);
 }
 
 .card.row.is-active .title {
-  color: var(--color-white);
+  color: var(--color-brand);
 }
 
 .card.row .img {
-  margin-right: 0.5rem;
+  margin-right: 0.25rem;
 }
 
 .img {
