@@ -34,11 +34,11 @@ function setMessage(id: LabelTag, text: string) {
     case 'B':
       return 'BOSS';
     case 'M':
-      return `${`몬스터파크: ${text}`}`;
+      return '몬스터파크';
     case 'PQ':
-      return `${`파티퀘스트: ${text}`}`;
+      return `파티퀘스트: ${text}`;
     case 'TD':
-      return `${`테마던전: ${text}`}`;
+      return `테마던전: ${text}`;
   }
 }
 
