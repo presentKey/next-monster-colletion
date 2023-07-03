@@ -22,6 +22,7 @@ export default function CategoryCard({
         param === path && styles['is-active']
       }`}
       href={`/category/${path}`}
+      prefetch={false}
     >
       <div className={styles.img}>
         <Image
