@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
 import { getProviders } from 'next-auth/react';
-import SignIn from '@/components/SignIn/SignIn';
+import SignIn from '@/components/SignInPage/SignIn/SignIn';
 import Notice from '@/components/Notice';
 import styles from './page.module.css';
 import Divider from '@/components/Divider';
