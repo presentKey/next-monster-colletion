@@ -1,11 +1,11 @@
 'use client';
-import ThemeButton from '../ThemeButton';
-import CloseIcon from '../icons/CloseIcon';
+import ThemeButton from '../../ThemeButton';
+import CloseIcon from '../../icons/CloseIcon';
 import styles from './css/SideBarContent.module.css';
 import useSideBar from '@/recoil/SideBar/useSideBar';
-import BackgroundOverlay from '../BackgroundOverlay';
+import BackgroundOverlay from '../../BackgroundOverlay';
 import { MainCategory } from '@/model/category';
-import CategoryCard from '../CategoryCard';
+import CategoryCard from '../../CategoryCard';
 import { useParams, usePathname } from 'next/navigation';
 
 type Props = {
