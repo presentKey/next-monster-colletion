@@ -1,5 +1,5 @@
 import styles from './css/SearchForm.module.css';
-import SearchIcon from './icons/SearchIcon';
+import SearchIcon from '../icons/SearchIcon';
 
 export default function SearchForm() {
   return (

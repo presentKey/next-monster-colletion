@@ -1,8 +1,8 @@
 'use client';
 import { MainCategory } from '@/model/category';
-import CategoryCard from '../../CategoryCard';
+import CategoryCard from '../../common/CategoryCard/CategoryCard';
 import styles from './css/SideNav.module.css';
-import ArrowBarIcon from '../../icons/ArrowBarIcon';
+import ArrowBarIcon from '../../common/icons/ArrowBarIcon';
 import { useState } from 'react';
 
 type Props = {

@@ -1,5 +1,5 @@
 'use client';
-import MenuIcon from '../../icons/MenuIcon';
+import MenuIcon from '../../common/icons/MenuIcon';
 import useSideBar from '@/recoil/SideBar/useSideBar';
 import styles from './css/HamburgerMenu.module.css';
 

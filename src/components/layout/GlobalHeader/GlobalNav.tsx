@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './css/GlobalNav.module.css';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import SignButton from './SignButton';
-import ThemeButton from '../../ThemeButton';
+import ThemeButton from '../../common/ThemeButton/ThemeButton';
 
 export default function GlobalNav() {
   const { data: session } = useSession();

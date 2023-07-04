@@ -1,7 +1,7 @@
 import styles from './css/Notice.module.css';
-import CheckIcon from './icons/CheckIcon';
-import ChevronIcon from './icons/ChevronIcon';
-import ExclamationIcon from './icons/ExclamationIcon';
+import CheckIcon from '../icons/CheckIcon';
+import ChevronIcon from '../icons/ChevronIcon';
+import ExclamationIcon from '../icons/ExclamationIcon';
 
 const notice = [
   {

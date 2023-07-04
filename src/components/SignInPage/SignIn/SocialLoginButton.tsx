@@ -1,4 +1,4 @@
-import GoogleIcon from '../../icons/GoogleIcon';
+import GoogleIcon from '../../common/icons/GoogleIcon';
 import styles from './css/SocialLoginButton.module.css';
 
 type Props = {

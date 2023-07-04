@@ -1,15 +1,15 @@
 'use client';
 import Link from 'next/link';
-import HomeIcon from '../../icons/HomeIcon';
-import SwordIcon from '../../icons/SwordIcon';
-import SearchIcon from '../../icons/SearchIcon';
-import TimerIcon from '../../icons/TimerIcon';
-import BookMarkIcon from '../../icons/BookMarkIcon';
+import HomeIcon from '../../common/icons/HomeIcon';
+import SwordIcon from '../../common/icons/SwordIcon';
+import SearchIcon from '../../common/icons/SearchIcon';
+import TimerIcon from '../../common/icons/TimerIcon';
+import BookMarkIcon from '../../common/icons/BookMarkIcon';
 import styles from './css/BottomNav.module.css';
 import { usePathname } from 'next/navigation';
-import HomeFillIcon from '../../icons/HomeFillIcon';
-import BookMarkFillIcon from '../../icons/BookMarkIconFill';
-import SwordFillIcon from '../../icons/SwordFillIcon';
+import HomeFillIcon from '../../common/icons/HomeFillIcon';
+import BookMarkFillIcon from '../../common/icons/BookMarkIconFill';
+import SwordFillIcon from '../../common/icons/SwordFillIcon';
 
 export default function BottomNav() {
   const pathname = usePathname();

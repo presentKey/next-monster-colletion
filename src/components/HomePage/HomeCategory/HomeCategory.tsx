@@ -1,4 +1,4 @@
-import CategoryCard from '../../CategoryCard';
+import CategoryCard from '../../common/CategoryCard/CategoryCard';
 import styles from './css/HomeCategory.module.css';
 import { service } from '@/service/pickService';
 

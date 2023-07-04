@@ -1,7 +1,7 @@
 import styles from './css/GlobalHeader.module.css';
 import Link from 'next/link';
 import GlobalNav from './GlobalNav';
-import SearchForm from '../../SearchForm';
+import SearchForm from '../../common/SearchForm/SearchForm';
 import HamburgerMenu from './HamburgerMenu';
 import { dohyeon } from '@/utils/fonts';
 

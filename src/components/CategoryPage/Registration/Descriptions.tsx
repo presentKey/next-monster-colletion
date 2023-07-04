@@ -1,6 +1,6 @@
-import InfoIcon from '@/components/icons/InfoIcon';
+import InfoIcon from '@/components/common/icons/InfoIcon';
 import styles from './css/Descriptions.module.css';
-import ChevronIcon from '@/components/icons/ChevronIcon';
+import ChevronIcon from '@/components/common/icons/ChevronIcon';
 
 type Props = {
   descriptions: string[];

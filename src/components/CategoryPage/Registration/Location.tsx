@@ -1,7 +1,7 @@
 import { Location } from '@/model/information';
 import styles from './css/Location.module.css';
 import Label from './Label';
-import LocationIcon from '@/components/icons/LocationIcon';
+import LocationIcon from '@/components/common/icons/LocationIcon';
 
 type Props = {
   location: Location;

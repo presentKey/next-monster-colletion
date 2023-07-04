@@ -1,12 +1,12 @@
 'use client';
-import ThemeButton from '../../ThemeButton';
-import CloseIcon from '../../icons/CloseIcon';
+import ThemeButton from '../../common/ThemeButton/ThemeButton';
+import CloseIcon from '../../common/icons/CloseIcon';
 import styles from './css/SideBarContent.module.css';
 import useSideBar from '@/recoil/SideBar/useSideBar';
-import BackgroundOverlay from '../../BackgroundOverlay';
 import { MainCategory } from '@/model/category';
-import CategoryCard from '../../CategoryCard';
-import { useParams, usePathname } from 'next/navigation';
+import CategoryCard from '../../common/CategoryCard/CategoryCard';
+import { useParams } from 'next/navigation';
+import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';
 
 type Props = {
   categories: MainCategory[];
