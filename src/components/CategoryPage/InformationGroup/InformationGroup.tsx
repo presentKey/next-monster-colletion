@@ -1,6 +1,6 @@
 import { RegisterInfoByCategory } from '@/model/information';
-import MonsterCardList from './MonsterCardList';
-import Registration from './Registration';
+import MonsterCardList from '../MonsterCardList/MonsterCardList';
+import Registration from '../Registration/Registration';
 import styles from './css/InformationGroup.module.css';
 
 type Props = {

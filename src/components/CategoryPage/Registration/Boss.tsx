@@ -1,6 +1,6 @@
 import { Boss } from '@/model/information';
 import styles from './css/Boss.module.css';
-import InfoIcon from '../icons/InfoIcon';
+import InfoIcon from '../../icons/InfoIcon';
 import Label from './Label';
 
 type Props = {

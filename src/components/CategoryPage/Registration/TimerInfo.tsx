@@ -1,4 +1,4 @@
-import TimerIcon from '../icons/TimerIcon';
+import TimerIcon from '@/components/icons/TimerIcon';
 import Label from './Label';
 import styles from './css/TimerInfo.module.css';
 

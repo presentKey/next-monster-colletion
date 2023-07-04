@@ -1,6 +1,6 @@
 import { MonsterName } from '@/model/monster';
 import styles from './css/MonsterCardList.module.css';
-import MonsterCard from './MonsterCard';
+import MonsterCard from '../MonsterCard/MonsterCard';
 
 type Props = {
   monsters: MonsterName[];

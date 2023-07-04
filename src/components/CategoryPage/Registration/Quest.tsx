@@ -1,8 +1,8 @@
 import { Quest } from '@/model/information';
-import InfoIcon from '../icons/InfoIcon';
-import ChevronIcon from '../icons/ChevronIcon';
 import styles from './css/Quest.module.css';
 import Label from './Label';
+import InfoIcon from '@/components/icons/InfoIcon';
+import ChevronIcon from '@/components/icons/ChevronIcon';
 
 type Props = {
   quests: Quest[];

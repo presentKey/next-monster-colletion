@@ -1,11 +1,11 @@
 import { Register } from '@/model/information';
-import Label from './Label';
-import Descriptions from './Descriptions';
 import styles from './css/Registration.module.css';
+import Boss from './Boss';
+import Label from './Label';
 import Quest from './Quest';
 import Location from './Location';
 import TimerInfo from './TimerInfo';
-import Boss from './Boss';
+import Descriptions from './Descriptions';
 
 type Props = {
   registers: Register[];

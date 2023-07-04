@@ -1,7 +1,7 @@
 import { CategoryDetailInformation } from '@/model/category';
 import styles from './css/RegisterByCategory.module.css';
 import { dohyeon } from '@/utils/fonts';
-import InformationGroup from './InformationGroup';
+import InformationGroup from '../InformationGroup/InformationGroup';
 
 type Props = {
   detail: CategoryDetailInformation;
