@@ -13,6 +13,19 @@
   left: 0;
 }
 
+.icon.timer-disabled {
+  top: 1px;
+}
+
 .time {
   margin-left: 0.25rem;
+}
+
+/* timerDisabled === true */
+.timer.disabled .icon {
+  top: 0.0625rem;
+}
+
+.timer.disabled .time {
+  margin-left: 0;
 }

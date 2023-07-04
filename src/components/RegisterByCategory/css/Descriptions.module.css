@@ -37,14 +37,6 @@
   margin-bottom: 0.25rem;
 }
 
-.list.group .item:not(:first-child) {
-  padding-left: 2.5rem;
-}
-
-.list.group .item:not(:first-child) .info-icon {
-  left: 1.2rem;
-}
-
 .list.group .item:last-child {
   margin-bottom: 0;
 }

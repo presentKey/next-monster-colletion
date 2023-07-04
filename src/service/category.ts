@@ -15,12 +15,11 @@ export default class Category {
       );
   });
 
-  getCategoryDetailInfo = async (
-    path: string
-  ): Promise<CategoryDetailInformation> => {
-    return client //
-      .fetch(
-        `*[_type == 'category' && path == '${path}'][0]{
+  getCategoryDetailInfo = cache(
+    async (path: string): Promise<CategoryDetailInformation> => {
+      return client //
+        .fetch(
+          `*[_type == 'category' && path == '${path}'][0]{
             path,
             subCategory[]{
               title,
@@ -30,6 +29,7 @@ export default class Category {
               }
             }
           }`
-      );
-  };
+        );
+    }
+  );
 }

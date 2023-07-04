@@ -13,16 +13,17 @@ export default class DevCategory {
       .then(JSON.parse);
   });
 
-  getCategoryDetailInfo = async (
-    categoryPath: string
-  ): Promise<CategoryDetailInformation> => {
-    const filePath = path.join(
-      process.cwd(),
-      'mock',
-      `categoryDetailInfo.json`
-    );
+  getCategoryDetailInfo = cache(
+    async (categoryPath: string): Promise<CategoryDetailInformation> => {
+      const filePath = path.join(
+        process.cwd(),
+        'mock',
+        'categorydetail',
+        `${categoryPath}.json`
+      );
 
-    return readFile(filePath, 'utf-8') //
-      .then(JSON.parse);
-  };
+      return readFile(filePath, 'utf-8') //
+        .then(JSON.parse);
+    }
+  );
 }
