@@ -1,4 +1,4 @@
-import SideNav from '@/components/SideNav';
+import SideNav from '@/components/layout/SideNav/SideNav';
 import { service } from '@/service/pickService';
 import styles from './layout.module.css';
 

@@ -3,13 +3,13 @@ import '../styles/reset.css';
 import '../styles/responsive.css';
 import '../styles/globals.css';
 import styles from './layout.module.css';
-import GlobalHeader from '@/components/GlobalHeader/GlobalHeader';
+import GlobalHeader from '@/components/layout/GlobalHeader/GlobalHeader';
 import AuthContext from '@/context/AuthContext';
 import { DarkModeProvider } from '@/context/DarkModeContext';
 import RecoilContext from '@/context/RecoilContext';
-import SideBar from '@/components/SideBar/SideBar';
+import SideBar from '@/components/layout/SideBar/SideBar';
 import { sans } from '@/utils/fonts';
-import BottomNav from '@/components/BottomNav';
+import BottomNav from '@/components/layout/BottomNav/BottomNav';
 
 export const metadata = {
   title: 'Create Next App',

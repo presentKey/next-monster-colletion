@@ -2,10 +2,10 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
 import { getProviders } from 'next-auth/react';
-import SignIn from '@/components/SignIn/SignIn';
-import Notice from '@/components/Notice';
+import SignIn from '@/components/SignInPage/SignIn/SignIn';
+import Notice from '@/components/common/Notice/Notice';
 import styles from './page.module.css';
-import Divider from '@/components/Divider';
+import Divider from '@/components/common/Divider/Divider';
 
 const NOTE_TEXT = ['로그인을 하지 않아도 사이트를 이용할 수 있습니다.'];
 const TIP_TEXT = [
