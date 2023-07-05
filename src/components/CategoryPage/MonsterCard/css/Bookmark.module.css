@@ -18,14 +18,6 @@
 
 @media (hover: hover) and (pointer: fine) {
   .bookmark:hover {
-    background-color: var(--color-brand);
-  }
-
-  .bookmark.is-saved:hover {
     filter: brightness(1.1);
   }
-}
-
-.bookmark:active {
-  background-color: var(--color-brand);
 }
