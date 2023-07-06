@@ -1,26 +1,22 @@
 export default class BookmarkService {
   constructor() {}
 
-  updateBookmark = (
-    name: string,
-    saved: boolean,
-    setSave: (state: boolean) => void
-  ) => {
+  updateBookmark = async (name: string, saved: boolean) => {
     const bookmark = JSON.parse(localStorage.getItem('bookmark') as string);
 
-    saved
-      ? (this.deleteBookmark(name, bookmark), setSave(false))
-      : (this.addBookmark(name, bookmark), setSave(true));
+    return saved
+      ? this.deleteBookmark(name, bookmark)
+      : this.addBookmark(name, bookmark);
   };
 
-  private deleteBookmark = (name: string, bookmark: string[]) => {
+  private deleteBookmark = async (name: string, bookmark: string[]) => {
     localStorage.setItem(
       'bookmark',
       JSON.stringify(bookmark.filter((monsterName) => monsterName !== name))
     );
   };
 
-  private addBookmark = (name: string, bookmark: string[]) => {
+  private addBookmark = async (name: string, bookmark: string[]) => {
     localStorage.setItem(
       'bookmark',
       JSON.stringify([...new Set([...bookmark, name])])

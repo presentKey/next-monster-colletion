@@ -10,6 +10,7 @@ import RecoilContext from '@/context/RecoilContext';
 import SideBar from '@/components/layout/SideBar/SideBar';
 import { sans } from '@/utils/fonts';
 import BottomNav from '@/components/layout/BottomNav/BottomNav';
+import ToastNotification from '@/components/common/ToastNotification/ToastNotification';
 
 export const metadata = {
   title: 'Create Next App',
@@ -49,6 +50,7 @@ export default function RootLayout({
             </AuthContext>
             <SideBar />
             <BottomNav />
+            <ToastNotification />
           </DarkModeProvider>
         </RecoilContext>
       </body>
