@@ -17,6 +17,22 @@ export const authOptions: NextAuthOptions = {
       addUser(uid);
       return true;
     },
+    async session({ session, token }) {
+      const user = session?.user;
+      if (user) {
+        session.user = {
+          ...user,
+          uid: token.id as string,
+        };
+      }
+      return session;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
   },
   pages: {
     signIn: '/signin',
