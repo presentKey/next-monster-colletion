@@ -11,6 +11,7 @@ import SideBar from '@/components/layout/SideBar/SideBar';
 import { sans } from '@/utils/fonts';
 import BottomNav from '@/components/layout/BottomNav/BottomNav';
 import ToastNotification from '@/components/common/ToastNotification/ToastNotification';
+import QueryProvider from '@/context/QueryContext';
 
 export const metadata = {
   title: 'Create Next App',
@@ -44,13 +45,15 @@ export default function RootLayout({
         />
         <RecoilContext>
           <DarkModeProvider>
-            <AuthContext>
-              <GlobalHeader />
-              <main className={styles.main}>{children}</main>
-            </AuthContext>
-            <SideBar />
-            <BottomNav />
-            <ToastNotification />
+            <QueryProvider>
+              <AuthContext>
+                <GlobalHeader />
+                <main className={styles.main}>{children}</main>
+              </AuthContext>
+              <SideBar />
+              <BottomNav />
+              <ToastNotification />
+            </QueryProvider>
           </DarkModeProvider>
         </RecoilContext>
       </body>

@@ -9,3 +9,11 @@ export async function addUser(uid: string) {
     eliteCollections: [],
   });
 }
+
+export async function getBookmark(uid: string) {
+  return client.fetch(
+    `*[_type == 'user' && uid == '${uid}'][0]{
+        bookmarks
+    }`
+  );
+}
