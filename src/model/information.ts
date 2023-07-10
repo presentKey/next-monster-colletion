@@ -1,4 +1,4 @@
-import { MonsterName } from './monster';
+import { Monster } from './monster';
 
 export type Register = {
   tag: {
@@ -22,7 +22,7 @@ export type LabelTag = 'PQ' | 'B' | 'O' | 'TD' | 'M';
 
 export type RegisterInfoByCategory = {
   registers: Register[];
-  monsters: MonsterName[];
+  monsters: Monster[];
 };
 
 export type Quest = {

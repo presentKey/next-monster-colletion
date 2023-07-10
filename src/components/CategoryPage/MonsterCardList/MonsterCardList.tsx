@@ -1,9 +1,9 @@
-import { MonsterName } from '@/model/monster';
+import { Monster } from '@/model/monster';
 import styles from './css/MonsterCardList.module.css';
 import MonsterCard from '../MonsterCard/MonsterCard';
 
 type Props = {
-  monsters: MonsterName[];
+  monsters: Monster[];
 };
 
 export default function MonsterCardList({ monsters }: Props) {

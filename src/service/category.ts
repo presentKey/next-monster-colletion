@@ -25,7 +25,10 @@ export default class Category {
               title,
               information[]->{
                 registers,
-                monsters[]->{name}
+                monsters[]->{
+                  'id': _id,
+                  name
+                }
               }
             }
           }`

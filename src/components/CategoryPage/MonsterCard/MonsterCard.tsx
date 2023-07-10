@@ -1,10 +1,10 @@
-import { MonsterName } from '@/model/monster';
+import { Monster } from '@/model/monster';
 import Image from 'next/image';
 import styles from './css/MonsterCard.module.css';
 import Bookmark from './Bookmark';
 
 type Props = {
-  monster: MonsterName;
+  monster: Monster;
 };
 
 export default function MonsterCard({ monster }: Props) {
@@ -19,7 +19,7 @@ export default function MonsterCard({ monster }: Props) {
           sizes='(max-width: 96rem) 3.5rem'
         />
       </div>
-      <Bookmark name={monster.name} />
+      <Bookmark monsterId={monster.id} />
       <span className={styles.name}>{monster.name}</span>
     </div>
   );
