@@ -2341,9 +2341,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/cli@npm:^3.13.0":
-  version: 3.13.0
-  resolution: "@sanity/cli@npm:3.13.0"
+"@sanity/cli@npm:3.14.1":
+  version: 3.14.1
+  resolution: "@sanity/cli@npm:3.14.1"
   dependencies:
     "@babel/traverse": ^7.19.0
     "@vercel/frameworks": 1.4.2
@@ -2356,7 +2356,7 @@ __metadata:
     pkg-dir: ^5.0.0
   bin:
     sanity: bin/sanity
-  checksum: e895893b0852c709e60598025c190c8d8fb4013da96d8062beaf16a3c55a3b4340a08a222e95f6f11d57a6a777cd07d7c35083fccf02b84843f540e7aa22e8bf
+  checksum: 0fd800ebc2c0fead6862b2cbaf9ff9fa00bb675d39dde28a2d56f81a830c6c4a1542da18c87b9e143612685a966d971501f116f4334c941af3b2c6dac301c5dc
   languageName: node
   linkType: hard
 
@@ -8000,7 +8000,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "sanity-studio@workspace:."
   dependencies:
-    "@sanity/cli": ^3.13.0
+    "@sanity/cli": 3.14.1
     "@sanity/eslint-config-studio": ^2.0.1
     "@sanity/vision": ^3.12.0
     "@types/react": ^18.0.25
