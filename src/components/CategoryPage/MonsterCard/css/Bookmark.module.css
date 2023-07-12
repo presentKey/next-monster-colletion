@@ -12,8 +12,12 @@
   transition: background-color 0.2s ease, filter 0.2s ease;
 }
 
-.bookmark.is-saved {
+.bookmark.is-bookmarked {
   background-color: var(--color-brand);
+}
+
+.bookmark.is-loading {
+  cursor: wait;
 }
 
 @media (hover: hover) and (pointer: fine) {

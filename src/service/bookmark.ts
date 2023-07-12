@@ -23,15 +23,15 @@ export async function getBookmarkList(user: User): Promise<BookmarkList> {
 
 export async function updateBookmark(
   monsterId: string,
-  localBookmarks: Monster[],
+  bookmarkList: Monster[],
   user: User,
   saved: boolean
 ) {
   if (!user) {
     // 비회원
     return saved
-      ? deleteLocalBookmark(monsterId, localBookmarks)
-      : addLocalBookmark(monsterId, localBookmarks);
+      ? deleteLocalBookmark(monsterId, bookmarkList)
+      : addLocalBookmark(monsterId, bookmarkList);
   } else {
     // 회원
     const response = await fetch('/api/bookmark', {
