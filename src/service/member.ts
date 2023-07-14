@@ -32,3 +32,18 @@ export async function deleteBookmark(monsterId: string, uid: string) {
     .unset([`bookmarks[_ref == "${monsterId}"]`])
     .commit();
 }
+
+export async function getBookmarkDetail(uid: string) {
+  return client.fetch(
+    `*[_type == "user" && uid == "${uid}"][0]{
+        bookmarks[] -> {
+          "id": _id,
+          "monsters": {
+            "id": _id,
+            name,
+          },
+          information[] -> {registers}
+        }
+    }`
+  );
+}
