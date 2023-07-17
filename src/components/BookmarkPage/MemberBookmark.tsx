@@ -2,8 +2,8 @@
 import { getSavedBookmarkInfo } from '@/service/bookmark';
 import { useQuery } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
-import MonsterCardList from '../CategoryPage/MonsterCardList/MonsterCardList';
-import Registration from '../CategoryPage/Registration/Registration';
+import MonsterCardList from '../common/MonsterCardList/MonsterCardList';
+import Registration from '../common/Registration/Registration';
 import styles from './css/MemberBookmark.module.css';
 import ExplanationIndex from '../common/ExplanationIndex/ExplanationIndex';
 
