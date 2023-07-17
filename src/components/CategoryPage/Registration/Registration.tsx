@@ -6,6 +6,7 @@ import Quest from './Quest';
 import Location from './Location';
 import TimerInfo from './TimerInfo';
 import Descriptions from './Descriptions';
+import ExplanationIndex from '@/components/common/ExplanationIndex/ExplanationIndex';
 
 type Props = {
   registers: Register[];
@@ -18,9 +19,7 @@ export default function Registration({ registers }: Props) {
     <>
       {registers.map((register, index) => (
         <div className={styles.container} key={index}>
-          {registers.length !== 1 && (
-            <span className={styles.index}>{`${index + 1}.`}</span>
-          )}
+          <ExplanationIndex length={registers.length} index={index} />
 
           <div className={styles.labels}>
             {register?.job && <Label text={register.job} color='green-dark' />}

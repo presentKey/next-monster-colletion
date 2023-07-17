@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react';
 import MonsterCardList from '../CategoryPage/MonsterCardList/MonsterCardList';
 import Registration from '../CategoryPage/Registration/Registration';
 import styles from './css/MemberBookmark.module.css';
+import ExplanationIndex from '../common/ExplanationIndex/ExplanationIndex';
 
 export default function MemberBookmark() {
   const { data: session } = useSession();
@@ -24,12 +25,13 @@ export default function MemberBookmark() {
         <article className={styles.article} key={bookmark.id}>
           <MonsterCardList monsters={[bookmark.monsters]} />
           {bookmark.information.map((info, index) => (
-            <>
-              {bookmark.information.length !== 1 && (
-                <span className={styles.index}>{`${index + 1}.`}</span>
-              )}
-              <Registration key={index} registers={info.registers} />
-            </>
+            <div key={index}>
+              <ExplanationIndex
+                length={bookmark.information.length}
+                index={index}
+              />
+              <Registration registers={info.registers} />
+            </div>
           ))}
         </article>
       ))}
