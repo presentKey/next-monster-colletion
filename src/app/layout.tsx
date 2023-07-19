@@ -12,6 +12,7 @@ import { sans } from '@/utils/fonts';
 import BottomNav from '@/components/layout/BottomNav/BottomNav';
 import ToastNotification from '@/components/common/ToastNotification/ToastNotification';
 import QueryProvider from '@/context/QueryContext';
+import QueryDevtools from '@/context/QueryDevtools';
 
 export const metadata = {
   title: 'Create Next App',
@@ -53,6 +54,7 @@ export default function RootLayout({
               <SideBar />
               <BottomNav />
               <ToastNotification />
+              <QueryDevtools />
             </QueryProvider>
           </DarkModeProvider>
         </RecoilContext>
