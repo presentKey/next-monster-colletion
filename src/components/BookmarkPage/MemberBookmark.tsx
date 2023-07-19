@@ -13,9 +13,10 @@ export default function MemberBookmark() {
     ['SavedBookmark', session?.user.uid],
     () => getSavedBookmarkInfo(session?.user),
     {
-      staleTime: 1000 * 60 * 60,
+      refetchOnWindowFocus: false,
     }
   );
+
   if (!session) return <></>;
   if (isLoading) return <p>로딩중</p>;
 

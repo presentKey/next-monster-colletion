@@ -3,9 +3,11 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import { getBookmarkList, updateBookmark } from '@/service/bookmark';
 import { Monster } from '@/model/monster';
-import { BookmarkList } from '@/model/user';
+import { BookmarkList, SavedBookmarkInfo } from '@/model/user';
+import { usePathname } from 'next/navigation';
 
 export default function useBookmark(monsterId: string) {
+  const pathname = usePathname();
   const queryClient = useQueryClient();
   const { data: session } = useSession();
   const { isLoading, data: bookmark } = useQuery(
@@ -29,43 +31,73 @@ export default function useBookmark(monsterId: string) {
       ),
     {
       onMutate: async () => {
-        await queryClient.cancelQueries({
-          queryKey: ['bookmark', session?.user.uid],
-        });
-
         const previousBookmark = queryClient.getQueryData([
           'bookmark',
           session?.user.uid,
         ]);
 
-        queryClient.setQueryData(
-          ['bookmark', session?.user.uid],
-          // @ts-expect-error
-          (old: BookmarkList) => {
-            const newBookmark = isBookmarked
-              ? {
-                  bookmarks: old.bookmarks.filter(
-                    (item) => item.id !== monsterId
-                  ),
-                }
-              : {
-                  bookmarks: [...old.bookmarks, { id: monsterId }],
-                };
+        bookmarkOptimistic();
 
-            return newBookmark;
-          }
-        );
+        const previousSavedBookmark = queryClient.getQueryData([
+          'bookmark',
+          session?.user.uid,
+        ]);
+
+        if (pathname === '/bookmark') {
+          savedBookmarkOptimistic();
+        }
 
         handleToastify(isBookmarked);
-        return { previousBookmark };
+
+        return { previousBookmark, previousSavedBookmark };
       },
-      onError: (context: { previousBookmark: BookmarkList }) =>
+      onError: (context: {
+        previousBookmark: BookmarkList;
+        previousSavedBookmark: SavedBookmarkInfo;
+      }) => {
         queryClient.setQueryData(
           ['bookmark', session?.user.uid],
           context.previousBookmark
-        ),
+        );
+        queryClient.setQueryData(
+          ['SavedBookmark', session?.user.uid],
+          context.previousSavedBookmark
+        );
+      },
     }
   );
+
+  function bookmarkOptimistic() {
+    queryClient.setQueryData(
+      ['bookmark', session?.user.uid],
+      // @ts-expect-error
+      (old: BookmarkList) => {
+        const newBookmark = isBookmarked
+          ? {
+              bookmarks: old.bookmarks.filter((item) => item.id !== monsterId),
+            }
+          : {
+              bookmarks: [...old.bookmarks, { id: monsterId }],
+            };
+
+        return newBookmark;
+      }
+    );
+  }
+
+  function savedBookmarkOptimistic() {
+    queryClient.setQueryData(
+      ['SavedBookmark', session?.user.uid],
+      // @ts-expect-error
+      (old: SavedBookmarkInfo) => {
+        const newSavedBookmark = isBookmarked && {
+          bookmarks: old.bookmarks.filter((item) => item.id !== monsterId),
+        };
+
+        return newSavedBookmark;
+      }
+    );
+  }
 
   const handleBookmarkClick = () => {
     if (!bookmark?.bookmarks) {
