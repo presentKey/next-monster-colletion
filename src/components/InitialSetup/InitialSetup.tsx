@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 
 export default function InitialSetup() {
   const { data: session } = useSession();
-  console.log(session);
 
   useEffect(() => {
     if (!localStorage.getItem('bookmark')) {

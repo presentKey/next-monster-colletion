@@ -56,7 +56,6 @@ export default function RootLayout({
               <SideBar />
               <BottomNav />
               <ToastNotification />
-
               <QueryDevtools />
             </QueryProvider>
           </DarkModeProvider>
