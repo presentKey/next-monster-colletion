@@ -1,6 +1,6 @@
 'use client';
 import { ClientSafeProvider, signIn } from 'next-auth/react';
-import SocialLoginButton from './SocialLoginButton';
+import LoginButton from './SocialLoginButton';
 import NonMemberLogin from './NonMemberLogin';
 
 type Props = {
@@ -15,13 +15,18 @@ export default function SignIn({ providers, callbackUrl, csrfToken }: Props) {
       {Object.values(providers).map(({ name, id }) =>
         name === 'Nonmember' ? (
           <NonMemberLogin key={id} csrfToken={csrfToken}>
-            <SocialLoginButton
+            <LoginButton
               name={name}
-              onClick={() => signIn(id, { callbackUrl })}
+              onClick={() =>
+                signIn(id, {
+                  callbackUrl,
+                  uid: localStorage.getItem('nonmember') ?? null,
+                })
+              }
             />
           </NonMemberLogin>
         ) : (
-          <SocialLoginButton
+          <LoginButton
             key={id}
             name={name}
             onClick={() => signIn(id, { callbackUrl })}

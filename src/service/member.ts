@@ -20,6 +20,14 @@ export async function addNonMember(uid: string) {
   });
 }
 
+export async function findNonmember(uid: string) {
+  return client.fetch(
+    `*[_type == 'nonmember' && uid == '${uid}'][0]{
+        uid
+    }`
+  );
+}
+
 export async function getBookmark(uid: string) {
   return client.fetch(
     `*[_type == 'user' && uid == '${uid}'][0]{

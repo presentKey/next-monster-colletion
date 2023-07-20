@@ -1,9 +1,11 @@
+import { SignInResponse } from 'next-auth/react';
 import GoogleIcon from '../../common/icons/GoogleIcon';
 import styles from './css/SocialLoginButton.module.css';
+import { useState } from 'react';
 
 type Props = {
   name: string;
-  onClick: () => void;
+  onClick: () => Promise<SignInResponse | undefined>;
 };
 
 const icons = [
@@ -19,7 +21,9 @@ const icons = [
   },
 ];
 
-export default function SocialLoginButton({ name, onClick }: Props) {
+export default function LoginButton({ name, onClick }: Props) {
+  const [click, setClick] = useState(false);
+
   return (
     <>
       {icons.map(
@@ -29,7 +33,12 @@ export default function SocialLoginButton({ name, onClick }: Props) {
               className={styles.button}
               key={title}
               type='button'
-              onClick={onClick}
+              onClick={() => {
+                setClick(true);
+                onClick() //
+                  .finally(() => setClick(false));
+              }}
+              disabled={click}
             >
               <span className={styles.icon}>{icon}</span>
               {text}
