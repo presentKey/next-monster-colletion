@@ -12,6 +12,11 @@ const icons = [
     icon: <GoogleIcon />,
     text: '구글 로그인',
   },
+  {
+    title: 'Nonmember',
+    icon: <GoogleIcon />,
+    text: '비회원 로그인',
+  },
 ];
 
 export default function SocialLoginButton({ name, onClick }: Props) {

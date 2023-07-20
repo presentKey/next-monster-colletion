@@ -10,6 +10,16 @@ export async function addMember(uid: string) {
   });
 }
 
+export async function addNonMember(uid: string) {
+  return client.createIfNotExists({
+    _id: uid,
+    _type: 'nonmember',
+    uid,
+    bookmarks: [],
+    eliteCollections: [],
+  });
+}
+
 export async function getBookmark(uid: string) {
   return client.fetch(
     `*[_type == 'user' && uid == '${uid}'][0]{

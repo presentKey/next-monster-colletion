@@ -4,4 +4,8 @@ declare module 'next-auth' {
   interface Session {
     user: AuthUser;
   }
+
+  interface DefaultUser {
+    nonmember?: boolean;
+  }
 }

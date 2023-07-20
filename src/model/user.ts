@@ -3,6 +3,7 @@ import { Monster } from './monster';
 
 export type AuthUser = {
   uid: string;
+  nonmember?: boolean;
 };
 
 export type BookmarkList = {
