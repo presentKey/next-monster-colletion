@@ -12,12 +12,6 @@ export default function Bookmark({ monsterId }: Props) {
   const { isLoading, isBookmarked, handleBookmarkClick } =
     useBookmark(monsterId);
 
-  useEffect(() => {
-    if (!localStorage.getItem('bookmark')) {
-      localStorage.setItem('bookmark', JSON.stringify({ bookmarks: [] }));
-    }
-  }, []);
-
   return (
     <button
       className={`${styles.bookmark} ${
