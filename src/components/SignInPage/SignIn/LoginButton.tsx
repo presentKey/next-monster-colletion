@@ -1,7 +1,8 @@
 import { SignInResponse } from 'next-auth/react';
 import GoogleIcon from '../../common/icons/GoogleIcon';
-import styles from './css/SocialLoginButton.module.css';
+import styles from './css/LoginButton.module.css';
 import { useState } from 'react';
+import UserIcon from '@/components/common/icons/UserIcon';
 
 type Props = {
   name: string;
@@ -16,7 +17,7 @@ const icons = [
   },
   {
     title: 'Nonmember',
-    icon: <GoogleIcon />,
+    icon: <UserIcon />,
     text: '비회원 로그인',
   },
 ];
