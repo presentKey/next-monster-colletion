@@ -1,7 +1,7 @@
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
-import { getProviders } from 'next-auth/react';
+import { getCsrfToken, getProviders } from 'next-auth/react';
 import SignIn from '@/components/SignInPage/SignIn/SignIn';
 import Notice from '@/components/common/Notice/Notice';
 import styles from './page.module.css';
@@ -29,13 +29,18 @@ export default async function SignPage({
   }
 
   const providers = (await getProviders()) ?? {};
+  const csrfToken = (await getCsrfToken()) ?? '';
 
   return (
     <section className={styles.container}>
       <Notice type='note' textList={NOTE_TEXT} />
       <Notice type='tip' textList={TIP_TEXT} />
       <Divider />
-      <SignIn providers={providers} callbackUrl={callbackUrl ?? '/'} />
+      <SignIn
+        providers={providers}
+        callbackUrl={callbackUrl ?? '/'}
+        csrfToken={csrfToken}
+      />
     </section>
   );
 }

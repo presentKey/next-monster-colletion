@@ -13,6 +13,11 @@
   transition: color 0.2s linear;
 }
 
+.elite.is-active,
+.bookmark.is-active {
+  color: var(--color-brand);
+}
+
 .theme {
   color: var(--color-brand);
 }

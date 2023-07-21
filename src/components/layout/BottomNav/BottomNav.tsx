@@ -36,8 +36,8 @@ export default function BottomNav() {
         <span>북마크</span>
       </Link>
 
-      <Link className={styles.button} href='/elmon'>
-        {pathname === '/elmon' ? <SwordFillIcon /> : <SwordIcon />}
+      <Link className={styles.button} href='/elite'>
+        {pathname === '/elite' ? <SwordFillIcon /> : <SwordIcon />}
         <span>엘몬</span>
       </Link>
     </nav>

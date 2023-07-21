@@ -1,3 +1,4 @@
-export type MonsterName = {
+export type Monster = {
+  id: string;
   name: string;
 };

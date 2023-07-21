@@ -1,7 +1,7 @@
 import { CategoryDetailInformation } from '@/model/category';
 import styles from './css/RegisterByCategory.module.css';
-import { dohyeon } from '@/utils/fonts';
 import InformationGroup from '../InformationGroup/InformationGroup';
+import Headline from '@/components/common/Headline/Headline';
 
 type Props = {
   detail: CategoryDetailInformation;
@@ -12,9 +12,7 @@ export default function RegisterByCategory({ detail }: Props) {
     <div className={styles.container}>
       {detail.subCategory.map((sub) => (
         <article className={styles.information} key={sub.title}>
-          <h2 className={`${styles.title} ${dohyeon.className}`}>
-            <span>{sub.title}</span>
-          </h2>
+          <Headline title={sub.title} />
           <InformationGroup information={sub.information} />
         </article>
       ))}
