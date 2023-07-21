@@ -6,6 +6,7 @@ import Registration from '../common/Registration/Registration';
 import styles from './css/MemberBookmark.module.css';
 import ExplanationIndex from '../common/ExplanationIndex/ExplanationIndex';
 import { useSession } from 'next-auth/react';
+import LoadingSpinner from '../common/LoadingSpinner/LoadingSpinner';
 
 export default function SavedBookmark() {
   const { data: session } = useSession();
@@ -18,8 +19,7 @@ export default function SavedBookmark() {
     }
   );
 
-  if (!session) return <></>;
-  if (isLoading) return <p>로딩중</p>;
+  if (session && isLoading) return <LoadingSpinner />;
 
   return (
     <div className={styles.container}>
