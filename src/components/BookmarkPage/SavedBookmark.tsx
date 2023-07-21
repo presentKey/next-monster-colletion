@@ -7,6 +7,7 @@ import styles from './css/MemberBookmark.module.css';
 import ExplanationIndex from '../common/ExplanationIndex/ExplanationIndex';
 import { useSession } from 'next-auth/react';
 import LoadingSpinner from '../common/LoadingSpinner/LoadingSpinner';
+import EmptyBookmark from './EmptyBookmark';
 
 export default function SavedBookmark() {
   const { data: session } = useSession();
@@ -20,9 +21,10 @@ export default function SavedBookmark() {
   );
 
   if (session && isLoading) return <LoadingSpinner />;
-
   return (
     <div className={styles.container}>
+      {(!session || myBookmark?.bookmarks.length === 0) && <EmptyBookmark />}
+
       {myBookmark?.bookmarks.map((bookmark) => (
         <article className={styles.article} key={bookmark.id}>
           <MonsterCardList monsters={[bookmark.monsters]} />
