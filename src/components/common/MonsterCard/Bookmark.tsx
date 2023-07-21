@@ -1,7 +1,6 @@
 'use client';
 import BookMarkStarIcon from '@/components/common/icons/BookMarkStarIcon';
 import styles from './css/Bookmark.module.css';
-import { useEffect } from 'react';
 import useBookmark from './hooks/useBookmark';
 
 type Props = {
@@ -9,16 +8,16 @@ type Props = {
 };
 
 export default function Bookmark({ monsterId }: Props) {
-  const { isLoading, isBookmarked, handleBookmarkClick } =
+  const { session, isLoading, isBookmarked, handleBookmarkClick } =
     useBookmark(monsterId);
 
   return (
     <button
       className={`${styles.bookmark} ${
         isBookmarked && styles['is-bookmarked']
-      } ${isLoading && styles['is-loading']}`}
+      } ${session?.user && isLoading && styles['is-loading']}`}
       onClick={handleBookmarkClick}
-      disabled={isLoading}
+      disabled={session?.user && isLoading}
     >
       <BookMarkStarIcon />
     </button>

@@ -11,7 +11,7 @@ export async function GET() {
     return new Response('Authentication Error', { status: 401 });
   }
 
-  return getBookmark(user.uid)
+  return getBookmark(user.uid, user?.nonmember)
     .then((res) => NextResponse.json(res))
     .catch((error) => new Response(JSON.stringify(error), { status: 500 }));
 }

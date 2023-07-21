@@ -28,9 +28,12 @@ export async function findNonmember(uid: string) {
   );
 }
 
-export async function getBookmark(uid: string) {
+export async function getBookmark(
+  uid: string,
+  isNonmember: boolean | undefined
+) {
   return client.fetch(
-    `*[_type == 'user' && uid == '${uid}'][0]{
+    `*[_type == '${isNonmember ? 'nonmember' : 'user'}' && uid == '${uid}'][0]{
         bookmarks[] -> {'id': _id}
     }`
   );
@@ -51,9 +54,12 @@ export async function deleteBookmark(monsterId: string, uid: string) {
     .commit();
 }
 
-export async function getBookmarkDetail(uid: string) {
+export async function getBookmarkDetail(
+  uid: string,
+  isNonmember: boolean | undefined
+) {
   return client.fetch(
-    `*[_type == "user" && uid == "${uid}"][0]{
+    `*[_type == '${isNonmember ? 'nonmember' : 'user'}' && uid == "${uid}"][0]{
         bookmarks[] -> {
           "id": _id,
           "monsters": {

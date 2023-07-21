@@ -1,19 +1,20 @@
 'use client';
 import { getSavedBookmarkInfo } from '@/service/bookmark';
 import { useQuery } from '@tanstack/react-query';
-import { useSession } from 'next-auth/react';
 import MonsterCardList from '../common/MonsterCardList/MonsterCardList';
 import Registration from '../common/Registration/Registration';
 import styles from './css/MemberBookmark.module.css';
 import ExplanationIndex from '../common/ExplanationIndex/ExplanationIndex';
+import { useSession } from 'next-auth/react';
 
-export default function MemberBookmark() {
+export default function SavedBookmark() {
   const { data: session } = useSession();
   const { isLoading, data: myBookmark } = useQuery(
     ['SavedBookmark', session?.user.uid],
-    () => getSavedBookmarkInfo(session?.user),
+    () => getSavedBookmarkInfo(),
     {
       refetchOnWindowFocus: false,
+      enabled: !!session,
     }
   );
 

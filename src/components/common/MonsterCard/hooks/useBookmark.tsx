@@ -2,7 +2,6 @@ import { toast } from 'react-toastify';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import { getBookmarkList, updateBookmark } from '@/service/bookmark';
-import { Monster } from '@/model/monster';
 import { BookmarkList, SavedBookmarkInfo } from '@/model/user';
 import { usePathname } from 'next/navigation';
 
@@ -12,9 +11,10 @@ export default function useBookmark(monsterId: string) {
   const { data: session } = useSession();
   const { isLoading, data: bookmark } = useQuery(
     ['bookmark', session?.user.uid],
-    () => getBookmarkList(session?.user),
+    () => getBookmarkList(),
     {
       staleTime: 1000 * 60 * 60,
+      enabled: !!session,
     }
   );
 
@@ -22,13 +22,7 @@ export default function useBookmark(monsterId: string) {
     bookmark?.bookmarks.some((item) => item.id === monsterId) ?? false;
 
   const { mutate: bookmarkMutate } = useMutation(
-    () =>
-      updateBookmark(
-        monsterId,
-        bookmark?.bookmarks as Monster[],
-        session?.user,
-        isBookmarked
-      ),
+    () => updateBookmark(monsterId, isBookmarked),
     {
       onMutate: async () => {
         const previousBookmark = queryClient.getQueryData([
@@ -100,15 +94,16 @@ export default function useBookmark(monsterId: string) {
   }
 
   const handleBookmarkClick = () => {
-    if (!bookmark?.bookmarks) {
-      toast.warn('잠시후 다시 시도해 주세요.');
+    if (!session) {
+      toast.dismiss();
+      toast.warn('구글 및 비회원 로그인을 해주세요.');
       return;
     }
 
     bookmarkMutate();
   };
 
-  return { isLoading, isBookmarked, handleBookmarkClick };
+  return { session, isLoading, isBookmarked, handleBookmarkClick };
 }
 
 function handleToastify(isBookmarked: boolean) {
