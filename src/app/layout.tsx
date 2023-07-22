@@ -14,6 +14,7 @@ import ToastNotification from '@/components/common/ToastNotification/ToastNotifi
 import QueryProvider from '@/context/QueryContext';
 import QueryDevtools from '@/context/QueryDevtools';
 import InitialSetup from '@/components/InitialSetup/InitialSetup';
+import TimerBar from '@/components/layout/TimerBar/TimerBar';
 
 export const metadata = {
   title: 'Create Next App',
@@ -54,6 +55,7 @@ export default function RootLayout({
                 <main className={styles.main}>{children}</main>
               </AuthContext>
               <SideBar />
+              <TimerBar />
               <BottomNav />
               <ToastNotification />
               <QueryDevtools />
