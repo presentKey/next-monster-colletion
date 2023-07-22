@@ -23,6 +23,7 @@ export default function Location({ location }: Props) {
         text='위치 복사'
         size='small'
         color='blue'
+        type='button'
         onClick={() => copyLocation(location?.main)}
       />
     </div>
