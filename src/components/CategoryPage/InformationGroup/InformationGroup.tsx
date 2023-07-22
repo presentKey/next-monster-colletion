@@ -13,7 +13,10 @@ export default function InformationGroup({ information }: Props) {
       {information.map((info, index) => (
         <div className={styles.container} key={index}>
           <MonsterCardList monsters={info.monsters} />
-          <Registration registers={info.registers} />
+          <Registration
+            registers={info.registers}
+            monsterName={info.monsters[0].name}
+          />
         </div>
       ))}
     </>

@@ -10,11 +10,12 @@ import ExplanationIndex from '@/components/common/ExplanationIndex/ExplanationIn
 
 type Props = {
   registers: Register[];
+  monsterName: string;
 };
 
 const labelTags = ['PQ', 'B', 'O', 'TD', 'M'];
 
-export default function Registration({ registers }: Props) {
+export default function Registration({ registers, monsterName }: Props) {
   return (
     <>
       {registers.map((register, index) => (
@@ -39,7 +40,9 @@ export default function Registration({ registers }: Props) {
 
           {register?.location && <Location location={register.location} />}
 
-          {register?.timer && <TimerInfo timer={register.timer} />}
+          {register?.timer && (
+            <TimerInfo timer={register.timer} monsterName={monsterName} />
+          )}
 
           {register?.boss && <Boss boss={register.boss} />}
         </div>
