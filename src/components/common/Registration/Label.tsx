@@ -6,6 +6,7 @@ type Props = {
   id?: LabelTag;
   size?: 'small' | 'normal';
   color?: 'green-dark' | 'green' | 'yellow' | 'blue';
+  onClick?: () => void;
 };
 
 export default function Label({
@@ -13,14 +14,15 @@ export default function Label({
   id,
   size = 'normal',
   color = 'green',
+  onClick,
 }: Props) {
   return (
     <div
       className={`${styles.label} 
         ${size === 'small' && styles.small} 
         ${color && styles[getColorStyle(color)]}
-  
       `}
+      onClick={onClick}
     >
       {id ? setMessage(id, text) : text}
     </div>
