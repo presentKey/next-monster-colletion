@@ -13,28 +13,38 @@ type Props = {
 export default function Timer({ timer }: Props) {
   const { handleRemoveTimer } = useTimerList();
   const time = useRef(parseInt(timer.time, 10) * 60);
+  const intervalId = useRef<NodeJS.Timer | undefined>(undefined);
   const [clock, setClock] = useState({
     min: time.current / 60,
     sec: time.current % 60,
   });
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      time.current--;
-
+  const handleStartTimer = () => {
+    intervalId.current = setInterval(() => {
       setClock({
         min: time.current / 60,
         sec: time.current % 60,
       });
 
+      time.current--;
+
       if (time.current < 0) {
-        clearInterval(intervalId);
+        clearInterval(intervalId.current);
         setClock({ min: 0, sec: 0 });
       }
     }, 1000);
+  };
 
-    return () => clearInterval(intervalId);
-  }, [time]);
+  const handleResetTimer = () => {
+    clearInterval(intervalId.current);
+    time.current = parseInt(timer.time, 10) * 60;
+    handleStartTimer();
+  };
+
+  useEffect(() => {
+    handleStartTimer();
+    return () => clearInterval(intervalId.current);
+  }, []);
 
   return (
     <li className={`${styles.timer} ${time.current < 0 && styles['is-alarm']}`}>
@@ -50,11 +60,16 @@ export default function Timer({ timer }: Props) {
         </div>
         <span className={styles.time}>
           {`${Math.floor(clock.min).toString().padStart(2, '0')} : 
-        ${clock.sec.toString().padStart(2, '0')}`}
+         ${clock.sec.toString().padStart(2, '0')}`}
         </span>
       </div>
+
       <div className={styles.buttons}>
-        <button className={styles.reset} type='button'>
+        <button
+          className={styles.reset}
+          type='button'
+          onClick={handleResetTimer}
+        >
           <TimerResetIcon />
         </button>
         <button
