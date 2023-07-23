@@ -6,7 +6,7 @@
   width: 16.25rem;
   height: 100%;
   padding: 1rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   overscroll-behavior: contain;
   color: var(--color-font);
   background-color: var(--color-bg);
@@ -23,4 +23,47 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .timerbar {
+    position: fixed;
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 0.5rem var(--side-padding) 0;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--color-border);
+    transform: none;
+  }
+
+  .list {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: var(--desktop-1536);
+    padding-bottom: 0.25rem;
+    margin: 0 auto;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+
+  /* scrollbar */
+  .list::-webkit-scrollbar {
+    display: block;
+    width: 4px;
+    height: 6px;
+  }
+  .list::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+  }
+  .list::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 100px;
+  }
+  .list:hover::-webkit-scrollbar-thumb {
+    background: var(--color-border-dark);
+  }
 }
