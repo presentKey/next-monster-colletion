@@ -3,9 +3,12 @@ import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundO
 import styles from './css/TimerBar.module.css';
 import useTimerBar from '@/recoil/TimerBar/useTimerBar';
 import CloseIcon from '@/components/common/icons/CloseIcon';
+import useTimerList from '@/recoil/TimerBar/useTimerList';
+import Timer from './Timer';
 
 export default function TimerBar() {
   const { open, toggleTimerBar } = useTimerBar();
+  const { timers } = useTimerList();
 
   return (
     <>
@@ -20,6 +23,12 @@ export default function TimerBar() {
             <CloseIcon />
           </button>
         </header>
+
+        <ul>
+          {timers.map((timer) => (
+            <Timer key={timer.monsterName} timer={timer} />
+          ))}
+        </ul>
       </aside>
       {open && <BackgroundOverlay onClose={toggleTimerBar} />}
     </>
