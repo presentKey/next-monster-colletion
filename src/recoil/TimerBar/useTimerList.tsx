@@ -10,10 +10,12 @@ export default function useTimerList() {
       for (const timer of prev) {
         if (timer.monsterName === monsterName) {
           toast.dismiss();
-          toast.info('이미 등록된 몬스터입니다.');
+          toast.info('타이머에 존재하는 몬스터입니다.');
           return prev;
         }
       }
+
+      toast.success(`${monsterName} 타이머가 등록되었습니다.`);
       return [...prev, { monsterName, time }];
     });
 

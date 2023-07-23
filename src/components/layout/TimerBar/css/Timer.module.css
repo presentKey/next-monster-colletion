@@ -9,6 +9,10 @@
   box-shadow: var(--shadow-lg);
 }
 
+.timer.is-alarm {
+  background-color: var(--color-red-light);
+}
+
 .timer:last-child {
   margin-bottom: 0;
 }
@@ -19,6 +23,9 @@
 }
 
 .image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: 0.5rem;
   overflow: hidden;
   background-color: var(--color-white);
