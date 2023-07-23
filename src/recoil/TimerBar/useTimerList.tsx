@@ -19,5 +19,10 @@ export default function useTimerList() {
       return [...prev, { monsterName, time }];
     });
 
-  return { timers, handleAddTimerList };
+  const handleRemoveTimer = (monsterName: string) =>
+    setTimers((prev) =>
+      prev.filter((timer) => timer.monsterName !== monsterName)
+    );
+
+  return { timers, handleAddTimerList, handleRemoveTimer };
 }

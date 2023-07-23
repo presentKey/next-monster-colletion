@@ -4,12 +4,14 @@ import styles from './css/Timer.module.css';
 import TimerResetIcon from '@/components/common/icons/TimerResetIcon';
 import RemoveIcon from '@/components/common/icons/RemoveIcon';
 import { useState, useEffect, useRef } from 'react';
+import useTimerList from '@/recoil/TimerBar/useTimerList';
 
 type Props = {
   timer: Timer;
 };
 
 export default function Timer({ timer }: Props) {
+  const { handleRemoveTimer } = useTimerList();
   const time = useRef(parseInt(timer.time, 10) * 60);
   const [clock, setClock] = useState({
     min: time.current / 60,
@@ -55,7 +57,11 @@ export default function Timer({ timer }: Props) {
         <button className={styles.reset} type='button'>
           <TimerResetIcon />
         </button>
-        <button className={styles.close} type='button'>
+        <button
+          className={styles.close}
+          type='button'
+          onClick={() => handleRemoveTimer(timer.monsterName)}
+        >
           <RemoveIcon />
         </button>
       </div>
