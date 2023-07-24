@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styles from './css/Timer.module.css';
 import TimerResetIcon from '@/components/common/icons/TimerResetIcon';
 import RemoveIcon from '@/components/common/icons/RemoveIcon';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import useTimerList from '@/recoil/TimerBar/useTimerList';
 
 type Props = {
@@ -19,7 +19,7 @@ export default function Timer({ timer }: Props) {
     sec: time.current % 60,
   });
 
-  const handleStartTimer = () => {
+  const handleStartTimer = useCallback(() => {
     intervalId.current = setInterval(() => {
       setClock({
         min: time.current / 60,
@@ -33,18 +33,18 @@ export default function Timer({ timer }: Props) {
         setClock({ min: 0, sec: 0 });
       }
     }, 1000);
-  };
+  }, []);
 
-  const handleResetTimer = () => {
+  const handleResetTimer = useCallback(() => {
     clearInterval(intervalId.current);
     time.current = parseInt(timer.time, 10) * 60;
     handleStartTimer();
-  };
+  }, [handleStartTimer, timer.time]);
 
   useEffect(() => {
     handleStartTimer();
     return () => clearInterval(intervalId.current);
-  }, []);
+  }, [handleStartTimer]);
 
   return (
     <li className={`${styles.timer} ${time.current < 0 && styles['is-alarm']}`}>
