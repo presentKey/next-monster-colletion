@@ -14,6 +14,11 @@ export default {
       type: 'image',
     },
     {
+      title: 'Path',
+      name: 'path',
+      type: 'string',
+    },
+    {
       title: 'Information',
       name: 'information',
       type: 'array',
