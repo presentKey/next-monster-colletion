@@ -51,6 +51,7 @@
   --background-overlay-level: 100;
   --sidebar-level: 110;
   --timerbar-level: 120;
+  --searchbar-level: 130;
 }
 
 html[data-theme='dark'] {

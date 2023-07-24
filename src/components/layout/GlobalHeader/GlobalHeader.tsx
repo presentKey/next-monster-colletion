@@ -13,7 +13,7 @@ export default function GlobalHeader() {
         <Link href='/' className={`${dohyeon.className} ${styles.title}`}>
           몬스터컬렉션
         </Link>
-        <SearchForm />
+        <SearchForm hidden />
         <GlobalNav />
       </div>
     </header>
