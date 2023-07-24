@@ -49,7 +49,7 @@
 @media screen and (min-width: 48rem) {
   .tab {
     position: sticky;
-    top: 6rem;
+    top: 4rem;
     z-index: var(--category-detail-tab-level);
     flex-shrink: 0;
     align-self: flex-start;
@@ -60,6 +60,10 @@
     overscroll-behavior: contain;
     border-bottom: none;
     border-left: 1px solid var(--color-border);
+  }
+
+  .tab.timerbar-open {
+    top: 7.5rem;
   }
 
   .list {

@@ -1,7 +1,7 @@
 import { CategoryDetailInformation } from '@/model/category';
-import styles from './css/RegisterByCategory.module.css';
 import InformationGroup from '../InformationGroup/InformationGroup';
 import Headline from '@/components/common/Headline/Headline';
+import Container from './Container';
 
 type Props = {
   detail: CategoryDetailInformation;
@@ -9,13 +9,13 @@ type Props = {
 
 export default function RegisterByCategory({ detail }: Props) {
   return (
-    <div className={styles.container}>
+    <Container>
       {detail.subCategory.map((sub) => (
-        <article className={styles.information} key={sub.title}>
+        <article key={sub.title}>
           <Headline title={sub.title} />
           <InformationGroup information={sub.information} />
         </article>
       ))}
-    </div>
+    </Container>
   );
 }
