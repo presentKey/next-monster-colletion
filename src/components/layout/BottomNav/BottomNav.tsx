@@ -10,9 +10,11 @@ import { usePathname } from 'next/navigation';
 import HomeFillIcon from '../../common/icons/HomeFillIcon';
 import BookMarkFillIcon from '../../common/icons/BookMarkIconFill';
 import SwordFillIcon from '../../common/icons/SwordFillIcon';
+import useTimerBar from '@/recoil/TimerBar/useTimerBar';
 
 export default function BottomNav() {
   const pathname = usePathname();
+  const { toggleTimerBar } = useTimerBar();
 
   return (
     <nav className={`sm-only ${styles.nav}`}>
@@ -26,7 +28,7 @@ export default function BottomNav() {
         <span>검색</span>
       </button>
 
-      <button className={styles.button} type='button'>
+      <button className={styles.button} type='button' onClick={toggleTimerBar}>
         <TimerIcon />
         <span>타이머</span>
       </button>

@@ -41,3 +41,8 @@ export type Boss = {
   difficulty: string;
   description: string;
 };
+
+export type Timer = {
+  monsterName: string;
+  time: string;
+};

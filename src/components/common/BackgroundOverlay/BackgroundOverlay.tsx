@@ -5,5 +5,5 @@ type Props = {
 };
 
 export default function BackgroundOverlay({ onClose }: Props) {
-  return <div className={styles.background} onClick={onClose} />;
+  return <div className={`sm-only ${styles.background}`} onClick={onClose} />;
 }

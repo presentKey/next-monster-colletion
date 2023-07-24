@@ -9,6 +9,10 @@
   overscroll-behavior: contain;
 }
 
+.timerbar-open {
+  padding-top: 3.5rem;
+}
+
 .item {
   padding: 0.5rem 0;
 }
