@@ -1,0 +1,23 @@
+.list {
+  height: 70vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.item {
+  display: none;
+}
+
+.item.show {
+  display: block;
+}
+
+.link {
+  display: inline-block;
+  width: 100%;
+  padding: 0.3rem 0;
+  margin: 0.2rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

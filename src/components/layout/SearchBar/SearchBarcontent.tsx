@@ -5,13 +5,17 @@ import useSearchBar from '@/recoil/SearchBar/useSearchBar';
 import CloseIcon from '@/components/common/icons/CloseIcon';
 import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';
 import { SearchMonster } from '@/model/monster';
-import Link from 'next/link';
+import { useState } from 'react';
+import SearchList from './SearchList';
 
 type Props = {
   monsters: SearchMonster[];
 };
 
 export default function SearchBarcontent({ monsters }: Props) {
+  const [text, setText] = useState('');
+  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setText(e.target.value);
   const { open, toggleSearchBar } = useSearchBar();
 
   return (
@@ -20,7 +24,7 @@ export default function SearchBarcontent({ monsters }: Props) {
         className={`sm-only ${styles.searchbar} ${open && styles['is-open']}`}
       >
         <header className={`${styles.header}`}>
-          <SearchForm />
+          <SearchForm text={text} onChange={handleTextChange} />
           <button
             className={styles.close}
             type='button'
@@ -30,13 +34,7 @@ export default function SearchBarcontent({ monsters }: Props) {
           </button>
         </header>
 
-        <ul>
-          {monsters.map(({ name, path }) => (
-            <Link href={path ? `/category/${path}` : '/'} key={name}>
-              {name}
-            </Link>
-          ))}
-        </ul>
+        <SearchList monsters={monsters} text={text} />
       </aside>
       {open && <BackgroundOverlay onClose={toggleSearchBar} />}
     </>
