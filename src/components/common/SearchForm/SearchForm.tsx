@@ -6,17 +6,17 @@ type Props = {
   text: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onTextClear: () => void;
-  hidden?: boolean;
+  onClick?: () => void;
 };
 
 export default function SearchForm({
   text,
   onChange,
   onTextClear,
-  hidden = false,
+  onClick,
 }: Props) {
   return (
-    <form className={`${styles.form} ${hidden && 'sm-hidden'} `}>
+    <form className={styles.form}>
       <div className={styles.container}>
         <input
           className={styles.search}
@@ -25,6 +25,7 @@ export default function SearchForm({
           spellCheck={false}
           value={text}
           onChange={onChange}
+          onClick={onClick}
         />
         {text.length > 0 && (
           <button
