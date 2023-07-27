@@ -4,6 +4,7 @@ import GlobalNav from './GlobalNav';
 import SearchForm from '../../common/SearchForm/SearchForm';
 import HamburgerMenu from './HamburgerMenu';
 import { dohyeon } from '@/utils/fonts';
+import Search from './Search';
 
 export default function GlobalHeader() {
   return (
@@ -13,7 +14,7 @@ export default function GlobalHeader() {
         <Link href='/' className={`${dohyeon.className} ${styles.title}`}>
           몬스터컬렉션
         </Link>
-        <SearchForm hidden />
+        <Search />
         <GlobalNav />
       </div>
     </header>

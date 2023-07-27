@@ -3,3 +3,7 @@
   height: 1.375rem;
   color: var(--color-font);
 }
+
+.icon.white {
+  color: var(--color-white);
+}

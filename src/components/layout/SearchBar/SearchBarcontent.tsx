@@ -16,6 +16,7 @@ export default function SearchBarcontent({ monsters }: Props) {
   const [text, setText] = useState('');
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setText(e.target.value);
+  const handleTextClear = () => setText('');
   const { open, toggleSearchBar } = useSearchBar();
 
   return (
@@ -24,7 +25,11 @@ export default function SearchBarcontent({ monsters }: Props) {
         className={`sm-only ${styles.searchbar} ${open && styles['is-open']}`}
       >
         <header className={`${styles.header}`}>
-          <SearchForm text={text} onChange={handleTextChange} />
+          <SearchForm
+            text={text}
+            onChange={handleTextChange}
+            onTextClear={handleTextClear}
+          />
           <button
             className={styles.close}
             type='button'
