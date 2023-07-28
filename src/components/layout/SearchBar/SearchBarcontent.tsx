@@ -5,18 +5,16 @@ import useSearchBar from '@/recoil/SearchBar/useSearchBar';
 import CloseIcon from '@/components/common/icons/CloseIcon';
 import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';
 import { SearchMonster } from '@/model/monster';
-import { useState } from 'react';
-import SearchList from './SearchList';
+import SearchList from '../../common/SearchList/SearchList';
+import useSearch from '@/app/hooks/useSearch';
 
 type Props = {
   monsters: SearchMonster[];
 };
 
 export default function SearchBarcontent({ monsters }: Props) {
-  const [text, setText] = useState('');
-  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setText(e.target.value);
-  const handleTextClear = () => setText('');
+  const { text, filterdMonsters, select, handleTextChange, handleTextClear } =
+    useSearch(monsters);
   const { open, toggleSearchBar } = useSearchBar();
 
   return (
@@ -27,6 +25,7 @@ export default function SearchBarcontent({ monsters }: Props) {
         <header className={`${styles.header}`}>
           <SearchForm
             text={text}
+            select={select}
             onChange={handleTextChange}
             onTextClear={handleTextClear}
           />
@@ -38,8 +37,7 @@ export default function SearchBarcontent({ monsters }: Props) {
             <CloseIcon />
           </button>
         </header>
-
-        <SearchList monsters={monsters} text={text} />
+        <SearchList monsters={filterdMonsters} />
       </aside>
       {open && <BackgroundOverlay onClose={toggleSearchBar} />}
     </>

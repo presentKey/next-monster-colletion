@@ -4,14 +4,6 @@
   overscroll-behavior: contain;
 }
 
-.item {
-  display: none;
-}
-
-.item.show {
-  display: block;
-}
-
 .link {
   display: inline-block;
   width: 100%;
@@ -20,6 +12,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.link.select {
+  background-color: var(--color-border);
 }
 
 .link:active {
