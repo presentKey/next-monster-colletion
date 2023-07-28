@@ -28,6 +28,7 @@ export default function SearchBarcontent({ monsters }: Props) {
             select={select}
             onChange={handleTextChange}
             onTextClear={handleTextClear}
+            onCloseSearchBar={toggleSearchBar}
           />
           <button
             className={styles.close}
@@ -37,7 +38,10 @@ export default function SearchBarcontent({ monsters }: Props) {
             <CloseIcon />
           </button>
         </header>
-        <SearchList monsters={filterdMonsters} />
+        <SearchList
+          monsters={filterdMonsters}
+          onCloseSearchBar={toggleSearchBar}
+        />
       </aside>
       {open && <BackgroundOverlay onClose={toggleSearchBar} />}
     </>

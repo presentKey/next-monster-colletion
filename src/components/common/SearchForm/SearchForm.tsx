@@ -12,6 +12,7 @@ type Props = {
   onTextClear: () => void;
   onClick?: () => void;
   onCloseList?: () => void;
+  onCloseSearchBar?: () => void;
 };
 
 export default function SearchForm({
@@ -21,6 +22,7 @@ export default function SearchForm({
   onTextClear,
   onClick,
   onCloseList,
+  onCloseSearchBar,
 }: Props) {
   const router = useRouter();
   const handleSumbit = (e: React.FormEvent) => {
@@ -31,8 +33,9 @@ export default function SearchForm({
       return;
     }
 
-    router.push(`/category/${select.path}?search=${select.name}`);
     onCloseList && onCloseList();
+    onCloseSearchBar && onCloseSearchBar();
+    router.push(`/category/${select.path}?search=${select.name}`);
   };
 
   return (
