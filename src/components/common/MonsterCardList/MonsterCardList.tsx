@@ -1,6 +1,7 @@
 import { Monster } from '@/model/monster';
 import styles from './css/MonsterCardList.module.css';
 import MonsterCard from '../MonsterCard/MonsterCard';
+import { Suspense } from 'react';
 
 type Props = {
   monsters: Monster[];
@@ -11,7 +12,9 @@ export default function MonsterCardList({ monsters }: Props) {
     <ol className={styles.item}>
       {monsters.map((monster, index) => (
         <li className={styles.list} key={index}>
-          <MonsterCard monster={monster} />
+          <Suspense fallback={<></>}>
+            <MonsterCard monster={monster} />
+          </Suspense>
         </li>
       ))}
     </ol>
