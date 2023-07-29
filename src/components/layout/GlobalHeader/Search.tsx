@@ -13,6 +13,7 @@ export default function Search({ monsters }: Props) {
   const {
     text,
     searchRef,
+    listRef,
     filterdMonsters,
     select,
     cursor,
@@ -36,6 +37,7 @@ export default function Search({ monsters }: Props) {
       />
       {listOpen && (
         <SearchList
+          ref={listRef}
           monsters={filterdMonsters}
           cursor={cursor}
           onLinkClick={handleLinkClick}

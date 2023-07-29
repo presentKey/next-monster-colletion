@@ -1,5 +1,8 @@
 import { SearchMonster } from '@/model/monster';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+
+const ARROW_UP = 'ArrowUp';
+const ARROW_DOWN = 'ArrowDown';
 
 export default function useSearch(monsters: SearchMonster[]) {
   const [text, setText] = useState('');
@@ -8,6 +11,7 @@ export default function useSearch(monsters: SearchMonster[]) {
   const [cursor, setCursor] = useState<number>(0);
   const [listOpen, setListOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLOListElement>(null);
   const filterdMonsters = useMemo(
     () =>
       monsters.filter(({ name }) =>
@@ -36,15 +40,39 @@ export default function useSearch(monsters: SearchMonster[]) {
     setKeyword(e.target.value);
     setCursor(0);
   };
+  const ScrollList = useCallback(
+    (cursor: number, direction: 'ArrowUp' | 'ArrowDown') => {
+      const position =
+        listRef.current?.children[cursor].getBoundingClientRect().top;
+
+      if (position && direction === 'ArrowDown') {
+        cursor < filterdMonsters.length - 1
+          ? listRef.current?.scrollBy({
+              top: position - 5,
+            })
+          : listRef.current?.scrollTo({ top: 0 });
+      } else if (position && direction === 'ArrowUp') {
+        cursor > 0
+          ? listRef.current?.scrollBy({
+              top: position - 75,
+            })
+          : listRef.current?.scrollTo({
+              top: listRef.current.childElementCount * 35,
+            });
+      }
+    },
+    [filterdMonsters.length]
+  );
 
   useEffect(() => {
     const searchInstance = searchRef.current;
 
     const downHandler = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowDown') {
+      if (e.key === ARROW_DOWN) {
         setCursor((prev) => {
           const cursor = prev < filterdMonsters.length - 1 ? prev + 1 : 0;
           setText(filterdMonsters[cursor].name);
+          ScrollList(prev, ARROW_DOWN);
 
           return cursor;
         });
@@ -52,10 +80,11 @@ export default function useSearch(monsters: SearchMonster[]) {
     };
 
     const upHandler = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowUp') {
+      if (e.key === ARROW_UP) {
         setCursor((prev) => {
           const cursor = prev > 0 ? prev - 1 : filterdMonsters.length - 1;
           setText(filterdMonsters[cursor].name);
+          ScrollList(prev, ARROW_UP);
 
           return cursor;
         });
@@ -63,13 +92,13 @@ export default function useSearch(monsters: SearchMonster[]) {
     };
 
     searchInstance?.addEventListener('keydown', downHandler);
-    searchInstance?.addEventListener('keyup', upHandler);
+    searchInstance?.addEventListener('keydown', upHandler);
 
     return () => {
       searchInstance?.removeEventListener('keydown', downHandler);
-      searchInstance?.removeEventListener('keyup', upHandler);
+      searchInstance?.removeEventListener('keydown', upHandler);
     };
-  }, [cursor, filterdMonsters]);
+  }, [cursor, filterdMonsters, ScrollList]);
 
   useEffect(() => {
     if (filterdMonsters.length === 0) {
@@ -99,6 +128,7 @@ export default function useSearch(monsters: SearchMonster[]) {
   return {
     text,
     searchRef,
+    listRef,
     filterdMonsters,
     select,
     cursor,
