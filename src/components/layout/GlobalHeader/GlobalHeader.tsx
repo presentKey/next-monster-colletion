@@ -5,7 +5,6 @@ import HamburgerMenu from './HamburgerMenu';
 import { dohyeon } from '@/utils/fonts';
 import Search from './Search';
 import { service } from '@/service/pickService';
-import { Suspense } from 'react';
 
 export default async function GlobalHeader() {
   const monsters = await service.search.getMonsters();
@@ -17,9 +16,7 @@ export default async function GlobalHeader() {
         <Link href='/' className={`${dohyeon.className} ${styles.title}`}>
           몬스터컬렉션
         </Link>
-        <Suspense fallback={<></>}>
-          <Search monsters={monsters} />
-        </Suspense>
+        <Search monsters={monsters} />
         <GlobalNav />
       </div>
     </header>

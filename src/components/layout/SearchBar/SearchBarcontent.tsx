@@ -13,8 +13,14 @@ type Props = {
 };
 
 export default function SearchBarcontent({ monsters }: Props) {
-  const { text, filterdMonsters, select, handleTextChange, handleTextClear } =
-    useSearch(monsters);
+  const {
+    text,
+    filterdMonsters,
+    select,
+    handleTextChange,
+    handleTextClear,
+    handleLinkClick,
+  } = useSearch(monsters);
   const { open, toggleSearchBar } = useSearchBar();
 
   return (
@@ -40,6 +46,7 @@ export default function SearchBarcontent({ monsters }: Props) {
         </header>
         <SearchList
           monsters={filterdMonsters}
+          onLinkClick={handleLinkClick}
           onCloseSearchBar={toggleSearchBar}
         />
       </aside>

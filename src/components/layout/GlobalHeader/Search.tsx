@@ -21,6 +21,7 @@ export default function Search({ monsters }: Props) {
     handleTextClear,
     handleOpenList,
     handleCloseList,
+    handleLinkClick,
   } = useSearch(monsters);
 
   return (
@@ -37,6 +38,7 @@ export default function Search({ monsters }: Props) {
         <SearchList
           monsters={filterdMonsters}
           cursor={cursor}
+          onLinkClick={handleLinkClick}
           onCloseList={handleCloseList}
         />
       )}

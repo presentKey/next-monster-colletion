@@ -1,5 +1,4 @@
 import { SearchMonster } from '@/model/monster';
-import { useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 export default function useSearch(monsters: SearchMonster[]) {
@@ -9,7 +8,6 @@ export default function useSearch(monsters: SearchMonster[]) {
   const [cursor, setCursor] = useState<number>(0);
   const [listOpen, setListOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
-  const searchParams = useSearchParams();
   const filterdMonsters = useMemo(
     () =>
       monsters.filter(({ name }) =>
@@ -27,6 +25,11 @@ export default function useSearch(monsters: SearchMonster[]) {
   };
   const handleOpenList = () => setListOpen(true);
   const handleCloseList = () => setListOpen(false);
+  const handleLinkClick = (name: string) => {
+    setText(name);
+    setCursor(0);
+    setKeyword(name);
+  };
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setListOpen(true);
     setText(e.target.value);
@@ -81,12 +84,6 @@ export default function useSearch(monsters: SearchMonster[]) {
   }, [cursor, filterdMonsters]);
 
   useEffect(() => {
-    setText(searchParams.get('search') ?? '');
-    setCursor(0);
-    setKeyword(searchParams.get('search') ?? '');
-  }, [searchParams]);
-
-  useEffect(() => {
     if (!listOpen) return;
 
     const closeSearchList = (e: MouseEvent) => {
@@ -110,5 +107,6 @@ export default function useSearch(monsters: SearchMonster[]) {
     handleTextClear,
     handleOpenList,
     handleCloseList,
+    handleLinkClick,
   };
 }

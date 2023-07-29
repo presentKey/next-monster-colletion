@@ -4,6 +4,7 @@ import styles from './css/SearchList.module.css';
 
 type Props = {
   monsters: SearchMonster[];
+  onLinkClick: (name: string) => void;
   cursor?: number;
   onCloseList?: () => void;
   onCloseSearchBar?: () => void;
@@ -12,10 +13,12 @@ type Props = {
 export default function SearchList({
   monsters,
   cursor,
+  onLinkClick,
   onCloseList,
   onCloseSearchBar,
 }: Props) {
-  const handleClose = () => {
+  const handleClick = (name: string) => {
+    onLinkClick(name);
     onCloseList && onCloseList();
     onCloseSearchBar && onCloseSearchBar();
   };
@@ -30,7 +33,7 @@ export default function SearchList({
               query: { search: name },
             }}
             prefetch={false}
-            onClick={handleClose}
+            onClick={() => handleClick(name)}
           >
             {name}
           </Link>
