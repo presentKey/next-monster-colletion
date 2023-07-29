@@ -65,6 +65,10 @@ export default function useSearch(monsters: SearchMonster[]) {
   );
 
   useEffect(() => {
+    if (filterdMonsters.length === 0) {
+      setSelect(null);
+      return;
+    }
     const searchInstance = searchRef.current;
 
     const downHandler = (e: KeyboardEvent) => {
