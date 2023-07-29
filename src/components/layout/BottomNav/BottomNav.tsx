@@ -11,10 +11,12 @@ import HomeFillIcon from '../../common/icons/HomeFillIcon';
 import BookMarkFillIcon from '../../common/icons/BookMarkIconFill';
 import SwordFillIcon from '../../common/icons/SwordFillIcon';
 import useTimerBar from '@/recoil/TimerBar/useTimerBar';
+import useSearchBar from '@/recoil/SearchBar/useSearchBar';
 
 export default function BottomNav() {
   const pathname = usePathname();
   const { toggleTimerBar } = useTimerBar();
+  const { toggleSearchBar } = useSearchBar();
 
   return (
     <nav className={`sm-only ${styles.nav}`}>
@@ -23,7 +25,7 @@ export default function BottomNav() {
         <span>홈</span>
       </Link>
 
-      <button className={styles.button} type='button'>
+      <button className={styles.button} type='button' onClick={toggleSearchBar}>
         <SearchIcon />
         <span>검색</span>
       </button>

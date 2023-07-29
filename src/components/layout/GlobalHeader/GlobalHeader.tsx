@@ -1,11 +1,14 @@
 import styles from './css/GlobalHeader.module.css';
 import Link from 'next/link';
 import GlobalNav from './GlobalNav';
-import SearchForm from '../../common/SearchForm/SearchForm';
 import HamburgerMenu from './HamburgerMenu';
 import { dohyeon } from '@/utils/fonts';
+import Search from './Search';
+import { service } from '@/service/pickService';
 
-export default function GlobalHeader() {
+export default async function GlobalHeader() {
+  const monsters = await service.search.getMonsters();
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -13,7 +16,7 @@ export default function GlobalHeader() {
         <Link href='/' className={`${dohyeon.className} ${styles.title}`}>
           몬스터컬렉션
         </Link>
-        <SearchForm />
+        <Search monsters={monsters} />
         <GlobalNav />
       </div>
     </header>

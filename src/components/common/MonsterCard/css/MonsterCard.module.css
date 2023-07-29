@@ -9,6 +9,10 @@
   border-radius: 0.5rem;
 }
 
+.card.target {
+  background-color: var(--color-red);
+}
+
 .image-wrap {
   position: relative;
   width: 100%;
