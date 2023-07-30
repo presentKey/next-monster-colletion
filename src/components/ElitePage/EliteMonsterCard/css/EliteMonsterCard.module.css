@@ -1,0 +1,65 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0.2rem;
+  background-color: var(--color-blue-dark);
+  border-radius: 0.5rem;
+}
+
+.image-wrap {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  margin-bottom: 0.25rem;
+  overflow: hidden;
+  background-color: var(--color-white);
+  border-radius: 0.5rem;
+}
+
+.image {
+  object-fit: contain;
+  padding: 0.25rem;
+}
+
+.name-container {
+  width: 100%;
+  padding: 0.1rem 0;
+  overflow: hidden;
+  font-size: var(--font-11);
+  color: var(--color-white);
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.modifier {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 28px;
+}
+
+.modifier span {
+  width: 100%;
+  overflow: hidden;
+  color: var(--color-yellow);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name {
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 48rem) {
+  .name-container {
+    font-size: var(--font-12);
+  }
+
+  .name {
+    font-size: var(--font-12);
+  }
+}
