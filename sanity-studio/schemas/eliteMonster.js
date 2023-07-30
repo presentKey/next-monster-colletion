@@ -32,30 +32,25 @@ export default {
     {
       title: 'Modifier',
       name: 'modifier',
-      type: 'array',
-      of: [
+      type: 'object',
+      fields: [
         {
-          type: 'object',
-          fields: [
-            {
-              title: 'First',
-              name: 'first',
-              type: 'string',
-              options: {
-                list: STATES,
-                layout: 'dropdown',
-              },
-            },
-            {
-              title: 'Second',
-              name: 'second',
-              type: 'string',
-              options: {
-                list: STATES,
-                layout: 'dropdown',
-              },
-            },
-          ],
+          title: 'First',
+          name: 'first',
+          type: 'string',
+          options: {
+            list: STATES,
+            layout: 'dropdown',
+          },
+        },
+        {
+          title: 'Second',
+          name: 'second',
+          type: 'string',
+          options: {
+            list: STATES,
+            layout: 'dropdown',
+          },
         },
       ],
     },
