@@ -3,7 +3,7 @@ import SearchForm from '@/components/common/SearchForm/SearchForm';
 import SearchList from '../../common/SearchList/SearchList';
 import { SearchMonster } from '@/model/monster';
 import styles from './css/Search.module.css';
-import useSearch from '@/app/hooks/useSearch';
+import useSearch from '@/hooks/useSearch';
 
 type Props = {
   monsters: SearchMonster[];

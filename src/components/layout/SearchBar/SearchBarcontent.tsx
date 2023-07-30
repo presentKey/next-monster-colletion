@@ -6,7 +6,7 @@ import CloseIcon from '@/components/common/icons/CloseIcon';
 import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';
 import { SearchMonster } from '@/model/monster';
 import SearchList from '../../common/SearchList/SearchList';
-import useSearch from '@/app/hooks/useSearch';
+import useSearch from '@/hooks/useSearch';
 
 type Props = {
   monsters: SearchMonster[];
