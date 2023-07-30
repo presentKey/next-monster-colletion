@@ -1,4 +1,5 @@
 import Category from './category';
+import Elite from './elite';
 import Search from './search';
 
 export default class Service {
@@ -6,4 +7,5 @@ export default class Service {
 
   category = new Category();
   search = new Search();
+  elite = new Elite();
 }
