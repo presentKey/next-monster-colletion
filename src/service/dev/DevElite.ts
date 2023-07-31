@@ -1,4 +1,4 @@
-import { EliteMonster } from '@/model/monster';
+import { DefaultEliteCollections } from '@/model/monster';
 import { readFile } from 'fs/promises';
 import path from 'path';
 import { cache } from 'react';
@@ -6,7 +6,7 @@ import { cache } from 'react';
 export default class DevElite {
   constructor() {}
 
-  getElite = cache(async (): Promise<EliteMonster[]> => {
+  getDefaultElite = cache(async (): Promise<DefaultEliteCollections[]> => {
     const filePath = path.join(process.cwd(), 'mock', 'elite.json');
 
     return readFile(filePath, 'utf-8') //
