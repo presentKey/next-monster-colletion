@@ -29,14 +29,10 @@ export default {
           type: 'object',
           fields: [
             {
-              title: 'Name',
-              name: 'name',
-              type: 'string',
-            },
-            {
-              title: 'Order',
-              name: 'order',
-              type: 'string',
+              title: 'Elite',
+              name: 'elite',
+              type: 'reference',
+              to: [{type: 'eliteMonster'}],
             },
             {
               title: 'IsRegister',
