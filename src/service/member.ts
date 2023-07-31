@@ -71,3 +71,22 @@ export async function getBookmarkDetail(
     }`
   );
 }
+
+export async function getEliteCollections(
+  uid: string,
+  isNonmember: boolean | undefined
+) {
+  return client.fetch(
+    `*[_type == '${isNonmember ? 'nonmember' : 'user'}' && uid == '${uid}'][0]{
+        eliteCollections[]{
+          'key': _key,
+          isRegister,
+          elite -> {
+            'id': _id,
+            name,
+            modifier
+          }
+        }
+    }`
+  );
+}

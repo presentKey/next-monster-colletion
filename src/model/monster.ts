@@ -16,3 +16,15 @@ export type EliteMonster = {
     second?: string;
   };
 };
+
+export type DefaultEliteCollections = {
+  elite: EliteMonster;
+};
+
+export type myEliteCollections = {
+  eliteCollections: {
+    elite: EliteMonster;
+    isRegister: boolean;
+    key: string;
+  }[];
+};
