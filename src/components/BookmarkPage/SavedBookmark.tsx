@@ -1,5 +1,5 @@
 'use client';
-import { getSavedBookmarkInfo } from '@/service/bookmark';
+import { getSavedBookmarkInfo } from '@/service/request/bookmark';
 import { useQuery } from '@tanstack/react-query';
 import MonsterCardList from '../common/MonsterCardList/MonsterCardList';
 import Registration from '../common/Registration/Registration';
