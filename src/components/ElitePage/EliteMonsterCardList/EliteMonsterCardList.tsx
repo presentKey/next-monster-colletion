@@ -8,10 +8,10 @@ import { useQuery } from '@tanstack/react-query';
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
 
 type Props = {
-  monsters: DefaultEliteCollections[];
+  defaultElite: DefaultEliteCollections[];
 };
 
-export default function EliteMonsterCardList({ monsters }: Props) {
+export default function EliteMonsterCardList({ defaultElite }: Props) {
   const { data: session } = useSession();
   const { isLoading, data: myElite } = useQuery(
     ['myCollection', session?.user.uid],
@@ -21,7 +21,7 @@ export default function EliteMonsterCardList({ monsters }: Props) {
       enabled: !!session,
     }
   );
-  const eliteMonsters = myElite?.eliteCollections ?? monsters;
+  const eliteMonsters = myElite?.eliteCollections ?? defaultElite;
 
   if (isLoading) return <LoadingSpinner />;
   return (
