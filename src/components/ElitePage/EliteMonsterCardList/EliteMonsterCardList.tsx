@@ -6,14 +6,13 @@ import { useSession } from 'next-auth/react';
 import { getUserEliteCollections } from '@/service/request/eliteCollection';
 import { useQuery } from '@tanstack/react-query';
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 type Props = {
   defaultElite: DefaultEliteCollections[];
 };
 
 type Dragged = {
-  el: HTMLLIElement;
   name: string;
   index: number;
 };
@@ -28,12 +27,13 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
       staleTime: 1000 * 60 * 60,
     }
   );
-  const eliteMonsters = myElite?.eliteCollections ?? defaultElite;
+  const [eliteMonsters, setEliteMonsters] = useState(
+    myElite?.eliteCollections ?? defaultElite
+  );
 
   const handleDrag = (e: React.DragEvent<HTMLLIElement>) => {
     const parentNode = e.currentTarget.parentNode as HTMLOListElement;
     dragged.current = {
-      el: e.currentTarget,
       name: e.currentTarget.dataset.name || '',
       index: [...parentNode.children].indexOf(e.currentTarget),
     };
@@ -50,27 +50,21 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
     const parentNode = target.parentNode as HTMLOListElement;
 
     if (target.dataset.name !== dragged.current.name) {
-      let originPlace;
-      let isLast = false;
-
-      if (dragged.current.el.nextSibling) {
-        originPlace = dragged.current.el.nextSibling;
-      } else {
-        originPlace = dragged.current.el.previousSibling;
-        isLast = true;
-      }
-
       const droppedIndex = [...parentNode.children].indexOf(target);
 
-      dragged.current.index > droppedIndex
-        ? target.before(dragged.current.el as HTMLLIElement)
-        : target.after(dragged.current.el as HTMLLIElement);
+      setEliteMonsters((prev) => {
+        [prev[droppedIndex], prev[dragged.current?.index as number]] = [
+          prev[dragged.current?.index as number],
+          prev[droppedIndex],
+        ];
 
-      isLast ? originPlace?.after(target) : originPlace?.before(target);
+        return prev;
+      });
     }
   };
 
   if (isLoading) return <LoadingSpinner />;
+
   return (
     <ol className={styles.list}>
       {eliteMonsters.map((monster) => (
