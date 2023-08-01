@@ -1,3 +1,13 @@
+.item {
+  width: calc(20% - 0.25rem);
+  min-width: calc(3.5rem - 0.25rem);
+  max-width: calc(4.5rem - 0.25rem);
+}
+
+.item.is-dragging {
+  opacity: 0.5;
+}
+
 .card {
   position: relative;
   display: flex;
@@ -55,6 +65,12 @@
 }
 
 @media screen and (min-width: 48rem) {
+  .item {
+    width: calc(10% - 0.25rem);
+    min-width: calc(4.5rem - 0.25rem);
+    max-width: calc(5rem - 0.25rem);
+  }
+
   .name-container {
     font-size: var(--font-12);
   }
