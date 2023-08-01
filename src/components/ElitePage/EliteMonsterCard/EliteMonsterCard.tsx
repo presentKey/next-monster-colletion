@@ -2,6 +2,7 @@ import { EliteMonster } from '@/model/monster';
 import styles from './css/EliteMonsterCard.module.css';
 import Image from 'next/image';
 import { useDrag, useDrop } from 'react-dnd';
+import useEliteDragAndDrop from '@/recoil/DragAndDrop/useEliteDragAndDrop';
 
 const CARD = 'CARD';
 
@@ -13,36 +14,39 @@ type DragItem = {
 type Props = {
   monster: EliteMonster;
   index: number;
-  moveCard: (dragIndex: number, hoverIndex: number) => void;
+  cardMove: (dragIndex: number, hoverIndex: number) => void;
 };
 
-export default function EliteMonsterCard({ monster, index, moveCard }: Props) {
+export default function EliteMonsterCard({ monster, index, cardMove }: Props) {
+  const { destination, handleDestination, clearDestination } =
+    useEliteDragAndDrop();
   const [{ isDragging }, dragRef] = useDrag({
     type: CARD,
     item: { name: monster.name, index },
     collect: (monitor) => ({ isDragging: monitor.isDragging() }),
+    end: () => clearDestination(),
   });
 
   const [, dropRef] = useDrop({
     accept: CARD,
-    drop({ index: dragIndex }: DragItem) {
+    hover: () => handleDestination(index),
+    drop: ({ index: dragIndex }: DragItem) => {
       if (dragIndex === index) {
         return;
       }
-
-      moveCard(dragIndex, index);
+      cardMove(dragIndex, index);
+      clearDestination();
     },
   });
 
   return (
-    <li
-      className={`${styles.item} ${isDragging && styles['is-dragging']}`}
-      ref={(node) => {
-        dragRef(dropRef(node));
-      }}
-      draggable={true}
-    >
-      <div className={`${styles.card}`}>
+    <>
+      <div
+        className={`${styles.card} ${isDragging && styles['is-dragging']}`}
+        ref={(node) => {
+          dragRef(dropRef(node));
+        }}
+      >
         <div className={styles['image-wrap']}>
           <Image
             className={styles.image}
@@ -60,6 +64,11 @@ export default function EliteMonsterCard({ monster, index, moveCard }: Props) {
           <span className={styles.name}>{monster.name}</span>
         </div>
       </div>
-    </li>
+      <div
+        className={`${styles.mark} ${
+          destination === index && styles.destination
+        }`}
+      />
+    </>
   );
 }

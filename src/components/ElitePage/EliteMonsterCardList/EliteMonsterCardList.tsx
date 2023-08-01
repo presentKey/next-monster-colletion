@@ -25,12 +25,11 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
     myElite?.eliteCollections ?? defaultElite
   );
 
-  const moveCard = useCallback(
+  const cardMove = useCallback(
     (dragIndex: number, hoverIndex: number) => {
-      const dragCard = eliteMonsters[dragIndex];
-      let newCardList = [...eliteMonsters];
-      newCardList.splice(dragIndex, 1);
-      newCardList.splice(hoverIndex, 0, dragCard);
+      const newCardList = [...eliteMonsters];
+      const [draggedCard] = newCardList.splice(dragIndex, 1);
+      newCardList.splice(hoverIndex, 0, draggedCard);
 
       setEliteMonsters(newCardList);
     },
@@ -41,35 +40,14 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
   return (
     <ol className={styles.list}>
       {eliteMonsters.map((monster, index) => (
-        <EliteMonsterCard
-          key={monster.elite.name}
-          monster={monster.elite}
-          index={index}
-          moveCard={moveCard}
-        />
+        <li className={styles.item} key={monster.elite.name}>
+          <EliteMonsterCard
+            monster={monster.elite}
+            index={index}
+            cardMove={cardMove}
+          />
+        </li>
       ))}
     </ol>
   );
-}
-
-{
-  /* <li
-className={styles.item}
-key={monster.elite.name}
-// data-id={monster.elite.id}
-// data-name={monster.elite.name}
-// draggable={true}
-// onDrag={handleDrag}
-// onDragOver={handleDragOver}
-// onDrop={handleDragDrop}
->
-<EliteMonsterCard
-key={monster.elite.name}
-  monster={monster.elite}
-  name={monster.elite.name}
-  index={index}
-  findCard={findCard}
-  moveCard={moveCard}
-/>
-</li> */
 }

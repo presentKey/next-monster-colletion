@@ -1,13 +1,3 @@
-.item {
-  width: calc(20% - 0.25rem);
-  min-width: calc(3.5rem - 0.25rem);
-  max-width: calc(4.5rem - 0.25rem);
-}
-
-.item.is-dragging {
-  opacity: 0.5;
-}
-
 .card {
   position: relative;
   display: flex;
@@ -15,8 +5,31 @@
   align-items: center;
   width: 100%;
   padding: 0.2rem;
+  cursor: grab;
+  user-select: none;
   background-color: var(--color-blue-dark);
   border-radius: 0.5rem;
+}
+
+.card.is-dragging {
+  background-color: var(--color-brand);
+  filter: none;
+  opacity: 0.5;
+}
+
+.mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 0.25rem;
+  height: 100%;
+  border-radius: 10rem;
+}
+
+.mark.destination {
+  display: block;
+  background-color: var(--color-red);
 }
 
 .image-wrap {
@@ -65,12 +78,6 @@
 }
 
 @media screen and (min-width: 48rem) {
-  .item {
-    width: calc(10% - 0.25rem);
-    min-width: calc(4.5rem - 0.25rem);
-    max-width: calc(5rem - 0.25rem);
-  }
-
   .name-container {
     font-size: var(--font-12);
   }
