@@ -17,3 +17,8 @@ export type SavedBookmarkInfo = {
     monsters: Monster;
   }[];
 };
+
+export type UserEliteCollections = {
+  name: string;
+  isRegistred: boolean;
+};
