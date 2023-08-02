@@ -15,16 +15,9 @@ export type EliteMonster = {
     first: string;
     second?: string;
   };
+  isRegistred?: boolean;
 };
 
-export type DefaultEliteCollections = {
+export type EliteCollections = {
   elite: EliteMonster;
-};
-
-export type myEliteCollections = {
-  eliteCollections: {
-    elite: EliteMonster;
-    isRegister: boolean;
-    key: string;
-  }[];
 };
