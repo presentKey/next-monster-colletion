@@ -39,7 +39,27 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
     [eliteMonsters]
   );
 
-  useEffect(() => setEliteMonsters(myElite ?? []), [myElite]);
+  const handleRegisterClick = (monsterName: string) => {
+    setEliteMonsters((prev) =>
+      prev.map((monster) => {
+        if (monster.elite.name === monsterName) {
+          return {
+            elite: {
+              ...monster.elite,
+              isRegistred: !monster.elite.isRegistred,
+            },
+          };
+        }
+
+        return monster;
+      })
+    );
+  };
+
+  useEffect(
+    () => setEliteMonsters(myElite ?? defaultElite),
+    [myElite, defaultElite]
+  );
 
   if (isLoading) return <LoadingSpinner />;
   return (
@@ -59,6 +79,7 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
                   index={index}
                   cardMove={cardMove}
                   onDisableUnload={handleDisableUnload}
+                  onRegisterClick={handleRegisterClick}
                 />
               </li>
             ))}

@@ -8,7 +8,12 @@
   cursor: grab;
   user-select: none;
   background-color: var(--color-blue-dark);
+  filter: grayscale(1);
   border-radius: 0.5rem;
+}
+
+.card.is-registred {
+  filter: grayscale(0);
 }
 
 .card.is-dragging {

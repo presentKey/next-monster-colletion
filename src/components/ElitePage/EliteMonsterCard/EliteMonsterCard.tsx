@@ -16,6 +16,7 @@ type Props = {
   index: number;
   cardMove: (dragIndex: number, hoverIndex: number) => void;
   onDisableUnload: () => void;
+  onRegisterClick: (monsterName: string) => void;
 };
 
 export default function EliteMonsterCard({
@@ -23,6 +24,7 @@ export default function EliteMonsterCard({
   index,
   cardMove,
   onDisableUnload,
+  onRegisterClick,
 }: Props) {
   const { destination, handleDestination, clearDestination } =
     useEliteDragAndDrop();
@@ -53,7 +55,10 @@ export default function EliteMonsterCard({
           monster.isRegistred && styles['is-registred']
         }`}
         ref={(node) => dragRef(dropRef(node))}
-        onClick={onDisableUnload}
+        onClick={() => {
+          onRegisterClick(monster.name);
+          onDisableUnload();
+        }}
       >
         <div className={styles['image-wrap']}>
           <Image
