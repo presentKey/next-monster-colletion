@@ -30,6 +30,7 @@ export default function SettingBar({ eliteList, save, onAbleLoad }: Props) {
       toast.dismiss();
       toast.warn('구글 및 비회원 로그인을 해주세요.');
       onAbleLoad();
+      setLoading(false);
       return;
     }
 
@@ -46,7 +47,9 @@ export default function SettingBar({ eliteList, save, onAbleLoad }: Props) {
   return (
     <div className={styles.container}>
       <button
-        className={`${styles['save-button']} ${!save && styles['not-saved']} `}
+        className={`${styles['save-button']} ${
+          !save && session && styles['not-saved']
+        } `}
         type='button'
         onClick={handleSaveClick}
         disabled={save || loading}
