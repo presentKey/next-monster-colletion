@@ -14,6 +14,7 @@ type DragItem = {
 type Props = {
   monster: EliteMonster;
   index: number;
+  modifierCheck: boolean;
   cardMove: (dragIndex: number, hoverIndex: number) => void;
   onDisableUnload: () => void;
   onRegisterClick: (monsterName: string) => void;
@@ -22,6 +23,7 @@ type Props = {
 export default function EliteMonsterCard({
   monster,
   index,
+  modifierCheck,
   cardMove,
   onDisableUnload,
   onRegisterClick,
@@ -70,10 +72,14 @@ export default function EliteMonsterCard({
           />
         </div>
         <div className={styles['name-container']}>
-          <div className={styles['modifier']}>
-            <span>{monster.modifier.first}</span>
-            {monster.modifier.second && <span>{monster.modifier.second}</span>}
-          </div>
+          {modifierCheck && (
+            <div className={styles['modifier']}>
+              <span>{monster.modifier.first}</span>
+              {monster.modifier.second && (
+                <span>{monster.modifier.second}</span>
+              )}
+            </div>
+          )}
           <span className={styles.name}>{monster.name}</span>
         </div>
       </div>

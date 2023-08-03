@@ -9,6 +9,7 @@ import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
 import { useCallback, useEffect, useState } from 'react';
 import SettingBar from '../SettingBar/SettingBar';
 import useBeforeUnload from '@/hooks/useBeforeUnload';
+import useCheckButton from '../hooks/useCheckButton';
 
 type Props = {
   defaultElite: EliteCollections[];
@@ -17,6 +18,7 @@ type Props = {
 export default function EliteMonsterCardList({ defaultElite }: Props) {
   const { data: session } = useSession();
   const { save, handleDisableUnload, handleEnableUnload } = useBeforeUnload();
+  const [modifierCheck, handleModifierCheck] = useCheckButton();
   const { isLoading, data: myElite } = useQuery(
     ['myCollection', session?.user.uid],
     () => getUserEliteCollections(session?.user, defaultElite),
@@ -70,6 +72,8 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
             eliteList={eliteMonsters}
             save={save}
             onAbleLoad={handleEnableUnload}
+            modifierCheck={modifierCheck}
+            onModifierCheckChange={handleModifierCheck}
           />
           <ol className={styles.list}>
             {eliteMonsters.map((monster, index) => (
@@ -77,6 +81,7 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
                 <EliteMonsterCard
                   monster={monster.elite}
                   index={index}
+                  modifierCheck={modifierCheck}
                   cardMove={cardMove}
                   onDisableUnload={handleDisableUnload}
                   onRegisterClick={handleRegisterClick}

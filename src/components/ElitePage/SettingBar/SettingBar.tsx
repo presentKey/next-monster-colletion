@@ -6,14 +6,23 @@ import { toast } from 'react-toastify';
 import styles from './css/SettingBar.module.css';
 import { useState } from 'react';
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
+import CheckButton from '../CheckButton/CheckButton';
 
 type Props = {
   eliteList: EliteCollections[];
   save: boolean;
+  modifierCheck: boolean;
   onAbleLoad: () => void;
+  onModifierCheckChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export default function SettingBar({ eliteList, save, onAbleLoad }: Props) {
+export default function SettingBar({
+  eliteList,
+  save,
+  modifierCheck,
+  onAbleLoad,
+  onModifierCheckChange,
+}: Props) {
   const { data: session } = useSession();
   const queryClient = useQueryClient();
   const [loading, setLoading] = useState(false);
@@ -56,6 +65,11 @@ export default function SettingBar({ eliteList, save, onAbleLoad }: Props) {
       >
         {loading ? <LoadingSpinner size='small' /> : '저장하기'}
       </button>
+      <CheckButton
+        id='modifier'
+        check={modifierCheck}
+        onChange={onModifierCheckChange}
+      />
     </div>
   );
 }
