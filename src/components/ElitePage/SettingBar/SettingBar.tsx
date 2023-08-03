@@ -51,7 +51,7 @@ export default function SettingBar({ eliteList, save, onAbleLoad }: Props) {
         onClick={handleSaveClick}
         disabled={save || loading}
       >
-        {loading ? <LoadingSpinner /> : '저장하기'}
+        {true ? <LoadingSpinner size='small' /> : '저장하기'}
       </button>
     </div>
   );
