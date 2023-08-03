@@ -4,13 +4,13 @@ import { AuthUser, UserEliteCollections } from '@/model/user';
 export async function getUserEliteCollections(
   user: AuthUser | undefined,
   defaultElite: EliteCollections[]
-): Promise<EliteCollections[] | null> {
-  if (!user) return null;
+): Promise<EliteCollections[]> {
+  if (!user) return defaultElite;
 
   const response = await fetch('/api/elite');
   const data = await response.json();
 
-  if (!data.eliteCollections) return null;
+  if (!data.eliteCollections) return defaultElite;
   if (!response.ok) {
     throw new Error(data.message || '서버 요청 실패');
   }

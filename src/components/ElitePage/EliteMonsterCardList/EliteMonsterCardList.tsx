@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
 import { useCallback, useEffect, useState } from 'react';
 import SettingBar from '../SettingBar/SettingBar';
+import useBeforeUnload from '@/hooks/useBeforeUnload';
 
 type Props = {
   defaultElite: EliteCollections[];
@@ -15,6 +16,7 @@ type Props = {
 
 export default function EliteMonsterCardList({ defaultElite }: Props) {
   const { data: session } = useSession();
+  const { save, handleDisableUnload, handleEnableUnload } = useBeforeUnload();
   const { isLoading, data: myElite } = useQuery(
     ['myCollection', session?.user.uid],
     () => getUserEliteCollections(session?.user, defaultElite),
@@ -22,7 +24,6 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
       staleTime: 1000 * 60 * 60,
     }
   );
-
   const [eliteMonsters, setEliteMonsters] = useState<EliteCollections[] | []>(
     []
   );
@@ -38,17 +39,18 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
     [eliteMonsters]
   );
 
-  useEffect(
-    () => setEliteMonsters(myElite ?? defaultElite),
-    [myElite, defaultElite]
-  );
+  useEffect(() => setEliteMonsters(myElite ?? []), [myElite]);
 
   if (isLoading) return <LoadingSpinner />;
   return (
     <>
       {eliteMonsters && (
         <>
-          <SettingBar eliteList={eliteMonsters} />
+          <SettingBar
+            eliteList={eliteMonsters}
+            save={save}
+            onAbleLoad={handleEnableUnload}
+          />
           <ol className={styles.list}>
             {eliteMonsters.map((monster, index) => (
               <li className={styles.item} key={monster.elite.name}>
@@ -56,6 +58,7 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
                   monster={monster.elite}
                   index={index}
                   cardMove={cardMove}
+                  onDisableUnload={handleDisableUnload}
                 />
               </li>
             ))}
