@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
-import { getBookmarkList, updateBookmark } from '@/service/bookmark';
+import { getBookmarkList, updateBookmark } from '@/service/request/bookmark';
 import { BookmarkList, SavedBookmarkInfo } from '@/model/user';
 import { usePathname } from 'next/navigation';
 

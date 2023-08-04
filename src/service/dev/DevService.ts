@@ -1,4 +1,5 @@
 import DevCategory from './DevCategory';
+import DevElite from './DevElite';
 import DevSearch from './DevSearch';
 
 export default class DevService {
@@ -6,4 +7,5 @@ export default class DevService {
 
   category = new DevCategory();
   search = new DevSearch();
+  elite = new DevElite();
 }

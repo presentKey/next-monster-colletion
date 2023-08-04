@@ -23,29 +23,7 @@ export default {
     {
       title: 'EliteCollections',
       name: 'eliteCollections',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            {
-              title: 'Name',
-              name: 'name',
-              type: 'string',
-            },
-            {
-              title: 'Order',
-              name: 'order',
-              type: 'string',
-            },
-            {
-              title: 'IsRegister',
-              name: 'isRegister',
-              type: 'boolean',
-            },
-          ],
-        },
-      ],
+      type: 'string',
     },
   ],
 }

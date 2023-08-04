@@ -6,7 +6,7 @@ export async function addMember(uid: string) {
     _type: 'user',
     uid,
     bookmarks: [],
-    eliteCollections: [],
+    eliteCollections: '',
   });
 }
 
@@ -16,7 +16,7 @@ export async function addNonMember(uid: string) {
     _type: 'nonmember',
     uid,
     bookmarks: [],
-    eliteCollections: [],
+    eliteCollections: '',
   });
 }
 
@@ -70,4 +70,22 @@ export async function getBookmarkDetail(
         }
     }`
   );
+}
+
+export async function getEliteCollections(
+  uid: string,
+  isNonmember: boolean | undefined
+) {
+  return client.fetch(
+    `*[_type == '${isNonmember ? 'nonmember' : 'user'}' && uid == '${uid}'][0]{
+      eliteCollections
+    }`
+  );
+}
+export async function updateEliteCollections(uid: string, updateList: string) {
+  return client //
+    .patch(uid)
+    .setIfMissing({ eliteCollections: '' })
+    .set({ eliteCollections: updateList })
+    .commit();
 }

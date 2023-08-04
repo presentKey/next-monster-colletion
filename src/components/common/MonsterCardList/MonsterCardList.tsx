@@ -13,7 +13,7 @@ export default function MonsterCardList({ monsters }: Props) {
       {monsters.map((monster, index) => (
         <li className={styles.list} key={index}>
           <Suspense fallback={<></>}>
-            <MonsterCard monster={monster} />
+            <MonsterCard monster={monster as Monster} />
           </Suspense>
         </li>
       ))}

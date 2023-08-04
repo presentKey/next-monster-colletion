@@ -1,0 +1,79 @@
+.bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.save-button {
+  width: 4.5rem;
+  height: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-white);
+  cursor: not-allowed;
+  background-color: var(--color-border-dark);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+}
+
+.save-button.not-saved {
+  --border-width: 3px;
+  position: relative;
+  font-weight: bold;
+  color: var(--color-font);
+  cursor: pointer;
+  background-color: var(--color-gray);
+  border-radius: var(--border-width);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .save-button.not-saved:hover.save-button.not-saved:after {
+    animation-play-state: paused;
+  }
+}
+
+.save-button.not-saved:after {
+  position: absolute;
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  content: '';
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+  background-size: 300% 300%;
+  border-radius: calc(2 * var(--border-width));
+  animation: animatedgradient 3s ease alternate infinite;
+}
+
+.message {
+  margin-left: 0.5rem;
+  /* text-decoration: underline; */
+  color: var(--color-red);
+}
+
+.container {
+  display: flex;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

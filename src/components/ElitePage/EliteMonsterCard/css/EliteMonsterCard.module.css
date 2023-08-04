@@ -1,0 +1,91 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0.2rem;
+  cursor: grab;
+  user-select: none;
+  background-color: var(--color-blue-dark);
+  filter: grayscale(1);
+  border-radius: 0.5rem;
+}
+
+.card.is-registred {
+  filter: grayscale(0);
+}
+
+.card.is-dragging {
+  background-color: var(--color-brand);
+  filter: none;
+  opacity: 0.5;
+}
+
+.mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 0.25rem;
+  height: 100%;
+  border-radius: 10rem;
+}
+
+.mark.destination {
+  display: block;
+  background-color: var(--color-red);
+}
+
+.image-wrap {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  overflow: hidden;
+  background-color: var(--color-white);
+  border-radius: 0.5rem;
+}
+
+.image {
+  object-fit: contain;
+  padding: 0.25rem;
+}
+
+.name-container {
+  width: 100%;
+  overflow: hidden;
+  font-size: var(--font-11);
+  color: var(--color-white);
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.modifier {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 2rem;
+}
+
+.modifier span {
+  width: 100%;
+  overflow: hidden;
+  color: var(--color-yellow);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name {
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 48rem) {
+  .name-container {
+    font-size: var(--font-12);
+  }
+
+  .name {
+    font-size: var(--font-12);
+  }
+}
