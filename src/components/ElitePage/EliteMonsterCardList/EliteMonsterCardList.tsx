@@ -10,6 +10,7 @@ import { useCallback, useEffect, useState } from 'react';
 import SettingBar from '../SettingBar/SettingBar';
 import useBeforeUnload from '@/hooks/useBeforeUnload';
 import useCheckButton from '../hooks/useCheckButton';
+import { ELITENAME, MODIFIER } from '@/components/InitialSetup/InitialSetup';
 
 type Props = {
   defaultElite: EliteCollections[];
@@ -18,8 +19,8 @@ type Props = {
 export default function EliteMonsterCardList({ defaultElite }: Props) {
   const { data: session } = useSession();
   const { save, handleDisableUnload, handleEnableUnload } = useBeforeUnload();
-  const [modifierCheck, handleModifierCheck] = useCheckButton();
-  const [nameCheck, handleNameCheck] = useCheckButton();
+  const [modifierCheck, handleModifierCheck] = useCheckButton(MODIFIER);
+  const [nameCheck, handleNameCheck] = useCheckButton(ELITENAME);
   const { isLoading, data: myElite } = useQuery(
     ['myCollection', session?.user.uid],
     () => getUserEliteCollections(session?.user, defaultElite),
