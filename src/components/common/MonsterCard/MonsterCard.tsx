@@ -5,13 +5,11 @@ import styles from './css/MonsterCard.module.css';
 import Bookmark from './Bookmark';
 import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
+import calcScrollAmount from '@/utils/calcScrollAmount';
 
 type Props = {
   monster: Monster;
 };
-
-const TOP_HDEDER_MOBILE = 50 + 40;
-const TOP_HEADER_DESKTOP = 50;
 
 export default function MonsterCard({ monster }: Props) {
   const cardRef = useRef<HTMLDivElement | null>(null);
@@ -21,12 +19,9 @@ export default function MonsterCard({ monster }: Props) {
   useEffect(() => {
     if (cardRef.current?.innerText === search) {
       const position = cardRef.current.getBoundingClientRect().top;
-      const scrollAmount =
-        position -
-        (window.innerWidth >= 768 ? TOP_HEADER_DESKTOP : TOP_HDEDER_MOBILE);
 
       window.scrollBy({
-        top: scrollAmount,
+        top: calcScrollAmount(position),
       });
     }
   }, [search]);
