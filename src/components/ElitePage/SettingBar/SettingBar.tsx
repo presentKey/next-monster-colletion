@@ -58,7 +58,7 @@ export default function SettingBar({
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.bar}>
       <button
         className={`${styles['save-button']} ${
           !save && session && styles['not-saved']
@@ -67,20 +67,22 @@ export default function SettingBar({
         onClick={handleSaveClick}
         disabled={save || loading}
       >
-        {loading ? <LoadingSpinner size='small' /> : '저장하기'}
+        {loading ? <LoadingSpinner size='small' /> : '엘몬 저장'}
       </button>
-      <CheckButton
-        id='modifier'
-        text='수식어 보기'
-        check={modifierCheck}
-        onChange={onModifierCheckChange}
-      />
-      <CheckButton
-        id='eliteName'
-        text='이름 보기'
-        check={nameCheck}
-        onChange={onNameCheckChange}
-      />
+      <div className={styles.container}>
+        <CheckButton
+          id='modifier'
+          text='수식어 보기'
+          check={modifierCheck}
+          onChange={onModifierCheckChange}
+        />
+        <CheckButton
+          id='eliteName'
+          text='이름 보기'
+          check={nameCheck}
+          onChange={onNameCheckChange}
+        />
+      </div>
     </div>
   );
 }
