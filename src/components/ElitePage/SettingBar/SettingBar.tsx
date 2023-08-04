@@ -12,16 +12,20 @@ type Props = {
   eliteList: EliteCollections[];
   save: boolean;
   modifierCheck: boolean;
+  nameCheck: boolean;
   onAbleLoad: () => void;
   onModifierCheckChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onNameCheckChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function SettingBar({
   eliteList,
   save,
   modifierCheck,
+  nameCheck,
   onAbleLoad,
   onModifierCheckChange,
+  onNameCheckChange,
 }: Props) {
   const { data: session } = useSession();
   const queryClient = useQueryClient();
@@ -67,8 +71,15 @@ export default function SettingBar({
       </button>
       <CheckButton
         id='modifier'
+        text='수식어 보기'
         check={modifierCheck}
         onChange={onModifierCheckChange}
+      />
+      <CheckButton
+        id='eliteName'
+        text='이름 보기'
+        check={nameCheck}
+        onChange={onNameCheckChange}
       />
     </div>
   );

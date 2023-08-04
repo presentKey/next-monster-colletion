@@ -3,10 +3,11 @@ import styles from './css/CheckButton.module.css';
 type Props = {
   id: string;
   check: boolean;
+  text: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export default function CheckButton({ id, check, onChange }: Props) {
+export default function CheckButton({ id, text, check, onChange }: Props) {
   return (
     <div className={styles.button} role='button'>
       <input
@@ -17,7 +18,7 @@ export default function CheckButton({ id, check, onChange }: Props) {
         onChange={(e) => onChange(e)}
       />
       <label className={styles.label} htmlFor={id}>
-        수식어 보기
+        {text}
       </label>
     </div>
   );

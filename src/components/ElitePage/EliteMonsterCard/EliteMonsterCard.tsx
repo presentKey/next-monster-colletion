@@ -15,6 +15,7 @@ type Props = {
   monster: EliteMonster;
   index: number;
   modifierCheck: boolean;
+  nameCheck: boolean;
   cardMove: (dragIndex: number, hoverIndex: number) => void;
   onDisableUnload: () => void;
   onRegisterClick: (monsterName: string) => void;
@@ -24,6 +25,7 @@ export default function EliteMonsterCard({
   monster,
   index,
   modifierCheck,
+  nameCheck,
   cardMove,
   onDisableUnload,
   onRegisterClick,
@@ -80,7 +82,7 @@ export default function EliteMonsterCard({
               )}
             </div>
           )}
-          <span className={styles.name}>{monster.name}</span>
+          {nameCheck && <span className={styles.name}>{monster.name}</span>}
         </div>
       </div>
       <div

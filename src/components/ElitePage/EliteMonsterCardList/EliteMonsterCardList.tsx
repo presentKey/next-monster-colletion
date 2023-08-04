@@ -19,6 +19,7 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
   const { data: session } = useSession();
   const { save, handleDisableUnload, handleEnableUnload } = useBeforeUnload();
   const [modifierCheck, handleModifierCheck] = useCheckButton();
+  const [nameCheck, handleNameCheck] = useCheckButton();
   const { isLoading, data: myElite } = useQuery(
     ['myCollection', session?.user.uid],
     () => getUserEliteCollections(session?.user, defaultElite),
@@ -71,9 +72,11 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
           <SettingBar
             eliteList={eliteMonsters}
             save={save}
-            onAbleLoad={handleEnableUnload}
             modifierCheck={modifierCheck}
+            nameCheck={nameCheck}
+            onAbleLoad={handleEnableUnload}
             onModifierCheckChange={handleModifierCheck}
+            onNameCheckChange={handleNameCheck}
           />
           <ol className={styles.list}>
             {eliteMonsters.map((monster, index) => (
@@ -82,6 +85,7 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
                   monster={monster.elite}
                   index={index}
                   modifierCheck={modifierCheck}
+                  nameCheck={nameCheck}
                   cardMove={cardMove}
                   onDisableUnload={handleDisableUnload}
                   onRegisterClick={handleRegisterClick}
