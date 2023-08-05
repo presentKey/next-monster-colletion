@@ -1,7 +1,7 @@
 import { useRecoilState } from 'recoil';
 import { tabId, tabPanelPositionStorage } from './atoms';
 import calcScrollAmount from '@/utils/calcScrollAmount';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 
 export default function useTabScroll() {
   const [tabLable, setTabLabel] = useRecoilState(tabId);
@@ -25,6 +25,9 @@ export default function useTabScroll() {
     },
     [setPanelPosition]
   );
+
+  // subCategoryTab 클릭 이벤트 발생 후, unmount 시 tabLable 초기화
+  useEffect(() => setTabLabel(''), [setTabLabel]);
 
   return {
     tabLable,
