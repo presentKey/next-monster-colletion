@@ -1,8 +1,9 @@
 'use client';
 import { dohyeon } from '@/utils/fonts';
 import styles from './css/Headline.module.css';
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback, useMemo } from 'react';
 import useTabScroll from '@/recoil/SubCategoryTab/useTabScroll';
+import { throttle } from 'lodash';
 
 type Props = {
   title: string;
@@ -19,14 +20,20 @@ export default function Headline({ title }: Props) {
     }
   }, [tabLable, title, scrollToTabPanel]);
 
-  const detectTabPanelPositon = useCallback(() => {
-    if (headRef.current) {
-      const position =
-        window.scrollY + headRef.current.getBoundingClientRect().top;
+  const throttleHandler = useMemo(
+    () =>
+      throttle(() => {
+        if (headRef.current) {
+          const position =
+            window.scrollY + headRef.current.getBoundingClientRect().top;
 
-      savePanelPosition(title, position);
-    }
-  }, [title, savePanelPosition]);
+          savePanelPosition(title, position);
+        }
+      }, 700),
+    [title, savePanelPosition]
+  );
+
+  const detectTabPanelPositon = useCallback(throttleHandler, [throttleHandler]);
 
   useEffect(() => {
     detectTabPanelPositon();
