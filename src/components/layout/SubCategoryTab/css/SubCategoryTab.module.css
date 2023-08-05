@@ -27,6 +27,7 @@
   height: 2.5rem;
   padding: 0 0.5rem;
   font-weight: bold;
+  user-select: none;
   border-bottom: 2px solid transparent;
 }
 
@@ -38,7 +39,6 @@
 @media (hover: hover) and (pointer: fine) {
   .item:hover {
     background-color: var(--color-border);
-    border-radius: 0.5rem;
   }
 
   .item.is-active:hover {
@@ -76,6 +76,7 @@
     display: flex;
     width: 100%;
     border-bottom: none;
+    border-radius: 0.5rem;
   }
 
   .item.is-active {
