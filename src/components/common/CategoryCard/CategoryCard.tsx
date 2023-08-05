@@ -2,6 +2,7 @@ import { MainCategory } from '@/model/category';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './css/CategoryCard.module.css';
+import useActiveTab from '@/recoil/SubCategoryTab/useActiveTab';
 
 type Props = {
   category: MainCategory;
@@ -16,6 +17,7 @@ export default function CategoryCard({
   direction = 'column',
   imgSize = 'normal',
 }: Props) {
+  const { handleActiveTab } = useActiveTab();
   return (
     <Link
       className={`${styles.card} ${direction === 'row' && styles.row} ${
@@ -23,6 +25,9 @@ export default function CategoryCard({
       }`}
       href={`/category/${path}`}
       prefetch={false}
+      onClick={() => {
+        setTimeout(() => handleActiveTab(0), 500);
+      }}
     >
       <div className={styles.img}>
         <Image
