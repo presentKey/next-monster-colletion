@@ -83,7 +83,10 @@ function jobPage(
     newActiveTab = 0;
   }
 
-  if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+  if (
+    Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
+    document.body.offsetHeight
+  ) {
     newActiveTab = 10;
   }
 
@@ -106,7 +109,10 @@ function victoriaIslandPage(
     newActiveTab = 0;
   }
 
-  if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+  if (
+    Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
+    document.body.offsetHeight
+  ) {
     newActiveTab = 1;
   }
 
@@ -132,7 +138,10 @@ function elnathPage(
     newActiveTab = 0;
   }
 
-  if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+  if (
+    Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
+    document.body.offsetHeight
+  ) {
     newActiveTab = 1;
   }
 
@@ -155,7 +164,10 @@ function ludusLakePage(
     newActiveTab = 0;
   }
 
-  if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+  if (
+    Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
+    document.body.offsetHeight
+  ) {
     newActiveTab = 3;
   }
 
@@ -178,7 +190,10 @@ function nihalDesertPage(
     newActiveTab = 0;
   }
 
-  if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+  if (
+    Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
+    document.body.offsetHeight
+  ) {
     newActiveTab = 1;
   }
 
@@ -201,7 +216,10 @@ function minarForestPage(
     newActiveTab = 0;
   }
 
-  if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+  if (
+    Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
+    document.body.offsetHeight
+  ) {
     newActiveTab = 1;
   }
 
@@ -222,7 +240,10 @@ function templeOfTimePage(
     newActiveTab = 0;
   }
 
-  if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+  if (
+    Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
+    document.body.offsetHeight
+  ) {
     newActiveTab = 2;
   }
 
@@ -255,7 +276,10 @@ function grandisPage(
     newActiveTab = 0;
   }
 
-  if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+  if (
+    Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
+    document.body.offsetHeight
+  ) {
     newActiveTab = 8;
   }
 
@@ -278,7 +302,10 @@ function friendsPage(
     newActiveTab = 0;
   }
 
-  if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+  if (
+    Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
+    document.body.offsetHeight
+  ) {
     newActiveTab = 1;
   }
 
