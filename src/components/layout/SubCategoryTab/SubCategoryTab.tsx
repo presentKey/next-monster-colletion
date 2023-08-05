@@ -3,19 +3,19 @@ import { SubCategory } from '@/model/category';
 import styles from './css/SubCategoryTab.module.css';
 import { useRecoilValue } from 'recoil';
 import { timerListLength } from '@/recoil/TimerBar/selectors';
-import { useState } from 'react';
 import useTabScroll from '@/recoil/SubCategoryTab/useTabScroll';
+import useActiveTab from '@/recoil/SubCategoryTab/useActiveTab';
 
 type Props = {
   subCategories: SubCategory[];
 };
 
 export default function SubCategoryTab({ subCategories }: Props) {
-  const [active, setActive] = useState(0);
   const timerLength = useRecoilValue(timerListLength);
   const { getTabLablledby } = useTabScroll();
+  const { active, handleActiveTab } = useActiveTab();
   const handleScrollTabClick = (e: React.MouseEvent, index: number) => {
-    setActive(index);
+    handleActiveTab(index);
     getTabLablledby(e);
   };
 
