@@ -16,6 +16,7 @@ import QueryDevtools from '@/context/QueryDevtools';
 import InitialSetup from '@/components/InitialSetup/InitialSetup';
 import TimerBar from '@/components/layout/TimerBar/TimerBar';
 import SearchBar from '@/components/layout/SearchBar/SearchBar';
+import Footer from '@/components/layout/Footer/Footer';
 
 export const metadata = {
   title: 'Create Next App',
@@ -59,6 +60,7 @@ export default function RootLayout({
               <TimerBar />
               <SearchBar />
               <BottomNav />
+              <Footer />
               <ToastNotification />
               <QueryDevtools />
             </QueryProvider>

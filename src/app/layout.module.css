@@ -1,5 +1,17 @@
 .main {
+  --main-padding: 3rem;
   max-width: 96rem;
-  padding: 3rem var(--side-padding);
+  min-height: calc(100vh - var(--global-header-height));
+  padding: var(--main-padding) var(--side-padding);
   margin: 0 auto;
+}
+
+@media screen and (min-width: 48rem) {
+  .main {
+    min-height: calc(
+      100vh - var(--global-header-height) - var(--footer-height) +
+        var(--main-padding)
+    );
+    padding-bottom: 0;
+  }
 }
