@@ -1,0 +1,41 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 6.25rem;
+  padding: 0 var(--side-padding);
+  margin-bottom: 3rem;
+  color: var(--color-font-second);
+  background-color: var(--color-border);
+}
+
+.container {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: var(--font-14);
+}
+
+.message {
+  font-size: var(--font-13);
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-12);
+}
+
+.address::before {
+  margin: 0 0.5rem;
+  font-size: var(--font-11);
+  content: '|';
+}
+
+@media screen and (min-width: 48rem) {
+  .footer {
+    margin-bottom: 0;
+  }
+}
