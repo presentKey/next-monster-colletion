@@ -26,7 +26,7 @@ export default function useTabScroll() {
     [setPanelPosition]
   );
 
-  // subCategoryTab 클릭 이벤트 발생 후, unmount 시 tabLable 초기화
+  // subCategoryTab 클릭 이벤트 발생 후, 페이지 이동 시 tabLable 초기화
   useEffect(() => setTabLabel(''), [setTabLabel]);
 
   return {
