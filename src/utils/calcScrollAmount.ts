@@ -1,5 +1,6 @@
-const TOP_HDEDER_MOBILE = 50 + 40;
-const TOP_HEADER_DESKTOP = 50;
+// css: globals.css -> layout
+const TOP_HDEDER_MOBILE = 50 + 40; // global_header + sub_category_tab
+const TOP_HEADER_DESKTOP = 50; // global_header
 
 export default function calcScrollAmount(position: number, target?: 'user') {
   if (target === 'user') {

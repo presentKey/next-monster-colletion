@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 6.25rem;
+  height: var(--footer-height);
   padding: 0 var(--side-padding);
   margin-bottom: 3rem;
   color: var(--color-font-second);
