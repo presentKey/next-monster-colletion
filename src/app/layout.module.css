@@ -1,5 +1,13 @@
 .main {
   max-width: 96rem;
+  min-height: calc(100vh - 3rem);
   padding: 3rem var(--side-padding);
   margin: 0 auto;
+}
+
+@media screen and (min-width: 48rem) {
+  .main {
+    min-height: calc(100vh - 3rem - 6.25rem + 3rem);
+    padding-bottom: 0;
+  }
 }
