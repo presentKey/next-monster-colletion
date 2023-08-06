@@ -39,5 +39,12 @@ export default function TabScrollEvent() {
     };
   }, [upadteActiveTabOnScroll]);
 
+  // <Link> 다른 카테고리 페이지 이동 시, 스크롤 최상단 위치
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, []);
+
   return <></>;
 }
