@@ -9,10 +9,9 @@ import { timerListLength } from '@/recoil/TimerBar/selectors';
 
 type Props = {
   categories: MainCategory[];
-  param: string;
 };
 
-export default function SideNav({ categories, param }: Props) {
+export default function SideNav({ categories }: Props) {
   const [open, setOpen] = useState(true);
   const handleToggle = () => setOpen((prev) => !prev);
   const timerLength = useRecoilValue(timerListLength);
@@ -25,7 +24,6 @@ export default function SideNav({ categories, param }: Props) {
             <li className={styles.item} key={category.path}>
               <CategoryCard
                 category={category}
-                param={param}
                 direction='row'
                 imgSize='small'
               />

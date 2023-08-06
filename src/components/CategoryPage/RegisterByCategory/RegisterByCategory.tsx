@@ -1,6 +1,6 @@
 import { CategoryDetailInformation } from '@/model/category';
 import InformationGroup from '../InformationGroup/InformationGroup';
-import Headline from '@/components/common/Headline/Headline';
+import TabPanel from '@/components/common/TapPanel/TapPanel';
 import Container from './Container';
 
 type Props = {
@@ -12,7 +12,7 @@ export default function RegisterByCategory({ detail }: Props) {
     <Container>
       {detail.subCategory.map((sub) => (
         <article key={sub.title}>
-          <Headline title={sub.title} />
+          <TabPanel title={sub.title} />
           <InformationGroup information={sub.information} />
         </article>
       ))}
