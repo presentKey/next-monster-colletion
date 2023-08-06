@@ -1,33 +1,33 @@
+'use client';
 import { MainCategory } from '@/model/category';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './css/CategoryCard.module.css';
 import useActiveTab from '@/recoil/SubCategoryTab/useActiveTab';
+import { usePathname } from 'next/navigation';
 
 type Props = {
   category: MainCategory;
-  param?: string;
   direction?: 'row' | 'column';
   imgSize?: 'small' | 'normal';
 };
 
 export default function CategoryCard({
   category: { title, path },
-  param,
   direction = 'column',
   imgSize = 'normal',
 }: Props) {
+  const pathname = usePathname();
   const { handleActiveTab } = useActiveTab();
+
   return (
     <Link
       className={`${styles.card} ${direction === 'row' && styles.row} ${
-        param === path && styles['is-active']
+        pathname.split('/')[2] === path && styles['is-active']
       }`}
       href={`/category/${path}`}
       prefetch={false}
-      onClick={() => {
-        setTimeout(() => handleActiveTab(0), 500);
-      }}
+      onClick={() => setTimeout(() => handleActiveTab(0), 500)}
     >
       <div className={styles.img}>
         <Image

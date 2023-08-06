@@ -9,12 +9,12 @@ type Props = {
   };
 };
 
-export default async function CategoryLayout({ children, params }: Props) {
+export default async function CategoryLayout({ children }: Props) {
   const categories = await service.category.getAllMainCategory();
 
   return (
     <div className={styles.container}>
-      <SideNav categories={categories} param={params.slug} />
+      <SideNav categories={categories} />
       <section className={styles.detail}>{children}</section>
     </div>
   );
