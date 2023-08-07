@@ -5,7 +5,6 @@ import { getCsrfToken, getProviders } from 'next-auth/react';
 import SignIn from '@/components/SignInPage/SignIn/SignIn';
 import Notice from '@/components/common/Notice/Notice';
 import styles from './page.module.css';
-import Divider from '@/components/common/Divider/Divider';
 
 const NOTE_TEXT = [
   '로그인 시 북마크, 엘몬 컬렉션 기능을 이용할 수 있습니다.',
@@ -38,7 +37,7 @@ export default async function SignPage({
     <section className={styles.container}>
       <Notice type='note' textList={NOTE_TEXT} />
       <Notice type='tip' textList={TIP_TEXT} />
-      <Divider />
+      <div className={styles.divider} />
       <SignIn
         providers={providers}
         callbackUrl={callbackUrl ?? '/'}
