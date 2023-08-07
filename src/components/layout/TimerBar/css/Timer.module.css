@@ -88,12 +88,6 @@
     flex-shrink: 0;
     width: 11rem;
     padding: 0.1rem 0.25rem;
-    margin-right: 1rem;
-    margin-bottom: 0;
-  }
-
-  .timer:last-child {
-    margin-right: 0;
   }
 
   .info {

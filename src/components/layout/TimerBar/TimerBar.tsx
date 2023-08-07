@@ -5,6 +5,7 @@ import useTimerBar from '@/recoil/TimerBar/useTimerBar';
 import CloseIcon from '@/components/common/icons/CloseIcon';
 import useTimerList from '@/recoil/TimerBar/useTimerList';
 import Timer from './Timer';
+import TimerIcon from '@/components/common/icons/TimerIcon';
 
 export default function TimerBar() {
   const { open, toggleTimerBar } = useTimerBar();
@@ -14,7 +15,7 @@ export default function TimerBar() {
     <>
       {timers.length > 0 && (
         <aside className={`${styles.timerbar} ${open && styles['is-open']}`}>
-          <header className={`sm-only ${styles.header}`}>
+          <header className={styles.header}>
             <h3>타이머</h3>
             <button
               className={styles.close}
@@ -30,6 +31,15 @@ export default function TimerBar() {
               <Timer key={timer.monsterName} timer={timer} />
             ))}
           </ul>
+
+          <div
+            className={`sm-hidden ${styles['icon-warp']} ${
+              open && styles.hidden
+            }`}
+            onClick={toggleTimerBar}
+          >
+            <TimerIcon color='red' />
+          </div>
         </aside>
       )}
       {open && timers.length > 0 && (
