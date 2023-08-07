@@ -15,7 +15,7 @@ export default async function ElitePage() {
 
   return (
     <div className={styles.container}>
-      <Notice type='note' textList={NOTE_TEXT} />
+      <Notice type='note' textList={NOTE_TEXT} margin='1rem' />
       <Notice type='tip' textList={TIP_TEXT} />
       <DragAndDropProvider>
         <EliteMonsterCardList defaultElite={defaultElite} />

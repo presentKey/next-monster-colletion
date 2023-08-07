@@ -20,9 +20,7 @@ export default function RegisterByCategory({ detail, path }: Props) {
   return (
     <div className={styles.container}>
       {path === 'friends' && (
-        <div className={styles['notice-wrap']}>
-          <Notice type='tip' textList={TIP_TEXT} />
-        </div>
+        <Notice type='tip' textList={TIP_TEXT} margin='1rem' />
       )}
       {detail.subCategory.map((sub) => (
         <article key={sub.title}>

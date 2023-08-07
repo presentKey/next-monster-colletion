@@ -3,10 +3,6 @@
   padding-top: 3.5rem;
 }
 
-.notice-wrap {
-  margin-bottom: 1.5rem;
-}
-
 @media screen and (min-width: 48rem) {
   .container {
     padding: 1rem var(--side-padding) 0;
