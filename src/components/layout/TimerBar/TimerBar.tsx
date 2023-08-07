@@ -6,6 +6,7 @@ import CloseIcon from '@/components/common/icons/CloseIcon';
 import useTimerList from '@/recoil/TimerBar/useTimerList';
 import Timer from './Timer';
 import TimerIcon from '@/components/common/icons/TimerIcon';
+import Badge from '@/components/common/Badge/Badge';
 
 export default function TimerBar() {
   const { open, toggleTimerBar } = useTimerBar();
@@ -38,7 +39,8 @@ export default function TimerBar() {
             }`}
             onClick={toggleTimerBar}
           >
-            <TimerIcon color='red' />
+            <TimerIcon />
+            <Badge position='desktop' />
           </div>
         </aside>
       )}

@@ -12,6 +12,7 @@ import BookMarkFillIcon from '../../common/icons/BookMarkIconFill';
 import SwordFillIcon from '../../common/icons/SwordFillIcon';
 import useTimerBar from '@/recoil/TimerBar/useTimerBar';
 import useSearchBar from '@/recoil/SearchBar/useSearchBar';
+import Badge from '@/components/common/Badge/Badge';
 
 export default function BottomNav() {
   const pathname = usePathname();
@@ -22,27 +23,32 @@ export default function BottomNav() {
     <nav className={`sm-only ${styles.nav}`}>
       <Link className={styles.button} href='/'>
         {pathname === '/' ? <HomeFillIcon /> : <HomeIcon />}
-        <span>홈</span>
+        <span className={styles.text}>홈</span>
       </Link>
 
       <button className={styles.button} type='button' onClick={toggleSearchBar}>
         <SearchIcon />
-        <span>검색</span>
+        <span className={styles.text}>검색</span>
       </button>
 
-      <button className={styles.button} type='button' onClick={toggleTimerBar}>
+      <button
+        className={`${styles.timer} ${styles.button}`}
+        type='button'
+        onClick={toggleTimerBar}
+      >
         <TimerIcon />
-        <span>타이머</span>
+        <span className={styles.text}>타이머</span>
+        <Badge />
       </button>
 
       <Link className={styles.button} href='/bookmark'>
         {pathname === '/bookmark' ? <BookMarkFillIcon /> : <BookMarkIcon />}
-        <span>북마크</span>
+        <span className={styles.text}>북마크</span>
       </Link>
 
       <Link className={styles.button} href='/elite'>
         {pathname === '/elite' ? <SwordFillIcon /> : <SwordIcon />}
-        <span>엘몬</span>
+        <span className={styles.text}>엘몬</span>
       </Link>
     </nav>
   );
