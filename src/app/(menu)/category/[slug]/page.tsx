@@ -16,7 +16,7 @@ export default async function CategoryDetailPage({ params }: Props) {
   return (
     <>
       <TabScrollEvent />
-      <RegisterByCategory detail={detail} />
+      <RegisterByCategory detail={detail} path={params.slug} />
       <SubCategoryTab subCategories={subCategories} />
     </>
   );
