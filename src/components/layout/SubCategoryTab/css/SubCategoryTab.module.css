@@ -62,10 +62,6 @@
     border-left: 1px solid var(--color-border);
   }
 
-  .tab.timerbar-open {
-    top: 7.5rem;
-  }
-
   .list {
     display: flex;
     flex-flow: column wrap;
