@@ -1,0 +1,23 @@
+.badge {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.2rem;
+  font-size: var(--font-11);
+  color: var(--color-white);
+  letter-spacing: 1px;
+  background-color: var(--color-red);
+  border-radius: 100px;
+}
+
+.badge.over {
+  right: 0.2rem;
+}
+
+.badge.desktop {
+  top: initial;
+  bottom: 0.4rem;
+}

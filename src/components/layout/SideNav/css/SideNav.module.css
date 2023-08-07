@@ -4,13 +4,10 @@
   left: 0;
   flex-shrink: 0;
   width: 2rem;
-  max-height: calc(100vh - 3rem);
+  min-height: calc(100vh - var(--global-header-height));
+  max-height: calc(100vh - var(--global-header-height));
   overflow-y: auto;
   overscroll-behavior: contain;
-}
-
-.timerbar-open {
-  padding-top: 3.5rem;
 }
 
 .item {

@@ -27,7 +27,11 @@
   background-color: var(--color-border);
 }
 
-.button span {
+.text {
   font-size: var(--font-11);
   color: var(--color-font);
+}
+
+.timer {
+  position: relative;
 }

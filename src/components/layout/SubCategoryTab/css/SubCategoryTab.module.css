@@ -54,16 +54,12 @@
     flex-shrink: 0;
     align-self: flex-start;
     width: 10rem;
-    max-height: calc(100vh - 7rem);
+    max-height: calc(100vh - var(--global-header-height) - 2rem);
     padding-left: 0.5rem;
     overflow-y: auto;
     overscroll-behavior: contain;
     border-bottom: none;
     border-left: 1px solid var(--color-border);
-  }
-
-  .tab.timerbar-open {
-    top: 7.5rem;
   }
 
   .list {

@@ -10,15 +10,21 @@ type Props = {
   category: MainCategory;
   direction?: 'row' | 'column';
   imgSize?: 'small' | 'normal';
+  onToggleSideBar?: () => void;
 };
 
 export default function CategoryCard({
   category: { title, path },
   direction = 'column',
   imgSize = 'normal',
+  onToggleSideBar,
 }: Props) {
   const pathname = usePathname();
   const { handleActiveTab } = useActiveTab();
+  const handleClick = () => {
+    setTimeout(() => handleActiveTab(0), 500);
+    onToggleSideBar && onToggleSideBar();
+  };
 
   return (
     <Link
@@ -27,7 +33,7 @@ export default function CategoryCard({
       }`}
       href={`/category/${path}`}
       prefetch={false}
-      onClick={() => setTimeout(() => handleActiveTab(0), 500)}
+      onClick={handleClick}
     >
       <div className={styles.img}>
         <Image
