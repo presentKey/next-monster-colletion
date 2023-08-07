@@ -28,7 +28,11 @@ export default function SideBarContent({ categories }: Props) {
         <ol className={styles.list}>
           {categories.map((category) => (
             <li className={styles.item} key={category.path}>
-              <CategoryCard category={category} direction='row' />
+              <CategoryCard
+                category={category}
+                direction='row'
+                onToggleSideBar={toggleSideBar}
+              />
             </li>
           ))}
         </ol>
