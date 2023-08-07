@@ -19,11 +19,12 @@ const notice = [
 type Props = {
   type: 'note' | 'tip';
   textList: string[];
+  margin?: '1rem';
 };
 
-export default function Notice({ type, textList }: Props) {
+export default function Notice({ type, textList, margin }: Props) {
   return (
-    <div className={styles.notice}>
+    <div className={`${styles.notice} ${margin && styles.margin}`}>
       {notice.map(
         ({ id, icon, title }) =>
           id === type && (

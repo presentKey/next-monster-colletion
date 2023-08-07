@@ -5,12 +5,14 @@ import { getCsrfToken, getProviders } from 'next-auth/react';
 import SignIn from '@/components/SignInPage/SignIn/SignIn';
 import Notice from '@/components/common/Notice/Notice';
 import styles from './page.module.css';
-import Divider from '@/components/common/Divider/Divider';
 
-const NOTE_TEXT = ['로그인을 하지 않아도 사이트를 이용할 수 있습니다.'];
+const NOTE_TEXT = [
+  '로그인 시 북마크, 엘몬 컬렉션 기능을 이용할 수 있습니다.',
+  '비회원 로그인은 구글 로그인과 동일한 기능을 제공합니다.',
+  '구글 로그인은 사용자의 이름, 이메일, 프로필 사진을 저장하지 않습니다.',
+];
 const TIP_TEXT = [
-  '로그인 시 북마크, 엘몬 컬렉션 정보가 저장됩니다.',
-  '비로그인은 접속 기기 브라우저에 정보가 저장되어, 사용자의 다른 기기에서 정보를 볼 수 없습니다.',
+  '구글 로그인 시 북마크, 엘몬 컬렉션 정보를 사용자의 다른 기기에서 확인할 수 있습니다.',
 ];
 
 type Props = {
@@ -35,7 +37,7 @@ export default async function SignPage({
     <section className={styles.container}>
       <Notice type='note' textList={NOTE_TEXT} />
       <Notice type='tip' textList={TIP_TEXT} />
-      <Divider />
+      <div className={styles.divider} />
       <SignIn
         providers={providers}
         callbackUrl={callbackUrl ?? '/'}

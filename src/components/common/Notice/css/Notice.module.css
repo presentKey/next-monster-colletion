@@ -5,6 +5,10 @@
   box-shadow: var(--shadow);
 }
 
+.notice.margin {
+  margin-bottom: 1rem;
+}
+
 .top {
   display: flex;
   gap: 0.5rem;
