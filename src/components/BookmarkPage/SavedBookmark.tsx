@@ -34,7 +34,10 @@ export default function SavedBookmark() {
                 length={bookmark.information.length}
                 index={index}
               />
-              <Registration registers={info.registers} />
+              <Registration
+                registers={info.registers}
+                monsterName={bookmark.monsters.name}
+              />
             </div>
           ))}
         </article>
