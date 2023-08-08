@@ -1,0 +1,31 @@
+.timer {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-left: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.icon {
+  position: absolute;
+  top: 0.188rem;
+  left: 0;
+}
+
+.icon.timer-disabled {
+  top: 1px;
+}
+
+.time {
+  margin-left: 0.25rem;
+}
+
+/* timerDisabled === true */
+.timer.disabled .icon {
+  top: 0.0625rem;
+}
+
+.timer.disabled .time {
+  margin-left: 0;
+}

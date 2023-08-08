@@ -1,0 +1,105 @@
+.timerbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: var(--timerbar-level);
+  width: 16.25rem;
+  height: 100%;
+  padding: 1rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: var(--color-font);
+  background-color: var(--color-bg);
+  transition: transform 0.2s ease-in-out;
+  transform: translate3d(16.25rem, 0, 0);
+}
+
+.timerbar.is-open {
+  transform: translate3d(0, 0, 0);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .timerbar {
+    position: fixed;
+    top: initial;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: var(--color-gray);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    box-shadow: var(--shadow-lg);
+    transform: none;
+  }
+
+  .timerbar.is-open {
+    width: 15rem;
+    height: auto;
+    max-height: 50vh;
+    overflow-y: auto;
+    border-radius: 0.5rem;
+  }
+
+  .timerbar.is-open .list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timerbar.is-open .header {
+    display: flex;
+  }
+
+  .header {
+    display: none;
+  }
+
+  .list {
+    display: none;
+  }
+
+  .icon-warp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+  }
+
+  .icon-warp.hidden {
+    display: none;
+  }
+
+  /* scrollbar */
+  .timerbar.is-open::-webkit-scrollbar {
+    display: block;
+    width: 4px;
+    height: 6px;
+    background-color: var(--color-border);
+  }
+  .timerbar.is-open::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+  }
+  .timerbar.is-open::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 100px;
+  }
+  .timerbar.is-open:hover::-webkit-scrollbar-thumb {
+    background: var(--color-border-dark);
+  }
+}

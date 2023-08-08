@@ -1,0 +1,27 @@
+.container {
+  padding-top: 1rem;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.item {
+  width: 100%;
+  max-width: calc(50% - 1rem);
+  height: 5.625rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .container {
+    padding: 2rem 0;
+  }
+
+  .item {
+    max-width: calc(15rem - 1rem);
+    height: 6.25rem;
+  }
+}

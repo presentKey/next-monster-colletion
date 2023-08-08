@@ -1,0 +1,18 @@
+.close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.5rem;
+  padding: 0.25rem;
+  color: var(--color-font);
+  border-radius: 50%;
+}
+
+.close:active {
+  background-color: var(--color-gray);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .close:hover {
+    background-color: var(--color-border);
+  }
+}

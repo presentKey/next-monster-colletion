@@ -1,0 +1,59 @@
+.notice {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+}
+
+.notice.margin {
+  margin-bottom: 1rem;
+}
+
+.top {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  color: var(--color-white);
+}
+
+.top.blue {
+  background-color: var(--color-blue);
+}
+
+.top.green {
+  background-color: var(--color-green);
+}
+
+.message {
+  padding: 1rem 0.5rem;
+  font-size: var(--font-14);
+  color: var(--color-dark);
+}
+
+.message.blue {
+  background-color: var(--color-blue-light);
+}
+
+.message.green {
+  background-color: var(--color-green-light);
+}
+
+.container {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.container:last-child {
+  margin-bottom: 0;
+}
+
+.icon {
+  position: absolute;
+  top: 0.0625rem;
+  left: 0;
+}
+
+.text {
+  margin-left: 1rem;
+}

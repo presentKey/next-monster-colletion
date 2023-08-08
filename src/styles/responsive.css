@@ -1,0 +1,42 @@
+/*
+ * sm : 0 ~ 48rem ( 0 <= screen < 768px)
+ * lg : 48 ~ 80rem ( 768 <= screen < 1280px )
+ * xl : 80rem ~ ( 1280px <= screen )
+*/
+
+@media screen and (min-width: 48rem) {
+  .sm-only {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: calc(48rem - 1px)),
+  screen and (min-width: 80rem) {
+  .lg-only {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: calc(80rem - 1px)) {
+  .xl-only {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: calc(48rem - 1px)) {
+  .sm-hidden {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 48rem) and (max-width: calc(80rem - 1px)) {
+  .lg-hidden {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 80rem) {
+  .xl-hidden {
+    display: none !important;
+  }
+}
