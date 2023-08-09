@@ -1,6 +1,6 @@
 'use client';
 import SearchForm from '@/components/common/SearchForm/SearchForm';
-import styles from './css/SearchBarcontent.module.css';
+import styles from './css/SearchBarContent.module.css';
 import useSearchBar from '@/recoil/SearchBar/useSearchBar';
 import CloseIcon from '@/components/common/icons/CloseIcon';
 import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';

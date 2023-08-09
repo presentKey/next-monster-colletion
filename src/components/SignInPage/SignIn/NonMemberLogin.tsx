@@ -5,7 +5,7 @@ type Props = {
   csrfToken: string;
 };
 
-export default function NonmemberLogin({ children, csrfToken }: Props) {
+export default function NonMemberLogin({ children, csrfToken }: Props) {
   return (
     <form
       className={styles.form}
