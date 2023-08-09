@@ -2,13 +2,12 @@
   padding: 0.5rem var(--side-padding);
   margin: 0 calc(0px - var(--side-padding)) 0.5rem;
   font-size: var(--font-22);
-  background: rgb(42, 42, 42);
+  background: rgb(154, 98, 230);
   background: linear-gradient(
     0deg,
-    rgba(42, 42, 42, 1) 0%,
-    rgba(95, 95, 95, 1) 100%
+    rgba(154, 98, 230, 1) 0%,
+    rgba(181, 137, 214, 1) 100%
   );
-
   box-shadow: var(--shadow);
 }
 
