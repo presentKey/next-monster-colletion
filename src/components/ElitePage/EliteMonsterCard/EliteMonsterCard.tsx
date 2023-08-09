@@ -67,7 +67,10 @@ export default function EliteMonsterCard({
         <div className={styles['image-wrap']}>
           <Image
             className={styles.image}
-            src={`/images/elite-monsters/${monster.name}.png`}
+            src={`/images/elite-monsters/${monster.name.replace(
+              '[★] ',
+              ''
+            )}.png`}
             alt={monster.name}
             fill
             sizes='(max-width: 96rem) 3.5rem'

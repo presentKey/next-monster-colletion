@@ -1,7 +1,7 @@
 'use client';
 import { ClientSafeProvider, signIn } from 'next-auth/react';
 import LoginButton from './LoginButton';
-import NonMemberLogin from './NonmemberLogin';
+import NonMemberLogin from './NonMemberLogin';
 
 type Props = {
   providers: Record<string, ClientSafeProvider>;
