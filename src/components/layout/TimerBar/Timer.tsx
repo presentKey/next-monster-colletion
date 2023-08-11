@@ -68,6 +68,7 @@ export default function Timer({ timer }: Props) {
         <button
           className={styles.reset}
           type='button'
+          title='시간 초기화'
           onClick={handleResetTimer}
         >
           <TimerResetIcon />
@@ -75,6 +76,7 @@ export default function Timer({ timer }: Props) {
         <button
           className={styles.close}
           type='button'
+          title='타이머 삭제'
           onClick={() => handleRemoveTimer(timer.monsterName)}
         >
           <RemoveIcon />

@@ -22,6 +22,10 @@
   opacity: 0.5;
 }
 
+.card.red {
+  background-color: var(--color-red);
+}
+
 .mark {
   position: absolute;
   top: 0;
@@ -54,6 +58,7 @@
 
 .name-container {
   width: 100%;
+  padding: 0.3rem 0 0.2rem;
   overflow: hidden;
   font-size: var(--font-11);
   color: var(--color-white);

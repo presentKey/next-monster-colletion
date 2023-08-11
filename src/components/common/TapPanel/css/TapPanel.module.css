@@ -2,12 +2,7 @@
   padding: 0.5rem var(--side-padding);
   margin: 0 calc(0px - var(--side-padding)) 0.5rem;
   font-size: var(--font-22);
-  background: rgb(154, 98, 230);
-  background: linear-gradient(
-    0deg,
-    rgba(154, 98, 230, 1) 0%,
-    rgba(181, 137, 214, 1) 100%
-  );
+  background-color: #7c61b6;
   box-shadow: var(--shadow);
 }
 
@@ -15,6 +10,7 @@
   position: relative;
   top: 0.125rem;
   color: var(--color-white);
+  /* color: var(--color-dark); */
 }
 
 @media screen and (min-width: 48rem) {
