@@ -18,6 +18,7 @@ export default function Bookmark({ monsterId }: Props) {
       } ${session?.user && isLoading && styles['is-loading']}`}
       onClick={handleBookmarkClick}
       disabled={session?.user && isLoading}
+      title={isBookmarked ? '북마크 해제' : '북마크 저장'}
     >
       <BookMarkStarIcon />
     </button>
