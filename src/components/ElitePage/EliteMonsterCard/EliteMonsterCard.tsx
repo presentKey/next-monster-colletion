@@ -57,7 +57,7 @@ export default function EliteMonsterCard({
       <div
         className={`${styles.card} ${isDragging && styles['is-dragging']} ${
           monster.isRegistred && styles['is-registred']
-        }`}
+        } ${!modifierCheck && !nameCheck && styles['red']}`}
         ref={(node) => dragRef(dropRef(node))}
         onClick={() => {
           onRegisterClick(monster.name);
@@ -76,17 +76,19 @@ export default function EliteMonsterCard({
             sizes='(max-width: 96rem) 3.5rem'
           />
         </div>
-        <div className={styles['name-container']}>
-          {modifierCheck && (
-            <div className={styles['modifier']}>
-              <span>{monster.modifier.first}</span>
-              {monster.modifier.second && (
-                <span>{monster.modifier.second}</span>
-              )}
-            </div>
-          )}
-          {nameCheck && <span className={styles.name}>{monster.name}</span>}
-        </div>
+        {(modifierCheck || nameCheck) && (
+          <div className={styles['name-container']}>
+            {modifierCheck && (
+              <div className={styles['modifier']}>
+                <span>{monster.modifier.first}</span>
+                {monster.modifier.second && (
+                  <span>{monster.modifier.second}</span>
+                )}
+              </div>
+            )}
+            {nameCheck && <span className={styles.name}>{monster.name}</span>}
+          </div>
+        )}
       </div>
       <div
         className={`${styles.mark} ${
