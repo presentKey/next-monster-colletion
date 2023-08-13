@@ -8,7 +8,7 @@ export default function useSearch(monsters: SearchMonster[]) {
   const [text, setText] = useState('');
   const [keyword, setKeyword] = useState(text);
   const [select, setSelect] = useState<SearchMonster | null>(null);
-  const [cursor, setCursor] = useState<number>(0);
+  const [cursor, setCursor] = useState<number | null>(null);
   const [listOpen, setListOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLOListElement>(null);
@@ -53,16 +53,16 @@ export default function useSearch(monsters: SearchMonster[]) {
       if (position && direction === 'ArrowDown') {
         cursor < filterdMonsters.length - 1
           ? listRef.current?.scrollBy({
-              top: position - 5,
+              top: position - 75,
             })
-          : listRef.current?.scrollTo({ top: 0 });
+          : listRef.current?.scrollTo({ top: 0 }); // 검색 리스트 마지막에서 첫 번째로 이동 시, 스크롤 최상단 이동
       } else if (position && direction === 'ArrowUp') {
         cursor > 0
           ? listRef.current?.scrollBy({
-              top: position - 75,
+              top: position - 150,
             })
           : listRef.current?.scrollTo({
-              top: listRef.current.childElementCount * 35,
+              top: listRef.current.childElementCount * 35, // 검색 리스트 마지막으로 이동 시, 스크롤 최하단 이동
             });
       }
     },
@@ -79,7 +79,15 @@ export default function useSearch(monsters: SearchMonster[]) {
 
     const downHandler = (e: KeyboardEvent) => {
       if (e.key === ARROW_DOWN) {
+        if (cursor === null) {
+          setCursor(0);
+          setText(filterdMonsters[0].name);
+          scrollSearchList(0, ARROW_DOWN);
+          return;
+        }
+
         setCursor((prev) => {
+          if (prev === null) return prev;
           const cursor = prev < filterdMonsters.length - 1 ? prev + 1 : 0;
           setText(filterdMonsters[cursor].name);
           scrollSearchList(prev, ARROW_DOWN);
@@ -91,7 +99,15 @@ export default function useSearch(monsters: SearchMonster[]) {
 
     const upHandler = (e: KeyboardEvent) => {
       if (e.key === ARROW_UP) {
+        if (cursor === null) {
+          const filterdMonstersLength = filterdMonsters.length - 1;
+          setCursor(filterdMonstersLength);
+          setText(filterdMonsters[filterdMonstersLength].name);
+          scrollSearchList(filterdMonstersLength, ARROW_UP);
+          return;
+        }
         setCursor((prev) => {
+          if (prev === null) return prev;
           const cursor = prev > 0 ? prev - 1 : filterdMonsters.length - 1;
           setText(filterdMonsters[cursor].name);
           scrollSearchList(prev, ARROW_UP);
@@ -112,7 +128,7 @@ export default function useSearch(monsters: SearchMonster[]) {
 
   /** 검색 목록에서 현재 선택한 몬스터 */
   useEffect(() => {
-    if (filterdMonsters.length === 0) {
+    if (filterdMonsters.length === 0 || cursor === null) {
       setSelect(null);
       return;
     }
@@ -129,6 +145,7 @@ export default function useSearch(monsters: SearchMonster[]) {
 
     const closeSearchList = (e: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+        setCursor(null);
         setListOpen(false);
       }
     };

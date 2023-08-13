@@ -6,7 +6,7 @@ import { ForwardedRef, forwardRef } from 'react';
 type Props = {
   monsters: SearchMonster[];
   onLinkClick: (name: string) => void;
-  cursor?: number;
+  cursor?: number | null;
   onCloseList?: () => void;
   onCloseSearchBar?: () => void;
 };
@@ -24,6 +24,9 @@ const SearchList = forwardRef(
 
     return (
       <ol className={styles.list} ref={ref}>
+        {monsters.length === 0 && (
+          <p className={styles['not-match']}>일치하는 몬스터가 없습니다.</p>
+        )}
         {monsters.map(({ name, path }, index) => (
           <li key={name}>
             <Link
@@ -47,37 +50,3 @@ const SearchList = forwardRef(
 SearchList.displayName = 'SearchList';
 
 export default SearchList;
-
-// export default function SearchList({
-//   monsters,
-//   cursor,
-//   onLinkClick,
-//   onCloseList,
-//   onCloseSearchBar,
-// }: Props) {
-//   const handleClick = (name: string) => {
-//     onLinkClick(name);
-//     onCloseList && onCloseList();
-//     onCloseSearchBar && onCloseSearchBar();
-//   };
-
-//   return (
-//     <ol className={styles.list}>
-//       {monsters.map(({ name, path }, index) => (
-//         <li key={name}>
-//           <Link
-//             className={`${styles.link} ${cursor === index && styles.select}`}
-//             href={{
-//               pathname: `/category/${path}`,
-//               query: { search: name },
-//             }}
-//             prefetch={false}
-//             onClick={() => handleClick(name)}
-//           >
-//             {name}
-//           </Link>
-//         </li>
-//       ))}
-//     </ol>
-//   );
-// }
