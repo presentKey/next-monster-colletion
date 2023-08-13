@@ -73,7 +73,7 @@ export default function EliteMonsterCard({
             )}.png`}
             alt={monster.name}
             fill
-            sizes='(max-width: 96rem) 3.5rem'
+            sizes='70px'
           />
         </div>
         {(modifierCheck || nameCheck) && (

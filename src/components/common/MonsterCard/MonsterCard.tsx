@@ -37,7 +37,7 @@ export default function MonsterCard({ monster }: Props) {
           src={`/images/monsters/${monster.name}.png`}
           alt={monster.name}
           fill
-          sizes='(max-width: 96rem) 3.5rem'
+          sizes='70px'
         />
       </div>
       <Bookmark monsterId={monster.id} />
