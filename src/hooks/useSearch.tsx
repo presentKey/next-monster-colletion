@@ -25,7 +25,7 @@ export default function useSearch(monsters: SearchMonster[]) {
   const handleTextClear = useCallback(() => {
     setText('');
     setKeyword('');
-    setCursor(0);
+    setCursor(null);
   }, []);
   const handleOpenList = useCallback(() => setListOpen(true), []);
   const handleCloseList = useCallback(() => setListOpen(false), []);
@@ -39,7 +39,7 @@ export default function useSearch(monsters: SearchMonster[]) {
       setListOpen(true);
       setText(e.target.value);
       setKeyword(e.target.value);
-      setCursor(0);
+      e.target.value.trim() === '' ? setCursor(null) : setCursor(0);
     },
     []
   );
