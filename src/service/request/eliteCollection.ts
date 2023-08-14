@@ -25,6 +25,7 @@ export async function getUserEliteCollections(
     }
   ) as EliteCollections[];
 
+  // 새로 추가된 엘리트 몬스터를 목록에 반영
   if (eliteList.length < defaultElite.length) {
     for (let i = eliteList.length; i <= defaultElite.length - 1; i++) {
       const newMonster = defaultElite[i];
