@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import styles from './css/YoutubeButton.module.css';
+import useYoutube from '@/recoil/Youtube/useYoutube';
 
 type Props = {
   youtube: string;
@@ -8,14 +9,15 @@ type Props = {
 
 export default function YoutubeButton({ youtube }: Props) {
   const [open, setOpen] = useState(false);
+  const { handleYoutubeToggle } = useYoutube();
+  const handleClick = () => {
+    setOpen((prev) => !prev);
+    handleYoutubeToggle();
+  };
 
   return (
-    <section>
-      <button
-        className={styles.button}
-        type='button'
-        onClick={() => setOpen((prev) => !prev)}
-      >
+    <section className={styles.youtube}>
+      <button className={styles.button} type='button' onClick={handleClick}>
         YouTube
       </button>
       {open && (
