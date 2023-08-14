@@ -4,6 +4,7 @@ import styles from './css/TapPanel.module.css';
 import { useRef, useEffect, useCallback, useMemo } from 'react';
 import useTabScroll from '@/recoil/SubCategoryTab/useTabScroll';
 import { throttle } from 'lodash';
+import useYoutube from '@/recoil/Youtube/useYoutube';
 
 type Props = {
   title: string;
@@ -12,6 +13,7 @@ type Props = {
 export default function TabPanel({ title }: Props) {
   const headRef = useRef<HTMLHeadingElement>(null);
   const { tabLable, scrollToTabPanel, savePanelPosition } = useTabScroll();
+  const { youtubeToggle } = useYoutube();
 
   const throttleHandler = useMemo(
     () =>
@@ -37,6 +39,11 @@ export default function TabPanel({ title }: Props) {
   useEffect(() => {
     detectTabPanelPositon();
   }, [detectTabPanelPositon]);
+
+  // YouTube 버튼 클릭 시, TabPanel 위치 재탐색
+  useEffect(() => {
+    youtubeToggle && detectTabPanelPositon();
+  }, [youtubeToggle, detectTabPanelPositon]);
 
   // 스크롤 이벤트의 위치는 <TabScrollEvent> 컴포넌트
   useEffect(() => {

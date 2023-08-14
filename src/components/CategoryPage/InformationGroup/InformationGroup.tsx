@@ -16,6 +16,7 @@ export default function InformationGroup({ information }: Props) {
           <Registration
             registers={info.registers}
             monsterName={info.monsters[0].name}
+            youtube={info.monsters[0].youtube}
           />
         </div>
       ))}

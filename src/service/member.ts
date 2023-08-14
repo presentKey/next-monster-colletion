@@ -65,6 +65,7 @@ export async function getBookmarkDetail(
           "monsters": {
             "id": _id,
             name,
+            youtube
           },
           information[] -> {registers}
         }

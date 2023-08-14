@@ -27,7 +27,8 @@ export default class Category {
                 registers,
                 monsters[]->{
                   'id': _id,
-                  name
+                  name,
+                  youtube
                 }
               }
             }
