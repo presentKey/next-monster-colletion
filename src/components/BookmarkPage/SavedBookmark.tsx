@@ -37,6 +37,7 @@ export default function SavedBookmark() {
               <Registration
                 registers={info.registers}
                 monsterName={bookmark.monsters.name}
+                youtube={bookmark.monsters.youtube}
               />
             </div>
           ))}
