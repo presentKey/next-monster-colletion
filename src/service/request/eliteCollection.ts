@@ -23,7 +23,16 @@ export async function getUserEliteCollections(
         elite: { ...target?.elite, isRegistred },
       };
     }
-  );
+  ) as EliteCollections[];
+
+  if (eliteList.length < defaultElite.length) {
+    for (let i = eliteList.length; i <= defaultElite.length - 1; i++) {
+      const newMonster = defaultElite[i];
+      eliteList.push({
+        elite: { ...newMonster.elite, isRegistred: false },
+      });
+    }
+  }
 
   return eliteList;
 }
