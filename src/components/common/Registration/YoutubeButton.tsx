@@ -21,13 +21,17 @@ export default function YoutubeButton({ youtube }: Props) {
         YouTube
       </button>
       {open && (
-        <iframe
-          className={styles.iframe}
-          id='player'
-          width='640'
-          height='360'
-          src={`http://www.youtube.com/embed/${youtube}`}
-        ></iframe>
+        <div className={styles.video}>
+          <div className={styles['video-ratio']}>
+            <iframe
+              className={styles.iframe}
+              id='player'
+              width='640'
+              height='360'
+              src={`http://www.youtube.com/embed/${youtube}`}
+            />
+          </div>
+        </div>
       )}
     </section>
   );

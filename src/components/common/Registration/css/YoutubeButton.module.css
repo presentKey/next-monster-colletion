@@ -1,3 +1,7 @@
+.youtube {
+  width: 100%;
+}
+
 .button {
   padding: 0.25rem 0.5rem;
   margin-top: 0.25rem;
@@ -7,6 +11,27 @@
   border-radius: 2rem;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    font-weight: bold;
+  }
+}
+
+.video {
+  max-width: 900px;
+}
+
+.video-ratio {
+  position: relative;
+  height: 0;
+  padding-top: 56.25%;
+}
+
 .iframe {
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border: none;
 }
