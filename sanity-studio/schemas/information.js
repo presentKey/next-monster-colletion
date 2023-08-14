@@ -32,11 +32,6 @@ export default {
       ],
     },
     {
-      title: 'Youtube',
-      name: 'youtube',
-      type: 'string',
-    },
-    {
       title: 'Registers',
       name: 'registers',
       type: 'array',
