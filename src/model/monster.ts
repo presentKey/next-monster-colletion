@@ -1,6 +1,7 @@
 export type Monster = {
   id: string;
   name: string;
+  youtube?: string | null;
 };
 
 export type SearchMonster = {

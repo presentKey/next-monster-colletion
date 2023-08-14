@@ -7,15 +7,21 @@ import Location from './Location';
 import TimerInfo from './TimerInfo';
 import Descriptions from './Descriptions';
 import ExplanationIndex from '@/components/common/ExplanationIndex/ExplanationIndex';
+import YoutubeButton from './YoutubeButton';
 
 type Props = {
   registers: Register[];
   monsterName: string;
+  youtube: string | null | undefined;
 };
 
 const labelTags = ['PQ', 'B', 'O', 'TD', 'M'];
 
-export default function Registration({ registers, monsterName }: Props) {
+export default function Registration({
+  registers,
+  monsterName,
+  youtube,
+}: Props) {
   return (
     <>
       {registers.map((register, index) => (
@@ -45,6 +51,8 @@ export default function Registration({ registers, monsterName }: Props) {
           )}
 
           {register?.boss && <Boss boss={register.boss} />}
+
+          {youtube && <YoutubeButton youtube={youtube} />}
         </div>
       ))}
     </>
