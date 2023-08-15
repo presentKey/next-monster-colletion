@@ -58,8 +58,9 @@ function jobPage(
   panelPosition: TabPanelPositionStorage
 ) {
   let newActiveTab;
-
-  if (scrolledAmount >= panelPosition['키네시스']) {
+  if (scrolledAmount >= panelPosition['캐논슈터']) {
+    newActiveTab = 11;
+  } else if (scrolledAmount >= panelPosition['키네시스']) {
     newActiveTab = 10;
   } else if (scrolledAmount >= panelPosition['미하일']) {
     newActiveTab = 9;
@@ -87,7 +88,7 @@ function jobPage(
     Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
     document.body.offsetHeight
   ) {
-    newActiveTab = 10;
+    newActiveTab = 11;
   }
 
   return newActiveTab;
