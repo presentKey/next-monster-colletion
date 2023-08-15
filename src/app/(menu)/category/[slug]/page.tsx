@@ -2,6 +2,7 @@ import { service } from '@/service/pickService';
 import SubCategoryTab from '@/components/layout/SubCategoryTab/SubCategoryTab';
 import RegisterByCategory from '@/components/CategoryPage/RegisterByCategory/RegisterByCategory';
 import TabScrollEvent from '@/components/CategoryPage/TabScrollEvent/TabScrollEvent';
+import { Metadata } from 'next';
 
 type Props = {
   params: {
@@ -27,4 +28,14 @@ export async function generateStaticParams() {
   return categories.map((category) => ({
     slug: category.path,
   }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const categories = await service.category.getAllMainCategory();
+  const category = categories.find((category) => category.path === params.slug);
+
+  return {
+    title: `${category?.title}`,
+    description: `${category?.title}의 몬컬 정보`,
+  };
 }

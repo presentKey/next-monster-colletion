@@ -3,6 +3,12 @@ import styles from './page.module.css';
 import EliteMonsterCardList from '@/components/ElitePage/EliteMonsterCardList/EliteMonsterCardList';
 import DragAndDropProvider from '@/components/common/DragAndDrop/DragAndDropProvider';
 import Notice from '@/components/common/Notice/Notice';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '엘몬 컬렉션',
+  description: '엘리트 몬스터 컬렉션',
+};
 
 const NOTE_TEXT = [`컬렉션 변경이 끝나면 '엘몬 저장' 버튼을 눌러주세요.`];
 const TIP_TEXT = [
