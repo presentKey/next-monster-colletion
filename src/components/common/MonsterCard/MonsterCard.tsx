@@ -35,7 +35,7 @@ export default function MonsterCard({ monster }: Props) {
         <Image
           className={styles.image}
           src={`/images/monsters/${monster.name}.png`}
-          alt={monster.name}
+          alt={`${monster.name} 몬컬 이미지`}
           fill
           sizes='70px'
         />
