@@ -71,7 +71,7 @@ export default function EliteMonsterCard({
               '[★] ',
               ''
             )}.png`}
-            alt={monster.name}
+            alt={`${monster.name} 엘몬 몬컬 이미지`}
             fill
             sizes='70px'
           />
