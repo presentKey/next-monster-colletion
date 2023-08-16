@@ -18,6 +18,7 @@ import TimerBar from '@/components/layout/TimerBar/TimerBar';
 import SearchBar from '@/components/layout/SearchBar/SearchBar';
 import Footer from '@/components/layout/Footer/Footer';
 import { Metadata } from 'next';
+import GoogleAnalytics from '@/components/layout/GoogleAnalytics/GoogleAnalytics';
 
 export const metadata: Metadata = {
   title: {
@@ -58,6 +59,7 @@ export default function RootLayout({
             __html: themeScript,
           }}
         />
+        <GoogleAnalytics />
         <RecoilContext>
           <DarkModeProvider>
             <QueryProvider>
