@@ -18,6 +18,7 @@ import TimerBar from '@/components/layout/TimerBar/TimerBar';
 import SearchBar from '@/components/layout/SearchBar/SearchBar';
 import Footer from '@/components/layout/Footer/Footer';
 import { Metadata } from 'next';
+import GoogleAnalytics from '@/components/layout/GoogleAnalytics/GoogleAnalytics';
 
 export const metadata: Metadata = {
   title: {
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
     template: '%s | 몬스터 컬렉션',
   },
   description: '메이플스토리 몬스터컬렉션 정보 사이트 | 메이플 몬컬 사이트',
+  metadataBase: new URL('https://www.moncol.kr'),
   openGraph: {
     images: '/images/montser-collection.png',
     title: '몬스터컬렉션 등록 정보',
@@ -58,6 +60,7 @@ export default function RootLayout({
             __html: themeScript,
           }}
         />
+        <GoogleAnalytics />
         <RecoilContext>
           <DarkModeProvider>
             <QueryProvider>
