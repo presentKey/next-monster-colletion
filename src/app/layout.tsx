@@ -25,6 +25,12 @@ export const metadata: Metadata = {
     template: '%s | 몬스터 컬렉션',
   },
   description: '메이플스토리 몬스터컬렉션 정보 사이트 | 메이플 몬컬 사이트',
+  openGraph: {
+    images: '/images/montser-collection.png',
+    title: '몬스터컬렉션 등록 정보',
+    url: 'https://www.moncol.kr/',
+    description: '다양한 몬컬 등록 방법을 확인해보세요!',
+  },
 };
 
 // SSR 사용자 테마 설정 스크립트
