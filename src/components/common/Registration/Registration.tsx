@@ -24,6 +24,7 @@ export default function Registration({
 }: Props) {
   return (
     <>
+      {youtube && <YoutubeButton youtube={youtube} />}
       {registers.map((register, index) => (
         <div className={styles.container} key={index}>
           <ExplanationIndex length={registers.length} index={index} />
@@ -51,8 +52,6 @@ export default function Registration({
           )}
 
           {register?.boss && <Boss boss={register.boss} />}
-
-          {youtube && <YoutubeButton youtube={youtube} />}
         </div>
       ))}
     </>
