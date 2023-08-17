@@ -5,6 +5,12 @@ import { getCsrfToken, getProviders } from 'next-auth/react';
 import SignIn from '@/components/SignInPage/SignIn/SignIn';
 import Notice from '@/components/common/Notice/Notice';
 import styles from './page.module.css';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '로그인',
+  description: '구글 로그인 및 비회원 로그인',
+};
 
 const NOTE_TEXT = [
   '로그인 시 북마크, 엘몬 컬렉션 기능을 이용할 수 있습니다.',

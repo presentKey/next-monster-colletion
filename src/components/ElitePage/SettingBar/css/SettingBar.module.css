@@ -8,7 +8,7 @@
 .save-button {
   width: 4.5rem;
   height: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin: 1rem 0;
   color: var(--color-white);
   cursor: not-allowed;
   background-color: var(--color-border-dark);
@@ -20,9 +20,9 @@
   --border-width: 3px;
   position: relative;
   font-weight: bold;
-  color: var(--color-font);
+  color: var(--color-dark);
   cursor: pointer;
-  background-color: var(--color-gray);
+  background-color: var(--color-red-light);
   border-radius: var(--border-width);
 }
 
@@ -58,7 +58,6 @@
 
 .message {
   margin-left: 0.5rem;
-  /* text-decoration: underline; */
   color: var(--color-red);
 }
 

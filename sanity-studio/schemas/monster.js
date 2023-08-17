@@ -14,6 +14,11 @@ export default {
       type: 'image',
     },
     {
+      title: 'Youtube',
+      name: 'youtube',
+      type: 'string',
+    },
+    {
       title: 'Path',
       name: 'path',
       type: 'string',

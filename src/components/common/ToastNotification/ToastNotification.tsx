@@ -8,7 +8,7 @@ export default function ToastNotification() {
 
   return (
     <ToastContainer
-      position='bottom-right'
+      position='top-right'
       autoClose={2000}
       limit={0}
       hideProgressBar={false}

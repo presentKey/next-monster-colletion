@@ -17,6 +17,8 @@ const STATES = [
   {title: '언데드', value: '언데드'},
   {title: '기절시키는', value: '기절시키는'},
   {title: '역병의', value: '역병의'},
+  {title: '변신술사', value: '변신술사'},
+  {title: '검은 사슬의', value: '검은 사슬의'},
 ]
 
 export default {

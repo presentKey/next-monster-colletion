@@ -23,6 +23,13 @@
   }
 }
 
+/* NAVER APP */
+@media screen and (max-width: calc(768px - 1px)) {
+  .sm-hidden {
+    display: none !important;
+  }
+}
+
 @media screen and (max-width: calc(48rem - 1px)) {
   .sm-hidden {
     display: none !important;

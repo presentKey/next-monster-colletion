@@ -19,6 +19,7 @@ export const authOptions: NextAuthOptions = {
           requestUID !== 'null' && (await findNonmember(requestUID));
 
         if (existNonmember) {
+          // 유효한 비회원인 경우
           const user = {
             nonmember: true,
             id: existNonmember.uid,
@@ -27,6 +28,13 @@ export const authOptions: NextAuthOptions = {
           return user;
         } else {
           const uid = createNonmemberUID();
+          const UIDduplicateCheck = await findNonmember(uid);
+
+          if (UIDduplicateCheck) {
+            return null;
+          }
+
+          // 새로운 비회원 생성
           const user = {
             nonmember: true,
             id: uid,
