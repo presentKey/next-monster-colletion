@@ -30,6 +30,7 @@ export default function EliteMonsterCard({
   onDisableUnload,
   onRegisterClick,
 }: Props) {
+  const monsterName = monster.name && monster.name.replace('[★] ', '');
   const { destination, handleDestination, clearDestination } =
     useEliteDragAndDrop();
   const [{ isDragging }, dragRef] = useDrag({
@@ -67,10 +68,7 @@ export default function EliteMonsterCard({
         <div className={styles['image-wrap']}>
           <Image
             className={styles.image}
-            src={`/images/elite-monsters/${monster.name.replace(
-              '[★] ',
-              ''
-            )}.png`}
+            src={`/images/elite-monsters/${monsterName}.png`}
             alt={`${monster.name} 엘몬 몬컬 이미지`}
             fill
             sizes='70px'

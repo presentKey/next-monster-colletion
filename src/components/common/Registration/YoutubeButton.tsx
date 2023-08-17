@@ -28,7 +28,7 @@ export default function YoutubeButton({ youtube }: Props) {
               id='player'
               width='640'
               height='360'
-              src={`http://www.youtube.com/embed/${youtube}`}
+              src={`https://www.youtube.com/embed/${youtube}`}
             />
           </div>
         </div>
