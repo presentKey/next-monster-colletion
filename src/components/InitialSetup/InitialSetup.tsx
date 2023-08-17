@@ -9,12 +9,6 @@ export default function InitialSetup() {
   const { data: session } = useSession();
 
   useEffect(() => {
-    if (!localStorage.getItem('bookmark')) {
-      localStorage.setItem('bookmark', JSON.stringify({ bookmarks: [] }));
-    }
-  }, []);
-
-  useEffect(() => {
     if (session?.user.nonmember) {
       localStorage.setItem('nonmember', session.user.uid);
     }
