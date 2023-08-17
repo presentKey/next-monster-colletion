@@ -13,14 +13,14 @@ type Props = {
 export default function Timer({ timer }: Props) {
   const { handleRemoveTimer } = useTimerList();
   const time = useRef(parseInt(timer.time, 10) * 60);
-  const intervalId = useRef<NodeJS.Timer | undefined>(undefined);
+  const intervalId = useRef<number | undefined>(undefined);
   const [clock, setClock] = useState({
     min: time.current / 60,
     sec: time.current % 60,
   });
 
   const handleStartTimer = useCallback(() => {
-    intervalId.current = setInterval(() => {
+    intervalId.current = window.setInterval(() => {
       setClock({
         min: time.current / 60,
         sec: time.current % 60,
