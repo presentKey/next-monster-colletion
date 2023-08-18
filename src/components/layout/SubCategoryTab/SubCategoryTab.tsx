@@ -6,12 +6,16 @@ import useActiveTab from '@/recoil/SubCategoryTab/useActiveTab';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import TabItem from './TabItem';
 
+type TabPosition = {
+  [key: number]: number;
+};
+
 type Props = {
   subCategories: SubCategory[];
 };
 
 export default function SubCategoryTab({ subCategories }: Props) {
-  const [tabPosition, setTabPosition] = useState<number[]>([]);
+  const [tabPosition, setTabPosition] = useState<TabPosition>({});
   const tabRef = useRef<HTMLElement>(null);
   const { getTabLablledby } = useTabScroll();
   const { active, handleActiveTab } = useActiveTab();
@@ -19,8 +23,10 @@ export default function SubCategoryTab({ subCategories }: Props) {
     handleActiveTab(index);
     getTabLablledby(e);
   };
+
   const saveTabPosition = useCallback(
-    (position: number) => setTabPosition((prev) => [...prev, position]),
+    (index: number, position: number) =>
+      setTabPosition((prev) => ({ ...prev, [index]: position })),
     []
   );
 
@@ -35,7 +41,7 @@ export default function SubCategoryTab({ subCategories }: Props) {
 
   useEffect(() => {
     return () => {
-      setTabPosition([]);
+      setTabPosition({});
     };
   }, []);
 
@@ -48,6 +54,7 @@ export default function SubCategoryTab({ subCategories }: Props) {
             index={index}
             active={active}
             title={title}
+            scrollLeft={tabRef.current?.scrollLeft}
             onClick={handleScrollTabClick}
             saveTabPosition={saveTabPosition}
           />
