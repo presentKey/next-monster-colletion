@@ -1,0 +1,39 @@
+.item {
+  display: inline-flex;
+  align-items: center;
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  font-weight: bold;
+  user-select: none;
+  border-bottom: 2px solid transparent;
+}
+
+.item.is-active {
+  color: var(--color-brand);
+  border-bottom: 2px solid var(--color-brand);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .item:hover {
+    background-color: var(--color-border);
+  }
+
+  .item.is-active:hover {
+    filter: brightness(1.05);
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .item {
+    display: flex;
+    width: 100%;
+    border-bottom: none;
+    border-radius: 0.5rem;
+  }
+
+  .item.is-active {
+    background-color: var(--color-border);
+    border-bottom: none;
+    border-radius: 0.5rem;
+  }
+}
