@@ -15,7 +15,7 @@ export default function TabScrollEvent() {
   const throttleHandler = useMemo(
     () =>
       throttle(() => {
-        const scrolledAmount = calcScrollAmount(window.scrollY + 10, 'user');
+        const scrolledAmount = calcScrollAmount(window.scrollY + 40, 'user');
         const newActiveTab = tabByCategory(
           pathname.split('/')[2],
           scrolledAmount,
