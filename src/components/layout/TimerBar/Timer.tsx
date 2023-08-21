@@ -20,16 +20,18 @@ export default function Timer({ timer }: Props) {
   });
 
   const handleStartTimer = useCallback(() => {
+    const startedAt = Date.now();
+
     intervalId.current = window.setInterval(() => {
+      const elapsedTime = Math.floor((Date.now() - startedAt) / 1000);
       setClock({
-        min: time.current / 60,
-        sec: time.current % 60,
+        min: (time.current - elapsedTime) / 60,
+        sec: (time.current - elapsedTime) % 60,
       });
 
-      time.current--;
-
-      if (time.current < 0) {
+      if (time.current - elapsedTime < 0) {
         clearInterval(intervalId.current);
+        time.current = 0;
         setClock({ min: 0, sec: 0 });
       }
     }, 1000);
@@ -47,7 +49,9 @@ export default function Timer({ timer }: Props) {
   }, [handleStartTimer]);
 
   return (
-    <li className={`${styles.timer} ${time.current < 0 && styles['is-alarm']}`}>
+    <li
+      className={`${styles.timer} ${time.current <= 0 && styles['is-alarm']}`}
+    >
       <div className={styles.info}>
         <div className={styles['image-wrap']}>
           <Image
