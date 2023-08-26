@@ -257,7 +257,9 @@ function grandisPage(
 ) {
   let newActiveTab;
 
-  if (scrolledAmount >= panelPosition['툴렌시티']) {
+  if (scrolledAmount >= panelPosition['호텔 아르크스']) {
+    newActiveTab = 9;
+  } else if (scrolledAmount >= panelPosition['툴렌시티']) {
     newActiveTab = 8;
   } else if (scrolledAmount >= panelPosition['나린']) {
     newActiveTab = 7;
@@ -281,7 +283,7 @@ function grandisPage(
     Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
     document.body.offsetHeight
   ) {
-    newActiveTab = 8;
+    newActiveTab = 9;
   }
 
   return newActiveTab;
