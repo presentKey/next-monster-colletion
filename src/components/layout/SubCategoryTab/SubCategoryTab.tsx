@@ -5,6 +5,7 @@ import useTabScroll from '@/recoil/SubCategoryTab/useTabScroll';
 import useActiveTab from '@/recoil/SubCategoryTab/useActiveTab';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import TabItem from './TabItem';
+import TabScrollEvent from '@/components/CategoryPage/TabScrollEvent/TabScrollEvent';
 
 type TabPosition = {
   [key: number]: number;
@@ -46,20 +47,23 @@ export default function SubCategoryTab({ subCategories }: Props) {
   }, []);
 
   return (
-    <aside className={styles.tab} ref={tabRef}>
-      <ul className={styles.list}>
-        {subCategories.map(({ title }, index) => (
-          <TabItem
-            key={title}
-            index={index}
-            active={active}
-            title={title}
-            scrollLeft={tabRef.current?.scrollLeft}
-            onClick={handleScrollTabClick}
-            saveTabPosition={saveTabPosition}
-          />
-        ))}
-      </ul>
-    </aside>
+    <>
+      <TabScrollEvent />
+      <aside className={styles.tab} ref={tabRef}>
+        <ul className={styles.list}>
+          {subCategories.map(({ title }, index) => (
+            <TabItem
+              key={title}
+              index={index}
+              active={active}
+              title={title}
+              scrollLeft={tabRef.current?.scrollLeft}
+              onClick={handleScrollTabClick}
+              saveTabPosition={saveTabPosition}
+            />
+          ))}
+        </ul>
+      </aside>
+    </>
   );
 }
