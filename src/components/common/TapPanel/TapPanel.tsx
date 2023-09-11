@@ -12,8 +12,7 @@ type Props = {
 
 export default function TabPanel({ title }: Props) {
   const headRef = useRef<HTMLHeadingElement>(null);
-  const { tabLable, scrollToTabPanel, savePanelPosition, clearTabLable } =
-    useScrollTabPanel();
+  const { tabLable, scrollToTabPanel, savePanelPosition } = useScrollTabPanel();
   const { youtubeToggle } = useYoutube();
 
   const throttleHandler = useMemo(
@@ -35,11 +34,7 @@ export default function TabPanel({ title }: Props) {
       const position = headRef.current?.getBoundingClientRect().top;
       scrollToTabPanel(position ?? 0);
     }
-
-    return () => {
-      clearTabLable();
-    };
-  }, [tabLable, title, scrollToTabPanel, clearTabLable]);
+  }, [tabLable, title, scrollToTabPanel]);
 
   useEffect(() => {
     detectTabPanelPositon();
@@ -50,7 +45,6 @@ export default function TabPanel({ title }: Props) {
     youtubeToggle && detectTabPanelPositon();
   }, [youtubeToggle, detectTabPanelPositon]);
 
-  // 스크롤 이벤트의 위치는 <TabScrollEvent> 컴포넌트
   useEffect(() => {
     window.addEventListener('resize', detectTabPanelPositon);
     return () => {

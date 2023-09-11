@@ -13,8 +13,6 @@ export default function useScrollTabPanel() {
     setTabLabel(e.currentTarget.getAttribute('aria-labelledby') || '');
   };
 
-  const clearTabLable = () => setTabLabel('');
-
   const scrollToTabPanel = (position: number) => {
     window.scrollBy({
       top: calcScrollAmount(position),
@@ -35,7 +33,6 @@ export default function useScrollTabPanel() {
     tabLable,
     panelPosition,
     getTabLabelOnClick,
-    clearTabLable,
     scrollToTabPanel,
     savePanelPosition,
   };
