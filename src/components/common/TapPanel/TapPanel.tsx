@@ -12,7 +12,8 @@ type Props = {
 
 export default function TabPanel({ title }: Props) {
   const headRef = useRef<HTMLHeadingElement>(null);
-  const { tabLable, scrollToTabPanel, savePanelPosition } = useScrollTabPanel();
+  const { tabLable, scrollToTabPanel, savePanelPosition, clearTabLable } =
+    useScrollTabPanel();
   const { youtubeToggle } = useYoutube();
 
   const throttleHandler = useMemo(
@@ -34,7 +35,11 @@ export default function TabPanel({ title }: Props) {
       const position = headRef.current?.getBoundingClientRect().top;
       scrollToTabPanel(position ?? 0);
     }
-  }, [tabLable, title, scrollToTabPanel]);
+
+    return () => {
+      clearTabLable();
+    };
+  }, [tabLable, title, scrollToTabPanel, clearTabLable]);
 
   useEffect(() => {
     detectTabPanelPositon();
