@@ -6,7 +6,7 @@ type TabPosition = {
   [key: number]: number;
 };
 
-export default function useMobileTabScroll() {
+export default function useActiveTabScroll() {
   const [tabPosition, setTabPosition] = useState<TabPosition>({});
   const tabRef = useRef<HTMLElement>(null);
   const { getTabLabelOnClick } = useScrollTabPanel();

@@ -3,7 +3,7 @@ import { SubCategory } from '@/model/category';
 import styles from './css/SubCategoryTab.module.css';
 import TabItem from './TabItem';
 import TabScrollEvent from '@/components/CategoryPage/TabScrollEvent/TabScrollEvent';
-import useMobileTabScroll from './hooks/useMobileTabScroll';
+import useActiveTabScroll from './hooks/useActiveTabScroll';
 
 type Props = {
   subCategories: SubCategory[];
@@ -11,7 +11,7 @@ type Props = {
 
 export default function SubCategoryTab({ subCategories }: Props) {
   const { tabRef, active, handleScrollTabClick, saveTabPosition } =
-    useMobileTabScroll();
+    useActiveTabScroll();
 
   return (
     <>
