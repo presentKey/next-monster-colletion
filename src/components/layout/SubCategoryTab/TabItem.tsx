@@ -41,7 +41,7 @@ export default function TabItem({
 
   useEffect(() => {
     detectTabPosition();
-  }, [index, detectTabPosition]);
+  }, [detectTabPosition]);
 
   useEffect(() => {
     window.addEventListener('resize', detectTabPosition);
