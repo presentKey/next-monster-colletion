@@ -1,6 +1,6 @@
 'use client';
 import useActiveTab from '@/recoil/SubCategoryTab/useActiveTab';
-import useTabScroll from '@/recoil/SubCategoryTab/useTabScroll';
+import useScrollTabPanel from '@/recoil/SubCategoryTab/useScrollTabPanel';
 import calcScrollAmount from '@/utils/calcScrollAmount';
 import tabByCategory from '@/utils/tabByCategory';
 import { throttle } from 'lodash';
@@ -9,7 +9,7 @@ import { useCallback, useEffect, useMemo } from 'react';
 
 export default function TabScrollEvent() {
   const pathname = usePathname();
-  const { panelPosition } = useTabScroll();
+  const { panelPosition } = useScrollTabPanel();
   const { handleActiveTab } = useActiveTab();
 
   const throttleHandler = useMemo(

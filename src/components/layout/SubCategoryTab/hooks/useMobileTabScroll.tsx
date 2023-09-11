@@ -1,4 +1,4 @@
-import useTabScroll from '@/recoil/SubCategoryTab/useTabScroll';
+import useScrollTabPanel from '@/recoil/SubCategoryTab/useScrollTabPanel';
 import useActiveTab from '@/recoil/SubCategoryTab/useActiveTab';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
@@ -9,11 +9,11 @@ type TabPosition = {
 export default function useMobileTabScroll() {
   const [tabPosition, setTabPosition] = useState<TabPosition>({});
   const tabRef = useRef<HTMLElement>(null);
-  const { getTabLablledby } = useTabScroll();
+  const { getTabLabelOnClick } = useScrollTabPanel();
   const { active, handleActiveTab } = useActiveTab();
   const handleScrollTabClick = (e: React.MouseEvent, index: number) => {
     handleActiveTab(index);
-    getTabLablledby(e);
+    getTabLabelOnClick(e);
   };
 
   const saveTabPosition = useCallback(
