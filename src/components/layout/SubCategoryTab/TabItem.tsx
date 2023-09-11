@@ -53,7 +53,6 @@ export default function TabItem({
   return (
     <li
       className={`${styles.item} ${index === active && styles['is-active']}`}
-      key={title}
       ref={itemRef}
       role='tab'
       aria-labelledby={title}
