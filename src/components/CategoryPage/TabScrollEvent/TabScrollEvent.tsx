@@ -1,6 +1,6 @@
 'use client';
 import useActiveTab from '@/recoil/SubCategoryTab/useActiveTab';
-import useTabScroll from '@/recoil/SubCategoryTab/useTabScroll';
+import useScrollTabPanel from '@/recoil/SubCategoryTab/useScrollTabPanel';
 import calcScrollAmount from '@/utils/calcScrollAmount';
 import tabByCategory from '@/utils/tabByCategory';
 import { throttle } from 'lodash';
@@ -9,7 +9,7 @@ import { useCallback, useEffect, useMemo } from 'react';
 
 export default function TabScrollEvent() {
   const pathname = usePathname();
-  const { panelPosition } = useTabScroll();
+  const { panelPosition } = useScrollTabPanel();
   const { handleActiveTab } = useActiveTab();
 
   const throttleHandler = useMemo(
@@ -38,13 +38,6 @@ export default function TabScrollEvent() {
       window.removeEventListener('scroll', upadteActiveTabOnScroll);
     };
   }, [upadteActiveTabOnScroll]);
-
-  // <Link> 다른 카테고리 페이지 이동 시, 스크롤 최상단 위치
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-    });
-  }, []);
 
   return <></>;
 }

@@ -31,6 +31,7 @@
     width: 10rem;
     max-height: calc(100vh - var(--global-header-height) - 2rem);
     padding-left: 0.5rem;
+    margin-bottom: 0.5rem;
     overflow-y: auto;
     overscroll-behavior: contain;
     border-bottom: none;

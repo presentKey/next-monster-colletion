@@ -3,13 +3,13 @@ import { tabId, tabPanelPositionStorage } from './atoms';
 import calcScrollAmount from '@/utils/calcScrollAmount';
 import { useCallback, useEffect } from 'react';
 
-export default function useTabScroll() {
+export default function useScrollTabPanel() {
   const [tabLable, setTabLabel] = useRecoilState(tabId);
   const [panelPosition, setPanelPosition] = useRecoilState(
     tabPanelPositionStorage
   );
 
-  const getTabLablledby = (e: React.MouseEvent) => {
+  const getTabLabelOnClick = (e: React.MouseEvent) => {
     setTabLabel(e.currentTarget.getAttribute('aria-labelledby') || '');
   };
 
@@ -34,7 +34,7 @@ export default function useTabScroll() {
   return {
     tabLable,
     panelPosition,
-    getTabLablledby,
+    getTabLabelOnClick,
     clearTabLable,
     scrollToTabPanel,
     savePanelPosition,
