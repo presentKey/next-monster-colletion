@@ -1,7 +1,6 @@
 import { service } from '@/service/pickService';
 import SubCategoryTab from '@/components/layout/SubCategoryTab/SubCategoryTab';
 import RegisterByCategory from '@/components/CategoryPage/RegisterByCategory/RegisterByCategory';
-import TabScrollEvent from '@/components/CategoryPage/TabScrollEvent/TabScrollEvent';
 import { Metadata } from 'next';
 
 type Props = {
@@ -16,7 +15,6 @@ export default async function CategoryDetailPage({ params }: Props) {
 
   return (
     <>
-      <TabScrollEvent />
       <RegisterByCategory detail={detail} path={params.slug} />
       <SubCategoryTab subCategories={subCategories} />
     </>

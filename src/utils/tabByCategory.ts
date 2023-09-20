@@ -7,50 +7,25 @@ export default function tabByCategory(
 ) {
   if (pathname === 'job') {
     return jobPage(scrolledAmount, panelPosition);
-  }
-  if (pathname === 'filedboss') {
-    return filedbossPage();
-  }
-  if (pathname === 'victoria-island') {
+  } else if (pathname === 'victoria-island') {
     return victoriaIslandPage(scrolledAmount, panelPosition);
-  }
-  if (pathname === 'victoria-isles') {
-    return victoriaIslesPage();
-  }
-  if (pathname === 'edlstein') {
-    return edlsteinPage();
-  }
-  if (pathname === 'elnath') {
+  } else if (pathname === 'elnath') {
     return elnathPage(scrolledAmount, panelPosition);
-  }
-  if (pathname === 'ludus-lake') {
+  } else if (pathname === 'ludus-lake') {
     return ludusLakePage(scrolledAmount, panelPosition);
-  }
-  if (pathname === 'aqua-road') {
-    return aquaRoadPage();
-  }
-  if (pathname === 'nihal-desert') {
+  } else if (pathname === 'nihal-desert') {
     return nihalDesertPage(scrolledAmount, panelPosition);
-  }
-  if (pathname === 'mu-lung') {
-    return muLungPage();
-  }
-  if (pathname === 'minar-forest') {
+  } else if (pathname === 'minar-forest') {
     return minarForestPage(scrolledAmount, panelPosition);
-  }
-  if (pathname === 'temple-of-time') {
+  } else if (pathname === 'temple-of-time') {
     return templeOfTimePage(scrolledAmount, panelPosition);
-  }
-  if (pathname === 'grandis') {
+  } else if (pathname === 'grandis') {
     return grandisPage(scrolledAmount, panelPosition);
-  }
-  if (pathname === 'arcane-river') {
-    return arcaneRiverPage();
-  }
-  if (pathname === 'friends') {
+  } else if (pathname === 'friends') {
     return friendsPage(scrolledAmount, panelPosition);
+  } else {
+    return 0;
   }
-  return 0;
 }
 
 function jobPage(
@@ -94,10 +69,6 @@ function jobPage(
   return newActiveTab;
 }
 
-function filedbossPage() {
-  return 0;
-}
-
 function victoriaIslandPage(
   scrolledAmount: number,
   panelPosition: TabPanelPositionStorage
@@ -118,13 +89,6 @@ function victoriaIslandPage(
   }
 
   return newActiveTab;
-}
-function victoriaIslesPage() {
-  return 0;
-}
-
-function edlsteinPage() {
-  return 0;
 }
 
 function elnathPage(
@@ -175,10 +139,6 @@ function ludusLakePage(
   return newActiveTab;
 }
 
-function aquaRoadPage() {
-  return 0;
-}
-
 function nihalDesertPage(
   scrolledAmount: number,
   panelPosition: TabPanelPositionStorage
@@ -199,10 +159,6 @@ function nihalDesertPage(
   }
 
   return newActiveTab;
-}
-
-function muLungPage() {
-  return 0;
 }
 
 function minarForestPage(
@@ -287,10 +243,6 @@ function grandisPage(
   }
 
   return newActiveTab;
-}
-
-function arcaneRiverPage() {
-  return 0;
 }
 
 function friendsPage(

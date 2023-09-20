@@ -2,7 +2,7 @@
 import { dohyeon } from '@/utils/fonts';
 import styles from './css/TapPanel.module.css';
 import { useRef, useEffect, useCallback, useMemo } from 'react';
-import useTabScroll from '@/recoil/SubCategoryTab/useTabScroll';
+import useScrollTabPanel from '@/recoil/SubCategoryTab/useScrollTabPanel';
 import { throttle } from 'lodash';
 import useYoutube from '@/recoil/Youtube/useYoutube';
 
@@ -13,7 +13,7 @@ type Props = {
 export default function TabPanel({ title }: Props) {
   const headRef = useRef<HTMLHeadingElement>(null);
   const { tabLable, scrollToTabPanel, savePanelPosition, clearTabLable } =
-    useTabScroll();
+    useScrollTabPanel();
   const { youtubeToggle } = useYoutube();
 
   const throttleHandler = useMemo(
@@ -50,7 +50,6 @@ export default function TabPanel({ title }: Props) {
     youtubeToggle && detectTabPanelPositon();
   }, [youtubeToggle, detectTabPanelPositon]);
 
-  // 스크롤 이벤트의 위치는 <TabScrollEvent> 컴포넌트
   useEffect(() => {
     window.addEventListener('resize', detectTabPanelPositon);
     return () => {
