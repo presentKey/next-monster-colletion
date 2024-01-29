@@ -74,8 +74,9 @@ function victoriaIslandPage(
   panelPosition: TabPanelPositionStorage
 ) {
   let newActiveTab;
-
-  if (scrolledAmount >= panelPosition['슬리피우드']) {
+  if (scrolledAmount >= panelPosition['커닝타워']) {
+    newActiveTab = 2;
+  } else if (scrolledAmount >= panelPosition['슬리피우드']) {
     newActiveTab = 1;
   } else {
     newActiveTab = 0;
@@ -85,7 +86,7 @@ function victoriaIslandPage(
     Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
     document.body.offsetHeight
   ) {
-    newActiveTab = 1;
+    newActiveTab = 2;
   }
 
   return newActiveTab;
