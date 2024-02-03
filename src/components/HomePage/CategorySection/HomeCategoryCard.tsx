@@ -29,9 +29,8 @@ export default function HomeCategoryCard({ category: { title, path } }: Props) {
             />
           </div>
           <div className={styles.title}>
-            <h4>{title}</h4>
+            <h4 className={styles.region}>{title}</h4>
           </div>
-          <div className={styles['dark-gradient']} />
         </div>
       </Link>
     </li>
