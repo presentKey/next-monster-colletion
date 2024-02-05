@@ -12,7 +12,7 @@ type Props = {
   monsters: SearchMonster[];
 };
 
-export default function SearchBarcontent({ monsters }: Props) {
+export default function SearchBarContent({ monsters }: Props) {
   const {
     text,
     filterdMonsters,

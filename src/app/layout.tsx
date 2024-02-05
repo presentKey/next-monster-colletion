@@ -7,15 +7,15 @@ import GlobalHeader from '@/components/layout/GlobalHeader/GlobalHeader';
 import AuthContext from '@/context/AuthContext';
 import { DarkModeProvider } from '@/context/DarkModeContext';
 import RecoilContext from '@/context/RecoilContext';
-import SideBar from '@/components/layout/SideBar/SideBar';
+import MobileSideMenu from '@/components/layout/MobileSideMenu';
 import { sans } from '@/utils/fonts';
-import BottomNav from '@/components/layout/BottomNav/BottomNav';
+import MobileBottomNav from '@/components/layout/MobileBottomNav';
 import ToastNotification from '@/components/common/ToastNotification/ToastNotification';
 import QueryProvider from '@/context/QueryContext';
 import QueryDevtools from '@/context/QueryDevtools';
 import InitialSetup from '@/components/InitialSetup/InitialSetup';
-import TimerBar from '@/components/layout/TimerBar/TimerBar';
-import SearchBar from '@/components/layout/SearchBar/SearchBar';
+import MobileTimerBar from '@/components/layout/MobileTimerBar';
+import MobileSearchBar from '@/components/layout/MobileSearchBar';
 import Footer from '@/components/layout/Footer/Footer';
 import { Metadata } from 'next';
 import GoogleAnalytics from '@/components/layout/GoogleAnalytics/GoogleAnalytics';
@@ -69,10 +69,10 @@ export default function RootLayout({
                 <GlobalHeader />
                 <main className={styles.main}>{children}</main>
               </AuthContext>
-              <SideBar />
-              <TimerBar />
-              <SearchBar />
-              <BottomNav />
+              <MobileSideMenu />
+              <MobileTimerBar />
+              <MobileSearchBar />
+              <MobileBottomNav />
               <Footer />
               <ToastNotification />
               <QueryDevtools />

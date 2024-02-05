@@ -5,7 +5,7 @@ import SwordIcon from '../../common/icons/SwordIcon';
 import SearchIcon from '../../common/icons/SearchIcon';
 import TimerIcon from '../../common/icons/TimerIcon';
 import BookMarkIcon from '../../common/icons/BookMarkIcon';
-import styles from './css/BottomNav.module.css';
+import styles from './css/index.module.css';
 import { usePathname } from 'next/navigation';
 import HomeFillIcon from '../../common/icons/HomeFillIcon';
 import BookMarkFillIcon from '../../common/icons/BookMarkIconFill';
@@ -14,7 +14,7 @@ import useTimerBar from '@/recoil/TimerBar/useTimerBar';
 import useSearchBar from '@/recoil/SearchBar/useSearchBar';
 import Badge from '@/components/common/Badge/Badge';
 
-export default function BottomNav() {
+export default function MobileBottomNav() {
   const pathname = usePathname();
   const { toggleTimerBar } = useTimerBar();
   const { toggleSearchBar } = useSearchBar();
