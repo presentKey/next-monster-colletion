@@ -27,7 +27,11 @@ export default function MonsterCount({ monsterNum }: Props) {
 
   return (
     <>
-      <span className={styles.count}>{count}</span>
+      <span
+        className={`${styles.count} ${count === 0 && styles['is-loading']}`}
+      >
+        {count === 0 ? '?' : count}
+      </span>
     </>
   );
 }
