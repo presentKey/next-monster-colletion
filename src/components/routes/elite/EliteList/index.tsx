@@ -1,22 +1,22 @@
 'use client';
 import { EliteCollections } from '@/model/monster';
-import EliteMonsterCard from '../EliteMonsterCard/EliteMonsterCard';
-import styles from './css/EliteMonsterCardList.module.css';
+import EliteCard from './EliteCard';
+import styles from './css/index.module.css';
 import { useSession } from 'next-auth/react';
 import { getUserEliteCollections } from '@/service/request/eliteCollection';
 import { useQuery } from '@tanstack/react-query';
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
 import { useCallback, useEffect, useState } from 'react';
-import SettingBar from '../SettingBar/SettingBar';
+import SettingBar from './SettingBar';
 import useBeforeUnload from '@/hooks/useBeforeUnload';
-import useCheckButton from '../hooks/useCheckButton';
+import useCheckButton from './hooks/useCheckButton';
 import { ELITENAME, MODIFIER } from '@/components/InitialSetup/InitialSetup';
 
 type Props = {
   defaultElite: EliteCollections[];
 };
 
-export default function EliteMonsterCardList({ defaultElite }: Props) {
+export default function EliteList({ defaultElite }: Props) {
   const { data: session } = useSession();
   const { save, handleDisableUnload, handleEnableUnload } = useBeforeUnload();
   const [modifierCheck, handleModifierCheck] = useCheckButton(MODIFIER);
@@ -82,7 +82,7 @@ export default function EliteMonsterCardList({ defaultElite }: Props) {
           <ol className={styles.list}>
             {eliteMonsters.map((monster, index) => (
               <li className={styles.item} key={monster.elite.name}>
-                <EliteMonsterCard
+                <EliteCard
                   monster={monster.elite}
                   index={index}
                   modifierCheck={modifierCheck}

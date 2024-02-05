@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import styles from './css/SettingBar.module.css';
 import { useState } from 'react';
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
-import CheckButton from '../CheckButton/CheckButton';
+import CheckButton from './CheckButton';
 
 type Props = {
   eliteList: EliteCollections[];
