@@ -1,5 +1,5 @@
 import { SignInResponse } from 'next-auth/react';
-import GoogleIcon from '../../common/icons/GoogleIcon';
+import GoogleIcon from '../../../common/icons/GoogleIcon';
 import styles from './css/LoginButton.module.css';
 import { useEffect, useState } from 'react';
 import UserIcon from '@/components/common/icons/UserIcon';
