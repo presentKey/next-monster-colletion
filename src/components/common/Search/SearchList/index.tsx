@@ -1,6 +1,6 @@
 import { SearchMonster } from '@/model/monster';
 import Link from 'next/link';
-import styles from './css/SearchList.module.css';
+import styles from './css/index.module.css';
 import { ForwardedRef, forwardRef } from 'react';
 
 type Props = {

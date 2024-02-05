@@ -1,6 +1,6 @@
-import styles from './css/SearchForm.module.css';
-import SearchIcon from '../icons/SearchIcon';
-import CloseIcon from '../icons/CloseIcon';
+import styles from './css/index.module.css';
+import SearchIcon from '../../icons/SearchIcon';
+import CloseIcon from '../../icons/CloseIcon';
 import { SearchMonster } from '@/model/monster';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';

@@ -1,12 +1,12 @@
 'use client';
-import SearchForm from '@/components/common/SearchForm/SearchForm';
+import SearchForm from '@/components/common/Search/SearchForm';
 import styles from './css/SearchBarContent.module.css';
 import useSearchBar from '@/recoil/SearchBar/useSearchBar';
 import CloseIcon from '@/components/common/icons/CloseIcon';
 import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';
 import { SearchMonster } from '@/model/monster';
-import SearchList from '../../common/SearchList/SearchList';
-import useSearch from '@/hooks/useSearch';
+import SearchList from '../../common/Search/SearchList';
+import useSearch from '@/components/common/Search/hooks/useSearch';
 
 type Props = {
   monsters: SearchMonster[];
