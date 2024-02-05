@@ -1,7 +1,7 @@
 import { CategoryDetailInformation } from '@/model/category';
-import InformationGroup from '../InformationGroup/InformationGroup';
+import InformationGroup from './InformationGroup';
 import TabPanel from '@/components/common/TapPanel/TapPanel';
-import styles from './css/RegisterByCategory.module.css';
+import styles from './css/index.module.css';
 import Notice from '@/components/common/Notice/Notice';
 
 const TIP_TEXT = [
