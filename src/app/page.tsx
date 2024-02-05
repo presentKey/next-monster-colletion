@@ -1,5 +1,5 @@
-import HomeCategory from '@/components/HomePage/HomeCategory/HomeCategory';
+import CategorySection from '@/components/HomePage/CategorySection';
 
 export default function HomePage() {
-  return <HomeCategory />;
+  return <CategorySection />;
 }

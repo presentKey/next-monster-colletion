@@ -38,7 +38,7 @@ export default function CategoryCard({
       <div className={styles.img}>
         <Image
           className={styles.front}
-          src={`/images/category/${path}.png`}
+          src={`/images/category/icon/${path}.png`}
           alt={`${title} 카테고리`}
           width={imgSize === 'small' ? 28 : 34}
           height={imgSize === 'small' ? 28 : 34}
