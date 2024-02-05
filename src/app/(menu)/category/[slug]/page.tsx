@@ -1,6 +1,6 @@
 import { service } from '@/service/pickService';
-import SubCategoryTab from '@/components/layout/SubCategoryTab/SubCategoryTab';
-import RegisterByCategory from '@/components/CategoryPage/RegisterByCategory/RegisterByCategory';
+import SubCategoryTab from '@/components/routes/category/layout/SubCategoryTab';
+import RegisterByCategory from '@/components/routes/category/RegisterByCategory';
 import { Metadata } from 'next';
 
 type Props = {

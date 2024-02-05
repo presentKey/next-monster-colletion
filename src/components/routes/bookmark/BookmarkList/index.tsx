@@ -1,15 +1,15 @@
 'use client';
 import { getSavedBookmarkInfo } from '@/service/request/bookmark';
 import { useQuery } from '@tanstack/react-query';
-import MonsterCardList from '../common/MonsterCardList/MonsterCardList';
-import Registration from '../common/Registration/Registration';
-import styles from './css/MemberBookmark.module.css';
-import ExplanationIndex from '../common/ExplanationIndex/ExplanationIndex';
+import MonsterCardList from '../../../common/MonsterCardList/MonsterCardList';
+import Registration from '../../../common/Registration/Registration';
+import styles from './css/index.module.css';
+import ExplanationIndex from '../../../common/ExplanationIndex/ExplanationIndex';
 import { useSession } from 'next-auth/react';
-import LoadingSpinner from '../common/LoadingSpinner/LoadingSpinner';
-import EmptyBookmark from './EmptyBookmark';
+import LoadingSpinner from '../../../common/LoadingSpinner/LoadingSpinner';
+import EmptyList from './EmptyList';
 
-export default function SavedBookmark() {
+export default function BookmarkList() {
   const { data: session } = useSession();
   const { isLoading, data: myBookmark } = useQuery(
     ['SavedBookmark', session?.user.uid],
@@ -23,7 +23,7 @@ export default function SavedBookmark() {
   if (session && isLoading) return <LoadingSpinner />;
   return (
     <div className={styles.container}>
-      {(!session || myBookmark?.bookmarks.length === 0) && <EmptyBookmark />}
+      {(!session || myBookmark?.bookmarks.length === 0) && <EmptyList />}
 
       {myBookmark?.bookmarks.map((bookmark) => (
         <article className={styles.article} key={bookmark.id}>

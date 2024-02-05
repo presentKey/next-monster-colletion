@@ -1,6 +1,6 @@
 import { service } from '@/service/pickService';
 import styles from './page.module.css';
-import EliteMonsterCardList from '@/components/ElitePage/EliteMonsterCardList/EliteMonsterCardList';
+import EliteList from '@/components/routes/elite/EliteList';
 import DragAndDropProvider from '@/components/common/DragAndDrop/DragAndDropProvider';
 import Notice from '@/components/common/Notice/Notice';
 import { Metadata } from 'next';
@@ -24,7 +24,7 @@ export default async function ElitePage() {
       <Notice type='note' textList={NOTE_TEXT} margin='1rem' />
       <Notice type='tip' textList={TIP_TEXT} />
       <DragAndDropProvider>
-        <EliteMonsterCardList defaultElite={defaultElite} />
+        <EliteList defaultElite={defaultElite} />
       </DragAndDropProvider>
     </div>
   );

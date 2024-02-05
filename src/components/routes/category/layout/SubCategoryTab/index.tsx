@@ -1,8 +1,8 @@
 'use client';
 import { SubCategory } from '@/model/category';
-import styles from './css/SubCategoryTab.module.css';
+import styles from './css/index.module.css';
 import TabItem from './TabItem';
-import TabScrollEvent from '@/components/CategoryPage/TabScrollEvent/TabScrollEvent';
+import TabScrollEvent from '@/components/routes/category/layout/SubCategoryTab/TabScrollEvent';
 import useActiveTabScroll from './hooks/useActiveTabScroll';
 
 type Props = {

@@ -1,4 +1,4 @@
-import SavedBookmark from '@/components/BookmarkPage/SavedBookmark';
+import BookmarkList from '@/components/routes/bookmark/BookmarkList';
 import styles from './page.module.css';
 import Notice from '@/components/common/Notice/Notice';
 import { Metadata } from 'next';
@@ -14,7 +14,7 @@ export default function BookmarkPage() {
   return (
     <div className={styles.container}>
       <Notice type='note' textList={NOTE_TEXT} margin='1rem' />
-      <SavedBookmark />
+      <BookmarkList />
     </div>
   );
 }

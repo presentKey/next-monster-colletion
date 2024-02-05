@@ -1,5 +1,5 @@
 import { EliteMonster } from '@/model/monster';
-import styles from './css/EliteMonsterCard.module.css';
+import styles from './css/EliteCard.module.css';
 import Image from 'next/image';
 import { useDrag, useDrop } from 'react-dnd';
 import useEliteDragAndDrop from '@/recoil/DragAndDrop/useEliteDragAndDrop';
@@ -21,7 +21,7 @@ type Props = {
   onRegisterClick: (monsterName: string) => void;
 };
 
-export default function EliteMonsterCard({
+export default function EliteCard({
   monster,
   index,
   modifierCheck,

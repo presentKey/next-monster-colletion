@@ -1,7 +1,7 @@
-import BoxOpenIcon from '../common/icons/BoxOpenIcon';
-import styles from './css/EmptyBookmark.module.css';
+import BoxOpenIcon from '../../../common/icons/BoxOpenIcon';
+import styles from './css/EmptyList.module.css';
 
-export default function EmptyBookmark() {
+export default function EmptyList() {
   return (
     <div className={styles.container}>
       <BoxOpenIcon />
