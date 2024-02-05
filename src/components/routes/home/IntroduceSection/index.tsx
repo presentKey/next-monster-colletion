@@ -1,11 +1,20 @@
-export default function IntroduceSection() {
+import MonsterCount from './MonsterCount';
+import styles from './css/index.module.css';
+import { dohyeon } from '@/utils/fonts';
+
+type Props = {
+  monsterNum: number;
+};
+
+export default function IntroduceSection({ monsterNum }: Props) {
   return (
-    <section>
-      <span>xx마리</span>
+    <section className={`${dohyeon.className} ${styles.container}`}>
+      <MonsterCount monsterNum={monsterNum} />
+      <span>마리의 특별한 등록법 및 </span>
       <br />
-      <span>특별한 방법으로 등록할 수 있거나</span>
+      <span>월드맵 검색에 없는 몬스터의</span>
       <br />
-      <span>월드맵 검색에 나오지 않는 몬스터의 등록법을 소개합니다!</span>
+      <span>등록법을 확인하세요!</span>
     </section>
   );
 }

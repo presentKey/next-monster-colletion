@@ -1,4 +1,12 @@
 .container {
   display: flex;
-  padding-top: 2rem;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 48rem) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 }

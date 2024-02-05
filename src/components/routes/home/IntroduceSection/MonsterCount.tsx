@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import styles from './css/MonsterCount.module.css';
 
 type Props = {
   monsterNum: number;
@@ -26,7 +27,7 @@ export default function MonsterCount({ monsterNum }: Props) {
 
   return (
     <>
-      <span>{count}</span>
+      <span className={styles.count}>{count}</span>
     </>
   );
 }

@@ -1,11 +1,14 @@
 import SearchFormWithList from '@/components/common/Search/SearchFormWithList';
-import { service } from '@/service/pickService';
+import { SearchMonster } from '@/model/monster';
+import styles from './css/index.module.css';
 
-export default async function SearchSection() {
-  const monsters = await service.search.getMonsters();
+type Props = {
+  monsters: SearchMonster[];
+};
 
+export default async function SearchSection({ monsters }: Props) {
   return (
-    <section>
+    <section className={styles.container}>
       <SearchFormWithList monsters={monsters} smHidden={false} />
     </section>
   );
