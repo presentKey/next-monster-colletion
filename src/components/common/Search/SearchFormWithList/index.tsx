@@ -19,7 +19,7 @@ export default function SearchFormWithList({
     searchRef,
     listRef,
     filterdMonsters,
-    select,
+    selected,
     cursor,
     listOpen,
     handleTextChange,
@@ -36,7 +36,7 @@ export default function SearchFormWithList({
     >
       <SearchForm
         text={text}
-        select={select}
+        selected={selected}
         onChange={handleTextChange}
         onTextClear={handleTextClear}
         onClick={handleOpenList}

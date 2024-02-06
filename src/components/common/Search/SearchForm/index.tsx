@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 type Props = {
   text: string;
-  select: SearchMonster | null;
+  selected: SearchMonster | null;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onTextClear: () => void;
   onClick?: () => void;
@@ -17,7 +17,7 @@ type Props = {
 
 export default function SearchForm({
   text,
-  select,
+  selected,
   onChange,
   onTextClear,
   onClick,
@@ -27,7 +27,7 @@ export default function SearchForm({
   const router = useRouter();
   const handleSumbit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (text.trim().length === 0 || !select) {
+    if (text.trim().length === 0 || !selected) {
       toast.dismiss();
       toast.warn('몬스터를 선택해주세요');
       return;
@@ -35,7 +35,7 @@ export default function SearchForm({
 
     onCloseList && onCloseList();
     onCloseSearchBar && onCloseSearchBar();
-    router.push(`/category/${select.path}?search=${select.name}`);
+    router.push(`/category/${selected.path}?search=${selected.name}`);
   };
 
   return (
