@@ -4,15 +4,18 @@ import SearchList from '../SearchList';
 import { SearchMonster } from '@/model/monster';
 import styles from './css/index.module.css';
 import useSearch from '@/components/common/Search/hooks/useSearch';
+import { usePathname } from 'next/navigation';
 
 type Props = {
   monsters: SearchMonster[];
-  smHidden?: 'sm-hidden' | false;
+  responsive?: 'sm-hidden';
+  visuallyHidden?: boolean;
 };
 
 export default function SearchFormWithList({
   monsters,
-  smHidden = 'sm-hidden',
+  responsive,
+  visuallyHidden = false,
 }: Props) {
   const {
     text,
@@ -28,10 +31,13 @@ export default function SearchFormWithList({
     handleCloseList,
     handleLinkClick,
   } = useSearch(monsters);
+  const pathname = usePathname();
 
   return (
     <div
-      className={`${smHidden ? smHidden : undefined} ${styles.search}`}
+      className={`${responsive === 'sm-hidden' ? 'sm-hidden' : undefined} ${
+        visuallyHidden && pathname === '/' && 'visually-hidden'
+      } ${styles.search}`}
       ref={searchRef}
     >
       <SearchForm

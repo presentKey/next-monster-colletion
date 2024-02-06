@@ -9,7 +9,7 @@ type Props = {
 export default async function SearchSection({ monsters }: Props) {
   return (
     <section className={styles.container}>
-      <SearchFormWithList monsters={monsters} smHidden={false} />
+      <SearchFormWithList monsters={monsters} />
     </section>
   );
 }

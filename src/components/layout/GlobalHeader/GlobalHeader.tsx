@@ -16,7 +16,11 @@ export default async function GlobalHeader() {
         <Link href='/' className={`${dohyeon.className} ${styles.title}`}>
           몬스터컬렉션
         </Link>
-        <SearchFormWithList monsters={monsters} />
+        <SearchFormWithList
+          monsters={monsters}
+          responsive='sm-hidden'
+          visuallyHidden
+        />
         <GlobalNav />
       </div>
     </header>
