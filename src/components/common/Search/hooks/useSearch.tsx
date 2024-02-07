@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 const ARROW_UP = 'ArrowUp';
 const ARROW_DOWN = 'ArrowDown';
 
+// 값 변경 시, SearchList 컴포넌트의 .list 클래스 max-height 변경해주세요.
 const SEARCH_LIST_SHOW_MAX_ITEM_COUNT = 7;
 
 type keyDirection = typeof ARROW_UP | typeof ARROW_DOWN;

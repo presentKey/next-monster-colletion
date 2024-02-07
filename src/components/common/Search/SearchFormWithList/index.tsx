@@ -10,14 +10,12 @@ type Props = {
   monsters: SearchMonster[];
   responsive?: 'sm-hidden';
   visuallyHidden?: boolean;
-  hasShadow?: boolean;
 };
 
 export default function SearchFormWithList({
   monsters,
   responsive,
   visuallyHidden = false,
-  hasShadow = true,
 }: Props) {
   const {
     text,
@@ -45,7 +43,6 @@ export default function SearchFormWithList({
       <SearchForm
         text={text}
         selected={selected}
-        hasShadow={hasShadow}
         onChange={handleTextChange}
         onTextClear={handleTextClear}
         onClick={handleOpenList}

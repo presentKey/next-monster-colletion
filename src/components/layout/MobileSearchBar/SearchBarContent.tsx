@@ -16,7 +16,7 @@ export default function SearchBarContent({ monsters }: Props) {
   const {
     text,
     filterdMonsters,
-    select,
+    selected,
     handleTextChange,
     handleTextClear,
     handleLinkClick,
@@ -31,7 +31,7 @@ export default function SearchBarContent({ monsters }: Props) {
         <header className={`${styles.header}`}>
           <SearchForm
             text={text}
-            select={select}
+            selected={selected}
             onChange={handleTextChange}
             onTextClear={handleTextClear}
             onCloseSearchBar={toggleSearchBar}
@@ -48,6 +48,7 @@ export default function SearchBarContent({ monsters }: Props) {
           monsters={filterdMonsters}
           onLinkClick={handleLinkClick}
           onCloseSearchBar={toggleSearchBar}
+          display='mobileSearchBar'
         />
       </aside>
       {open && <BackgroundOverlay onClose={toggleSearchBar} />}

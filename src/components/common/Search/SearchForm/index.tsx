@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 type Props = {
   text: string;
   selected: SearchMonster | null;
-  hasShadow?: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onTextClear: () => void;
   onClick?: () => void;
@@ -19,7 +18,6 @@ type Props = {
 export default function SearchForm({
   text,
   selected,
-  hasShadow = true,
   onChange,
   onTextClear,
   onClick,
@@ -41,10 +39,7 @@ export default function SearchForm({
   };
 
   return (
-    <form
-      className={`${styles.form} ${hasShadow && styles.shadow}`}
-      onSubmit={handleSumbit}
-    >
+    <form className={styles.form} onSubmit={handleSumbit}>
       <input
         className={styles.search}
         type='text'
