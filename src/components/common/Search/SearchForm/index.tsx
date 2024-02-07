@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 type Props = {
   text: string;
   selected: SearchMonster | null;
+  hasShadow?: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onTextClear: () => void;
   onClick?: () => void;
@@ -18,6 +19,7 @@ type Props = {
 export default function SearchForm({
   text,
   selected,
+  hasShadow = true,
   onChange,
   onTextClear,
   onClick,
@@ -39,27 +41,29 @@ export default function SearchForm({
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSumbit}>
-      <div className={styles.container}>
-        <input
-          className={styles.search}
-          type='text'
-          placeholder='몬스터 검색'
-          spellCheck={false}
-          value={text}
-          onChange={onChange}
-          onClick={onClick}
-        />
-        {text.length > 0 && (
-          <button
-            className={styles['reset-button']}
-            type='button'
-            onClick={onTextClear}
-          >
-            <CloseIcon size='small' />
-          </button>
-        )}
-      </div>
+    <form
+      className={`${styles.form} ${hasShadow && styles.shadow}`}
+      onSubmit={handleSumbit}
+    >
+      <input
+        className={styles.search}
+        type='text'
+        placeholder='몬스터 검색'
+        spellCheck={false}
+        value={text}
+        onChange={onChange}
+        onClick={onClick}
+      />
+
+      {text.length > 0 && (
+        <button
+          className={styles['reset-button']}
+          type='button'
+          onClick={onTextClear}
+        >
+          <CloseIcon size='small' />
+        </button>
+      )}
 
       <button className={styles['submit-button']} type='submit'>
         <SearchIcon color='white' />

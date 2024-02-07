@@ -20,6 +20,7 @@ export default async function GlobalHeader() {
           monsters={monsters}
           responsive='sm-hidden'
           visuallyHidden
+          hasShadow={false}
         />
         <GlobalNav />
       </div>
