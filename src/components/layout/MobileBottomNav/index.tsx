@@ -27,7 +27,7 @@ export default function MobileBottomNav() {
       </Link>
 
       <button className={styles.button} type='button' onClick={toggleSearchBar}>
-        <SearchIcon />
+        <SearchIcon size='big' />
         <span className={styles.text}>검색</span>
       </button>
 
