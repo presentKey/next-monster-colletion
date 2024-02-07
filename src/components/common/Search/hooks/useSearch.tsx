@@ -1,4 +1,5 @@
 import { SearchMonster } from '@/model/monster';
+import useSearchText from '@/recoil/SearchText/useSearchText';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 const ARROW_UP = 'ArrowUp';
@@ -10,7 +11,7 @@ const SEARCH_LIST_SHOW_MAX_ITEM_COUNT = 7;
 type keyDirection = typeof ARROW_UP | typeof ARROW_DOWN;
 
 export default function useSearch(monsters: SearchMonster[]) {
-  const [text, setText] = useState(''); // 사용자가 입력한 search form text 상태
+  const [text, setText] = useSearchText(); //사용자가 입력한 search form text 상태
   const [keyword, setKeyword] = useState(''); // search list 방향키 이벤트 발생 전, 사용자가 입력한 keyword 상태
   const [selected, setSelected] = useState<SearchMonster | null>(null); // search list에서 선택된 item
   const [cursor, setCursor] = useState<number | null>(null); // search list에서 현재 선택된 item의 cursor
