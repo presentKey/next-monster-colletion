@@ -89,16 +89,16 @@
   padding-left: 0.5rem;
   background-color: var(--color-bg);
   border-bottom-left-radius: 1rem;
+}
 
-  .region {
-    width: 6.25rem;
-    padding: 0.5rem 0;
-    font-size: var(--font-12);
-    color: var(--color-dark);
-    text-align: center;
-    background-color: var(--color-yellow);
-    border-radius: 10rem;
-  }
+.region {
+  width: 6.25rem;
+  padding: 0.5rem 0;
+  font-size: var(--font-12);
+  color: var(--color-dark);
+  text-align: center;
+  background-color: var(--color-yellow);
+  border-radius: 10rem;
 }
 
 .title::after {

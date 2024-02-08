@@ -2,13 +2,13 @@
   width: 1rem;
   height: 1rem;
   color: var(--color-font);
+}
 
-  &.white {
-    color: var(--color-white);
-  }
+.icon.white {
+  color: var(--color-white);
+}
 
-  &.big {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
+.icon.big {
+  width: 1.5rem;
+  height: 1.5rem;
 }
