@@ -2,6 +2,7 @@ import { SearchMonster } from '@/model/monster';
 import Link from 'next/link';
 import styles from './css/index.module.css';
 import { ForwardedRef, forwardRef } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 type Props = {
   monsters: SearchMonster[];
@@ -24,6 +25,7 @@ const SearchList = forwardRef(
     }: Props,
     ref: ForwardedRef<HTMLOListElement>
   ) => {
+    const searchParams = useSearchParams();
     const handleClick = (name: string) => {
       onLinkClick(name);
       onCloseList && onCloseList();
@@ -52,6 +54,7 @@ const SearchList = forwardRef(
                   query: { search: name },
                 }}
                 prefetch={false}
+                scroll={name !== searchParams.get('search')}
                 onClick={() => handleClick(name)}
               >
                 {name}

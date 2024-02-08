@@ -2,7 +2,7 @@ import styles from './css/index.module.css';
 import SearchIcon from '../../icons/SearchIcon';
 import CloseIcon from '../../icons/CloseIcon';
 import { SearchMonster } from '@/model/monster';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'react-toastify';
 
 type Props = {
@@ -25,8 +25,10 @@ export default function SearchForm({
   onCloseSearchBar,
 }: Props) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const handleSumbit = (e: React.FormEvent) => {
     e.preventDefault();
+
     if (text.trim().length === 0 || !selected) {
       toast.dismiss();
       toast.warn('몬스터를 선택해주세요');
@@ -35,7 +37,9 @@ export default function SearchForm({
 
     onCloseList && onCloseList();
     onCloseSearchBar && onCloseSearchBar();
-    router.push(`/category/${selected.path}?search=${selected.name}`);
+    router.push(`/category/${selected.path}?search=${selected.name}`, {
+      scroll: text !== searchParams.get('search'),
+    });
   };
 
   return (
