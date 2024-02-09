@@ -1,7 +1,7 @@
 import { useRecoilState } from 'recoil';
 import { sideBar } from './atoms';
 
-export default function useSideBar() {
+export default function useMobileSideMenu() {
   const [open, setOpen] = useRecoilState(sideBar);
   const toggleSideBar = () => setOpen(!open);
 

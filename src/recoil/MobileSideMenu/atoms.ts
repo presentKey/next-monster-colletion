@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
 export const sideBar = atom({
-  key: 'sideBar',
+  key: 'mobileSideMenu',
   default: false,
 });

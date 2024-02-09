@@ -1,7 +1,7 @@
 'use client';
 import ThemeButton from '../../common/ThemeButton/ThemeButton';
-import styles from './css/SideBarContent.module.css';
-import useSideBar from '@/recoil/SideBar/useSideBar';
+import styles from './css/MobileSideMenuContent.module.css';
+import useMobileSideMenu from '@/recoil/MobileSideMenu/useMobileSideMenu';
 import { MainCategory } from '@/model/category';
 import CategoryCard from '../../common/CategoryCard/CategoryCard';
 import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';
@@ -11,8 +11,8 @@ type Props = {
   categories: MainCategory[];
 };
 
-export default function SideBarContent({ categories }: Props) {
-  const { open, toggleSideBar } = useSideBar();
+export default function MobileSideMenuContent({ categories }: Props) {
+  const { open, toggleSideBar } = useMobileSideMenu();
 
   return (
     <>
