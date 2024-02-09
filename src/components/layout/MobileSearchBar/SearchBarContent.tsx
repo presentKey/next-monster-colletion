@@ -1,22 +1,22 @@
 'use client';
-import SearchForm from '@/components/common/SearchForm/SearchForm';
+import SearchForm from '@/components/common/Search/SearchForm';
 import styles from './css/SearchBarContent.module.css';
 import useSearchBar from '@/recoil/SearchBar/useSearchBar';
 import CloseIcon from '@/components/common/icons/CloseIcon';
 import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';
 import { SearchMonster } from '@/model/monster';
-import SearchList from '../../common/SearchList/SearchList';
-import useSearch from '@/hooks/useSearch';
+import SearchList from '../../common/Search/SearchList';
+import useSearch from '@/components/common/Search/hooks/useSearch';
 
 type Props = {
   monsters: SearchMonster[];
 };
 
-export default function SearchBarcontent({ monsters }: Props) {
+export default function SearchBarContent({ monsters }: Props) {
   const {
     text,
     filterdMonsters,
-    select,
+    selected,
     handleTextChange,
     handleTextClear,
     handleLinkClick,
@@ -31,7 +31,7 @@ export default function SearchBarcontent({ monsters }: Props) {
         <header className={`${styles.header}`}>
           <SearchForm
             text={text}
-            select={select}
+            selected={selected}
             onChange={handleTextChange}
             onTextClear={handleTextClear}
             onCloseSearchBar={toggleSearchBar}
@@ -48,6 +48,7 @@ export default function SearchBarcontent({ monsters }: Props) {
           monsters={filterdMonsters}
           onLinkClick={handleLinkClick}
           onCloseSearchBar={toggleSearchBar}
+          display='mobileSearchBar'
         />
       </aside>
       {open && <BackgroundOverlay onClose={toggleSearchBar} />}

@@ -1,21 +1,28 @@
 'use client';
-import SearchForm from '@/components/common/SearchForm/SearchForm';
-import SearchList from '../../common/SearchList/SearchList';
+import SearchForm from '@/components/common/Search/SearchForm';
+import SearchList from '../SearchList';
 import { SearchMonster } from '@/model/monster';
-import styles from './css/Search.module.css';
-import useSearch from '@/hooks/useSearch';
+import styles from './css/index.module.css';
+import useSearch from '@/components/common/Search/hooks/useSearch';
+import { usePathname } from 'next/navigation';
 
 type Props = {
   monsters: SearchMonster[];
+  responsive?: 'sm-hidden';
+  visuallyHidden?: boolean;
 };
 
-export default function Search({ monsters }: Props) {
+export default function SearchFormWithList({
+  monsters,
+  responsive,
+  visuallyHidden = false,
+}: Props) {
   const {
     text,
     searchRef,
     listRef,
     filterdMonsters,
-    select,
+    selected,
     cursor,
     listOpen,
     handleTextChange,
@@ -24,12 +31,18 @@ export default function Search({ monsters }: Props) {
     handleCloseList,
     handleLinkClick,
   } = useSearch(monsters);
+  const pathname = usePathname();
 
   return (
-    <div className={`sm-hidden ${styles.search}`} ref={searchRef}>
+    <div
+      className={`${responsive === 'sm-hidden' ? 'sm-hidden' : undefined} ${
+        visuallyHidden && pathname === '/' && 'visually-hidden'
+      } ${styles.search}`}
+      ref={searchRef}
+    >
       <SearchForm
         text={text}
-        select={select}
+        selected={selected}
         onChange={handleTextChange}
         onTextClear={handleTextClear}
         onClick={handleOpenList}

@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+  margin: 1rem 0;
+  font-size: var(--font-24);
+}
+
+@media screen and (min-width: 48rem) {
+  .container {
+    width: 50%;
+    padding-right: 2rem;
+    text-align: right;
+  }
+}

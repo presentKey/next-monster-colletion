@@ -3,7 +3,7 @@ import Link from 'next/link';
 import GlobalNav from './GlobalNav';
 import HamburgerMenu from './HamburgerMenu';
 import { dohyeon } from '@/utils/fonts';
-import Search from './Search';
+import SearchFormWithList from '../../common/Search/SearchFormWithList';
 import { service } from '@/service/pickService';
 
 export default async function GlobalHeader() {
@@ -16,7 +16,11 @@ export default async function GlobalHeader() {
         <Link href='/' className={`${dohyeon.className} ${styles.title}`}>
           몬스터컬렉션
         </Link>
-        <Search monsters={monsters} />
+        <SearchFormWithList
+          monsters={monsters}
+          responsive='sm-hidden'
+          visuallyHidden
+        />
         <GlobalNav />
       </div>
     </header>
