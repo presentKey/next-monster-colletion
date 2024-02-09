@@ -9,12 +9,14 @@ import { usePathname } from 'next/navigation';
 type Props = {
   category: MainCategory;
   imgSize?: 'small' | 'normal';
+  isTitleVisible?: boolean;
   onToggleSideBar?: () => void;
 };
 
 export default function CategoryCard({
   category: { title, path },
   imgSize = 'normal',
+  isTitleVisible = true,
   onToggleSideBar,
 }: Props) {
   const pathname = usePathname();
@@ -32,6 +34,7 @@ export default function CategoryCard({
       href={`/category/${path}`}
       prefetch={false}
       onClick={handleClick}
+      title={title}
     >
       <div className={styles.img}>
         <Image
@@ -49,7 +52,14 @@ export default function CategoryCard({
           height={imgSize === 'small' ? 28 : 34}
         />
       </div>
-      <span className={`${styles.title}`}>{title}</span>
+
+      <span
+        className={`${styles.title} ${
+          !isTitleVisible && styles['title-hidden']
+        }`}
+      >
+        {title}
+      </span>
     </Link>
   );
 }
