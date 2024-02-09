@@ -30,7 +30,6 @@ export default function MobileSideMenuContent({ categories }: Props) {
             <li className={styles.item} key={category.path}>
               <CategoryCard
                 category={category}
-                direction='row'
                 onToggleSideBar={toggleSideBar}
               />
             </li>

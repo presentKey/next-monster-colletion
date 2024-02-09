@@ -8,14 +8,12 @@ import { usePathname } from 'next/navigation';
 
 type Props = {
   category: MainCategory;
-  direction?: 'row' | 'column';
   imgSize?: 'small' | 'normal';
   onToggleSideBar?: () => void;
 };
 
 export default function CategoryCard({
   category: { title, path },
-  direction = 'column',
   imgSize = 'normal',
   onToggleSideBar,
 }: Props) {
@@ -28,7 +26,7 @@ export default function CategoryCard({
 
   return (
     <Link
-      className={`${styles.card} ${direction === 'row' && styles.row} ${
+      className={`${styles.card}  ${
         pathname.split('/')[2] === path && styles['is-active']
       }`}
       href={`/category/${path}`}
