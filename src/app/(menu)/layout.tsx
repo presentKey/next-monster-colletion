@@ -1,4 +1,4 @@
-import SideNav from '@/components/layout/SideNav/SideNav';
+import SideCategoryNav from '@/components/layout/SideCategoryNav';
 import { service } from '@/service/pickService';
 import styles from './layout.module.css';
 
@@ -14,7 +14,7 @@ export default async function CategoryLayout({ children }: Props) {
 
   return (
     <div className={styles.container}>
-      <SideNav categories={categories} />
+      <SideCategoryNav categories={categories} />
       <section className={styles.detail}>{children}</section>
     </div>
   );

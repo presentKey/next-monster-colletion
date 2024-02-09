@@ -3,7 +3,7 @@ import ThemeButton from '../../common/ThemeButton/ThemeButton';
 import styles from './css/MobileSideMenuContent.module.css';
 import useMobileSideMenu from '@/recoil/MobileSideMenu/useMobileSideMenu';
 import { MainCategory } from '@/model/category';
-import CategoryCard from '../../common/CategoryCard/CategoryCard';
+import CategoryCard from '../../common/CategoryCard';
 import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';
 import CloseButton from '@/components/common/CloseButton/CloseButton';
 

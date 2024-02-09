@@ -1,7 +1,7 @@
 'use client';
 import { MainCategory } from '@/model/category';
-import CategoryCard from '../../common/CategoryCard/CategoryCard';
-import styles from './css/SideNav.module.css';
+import CategoryCard from '../../common/CategoryCard';
+import styles from './css/index.module.css';
 import ArrowBarIcon from '../../common/icons/ArrowBarIcon';
 import { useRef, useState } from 'react';
 
@@ -9,7 +9,7 @@ type Props = {
   categories: MainCategory[];
 };
 
-export default function SideNav({ categories }: Props) {
+export default function SideCategoryNav({ categories }: Props) {
   const [isOpen, setIsOpen] = useState(true);
   const handleToggle = () => setIsOpen((prev) => !prev);
   const navRef = useRef<HTMLElement>(null);

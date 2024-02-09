@@ -2,7 +2,7 @@
 import { MainCategory } from '@/model/category';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './css/CategoryCard.module.css';
+import styles from './css/index.module.css';
 import useActiveTab from '@/recoil/SubCategoryTab/useActiveTab';
 import { usePathname } from 'next/navigation';
 
