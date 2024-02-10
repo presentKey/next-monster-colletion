@@ -5,12 +5,16 @@ import Link from 'next/link';
 import styles from './css/index.module.css';
 import useActiveTab from '@/recoil/SubCategoryTab/useActiveTab';
 import { usePathname } from 'next/navigation';
+import { useEffect, useRef } from 'react';
 
 type Props = {
   category: MainCategory;
   imgSize?: 'small' | 'normal';
   isTitleVisible?: boolean;
   onToggleSideBar?: () => void;
+
+  /** SideCategoyNav 컴포넌트의 linePosition 상태 변경 */
+  onSetLinePosition?: (position: number) => void;
 };
 
 export default function CategoryCard({
@@ -18,13 +22,24 @@ export default function CategoryCard({
   imgSize = 'normal',
   isTitleVisible = true,
   onToggleSideBar,
+  onSetLinePosition,
 }: Props) {
   const pathname = usePathname();
+  const cardRef = useRef<HTMLAnchorElement>(null);
   const { handleActiveTab } = useActiveTab();
   const handleClick = () => {
     setTimeout(() => handleActiveTab(0), 500);
     onToggleSideBar && onToggleSideBar();
   };
+
+  /** 첫 렌더링 시, 현재 경로에 해당하는 card로 vertical line 위치 설정 */
+  useEffect(() => {
+    if (!onSetLinePosition) return;
+
+    if (pathname.split('/')[2] === path && cardRef.current) {
+      onSetLinePosition(cardRef.current.offsetTop);
+    }
+  }, []);
 
   return (
     <Link
@@ -35,6 +50,7 @@ export default function CategoryCard({
       prefetch={false}
       onClick={handleClick}
       title={title}
+      ref={cardRef}
     >
       <div className={styles.img}>
         <Image
