@@ -4,6 +4,7 @@
   left: 0;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   width: 4rem;
   height: 100%;
   max-height: calc(100vh - var(--global-header-height) - 2rem);
@@ -18,6 +19,7 @@
 .list {
   position: relative;
   margin-top: 2.5rem;
+  overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
   white-space: nowrap;
@@ -73,7 +75,7 @@
 
 /* nav가 열렸을 때 */
 .nav.is-open {
-  width: 15rem;
+  width: 12rem;
 }
 
 .nav.is-open .toggle-button {
