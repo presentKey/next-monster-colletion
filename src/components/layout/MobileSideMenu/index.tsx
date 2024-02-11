@@ -1,8 +1,8 @@
 import { service } from '@/service/pickService';
-import SideBarContent from './SideBarContent';
+import MobileSideMenuContent from './MobileSideMenuContent';
 
 export default async function MobileSideMenu() {
   const categories = await service.category.getAllMainCategory();
 
-  return <SideBarContent categories={categories} />;
+  return <MobileSideMenuContent categories={categories} />;
 }

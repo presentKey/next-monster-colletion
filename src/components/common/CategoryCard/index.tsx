@@ -2,38 +2,55 @@
 import { MainCategory } from '@/model/category';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './css/CategoryCard.module.css';
+import styles from './css/index.module.css';
 import useActiveTab from '@/recoil/SubCategoryTab/useActiveTab';
 import { usePathname } from 'next/navigation';
+import { useEffect, useRef } from 'react';
 
 type Props = {
   category: MainCategory;
-  direction?: 'row' | 'column';
   imgSize?: 'small' | 'normal';
+  isTitleVisible?: boolean;
   onToggleSideBar?: () => void;
+
+  /** SideCategoyNav 컴포넌트의 linePosition 상태 변경 */
+  onSetLinePosition?: (position: number) => void;
 };
 
 export default function CategoryCard({
   category: { title, path },
-  direction = 'column',
   imgSize = 'normal',
+  isTitleVisible = true,
   onToggleSideBar,
+  onSetLinePosition,
 }: Props) {
   const pathname = usePathname();
+  const cardRef = useRef<HTMLAnchorElement>(null);
   const { handleActiveTab } = useActiveTab();
   const handleClick = () => {
     setTimeout(() => handleActiveTab(0), 500);
     onToggleSideBar && onToggleSideBar();
   };
 
+  /** 첫 렌더링 시, 현재 경로에 해당하는 card로 vertical line 위치 설정 */
+  useEffect(() => {
+    if (!onSetLinePosition) return;
+
+    if (pathname.split('/')[2] === path && cardRef.current) {
+      onSetLinePosition(cardRef.current.offsetTop);
+    }
+  }, [pathname]);
+
   return (
     <Link
-      className={`${styles.card} ${direction === 'row' && styles.row} ${
+      className={`${styles.card}  ${
         pathname.split('/')[2] === path && styles['is-active']
       }`}
       href={`/category/${path}`}
       prefetch={false}
       onClick={handleClick}
+      title={title}
+      ref={cardRef}
     >
       <div className={styles.img}>
         <Image
@@ -51,7 +68,14 @@ export default function CategoryCard({
           height={imgSize === 'small' ? 28 : 34}
         />
       </div>
-      <span className={`${styles.title}`}>{title}</span>
+
+      <span
+        className={`${styles.title} ${
+          !isTitleVisible && styles['title-hidden']
+        }`}
+      >
+        {title}
+      </span>
     </Link>
   );
 }

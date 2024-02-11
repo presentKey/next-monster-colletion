@@ -1,10 +1,10 @@
 'use client';
 import MenuIcon from '../../common/icons/MenuIcon';
-import useSideBar from '@/recoil/SideBar/useSideBar';
+import useMobileSideMenu from '@/recoil/MobileSideMenu/useMobileSideMenu';
 import styles from './css/HamburgerMenu.module.css';
 
 export default function HamburgerMenu() {
-  const { toggleSideBar } = useSideBar();
+  const { toggleSideBar } = useMobileSideMenu();
 
   return (
     <>
