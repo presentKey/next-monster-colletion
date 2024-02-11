@@ -1,0 +1,83 @@
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  background-color: transparent;
+  border-radius: 1rem;
+  transition: transform 0.1s ease-in-out;
+}
+
+.card.is-active {
+  background-color: var(--color-border);
+}
+
+.card.is-active .title {
+  color: var(--color-brand);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    background-color: var(--color-border);
+  }
+
+  .card.is-active:hover {
+    filter: brightness(1.05);
+  }
+
+  .card:hover .img {
+    animation: rotate-axis 2s linear infinite;
+  }
+}
+
+.card:active {
+  background-color: var(--color-border);
+  transform: scale(0.9);
+}
+
+.card:active .img {
+  animation: rotate-axis 2s linear infinite;
+}
+
+.img {
+  display: inline-grid;
+  transform-style: preserve-3d;
+  margin-right: 0.25rem;
+}
+
+.front,
+.back {
+  grid-area: 1 / 1 / 1 / 1;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.title {
+  position: relative;
+  margin-left: 0.5rem;
+  font-size: var(--font-14);
+  font-weight: bold;
+  color: var(--color-font);
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.title.title-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+@keyframes rotate-axis {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}

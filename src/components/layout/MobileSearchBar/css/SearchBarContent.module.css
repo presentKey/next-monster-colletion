@@ -1,0 +1,30 @@
+.searchbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: var(--searchbar-level);
+  width: 16.25rem;
+  height: 100%;
+  padding: 1rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: var(--color-font);
+  background-color: var(--color-bg);
+  transition: transform 0.2s ease-in-out;
+  transform: translate3d(16.25rem, 0, 0);
+}
+
+.searchbar.is-open {
+  transform: translate3d(0, 0, 0);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.close {
+  margin-left: 0.25rem;
+  color: var(--color-white);
+}
