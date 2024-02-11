@@ -176,12 +176,16 @@ export default function useSearch(monsters: SearchMonster[]) {
     return () => document.removeEventListener('click', closeSearchList);
   }, [listOpen]);
 
-  /** URL's query string 'search'값으로 text와 keyword 상태 설정  */
+  /** URL's query string 'search'값으로 text, keyword, selected 상태 설정  */
   useEffect(() => {
     const searchParam = searchParams.get('search');
     if (searchParam) {
+      const selectedMonster =
+        monsters.find((monster) => monster.name === searchParam) || null;
+
       setText(searchParam);
       setKeyword(searchParam);
+      setSelected(selectedMonster);
     }
   }, [searchParams]);
 
