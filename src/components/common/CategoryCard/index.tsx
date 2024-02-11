@@ -39,7 +39,7 @@ export default function CategoryCard({
     if (pathname.split('/')[2] === path && cardRef.current) {
       onSetLinePosition(cardRef.current.offsetTop);
     }
-  }, []);
+  }, [pathname]);
 
   return (
     <Link
