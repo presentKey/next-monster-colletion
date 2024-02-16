@@ -2,14 +2,14 @@
 import { SubCategory } from '@/model/category';
 import styles from './css/index.module.css';
 import TabItem from './TabItem';
-import TabScrollEvent from '@/components/routes/category/layout/SubCategoryTab/TabScrollEvent';
+import TabScrollEvent from '@/components/routes/category/layout/TableOfContents/TabScrollEvent';
 import useActiveTabScroll from './hooks/useActiveTabScroll';
 
 type Props = {
   subCategories: SubCategory[];
 };
 
-export default function SubCategoryTab({ subCategories }: Props) {
+export default function TableOfContents({ subCategories }: Props) {
   const { tabRef, active, handleScrollTabClick, saveTabPosition } =
     useActiveTabScroll();
 
