@@ -13,14 +13,17 @@ type Props = {
 
 export default function TableOfContents({ subCategories }: Props) {
   const tabRef = useRef<HTMLElement>(null);
-  const scrollPositionRef = useRef<number>(0);
+  const headingElementsRef = useRef<NodeListOf<HTMLHeadingElement>>();
   const headingPositionRef = useRef<Record<string, number>>({});
   const [active, setActive] = useState(0);
 
-  /** TOC Item을 클릭했을 때 해당 TOCHeading 위치로 이동하기 위해 위치 저장 */
+  /** TOC Item을 클릭했을 때 해당 TOCHeading 위치로 이동하기 위해 Heading 위치 저장 */
   const saveHeadingPosition = useMemo(
     () =>
-      throttle((headingElements: NodeListOf<HTMLHeadingElement>) => {
+      throttle(() => {
+        const headingElements = headingElementsRef.current;
+        if (!headingElements) return;
+
         headingElements.forEach((element) => {
           headingPositionRef.current[element.innerText] =
             element.getBoundingClientRect().top + window.scrollY;
@@ -29,47 +32,53 @@ export default function TableOfContents({ subCategories }: Props) {
     []
   );
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const headingEl = entry.target as HTMLHeadingElement;
+  /** scroll 시, TOC의 active 상태를 변경 */
+  const updateActiveOnScroll = useMemo(
+    () =>
+      throttle(() => {
+        const headingElements = headingElementsRef.current;
+        if (!headingElements || headingElements.length <= 1) return;
 
-          if (entry.isIntersecting) {
-            setActive(Number(headingEl.dataset.index));
-            scrollPositionRef.current = window.scrollY;
-          } else {
-            const isScrollingUp =
-              scrollPositionRef.current - window.scrollY > 0;
-
-            if (isScrollingUp) setActive((prev) => prev - 1);
+        // 현재 스크롤 값이 heading element의 위치값보다 크다면, 해당 TOC item의 active 상태 변경
+        headingElements.forEach((element) => {
+          if (
+            window.scrollY >=
+            element.getBoundingClientRect().top + window.scrollY - 100
+          ) {
+            setActive(Number(element.dataset.index));
           }
         });
-      },
-      {
-        rootMargin: '-88px 0px -80% 0px', // 48px(글로벌 헤더 높이) + 40px (윗 여백)
-      }
-    );
 
+        // 스크롤이 맨 아래 위치한다면, 마지막 TOC item의 active 상태 변경
+        if (
+          Math.ceil((window.scrollY + window.innerHeight) / 10) * 10 >=
+          document.body.offsetHeight
+        ) {
+          setActive(headingElements.length - 1);
+          return;
+        }
+      }, 200),
+    []
+  );
+
+  /** resize, scroll 이벤트 설정 */
+  useEffect(() => {
     const hadingElements = document.querySelectorAll(
       '.toc-heading'
     ) as NodeListOf<HTMLHeadingElement>;
+    headingElementsRef.current = hadingElements;
 
-    hadingElements.forEach((element) => observer.observe(element));
+    saveHeadingPosition();
+    updateActiveOnScroll();
 
-    saveHeadingPosition(hadingElements);
-
-    window.addEventListener('resize', () =>
-      saveHeadingPosition(hadingElements)
-    );
+    window.addEventListener('resize', saveHeadingPosition);
+    window.addEventListener('scroll', updateActiveOnScroll);
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener('resize', () =>
-        saveHeadingPosition(hadingElements)
-      );
+      window.removeEventListener('resize', saveHeadingPosition);
+      window.removeEventListener('scroll', updateActiveOnScroll);
     };
-  }, [saveHeadingPosition]);
+  }, [saveHeadingPosition, updateActiveOnScroll]);
 
   const handleTocClick = (title: string) => {
     window.scroll({ top: headingPositionRef.current[title] - 65 });
