@@ -7,7 +7,7 @@ type Props = {
   active: number;
   title: string;
   scrollLeft: number | undefined;
-  onClick: (e: React.MouseEvent, index: number) => void;
+  onClick: () => void;
   saveTabPosition: (index: number, position: number) => void;
 };
 
@@ -56,7 +56,7 @@ export default function TabItem({
       ref={itemRef}
       role='tab'
       aria-labelledby={title}
-      onClick={(e: React.MouseEvent) => onClick(e, index)}
+      onClick={onClick}
     >
       {title}
     </li>
