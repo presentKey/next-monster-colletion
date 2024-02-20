@@ -4,6 +4,7 @@ import styles from './css/index.module.css';
 import TocItem from './TocItem';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { throttle } from 'lodash';
+import useYoutube from '@/recoil/Youtube/useYoutube';
 
 type Props = {
   subCategories: SubCategory[];
@@ -15,6 +16,7 @@ export default function TableOfContents({ subCategories }: Props) {
   const headingPositionRef = useRef<Record<string, number>>({}); // heading의 절대위치 저장
   const mobileTocItemElementsRef = useRef<NodeListOf<HTMLLIElement>>(); // tocItem Elements 저장 (모바일 toc 가로스크롤에 사용)
   const mobileTocItemPositionRef = useRef<Record<string, number>>({}); //  tocItem의 절대위치 저장 (모바일 toc 가로스크롤에 사용)
+  const { youtubeToggle } = useYoutube();
   const [active, setActive] = useState(0);
 
   /** tocItem 클릭 시, 해당 heading으로 스크롤 이동 */
@@ -93,6 +95,9 @@ export default function TableOfContents({ subCategories }: Props) {
       window.removeEventListener('scroll', updateActiveOnScroll);
     };
   }, [saveHeadingPosition, updateActiveOnScroll]);
+
+  /** youtube 버튼 클릭 시, TOCHeading 위치 재서렂ㅇ */
+  useEffect(saveHeadingPosition, [youtubeToggle, saveHeadingPosition]);
 
   /** 모바일 toc의 가로스크롤을 위해 tocItem Elements를 저장 */
   const SaveTocItemPositionForMobile = useMemo(
