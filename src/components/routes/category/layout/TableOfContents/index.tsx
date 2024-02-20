@@ -2,8 +2,6 @@
 import { SubCategory } from '@/model/category';
 import styles from './css/index.module.css';
 import TocItem from './TocItem';
-import TabScrollEvent from '@/components/routes/category/layout/TableOfContents/TabScrollEvent';
-import useActiveTabScroll from './hooks/useActiveTabScroll';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { throttle } from 'lodash';
 
@@ -142,21 +140,18 @@ export default function TableOfContents({ subCategories }: Props) {
   }, [active]);
 
   return (
-    <>
-      {/* <TabScrollEvent /> */}
-      <aside className={styles.toc} ref={tocRef}>
-        <ul className={styles.list}>
-          {subCategories.map(({ title }, index) => (
-            <TocItem
-              key={title}
-              index={index}
-              active={active}
-              title={title}
-              onClick={() => handleTocItemClick(title)}
-            />
-          ))}
-        </ul>
-      </aside>
-    </>
+    <aside className={styles.toc} ref={tocRef}>
+      <ul className={styles.list}>
+        {subCategories.map(({ title }, index) => (
+          <TocItem
+            key={title}
+            index={index}
+            active={active}
+            title={title}
+            onClick={() => handleTocItemClick(title)}
+          />
+        ))}
+      </ul>
+    </aside>
   );
 }
