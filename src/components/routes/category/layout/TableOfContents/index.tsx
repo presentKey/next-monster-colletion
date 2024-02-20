@@ -1,7 +1,7 @@
 'use client';
 import { SubCategory } from '@/model/category';
 import styles from './css/index.module.css';
-import TabItem from './TabItem';
+import TocItem from './TocItem';
 import TabScrollEvent from '@/components/routes/category/layout/TableOfContents/TabScrollEvent';
 import useActiveTabScroll from './hooks/useActiveTabScroll';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -12,10 +12,21 @@ type Props = {
 };
 
 export default function TableOfContents({ subCategories }: Props) {
-  const tabRef = useRef<HTMLElement>(null);
-  const headingElementsRef = useRef<NodeListOf<HTMLHeadingElement>>();
-  const headingPositionRef = useRef<Record<string, number>>({});
+  const tocRef = useRef<HTMLElement>(null);
+  const headingElementsRef = useRef<NodeListOf<HTMLHeadingElement>>(); // heading Elements 저장
+  const headingPositionRef = useRef<Record<string, number>>({}); // heading의 절대위치 저장
+  const mobileTocItemElementsRef = useRef<NodeListOf<HTMLLIElement>>(); // tocItem Elements 저장 (모바일 toc 가로스크롤에 사용)
+  const mobileTocItemPositionRef = useRef<Record<string, number>>({}); //  tocItem의 절대위치 저장 (모바일 toc 가로스크롤에 사용)
   const [active, setActive] = useState(0);
+
+  /** tocItem 클릭 시, 해당 heading으로 스크롤 이동 */
+  const handleTocItemClick = (title: string) => {
+    window.scroll({
+      top: window.matchMedia('(max-width: 48rem)').matches
+        ? headingPositionRef.current[title] - 85 // 모바일
+        : headingPositionRef.current[title] - 65, // 데스크탑
+    });
+  };
 
   /** TOC Item을 클릭했을 때 해당 TOCHeading 위치로 이동하기 위해 Heading 위치 저장 */
   const saveHeadingPosition = useMemo(
@@ -39,11 +50,16 @@ export default function TableOfContents({ subCategories }: Props) {
         const headingElements = headingElementsRef.current;
         if (!headingElements || headingElements.length <= 1) return;
 
+        // 브라우저 크기에 따라 판별 위치 조정
+        const distance = window.matchMedia('(max-width: 48rem)').matches
+          ? 135
+          : 100;
+
         // 현재 스크롤 값이 heading element의 위치값보다 크다면, 해당 TOC item의 active 상태 변경
         headingElements.forEach((element) => {
           if (
             window.scrollY >=
-            element.getBoundingClientRect().top + window.scrollY - 100
+            element.getBoundingClientRect().top + window.scrollY - distance
           ) {
             setActive(Number(element.dataset.index));
           }
@@ -63,10 +79,10 @@ export default function TableOfContents({ subCategories }: Props) {
 
   /** resize, scroll 이벤트 설정 */
   useEffect(() => {
-    const hadingElements = document.querySelectorAll(
+    const haedingElements = document.querySelectorAll(
       '.toc-heading'
     ) as NodeListOf<HTMLHeadingElement>;
-    headingElementsRef.current = hadingElements;
+    headingElementsRef.current = haedingElements;
 
     saveHeadingPosition();
     updateActiveOnScroll();
@@ -80,26 +96,63 @@ export default function TableOfContents({ subCategories }: Props) {
     };
   }, [saveHeadingPosition, updateActiveOnScroll]);
 
-  const handleTocClick = (title: string) => {
-    window.scroll({ top: headingPositionRef.current[title] - 65 });
-  };
+  /** 모바일 toc의 가로스크롤을 위해 tocItem Elements를 저장 */
+  const SaveTocItemPositionForMobile = useMemo(
+    () =>
+      throttle(() => {
+        if (!window.matchMedia('(max-width: 48rem)').matches) return;
 
-  const { handleScrollTabClick, saveTabPosition } = useActiveTabScroll();
+        const tocItemElements = mobileTocItemElementsRef.current;
+        const tocElement = tocRef.current;
+
+        if (!tocElement || !tocItemElements || tocItemElements.length <= 1)
+          return;
+
+        tocItemElements.forEach((element, index) => {
+          mobileTocItemPositionRef.current[index] =
+            element.getBoundingClientRect().left + tocElement.scrollLeft;
+        });
+      }, 700),
+    []
+  );
+
+  /** 모바일 toc resize 이벤트 */
+  useEffect(() => {
+    const tocItemElements = tocRef.current?.querySelectorAll(
+      '.toc-item'
+    ) as NodeListOf<HTMLLIElement>;
+    mobileTocItemElementsRef.current = tocItemElements;
+
+    SaveTocItemPositionForMobile();
+
+    window.addEventListener('resize', SaveTocItemPositionForMobile);
+
+    return () =>
+      window.removeEventListener('resize', SaveTocItemPositionForMobile);
+  }, [SaveTocItemPositionForMobile]);
+
+  /** 모바일 toc 가로 스크롤 */
+  useEffect(() => {
+    if (window.matchMedia('(max-width: 48rem)').matches) {
+      tocRef.current?.scrollTo({
+        left: mobileTocItemPositionRef.current[active] - 50,
+        behavior: 'smooth',
+      });
+    }
+  }, [active]);
 
   return (
     <>
-      <TabScrollEvent />
-      <aside className={styles.tab} ref={tabRef}>
+      {/* <TabScrollEvent /> */}
+      <aside className={styles.toc} ref={tocRef}>
         <ul className={styles.list}>
           {subCategories.map(({ title }, index) => (
-            <TabItem
+            <TocItem
               key={title}
               index={index}
               active={active}
               title={title}
-              scrollLeft={tabRef.current?.scrollLeft}
-              onClick={() => handleTocClick(title)}
-              saveTabPosition={saveTabPosition}
+              onClick={() => handleTocItemClick(title)}
             />
           ))}
         </ul>
