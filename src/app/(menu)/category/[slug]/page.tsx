@@ -1,5 +1,5 @@
 import { service } from '@/service/pickService';
-import SubCategoryTab from '@/components/routes/category/layout/SubCategoryTab';
+import TableOfContents from '@/components/routes/category/layout/TableOfContents';
 import RegisterByCategory from '@/components/routes/category/RegisterByCategory';
 import { Metadata } from 'next';
 
@@ -16,7 +16,7 @@ export default async function CategoryDetailPage({ params }: Props) {
   return (
     <>
       <RegisterByCategory detail={detail} path={params.slug} />
-      <SubCategoryTab subCategories={subCategories} />
+      <TableOfContents subCategories={subCategories} />
     </>
   );
 }
