@@ -5,6 +5,7 @@ import TocItem from './TocItem';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { throttle } from 'lodash';
 import useYoutube from '@/recoil/Youtube/useYoutube';
+import useSideCategoryNav from '@/recoil/SideCategoryNav/useSideCategoryNav';
 
 type Props = {
   subCategories: SubCategory[];
@@ -17,6 +18,7 @@ export default function TableOfContents({ subCategories }: Props) {
   const mobileTocItemElementsRef = useRef<NodeListOf<HTMLLIElement>>(); // tocItem Elements 저장 (모바일 toc 가로스크롤에 사용)
   const mobileTocItemPositionRef = useRef<Record<string, number>>({}); //  tocItem의 절대위치 저장 (모바일 toc 가로스크롤에 사용)
   const { youtubeToggle } = useYoutube();
+  const [isSideCategoryNavOpen] = useSideCategoryNav();
   const [active, setActive] = useState(0);
 
   /** tocItem 클릭 시, 해당 heading으로 스크롤 이동 */
@@ -96,8 +98,13 @@ export default function TableOfContents({ subCategories }: Props) {
     };
   }, [saveHeadingPosition, updateActiveOnScroll]);
 
-  /** youtube 버튼 클릭 시, TOCHeading 위치 재서렂ㅇ */
+  /** youtube 버튼 클릭 시, TOCHeading 위치 재설정 */
   useEffect(saveHeadingPosition, [youtubeToggle, saveHeadingPosition]);
+
+  /** sideCategoryNav 토글 시, TOCHeading 위치 재설정 */
+  useEffect(() => {
+    setTimeout(saveHeadingPosition, 530); // css transition이 끝난 뒤, 실행
+  }, [isSideCategoryNavOpen, saveHeadingPosition]);
 
   /** 모바일 toc의 가로스크롤을 위해 tocItem Elements를 저장 */
   const SaveTocItemPositionForMobile = useMemo(

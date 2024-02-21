@@ -6,6 +6,7 @@ import ArrowBarIcon from '../../common/icons/ArrowBarIcon';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { throttle } from 'lodash';
 import { usePathname } from 'next/navigation';
+import useSideCategoryNav from '@/recoil/SideCategoryNav/useSideCategoryNav';
 
 type Props = {
   categories: MainCategory[];
@@ -13,12 +14,10 @@ type Props = {
 
 export default function SideCategoryNav({ categories }: Props) {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, handleSideCategoryNavToggle] = useSideCategoryNav();
   const [linePosition, setLinePosition] = useState<number | null>(null); // 첫 렌더링 시, 현재 경로에 해당하는 vertical line의 y position
   const navRef = useRef<HTMLElement>(null);
   const verticalLineRef = useRef<HTMLDivElement>(null);
-
-  const handleToggle = () => setIsOpen((prev) => !prev);
 
   /** 클릭한 category item으로 vertical line 위치 조정 */
   const handleVerticalLineClick = (e: React.MouseEvent<HTMLLIElement>) => {
@@ -65,7 +64,7 @@ export default function SideCategoryNav({ categories }: Props) {
       <button
         type='button'
         className={styles['toggle-button']}
-        onClick={handleToggle}
+        onClick={handleSideCategoryNavToggle}
         title={isOpen ? '카테고리 접기' : '카테고리 열기'}
       >
         <ArrowBarIcon />
