@@ -1,6 +1,6 @@
 import { CategoryDetailInformation } from '@/model/category';
 import InformationGroup from './InformationGroup';
-import TabPanel from '@/components/common/TapPanel/TapPanel';
+import TOCHeading from '@/components/routes/category/RegisterByCategory/TOCHeading';
 import styles from './css/index.module.css';
 import Notice from '@/components/common/Notice/Notice';
 
@@ -22,9 +22,9 @@ export default function RegisterByCategory({ detail, path }: Props) {
       {path === 'friends' && (
         <Notice type='tip' textList={TIP_TEXT} margin='1rem' />
       )}
-      {detail.subCategory.map((sub) => (
+      {detail.subCategory.map((sub, index) => (
         <article key={sub.title}>
-          <TabPanel title={sub.title} />
+          <TOCHeading title={sub.title} index={index} />
           <InformationGroup information={sub.information} />
         </article>
       ))}

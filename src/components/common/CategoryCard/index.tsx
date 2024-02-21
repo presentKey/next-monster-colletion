@@ -3,7 +3,6 @@ import { MainCategory } from '@/model/category';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './css/index.module.css';
-import useActiveTab from '@/recoil/SubCategoryTab/useActiveTab';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 
@@ -26,9 +25,7 @@ export default function CategoryCard({
 }: Props) {
   const pathname = usePathname();
   const cardRef = useRef<HTMLAnchorElement>(null);
-  const { handleActiveTab } = useActiveTab();
   const handleClick = () => {
-    setTimeout(() => handleActiveTab(0), 500);
     onToggleSideBar && onToggleSideBar();
   };
 

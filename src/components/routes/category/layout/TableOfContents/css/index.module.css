@@ -1,4 +1,4 @@
-.tab {
+.toc {
   position: fixed;
   top: 3rem;
   left: 0;
@@ -10,7 +10,7 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-.tab::-webkit-scrollbar {
+.toc::-webkit-scrollbar {
   display: none;
 }
 
@@ -22,7 +22,7 @@
 }
 
 @media screen and (min-width: 48rem) {
-  .tab {
+  .toc {
     position: sticky;
     top: 4rem;
     z-index: var(--category-detail-tab-level);
@@ -35,7 +35,7 @@
     overflow-y: auto;
     overscroll-behavior: contain;
     border-bottom: none;
-    border-left: 1px solid var(--color-border);
+    border-left: 2px solid var(--color-border);
   }
 
   .list {
@@ -45,20 +45,20 @@
   }
 
   /* scrollbar */
-  .tab::-webkit-scrollbar {
+  .toc::-webkit-scrollbar {
     display: block;
     width: 4px;
     height: 4px;
   }
-  .tab::-webkit-scrollbar-button {
+  .toc::-webkit-scrollbar-button {
     width: 0;
     height: 0;
   }
-  .tab::-webkit-scrollbar-thumb {
+  .toc::-webkit-scrollbar-thumb {
     background: transparent;
     border-radius: 100px;
   }
-  .tab:hover::-webkit-scrollbar-thumb {
+  .toc:hover::-webkit-scrollbar-thumb {
     background: var(--color-border-dark);
   }
 }
