@@ -8,7 +8,6 @@ import { useQuery } from '@tanstack/react-query';
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
 import { useCallback, useEffect, useState } from 'react';
 import SettingBar from './SettingBar';
-import useBeforeUnload from '@/hooks/useBeforeUnload';
 import useCheckButton from './hooks/useCheckButton';
 import { ELITENAME, MODIFIER } from '@/components/InitialSetup/InitialSetup';
 
@@ -18,7 +17,6 @@ type Props = {
 
 export default function EliteList({ defaultElite }: Props) {
   const { data: session } = useSession();
-  const { save, handleDisableUnload, handleEnableUnload } = useBeforeUnload();
   const [modifierCheck, handleModifierCheck] = useCheckButton(MODIFIER);
   const [nameCheck, handleNameCheck] = useCheckButton(ELITENAME);
   const { isLoading, data: myElite } = useQuery(
@@ -81,7 +79,6 @@ export default function EliteList({ defaultElite }: Props) {
             save={save}
             modifierCheck={modifierCheck}
             nameCheck={nameCheck}
-            onAbleLoad={handleEnableUnload}
             onModifierCheckChange={handleModifierCheck}
             onNameCheckChange={handleNameCheck}
           />
@@ -94,7 +91,6 @@ export default function EliteList({ defaultElite }: Props) {
                   modifierCheck={modifierCheck}
                   nameCheck={nameCheck}
                   cardMove={cardMove}
-                  onDisableUnload={handleDisableUnload}
                   onRegisterClick={handleRegisterClick}
                 />
               </li>

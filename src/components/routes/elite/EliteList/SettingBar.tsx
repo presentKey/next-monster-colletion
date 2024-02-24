@@ -13,7 +13,6 @@ type Props = {
   save: boolean;
   modifierCheck: boolean;
   nameCheck: boolean;
-  onAbleLoad: () => void;
   onModifierCheckChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onNameCheckChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -23,7 +22,6 @@ export default function SettingBar({
   save,
   modifierCheck,
   nameCheck,
-  onAbleLoad,
   onModifierCheckChange,
   onNameCheckChange,
 }: Props) {
@@ -42,7 +40,6 @@ export default function SettingBar({
     if (!session) {
       toast.dismiss();
       toast.warn('구글 및 비회원 로그인을 해주세요.');
-      onAbleLoad();
       setLoading(false);
       return;
     }
@@ -50,10 +47,7 @@ export default function SettingBar({
     saveMutate(undefined, {
       onSuccess: () => toast.success('엘몬 컬렉션이 저장되었습니다.'),
       onError: () => toast.warn('저장 오류가 발생했습니다.'),
-      onSettled: () => {
-        onAbleLoad();
-        setLoading(false);
-      },
+      onSettled: () => setLoading(false),
     });
   };
 

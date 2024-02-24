@@ -17,7 +17,6 @@ type Props = {
   modifierCheck: boolean;
   nameCheck: boolean;
   cardMove: (dragIndex: number, hoverIndex: number) => void;
-  onDisableUnload: () => void;
   onRegisterClick: (monsterName: string) => void;
 };
 
@@ -27,7 +26,7 @@ export default function EliteCard({
   modifierCheck,
   nameCheck,
   cardMove,
-  onDisableUnload,
+
   onRegisterClick,
 }: Props) {
   const monsterName = monster.name && monster.name.replace('[★] ', '');
@@ -37,6 +36,7 @@ export default function EliteCard({
   const [{ isDragging }, dragRef] = useDrag({
     type: CARD, // useDrop의 accept와 일치
     item: { name: monster.name, index: cardIndex }, // 드래그 중인 card 정보
+    canDrag: () => false,
     collect: (monitor) => ({ isDragging: monitor.isDragging() }), // 현재 드래깅중인지 아닌지 판별 변수를 리턴
     end: () => resetPreviewLine(), // 드래그가 끝났을 때 동작
   });
@@ -50,7 +50,6 @@ export default function EliteCard({
 
       cardMove(dragIndex, cardIndex);
       resetPreviewLine();
-      onDisableUnload();
     },
   });
 
@@ -62,10 +61,7 @@ export default function EliteCard({
         ${!modifierCheck && !nameCheck && styles['red']} 
        `}
         ref={(node) => dragRef(dropRef(node))}
-        onClick={() => {
-          onRegisterClick(monster.name);
-          onDisableUnload();
-        }}
+        onClick={() => onRegisterClick(monster.name)}
       >
         <div className={styles['image-wrap']}>
           <Image
