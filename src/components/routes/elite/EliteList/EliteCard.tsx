@@ -2,7 +2,7 @@ import { EliteMonster } from '@/model/monster';
 import styles from './css/EliteCard.module.css';
 import Image from 'next/image';
 import { useDrag, useDrop } from 'react-dnd';
-import useEliteDragAndDrop from '@/recoil/DragAndDrop/useEliteDragAndDrop';
+import useDndPreviewLine from '@/recoil/DragAndDrop/useDndPreviewLine';
 
 const CARD = 'CARD';
 
@@ -31,24 +31,25 @@ export default function EliteCard({
   onRegisterClick,
 }: Props) {
   const monsterName = monster.name && monster.name.replace('[★] ', '');
-  const { destination, handleDestination, clearDestination } =
-    useEliteDragAndDrop();
+  const { previewLine, handlePreviewLine, resetPreviewLine } =
+    useDndPreviewLine();
+
   const [{ isDragging }, dragRef] = useDrag({
     type: CARD, // useDrop의 accept와 일치
     item: { name: monster.name, index: cardIndex }, // 드래그 중인 card 정보
     collect: (monitor) => ({ isDragging: monitor.isDragging() }), // 현재 드래깅중인지 아닌지 판별 변수를 리턴
-    end: () => clearDestination(), // 드래그가 끝났을 때 동작
+    end: () => resetPreviewLine(), // 드래그가 끝났을 때 동작
   });
 
   const [, dropRef] = useDrop({
     accept: CARD, // useDrag의 type과 일치
-    hover: () => handleDestination(cardIndex),
+    hover: () => handlePreviewLine(cardIndex),
     // 드래그 중인 card가 다른 card에 떨어졌을 때 동작
     drop: ({ index: dragIndex }: DragItem) => {
       if (dragIndex === cardIndex) return;
 
       cardMove(dragIndex, cardIndex);
-      clearDestination();
+      resetPreviewLine();
       onDisableUnload();
     },
   });
@@ -90,7 +91,7 @@ export default function EliteCard({
       </div>
       <div
         className={`${styles.mark} ${
-          destination === cardIndex && styles.destination
+          previewLine === cardIndex && styles.destination
         }`}
       />
     </>
