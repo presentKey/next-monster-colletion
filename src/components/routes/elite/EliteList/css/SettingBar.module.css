@@ -5,55 +5,27 @@
   margin: 1rem 0;
 }
 
-.save-button {
-  width: 4.5rem;
-  height: 1.5rem;
+.card-set-button {
+  position: relative;
+  width: 6rem;
+  height: 2rem;
   margin: 1rem 0;
   color: var(--color-white);
-  cursor: not-allowed;
-  background-color: var(--color-border-dark);
+  background-color: var(--color-blue);
   border-radius: 0.5rem;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
 }
 
-.save-button.not-saved {
-  --border-width: 3px;
-  position: relative;
+.card-set-button.is-save {
   font-weight: bold;
   color: var(--color-dark);
-  cursor: pointer;
   background-color: var(--color-red-light);
-  border-radius: var(--border-width);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .save-button.not-saved:hover.save-button.not-saved:after {
+  .card-set-button.not-saved:hover.card-set-button.not-saved:after {
     animation-play-state: paused;
   }
-}
-
-.save-button.not-saved:after {
-  position: absolute;
-  top: calc(-1 * var(--border-width));
-  left: calc(-1 * var(--border-width));
-  z-index: -1;
-  width: calc(100% + var(--border-width) * 2);
-  height: calc(100% + var(--border-width) * 2);
-  content: '';
-  background: linear-gradient(
-    60deg,
-    #f79533,
-    #f37055,
-    #ef4e7b,
-    #a166ab,
-    #5073b8,
-    #1098ad,
-    #07b39b,
-    #6fba82
-  );
-  background-size: 300% 300%;
-  border-radius: calc(2 * var(--border-width));
-  animation: animatedgradient 3s ease alternate infinite;
 }
 
 .message {
@@ -63,16 +35,4 @@
 
 .container {
   display: flex;
-}
-
-@keyframes animatedgradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }

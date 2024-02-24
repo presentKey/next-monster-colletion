@@ -3,6 +3,7 @@ import styles from './css/EliteCard.module.css';
 import Image from 'next/image';
 import { useDrag, useDrop } from 'react-dnd';
 import useDndPreviewLine from '@/recoil/DragAndDrop/useDndPreviewLine';
+import { ELITE_CARD_SET_BTN } from '.';
 
 const CARD = 'CARD';
 
@@ -14,6 +15,7 @@ type DragItem = {
 type Props = {
   monster: EliteMonster;
   index: number;
+  cardSetBtn: ELITE_CARD_SET_BTN;
   modifierCheck: boolean;
   nameCheck: boolean;
   cardMove: (dragIndex: number, hoverIndex: number) => void;
@@ -23,6 +25,7 @@ type Props = {
 export default function EliteCard({
   monster,
   index: cardIndex,
+  cardSetBtn,
   modifierCheck,
   nameCheck,
   cardMove,
@@ -36,7 +39,7 @@ export default function EliteCard({
   const [{ isDragging }, dragRef] = useDrag({
     type: CARD, // useDrop의 accept와 일치
     item: { name: monster.name, index: cardIndex }, // 드래그 중인 card 정보
-    canDrag: () => false,
+    canDrag: () => cardSetBtn === 'SAVE' && true, // '컬렉션 저장' 버튼이 활성화 되어있으면 드래그 가능
     collect: (monitor) => ({ isDragging: monitor.isDragging() }), // 현재 드래깅중인지 아닌지 판별 변수를 리턴
     end: () => resetPreviewLine(), // 드래그가 끝났을 때 동작
   });

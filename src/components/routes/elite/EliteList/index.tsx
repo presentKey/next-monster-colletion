@@ -15,8 +15,14 @@ type Props = {
   defaultElite: EliteCollections[];
 };
 
+const CARD_MOVE_BTN = 'MOVE';
+const CARD_SAVE_BTN = 'SAVE';
+export type ELITE_CARD_SET_BTN = typeof CARD_MOVE_BTN | typeof CARD_SAVE_BTN;
+
 export default function EliteList({ defaultElite }: Props) {
   const { data: session } = useSession();
+  const [cardSetBtn, setCardSetBtn] =
+    useState<ELITE_CARD_SET_BTN>(CARD_MOVE_BTN);
   const [modifierCheck, handleModifierCheck] = useCheckButton(MODIFIER);
   const [nameCheck, handleNameCheck] = useCheckButton(ELITENAME);
   const { isLoading, data: myElite } = useQuery(
@@ -64,6 +70,10 @@ export default function EliteList({ defaultElite }: Props) {
     );
   };
 
+  /** 카드 설정 버튼 토글 시, '카드 위치 변경' 또는 '컬렉션 저장' 버튼 렌더링 */
+  const handleCardSetButtonToggle = () =>
+    setCardSetBtn((prev) => (prev === 'MOVE' ? CARD_SAVE_BTN : CARD_MOVE_BTN));
+
   useEffect(
     () => setEliteMonsters(myElite ?? defaultElite),
     [myElite, defaultElite]
@@ -76,9 +86,10 @@ export default function EliteList({ defaultElite }: Props) {
         <>
           <SettingBar
             eliteList={eliteMonsters}
-            save={save}
+            cardSetBtn={cardSetBtn}
             modifierCheck={modifierCheck}
             nameCheck={nameCheck}
+            onCardSetButtonToggle={handleCardSetButtonToggle}
             onModifierCheckChange={handleModifierCheck}
             onNameCheckChange={handleNameCheck}
           />
@@ -88,6 +99,7 @@ export default function EliteList({ defaultElite }: Props) {
                 <EliteCard
                   monster={monster.elite}
                   index={index}
+                  cardSetBtn={cardSetBtn}
                   modifierCheck={modifierCheck}
                   nameCheck={nameCheck}
                   cardMove={cardMove}

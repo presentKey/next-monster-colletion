@@ -7,21 +7,24 @@ import styles from './css/SettingBar.module.css';
 import { useState } from 'react';
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
 import CheckButton from './CheckButton';
+import { ELITE_CARD_SET_BTN } from '.';
 
 type Props = {
   eliteList: EliteCollections[];
-  save: boolean;
+  cardSetBtn: ELITE_CARD_SET_BTN;
   modifierCheck: boolean;
   nameCheck: boolean;
+  onCardSetButtonToggle: () => void;
   onModifierCheckChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onNameCheckChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function SettingBar({
   eliteList,
-  save,
+  cardSetBtn,
   modifierCheck,
   nameCheck,
+  onCardSetButtonToggle,
   onModifierCheckChange,
   onNameCheckChange,
 }: Props) {
@@ -47,22 +50,30 @@ export default function SettingBar({
     saveMutate(undefined, {
       onSuccess: () => toast.success('엘몬 컬렉션이 저장되었습니다.'),
       onError: () => toast.warn('저장 오류가 발생했습니다.'),
-      onSettled: () => setLoading(false),
+      onSettled: () => {
+        setLoading(false);
+        onCardSetButtonToggle();
+      },
     });
   };
+
+  const handleSetButtonClick = () =>
+    cardSetBtn === 'SAVE' ? handleSaveClick() : onCardSetButtonToggle();
 
   return (
     <div className={styles.bar}>
       <button
-        className={`${styles['save-button']} ${
-          !save && session && styles['not-saved']
-        } `}
+        className={`${styles['card-set-button']}
+        ${cardSetBtn === 'SAVE' && styles['is-save']}
+        `}
         type='button'
-        onClick={handleSaveClick}
-        disabled={save || loading}
+        onClick={handleSetButtonClick}
+        disabled={loading}
       >
-        {loading ? <LoadingSpinner size='small' /> : '엘몬 저장'}
+        {!loading && (cardSetBtn === 'SAVE' ? '컬렉션 저장' : '카드 위치 변경')}
+        {loading && <LoadingSpinner size='small' />}
       </button>
+
       <div className={styles.container}>
         <CheckButton
           id='modifier'
