@@ -32,16 +32,22 @@ export default function EliteList({ defaultElite }: Props) {
     []
   );
 
-  const cardMove = useCallback(
-    (dragIndex: number, hoverIndex: number) => {
-      const newCardList = [...eliteMonsters];
-      const [draggedCard] = newCardList.splice(dragIndex, 1);
-      newCardList.splice(hoverIndex, 0, draggedCard);
+  /**
+   * 두 카드의 위치 변경
+   * @param dragIndex - 드래그 중인 카드의 index
+   * @param hoverIndex - 바꿀 위치에 있는 카드의 index
+   * */
+  const cardMove = useCallback((dragIndex: number, hoverIndex: number) => {
+    setEliteMonsters((prev) => {
+      const newList = [...prev];
+      [newList[dragIndex], newList[hoverIndex]] = [
+        newList[hoverIndex],
+        newList[dragIndex],
+      ];
 
-      setEliteMonsters(newCardList);
-    },
-    [eliteMonsters]
-  );
+      return newList;
+    });
+  }, []);
 
   const handleRegisterClick = (monsterName: string) => {
     setEliteMonsters((prev) =>
