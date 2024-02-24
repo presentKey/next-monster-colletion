@@ -16,29 +16,37 @@
   filter: grayscale(0);
 }
 
-.card.is-dragging {
+.card.red {
+  background-color: var(--color-red);
+}
+
+.card.is-dragging,
+.card.red.is-dragging {
   background-color: var(--color-brand);
   filter: none;
   opacity: 0.5;
 }
 
-.card.red {
-  background-color: var(--color-red);
-}
-
-.mark {
+.preview-line {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  z-index: -10;
   display: none;
-  width: 0.25rem;
-  height: 100%;
-  border-radius: 10rem;
+  width: 112%;
+  height: 112%;
+  border-radius: 0.5rem;
+  transform: translate(-50%, -50%);
 }
 
-.mark.destination {
+.preview-line.destination {
   display: block;
   background-color: var(--color-red);
+  animation: destination 1s ease-in-out infinite;
+}
+
+.card.red + .preview-line.destination {
+  background-color: var(--color-blue);
 }
 
 .image-wrap {
@@ -92,5 +100,17 @@
 
   .name {
     font-size: var(--font-12);
+  }
+}
+
+@keyframes destination {
+  0% {
+    width: 112%;
+  }
+  50% {
+    width: 117%;
+  }
+  100% {
+    width: 112%;
   }
 }
