@@ -66,7 +66,7 @@ export default function SettingBar({
 
   return (
     <div className={styles.bar}>
-      <div>
+      <div className={styles['top-container']}>
         <button
           className={`${styles['card-set-button']}
         ${cardSetBtn === 'SAVE' && styles['is-save']}
@@ -80,7 +80,7 @@ export default function SettingBar({
           {loading && <LoadingSpinner size='small' />}
         </button>
 
-        <div className={styles.container}>
+        <div className={styles['check-btn-container']}>
           <CheckButton
             id='modifier'
             text='수식어 보기'
@@ -96,7 +96,10 @@ export default function SettingBar({
         </div>
       </div>
 
-      <div>
+      <div
+        className={`${styles['sort-container']} 
+      ${cardSetBtn === 'SAVE' && styles['is-open']}`}
+      >
         <button type='button' onClick={onSortByRegister}>
           등록 위로 모으기
         </button>

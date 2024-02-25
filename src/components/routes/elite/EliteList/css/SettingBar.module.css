@@ -1,7 +1,12 @@
 .bar {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin: 1rem 0;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-set-button {
@@ -22,18 +27,47 @@
   background-color: var(--color-red-light);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .card-set-button.not-saved:hover.card-set-button.not-saved:after {
-    animation-play-state: paused;
-  }
-}
-
 .message {
   margin-left: 0.5rem;
   color: var(--color-red);
 }
 
-.container {
+.check-btn-container {
   display: flex;
   align-items: center;
+}
+
+.sort-container {
+  max-height: 0;
+  padding-top: 0.5rem;
+  overflow: hidden;
+  visibility: hidden;
+  transition: max-height 0.4s linear, visibility 0.4s linear;
+}
+
+.sort-container.is-open {
+  max-height: 35px;
+  visibility: visible;
+  border-top: 1px solid var(--color-border);
+}
+
+.sort-container button {
+  padding: 0.25rem 1rem;
+  margin-right: 0.5rem;
+  font-size: var(--font-13);
+  color: var(--color-font);
+  background-color: rgba(154, 98, 230, 0.2);
+  border: 1px solid var(--color-brand);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+}
+
+.sort-container button:last-child {
+  margin-right: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sort-container button:hover {
+    background-color: rgba(154, 98, 230, 0.3);
+  }
 }
