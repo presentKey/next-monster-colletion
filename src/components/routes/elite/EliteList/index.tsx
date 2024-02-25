@@ -70,6 +70,26 @@ export default function EliteList({ defaultElite }: Props) {
     );
   };
 
+  /** 등록한 몬스터를 위로 모으기 */
+  const handleSortByRegister = () => {
+    setEliteMonsters((prev) =>
+      prev.sort(
+        (a, b) =>
+          Number(b.elite.isRegistred || false) -
+          Number(a.elite.isRegistred || false)
+      )
+    );
+  };
+
+  /** 수식어별 정렬 */
+  const handleSortByModifier = () => {
+    setEliteMonsters((prev) =>
+      prev.sort((a, b) =>
+        a.elite.modifier.first.localeCompare(b.elite.modifier.first)
+      )
+    );
+  };
+
   /** 카드 설정 버튼 토글 시, '카드 위치 변경' 또는 '컬렉션 저장' 버튼 렌더링 */
   const handleCardSetButtonToggle = () =>
     setCardSetBtn((prev) => (prev === 'MOVE' ? CARD_SAVE_BTN : CARD_MOVE_BTN));
@@ -92,6 +112,8 @@ export default function EliteList({ defaultElite }: Props) {
             onCardSetButtonToggle={handleCardSetButtonToggle}
             onModifierCheckChange={handleModifierCheck}
             onNameCheckChange={handleNameCheck}
+            onSortByRegister={handleSortByRegister}
+            onSortByModifier={handleSortByModifier}
           />
           <ol className={styles.list}>
             {eliteMonsters.map((monster, index) => (

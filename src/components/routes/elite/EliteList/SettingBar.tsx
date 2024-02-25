@@ -17,6 +17,8 @@ type Props = {
   onCardSetButtonToggle: () => void;
   onModifierCheckChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onNameCheckChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSortByRegister: () => void;
+  onSortByModifier: () => void;
 };
 
 export default function SettingBar({
@@ -27,6 +29,8 @@ export default function SettingBar({
   onCardSetButtonToggle,
   onModifierCheckChange,
   onNameCheckChange,
+  onSortByRegister,
+  onSortByModifier,
 }: Props) {
   const { data: session } = useSession();
   const queryClient = useQueryClient();
@@ -62,31 +66,43 @@ export default function SettingBar({
 
   return (
     <div className={styles.bar}>
-      <button
-        className={`${styles['card-set-button']}
+      <div>
+        <button
+          className={`${styles['card-set-button']}
         ${cardSetBtn === 'SAVE' && styles['is-save']}
         `}
-        type='button'
-        onClick={handleSetButtonClick}
-        disabled={loading}
-      >
-        {!loading && (cardSetBtn === 'SAVE' ? '컬렉션 저장' : '카드 위치 변경')}
-        {loading && <LoadingSpinner size='small' />}
-      </button>
+          type='button'
+          onClick={handleSetButtonClick}
+          disabled={loading}
+        >
+          {!loading &&
+            (cardSetBtn === 'SAVE' ? '컬렉션 저장' : '카드 위치 변경')}
+          {loading && <LoadingSpinner size='small' />}
+        </button>
 
-      <div className={styles.container}>
-        <CheckButton
-          id='modifier'
-          text='수식어 보기'
-          check={modifierCheck}
-          onChange={onModifierCheckChange}
-        />
-        <CheckButton
-          id='eliteName'
-          text='이름 보기'
-          check={nameCheck}
-          onChange={onNameCheckChange}
-        />
+        <div className={styles.container}>
+          <CheckButton
+            id='modifier'
+            text='수식어 보기'
+            check={modifierCheck}
+            onChange={onModifierCheckChange}
+          />
+          <CheckButton
+            id='eliteName'
+            text='이름 보기'
+            check={nameCheck}
+            onChange={onNameCheckChange}
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type='button' onClick={onSortByRegister}>
+          등록 위로 모으기
+        </button>
+        <button type='button' onClick={onSortByModifier}>
+          수식어 정렬
+        </button>
       </div>
     </div>
   );
