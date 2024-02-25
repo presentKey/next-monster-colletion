@@ -62,6 +62,7 @@ export default function EliteCard({
         className={`${styles.card} ${isDragging && styles['is-dragging']} 
         ${monster.isRegistred && styles['is-registred']} 
         ${!modifierCheck && !nameCheck && styles['green']} 
+        ${cardSetBtn === 'SAVE' && styles['cursor-grab']}
        `}
         ref={(node) => dragRef(dropRef(node))}
         onClick={() => onRegisterClick(monster.name)}
@@ -75,6 +76,7 @@ export default function EliteCard({
             sizes='70px'
           />
         </div>
+
         {(modifierCheck || nameCheck) && (
           <div className={styles['name-container']}>
             {modifierCheck && (
@@ -89,6 +91,7 @@ export default function EliteCard({
           </div>
         )}
       </div>
+
       <div
         className={`${styles['preview-line']} ${
           previewLine === cardIndex && styles.destination
