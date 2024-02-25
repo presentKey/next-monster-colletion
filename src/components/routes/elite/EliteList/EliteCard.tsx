@@ -61,7 +61,7 @@ export default function EliteCard({
       <div
         className={`${styles.card} ${isDragging && styles['is-dragging']} 
         ${monster.isRegistred && styles['is-registred']} 
-        ${!modifierCheck && !nameCheck && styles['red']} 
+        ${!modifierCheck && !nameCheck && styles['green']} 
        `}
         ref={(node) => dragRef(dropRef(node))}
         onClick={() => onRegisterClick(monster.name)}

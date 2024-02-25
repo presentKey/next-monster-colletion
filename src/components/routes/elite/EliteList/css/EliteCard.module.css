@@ -16,12 +16,12 @@
   filter: grayscale(0);
 }
 
-.card.red {
-  background-color: var(--color-red);
+.card.green {
+  background-color: var(--color-green-second);
 }
 
 .card.is-dragging,
-.card.red.is-dragging {
+.card.green.is-dragging {
   background-color: var(--color-brand);
   filter: none;
   opacity: 0.5;
@@ -43,10 +43,6 @@
   display: block;
   background-color: var(--color-red);
   animation: destination 1s ease-in-out infinite;
-}
-
-.card.red + .preview-line.destination {
-  background-color: var(--color-blue);
 }
 
 .image-wrap {
