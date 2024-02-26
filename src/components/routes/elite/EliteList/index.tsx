@@ -104,7 +104,6 @@ export default function EliteList({ defaultList }: Props) {
     [myList, defaultList]
   );
 
-  if (isLoading) return <LoadingSpinner />;
   return (
     <>
       {eliteMonsters && (
@@ -138,6 +137,12 @@ export default function EliteList({ defaultList }: Props) {
                 />
               </li>
             ))}
+
+            {isLoading && (
+              <div className={styles.loading}>
+                <LoadingSpinner position='top' color='red' />
+              </div>
+            )}
           </ol>
         </>
       )}
