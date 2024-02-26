@@ -1,9 +1,13 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem;
-  margin-right: 1.5rem;
+  gap: 0.5rem 0.25rem;
   margin-bottom: 0.5rem;
+  transition: margin 0.4s ease-out;
+}
+
+.list.mobile-scroll-area {
+  margin-right: 1.5rem;
 }
 
 .item {
@@ -15,12 +19,16 @@
 
 @media screen and (min-width: 48rem) {
   .list {
+    gap: 0.25rem;
+  }
+
+  .list.mobile-scroll-area {
     margin-right: 0;
   }
 
   .item {
     width: calc(10% - 0.25rem);
     min-width: calc(4.5rem - 0.25rem);
-    max-width: calc(5rem - 0.25rem);
+    max-width: calc(5.5rem - 0.25rem);
   }
 }

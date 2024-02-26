@@ -9,6 +9,7 @@
   background-color: var(--color-blue-dark);
   filter: grayscale(1);
   border-radius: 0.5rem;
+  border-bottom-right-radius: 0;
 }
 
 .card.is-registred {
@@ -17,6 +18,7 @@
 
 .card.green {
   background-color: var(--color-green-second);
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .card.is-dragging,

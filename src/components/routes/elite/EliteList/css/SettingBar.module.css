@@ -15,8 +15,9 @@
   width: 6rem;
   height: 2rem;
   margin: 1rem 0;
-  color: var(--color-white);
-  background-color: var(--color-blue);
+  color: var(--color-font);
+  background-color: rgba(154, 98, 230, 0.2);
+  border: 1px solid var(--color-brand);
   border-radius: 0.5rem;
   box-shadow: var(--shadow-lg);
 }
@@ -25,6 +26,19 @@
   font-weight: bold;
   color: var(--color-dark);
   background-color: var(--color-red-light);
+  border: 1px solid var(--color-red);
+}
+
+.card-set-button.is-save::before {
+  position: absolute;
+  top: -8px;
+  right: -4px;
+  width: 1rem;
+  height: 1rem;
+  content: '';
+  background-color: var(--color-red);
+  border-radius: 50%;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 .message {
@@ -39,26 +53,28 @@
 
 .sort-container {
   max-height: 0;
-  padding-top: 0.5rem;
   overflow: hidden;
   visibility: hidden;
-  transition: max-height 0.4s linear, visibility 0.4s linear;
+  transition: max-height 0.4s ease-out, visibility 0.4s ease-out;
 }
 
 .sort-container.is-open {
-  max-height: 35px;
+  max-height: 53px;
   visibility: visible;
   border-top: 1px solid var(--color-border);
 }
 
 .sort-container button {
   padding: 0.25rem 1rem;
+  margin-top: 0.75rem;
   margin-right: 0.5rem;
+  margin-bottom: 0.75rem;
   font-size: var(--font-13);
   color: var(--color-font);
-  background-color: rgba(154, 98, 230, 0.2);
-  border: 1px solid var(--color-brand);
+  background-color: var(--color-gray);
+  border: 1px solid var(--color-border-dark);
   border-radius: 0.5rem;
+  border-radius: 100px;
   box-shadow: var(--shadow);
 }
 
@@ -68,6 +84,14 @@
 
 @media (hover: hover) and (pointer: fine) {
   .sort-container button:hover {
-    background-color: rgba(154, 98, 230, 0.3);
+    background-color: var(--color-border);
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(2);
   }
 }

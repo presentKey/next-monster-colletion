@@ -115,7 +115,11 @@ export default function EliteList({ defaultElite }: Props) {
             onSortByRegister={handleSortByRegister}
             onSortByModifier={handleSortByModifier}
           />
-          <ol className={styles.list}>
+          <ol
+            className={`${styles.list} ${
+              cardSetBtn === 'SAVE' && styles['mobile-scroll-area']
+            }`}
+          >
             {eliteMonsters.map((monster, index) => (
               <li className={styles.item} key={monster.elite.name}>
                 <EliteCard
