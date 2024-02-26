@@ -3,7 +3,7 @@ import { AuthUser, UserEliteCollections } from '@/model/user';
 
 export async function getUserEliteCollections(
   user: AuthUser | undefined,
-  defaultElite: EliteCollections[]
+  defaultList: EliteCollections[]
 ): Promise<EliteCollections[] | null> {
   if (!user) return null;
 
@@ -15,9 +15,11 @@ export async function getUserEliteCollections(
     throw new Error(data.message || '서버 요청 실패');
   }
 
-  const eliteList = JSON.parse(data.eliteCollections).map(
+  // EliteCollections[] model type으로 반환되도록
+  // 서버에 저장된 엘리트 몬스터 등록 여부 데이터를 가공
+  const myList = JSON.parse(data.eliteCollections).map(
     ({ name, isRegistred }: UserEliteCollections) => {
-      const target = defaultElite.find((item) => item.elite.name === name);
+      const target = defaultList.find((item) => item.elite.name === name);
 
       return {
         elite: { ...target?.elite, isRegistred },
@@ -25,17 +27,17 @@ export async function getUserEliteCollections(
     }
   ) as EliteCollections[];
 
-  // 새로 추가된 엘리트 몬스터를 목록에 반영
-  if (eliteList.length < defaultElite.length) {
-    for (let i = eliteList.length; i <= defaultElite.length - 1; i++) {
-      const newMonster = defaultElite[i];
-      eliteList.push({
+  // 새로 추가된 엘리트 몬스터가 있는 경우 리스트에 반영
+  if (myList.length < defaultList.length) {
+    for (let i = myList.length; i <= defaultList.length - 1; i++) {
+      const newMonster = defaultList[i];
+      myList.push({
         elite: { ...newMonster.elite, isRegistred: false },
       });
     }
   }
 
-  return eliteList;
+  return myList;
 }
 
 export async function saveEliteCollections(eliteList: EliteCollections[]) {

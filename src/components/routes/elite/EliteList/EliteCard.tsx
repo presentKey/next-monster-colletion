@@ -29,7 +29,6 @@ export default function EliteCard({
   modifierCheck,
   nameCheck,
   cardMove,
-
   onRegisterClick,
 }: Props) {
   const monsterName = monster.name && monster.name.replace('[★] ', '');

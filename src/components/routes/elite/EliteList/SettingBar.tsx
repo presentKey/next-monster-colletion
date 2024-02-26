@@ -42,6 +42,8 @@ export default function SettingBar({
         queryClient.invalidateQueries(['myCollection', session?.user.uid]),
     }
   );
+
+  /** 변경된 엘리트 리스트를 저장 */
   const handleSaveClick = () => {
     setLoading(true);
     if (!session) {
@@ -75,8 +77,7 @@ export default function SettingBar({
           onClick={handleSetButtonClick}
           disabled={loading}
         >
-          {!loading &&
-            (cardSetBtn === 'SAVE' ? '컬렉션 저장' : '카드 위치 변경')}
+          {!loading && (cardSetBtn === 'SAVE' ? '컬렉션 저장' : '카드 변경')}
           {loading && <LoadingSpinner size='small' />}
         </button>
 

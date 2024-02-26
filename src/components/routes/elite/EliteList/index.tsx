@@ -12,22 +12,22 @@ import useCheckButton from './hooks/useCheckButton';
 import { ELITENAME, MODIFIER } from '@/components/InitialSetup/InitialSetup';
 
 type Props = {
-  defaultElite: EliteCollections[];
+  defaultList: EliteCollections[];
 };
 
-const CARD_MOVE_BTN = 'MOVE';
+const CARD_CHANGE_BTN = 'CHANGE';
 const CARD_SAVE_BTN = 'SAVE';
-export type ELITE_CARD_SET_BTN = typeof CARD_MOVE_BTN | typeof CARD_SAVE_BTN;
+export type ELITE_CARD_SET_BTN = typeof CARD_CHANGE_BTN | typeof CARD_SAVE_BTN;
 
-export default function EliteList({ defaultElite }: Props) {
+export default function EliteList({ defaultList }: Props) {
   const { data: session } = useSession();
   const [cardSetBtn, setCardSetBtn] =
-    useState<ELITE_CARD_SET_BTN>(CARD_MOVE_BTN);
+    useState<ELITE_CARD_SET_BTN>(CARD_CHANGE_BTN); // CHANGE = '카드 변경', SAVE = '컬렉션 저장' 버튼 렌더링 상태
   const [modifierCheck, handleModifierCheck] = useCheckButton(MODIFIER);
   const [nameCheck, handleNameCheck] = useCheckButton(ELITENAME);
-  const { isLoading, data: myElite } = useQuery(
+  const { isLoading, data: myList } = useQuery(
     ['myCollection', session?.user.uid],
-    () => getUserEliteCollections(session?.user, defaultElite),
+    () => getUserEliteCollections(session?.user, defaultList),
     {
       staleTime: 1000 * 60 * 60,
     }
@@ -53,21 +53,24 @@ export default function EliteList({ defaultElite }: Props) {
     });
   }, []);
 
+  /** 저장 버튼이 활성화 되어있는 경우, 몬스터 등록 상태 변경 */
   const handleRegisterClick = (monsterName: string) => {
-    setEliteMonsters((prev) =>
-      prev.map((monster) => {
-        if (monster.elite.name === monsterName) {
-          return {
-            elite: {
-              ...monster.elite,
-              isRegistred: !monster.elite.isRegistred,
-            },
-          };
-        }
+    if (cardSetBtn === 'SAVE') {
+      setEliteMonsters((prev) =>
+        prev.map((monster) => {
+          if (monster.elite.name === monsterName) {
+            return {
+              elite: {
+                ...monster.elite,
+                isRegistred: !monster.elite.isRegistred,
+              },
+            };
+          }
 
-        return monster;
-      })
-    );
+          return monster;
+        })
+      );
+    }
   };
 
   /** 등록한 몬스터를 위로 모으기 */
@@ -90,13 +93,15 @@ export default function EliteList({ defaultElite }: Props) {
     );
   };
 
-  /** 카드 설정 버튼 토글 시, '카드 위치 변경' 또는 '컬렉션 저장' 버튼 렌더링 */
+  /** 카드 설정 버튼 토글 시, '카드 변경' 또는 '컬렉션 저장' 버튼 렌더링 */
   const handleCardSetButtonToggle = () =>
-    setCardSetBtn((prev) => (prev === 'MOVE' ? CARD_SAVE_BTN : CARD_MOVE_BTN));
+    setCardSetBtn((prev) =>
+      prev === 'CHANGE' ? CARD_SAVE_BTN : CARD_CHANGE_BTN
+    );
 
   useEffect(
-    () => setEliteMonsters(myElite ?? defaultElite),
-    [myElite, defaultElite]
+    () => setEliteMonsters(myList ?? defaultList),
+    [myList, defaultList]
   );
 
   if (isLoading) return <LoadingSpinner />;
