@@ -10,7 +10,7 @@ import CheckButton from './CheckButton';
 import { ELITE_CARD_SET_BTN } from '.';
 
 type Props = {
-  eliteList: EliteCollections[];
+  clientList: EliteCollections[];
   cardSetBtn: ELITE_CARD_SET_BTN;
   modifierCheck: boolean;
   nameCheck: boolean;
@@ -22,7 +22,7 @@ type Props = {
 };
 
 export default function SettingBar({
-  eliteList,
+  clientList,
   cardSetBtn,
   modifierCheck,
   nameCheck,
@@ -36,7 +36,7 @@ export default function SettingBar({
   const queryClient = useQueryClient();
   const [loading, setLoading] = useState(false);
   const { mutate: saveMutate } = useMutation(
-    () => saveEliteCollections(eliteList),
+    () => saveEliteCollections(clientList),
     {
       onSuccess: () =>
         queryClient.invalidateQueries(['myCollection', session?.user.uid]),

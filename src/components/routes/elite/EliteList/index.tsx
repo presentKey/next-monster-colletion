@@ -32,9 +32,7 @@ export default function EliteList({ defaultList }: Props) {
       staleTime: 1000 * 60 * 60,
     }
   );
-  const [eliteMonsters, setEliteMonsters] = useState<EliteCollections[] | []>(
-    []
-  );
+  const [clientList, setClientList] = useState<EliteCollections[] | []>([]);
 
   /**
    * 두 카드의 위치 변경
@@ -42,7 +40,7 @@ export default function EliteList({ defaultList }: Props) {
    * @param hoverIndex - 바꿀 위치에 있는 카드의 index
    * */
   const cardMove = useCallback((dragIndex: number, hoverIndex: number) => {
-    setEliteMonsters((prev) => {
+    setClientList((prev) => {
       const newList = [...prev];
       [newList[dragIndex], newList[hoverIndex]] = [
         newList[hoverIndex],
@@ -56,7 +54,7 @@ export default function EliteList({ defaultList }: Props) {
   /** 저장 버튼이 활성화 되어있는 경우, 몬스터 등록 상태 변경 */
   const handleRegisterClick = (monsterName: string) => {
     if (cardSetBtn === 'SAVE') {
-      setEliteMonsters((prev) =>
+      setClientList((prev) =>
         prev.map((monster) => {
           if (monster.elite.name === monsterName) {
             return {
@@ -75,7 +73,7 @@ export default function EliteList({ defaultList }: Props) {
 
   /** 등록한 몬스터를 위로 모으기 */
   const handleSortByRegister = () => {
-    setEliteMonsters((prev) =>
+    setClientList((prev) =>
       prev.sort(
         (a, b) =>
           Number(b.elite.isRegistred || false) -
@@ -86,7 +84,7 @@ export default function EliteList({ defaultList }: Props) {
 
   /** 수식어별 정렬 */
   const handleSortByModifier = () => {
-    setEliteMonsters((prev) =>
+    setClientList((prev) =>
       prev.sort((a, b) =>
         a.elite.modifier.first.localeCompare(b.elite.modifier.first)
       )
@@ -99,17 +97,14 @@ export default function EliteList({ defaultList }: Props) {
       prev === 'CHANGE' ? CARD_SAVE_BTN : CARD_CHANGE_BTN
     );
 
-  useEffect(
-    () => setEliteMonsters(myList ?? defaultList),
-    [myList, defaultList]
-  );
+  useEffect(() => setClientList(myList ?? defaultList), [myList, defaultList]);
 
   return (
     <>
-      {eliteMonsters && (
+      {clientList && (
         <>
           <SettingBar
-            eliteList={eliteMonsters}
+            clientList={clientList}
             cardSetBtn={cardSetBtn}
             modifierCheck={modifierCheck}
             nameCheck={nameCheck}
@@ -124,7 +119,7 @@ export default function EliteList({ defaultList }: Props) {
               cardSetBtn === 'SAVE' && styles['mobile-scroll-area']
             }`}
           >
-            {eliteMonsters.map((monster, index) => (
+            {clientList.map((monster, index) => (
               <li className={styles.item} key={monster.elite.name}>
                 <EliteCard
                   monster={monster.elite}
