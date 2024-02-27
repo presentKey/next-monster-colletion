@@ -75,7 +75,7 @@ export default function EliteList({ defaultList }: Props) {
   /** 등록한 몬스터를 위로 모으기 */
   const handleSortByRegister = () => {
     setClientList((prev) =>
-      prev.sort(
+      [...prev].sort(
         (a, b) =>
           Number(b.elite.isRegistred || false) -
           Number(a.elite.isRegistred || false)
@@ -86,7 +86,7 @@ export default function EliteList({ defaultList }: Props) {
   /** 수식어별 정렬 */
   const handleSortByModifier = () => {
     setClientList((prev) =>
-      prev.sort((a, b) =>
+      [...prev].sort((a, b) =>
         a.elite.modifier.first.localeCompare(b.elite.modifier.first)
       )
     );
@@ -137,13 +137,15 @@ export default function EliteList({ defaultList }: Props) {
                 />
               </li>
             ))}
-            <Tooltip id='elite-tooltip' />
+
             {isLoading && (
               <div className={styles.loading}>
                 <LoadingSpinner position='top' color='red' />
               </div>
             )}
           </ol>
+
+          <Tooltip id='elite-tooltip' />
         </>
       )}
     </>
