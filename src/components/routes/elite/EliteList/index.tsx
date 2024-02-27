@@ -10,6 +10,7 @@ import { useCallback, useEffect, useState } from 'react';
 import SettingBar from './SettingBar';
 import useCheckButton from './hooks/useCheckButton';
 import { ELITENAME, MODIFIER } from '@/components/InitialSetup/InitialSetup';
+import Tooltip from '@/components/common/Tooltip';
 
 type Props = {
   defaultList: EliteCollections[];
@@ -129,10 +130,14 @@ export default function EliteList({ defaultList }: Props) {
                   nameCheck={nameCheck}
                   cardMove={cardMove}
                   onRegisterClick={handleRegisterClick}
+                  data-tooltip-id='elite-tooltip'
+                  data-tooltip-content={`${monster.elite.modifier.first} ${
+                    monster.elite.modifier?.second || ''
+                  } ${monster.elite.name}`}
                 />
               </li>
             ))}
-
+            <Tooltip id='elite-tooltip' />
             {isLoading && (
               <div className={styles.loading}>
                 <LoadingSpinner position='top' color='red' />

@@ -30,6 +30,7 @@ export default function EliteCard({
   nameCheck,
   cardMove,
   onRegisterClick,
+  ...tooltipOptions
 }: Props) {
   const monsterName = monster.name && monster.name.replace('[★] ', '');
   const { previewLine, handlePreviewLine, resetPreviewLine } =
@@ -71,6 +72,7 @@ export default function EliteCard({
        `}
         ref={(node) => dragRef(dropRef(node))}
         onClick={() => onRegisterClick(monster.name)}
+        {...tooltipOptions}
       >
         <div className={styles['image-wrap']}>
           <Image
