@@ -70,6 +70,7 @@ export default function SideCategoryNav({ categories }: Props) {
       >
         <ArrowBarIcon />
       </button>
+
       <ol className={styles.list}>
         {categories.map((category) => (
           <li
@@ -87,15 +88,16 @@ export default function SideCategoryNav({ categories }: Props) {
               data-tooltip-id='category-tooltip'
               data-tooltip-content={category.title}
             />
-
-            <Tooltip
-              id='category-tooltip'
-              hidden={isOpen}
-              place='right'
-              positionStrategy='fixed'
-            />
           </li>
         ))}
+
+        <Tooltip
+          id='category-tooltip'
+          hidden={isOpen}
+          place='right'
+          positionStrategy='fixed'
+        />
+
         <div
           className={`${
             pathname.split('/')[1] === 'category' && styles['vertical-line']
