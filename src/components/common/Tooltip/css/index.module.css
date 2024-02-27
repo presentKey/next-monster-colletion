@@ -1,3 +1,8 @@
-html[data-theme='dark'] .darkmode {
-  background-color: var(--color-brand) !important;
+.tooltip {
+  z-index: var(--tooltip-level) !important;
+}
+
+html[data-theme='dark'] .tooltip {
+  color: var(--color-dark);
+  background-color: var(--color-yellow) !important;
 }

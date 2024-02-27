@@ -49,6 +49,7 @@
   /* z-index */
   --bookmark-star-level: 10;
   --side-category-nav-level: 40;
+  --tooltip-level: 45;
   --searchlist-level: 50;
   --searchform-level: 60;
   --bottom-nav-level: 70;
