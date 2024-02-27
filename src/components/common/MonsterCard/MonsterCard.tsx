@@ -30,7 +30,7 @@ export default function MonsterCard({ monster }: Props) {
     <div
       className={`${styles.card} ${search === monster.name && styles.target}`}
       ref={cardRef}
-      data-tooltip-id='monster-tooltip' // <MonsterToolTip /> 컴포넌트
+      data-tooltip-id='monster-tooltip' // <MonsterToolTip /> 컴포넌트와 연결
       data-tooltip-content={monster.name}
     >
       <div className={styles['image-wrap']}>
