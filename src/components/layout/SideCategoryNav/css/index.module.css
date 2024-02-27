@@ -2,6 +2,7 @@
   position: sticky;
   top: 4rem;
   left: 0;
+  z-index: var(--side-category-nav-level);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;

@@ -10,6 +10,7 @@ import { useCallback, useEffect, useState } from 'react';
 import SettingBar from './SettingBar';
 import useCheckButton from './hooks/useCheckButton';
 import { ELITENAME, MODIFIER } from '@/components/InitialSetup/InitialSetup';
+import Tooltip from '@/components/common/Tooltip';
 
 type Props = {
   defaultList: EliteCollections[];
@@ -74,7 +75,7 @@ export default function EliteList({ defaultList }: Props) {
   /** 등록한 몬스터를 위로 모으기 */
   const handleSortByRegister = () => {
     setClientList((prev) =>
-      prev.sort(
+      [...prev].sort(
         (a, b) =>
           Number(b.elite.isRegistred || false) -
           Number(a.elite.isRegistred || false)
@@ -85,7 +86,7 @@ export default function EliteList({ defaultList }: Props) {
   /** 수식어별 정렬 */
   const handleSortByModifier = () => {
     setClientList((prev) =>
-      prev.sort((a, b) =>
+      [...prev].sort((a, b) =>
         a.elite.modifier.first.localeCompare(b.elite.modifier.first)
       )
     );
@@ -129,6 +130,10 @@ export default function EliteList({ defaultList }: Props) {
                   nameCheck={nameCheck}
                   cardMove={cardMove}
                   onRegisterClick={handleRegisterClick}
+                  data-tooltip-id='elite-tooltip'
+                  data-tooltip-content={`${monster.elite.modifier.first} ${
+                    monster.elite.modifier?.second || ''
+                  } ${monster.elite.name}`}
                 />
               </li>
             ))}
@@ -139,6 +144,8 @@ export default function EliteList({ defaultList }: Props) {
               </div>
             )}
           </ol>
+
+          <Tooltip id='elite-tooltip' />
         </>
       )}
     </>

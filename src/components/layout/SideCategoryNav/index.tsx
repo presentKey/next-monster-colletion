@@ -7,6 +7,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { throttle } from 'lodash';
 import { usePathname } from 'next/navigation';
 import useSideCategoryNav from '@/recoil/SideCategoryNav/useSideCategoryNav';
+import Tooltip from '@/components/common/Tooltip';
 
 type Props = {
   categories: MainCategory[];
@@ -69,6 +70,7 @@ export default function SideCategoryNav({ categories }: Props) {
       >
         <ArrowBarIcon />
       </button>
+
       <ol className={styles.list}>
         {categories.map((category) => (
           <li
@@ -83,9 +85,19 @@ export default function SideCategoryNav({ categories }: Props) {
               imgSize='small'
               isTitleVisible={isOpen}
               onSetLinePosition={setLinePosition}
+              data-tooltip-id='category-tooltip'
+              data-tooltip-content={category.title}
             />
           </li>
         ))}
+
+        <Tooltip
+          id='category-tooltip'
+          hidden={isOpen}
+          place='right'
+          positionStrategy='fixed'
+        />
+
         <div
           className={`${
             pathname.split('/')[1] === 'category' && styles['vertical-line']
