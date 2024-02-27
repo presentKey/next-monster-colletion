@@ -2,6 +2,7 @@ import { service } from '@/service/pickService';
 import TableOfContents from '@/components/routes/category/layout/TableOfContents';
 import RegisterByCategory from '@/components/routes/category/RegisterByCategory';
 import { Metadata } from 'next';
+import MontserTooltip from '@/components/routes/category/MonsterTooltip';
 
 type Props = {
   params: {
@@ -15,6 +16,7 @@ export default async function CategoryDetailPage({ params }: Props) {
 
   return (
     <>
+      <MontserTooltip />
       <RegisterByCategory detail={detail} path={params.slug} />
       <TableOfContents subCategories={subCategories} />
     </>
