@@ -1,0 +1,3 @@
+html[data-theme='dark'] .darkmode {
+  background-color: var(--color-brand) !important;
+}

@@ -7,7 +7,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { throttle } from 'lodash';
 import { usePathname } from 'next/navigation';
 import useSideCategoryNav from '@/recoil/SideCategoryNav/useSideCategoryNav';
-import { Tooltip } from 'react-tooltip';
+import Tooltip from '@/components/common/Tooltip';
 
 type Props = {
   categories: MainCategory[];
@@ -87,6 +87,7 @@ export default function SideCategoryNav({ categories }: Props) {
               data-tooltip-id='category-tooltip'
               data-tooltip-content={category.title}
             />
+
             <Tooltip
               id='category-tooltip'
               hidden={isOpen}
