@@ -40,7 +40,15 @@ export default function EliteCard({
     item: { name: monster.name, index: cardIndex }, // 드래그 중인 card 정보
     canDrag: () => cardSetBtn === 'SAVE' && true, // '컬렉션 저장' 버튼이 활성화 되어있으면 드래그 가능
     collect: (monitor) => ({ isDragging: monitor.isDragging() }), // 현재 드래깅중인지 아닌지 판별 변수를 리턴
-    end: () => resetPreviewLine(), // 드래그가 끝났을 때 동작
+    end: (item, monitor) => {
+      // 드래그가 끝났을 때 동작
+      resetPreviewLine();
+      const { name: dragName, index: dragIndex } = item;
+      // 드랍 영역 밖에 떨어졌을 때, 원래 위치 유지
+      if (!monitor.didDrop()) {
+        cardMove(dragIndex, cardIndex);
+      }
+    },
   });
 
   const [, dropRef] = useDrop({
@@ -48,8 +56,6 @@ export default function EliteCard({
     hover: () => handlePreviewLine(cardIndex),
     // 드래그 중인 card가 다른 card에 떨어졌을 때 동작
     drop: ({ index: dragIndex }: DragItem) => {
-      if (dragIndex === cardIndex) return;
-
       cardMove(dragIndex, cardIndex);
       resetPreviewLine();
     },
