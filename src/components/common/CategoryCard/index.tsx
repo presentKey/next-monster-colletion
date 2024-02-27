@@ -22,6 +22,7 @@ export default function CategoryCard({
   isTitleVisible = true,
   onToggleSideBar,
   onSetLinePosition,
+  ...tooltipOptions
 }: Props) {
   const pathname = usePathname();
   const cardRef = useRef<HTMLAnchorElement>(null);
@@ -39,40 +40,42 @@ export default function CategoryCard({
   }, [pathname]);
 
   return (
-    <Link
-      className={`${styles.card}  ${
-        pathname.split('/')[2] === path && styles['is-active']
-      }`}
-      href={`/category/${path}`}
-      prefetch={false}
-      onClick={handleClick}
-      title={title}
-      ref={cardRef}
-    >
-      <div className={styles.img}>
-        <Image
-          className={styles.front}
-          src={`/images/category/icon/${path}.png`}
-          alt={`${title} 카테고리`}
-          width={imgSize === 'small' ? 28 : 34}
-          height={imgSize === 'small' ? 28 : 34}
-        />
-        <Image
-          className={styles.back}
-          src='/images/momong.png'
-          alt='모몽 이미지'
-          width={imgSize === 'small' ? 28 : 34}
-          height={imgSize === 'small' ? 28 : 34}
-        />
-      </div>
-
-      <span
-        className={`${styles.title} ${
-          !isTitleVisible && styles['title-hidden']
+    <>
+      <Link
+        className={`${styles.card}  ${
+          pathname.split('/')[2] === path && styles['is-active']
         }`}
+        href={`/category/${path}`}
+        prefetch={false}
+        onClick={handleClick}
+        ref={cardRef}
+        {...tooltipOptions}
       >
-        {title}
-      </span>
-    </Link>
+        <div className={styles.img}>
+          <Image
+            className={styles.front}
+            src={`/images/category/icon/${path}.png`}
+            alt={`${title} 카테고리`}
+            width={imgSize === 'small' ? 28 : 34}
+            height={imgSize === 'small' ? 28 : 34}
+          />
+          <Image
+            className={styles.back}
+            src='/images/momong.png'
+            alt='모몽 이미지'
+            width={imgSize === 'small' ? 28 : 34}
+            height={imgSize === 'small' ? 28 : 34}
+          />
+        </div>
+
+        <span
+          className={`${styles.title} ${
+            !isTitleVisible && styles['title-hidden']
+          }`}
+        >
+          {title}
+        </span>
+      </Link>
+    </>
   );
 }
