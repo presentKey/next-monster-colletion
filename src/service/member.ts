@@ -83,10 +83,18 @@ export async function getEliteCollections(
     }`
   );
 }
+
 export async function updateEliteCollections(uid: string, updateList: string) {
   return client //
     .patch(uid)
     .setIfMissing({ eliteCollections: '' })
     .set({ eliteCollections: updateList })
+    .commit();
+}
+
+export async function memberBookmarkReset(uid: string) {
+  return client //
+    .patch(uid)
+    .set({ bookmarks: [] })
     .commit();
 }
