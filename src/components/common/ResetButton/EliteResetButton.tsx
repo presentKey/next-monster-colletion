@@ -4,11 +4,14 @@ import { toast } from 'react-toastify';
 import styles from './css/ResetButton.module.css';
 import { resetEliteCollections } from '@/service/request/eliteCollection';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 export default function EliteResetButton() {
   const { data: session } = useSession();
   const router = useRouter();
   const queryClient = useQueryClient();
+  const [isLoading, setIsLoading] = useState(false);
   const { mutate: resetMutate } = useMutation(() => resetEliteCollections(), {
     onSuccess: () => {
       queryClient.resetQueries(['myCollection', session?.user.uid]);
@@ -17,9 +20,12 @@ export default function EliteResetButton() {
   });
 
   const handleButtonClick = () => {
+    setIsLoading(true);
+
     resetMutate(undefined, {
       onSuccess: () => toast.success('엘리트 초기화 성공'),
       onError: () => toast.warn('엘리트 초기화 실패'),
+      onSettled: () => setIsLoading(false),
     });
   };
 
@@ -31,8 +37,10 @@ export default function EliteResetButton() {
         className={styles.button}
         type='button'
         onClick={handleButtonClick}
+        disabled={isLoading}
       >
         엘리트 초기화
+        {isLoading && <LoadingSpinner size='small' />}
       </button>
     </div>
   );

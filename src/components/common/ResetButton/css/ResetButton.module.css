@@ -8,10 +8,15 @@
 }
 
 .button {
+  position: relative;
   padding: 0.5rem;
   margin-top: 0.5rem;
   font-size: var(--font-14);
   color: var(--color-white);
   background-color: var(--color-red);
   border-radius: 0.25rem;
+}
+
+.button:disabled {
+  background-color: var(--color-border);
 }
