@@ -98,3 +98,10 @@ export async function memberBookmarkReset(uid: string) {
     .set({ bookmarks: [] })
     .commit();
 }
+
+export async function memberEliteCollectionsReset(uid: string) {
+  return client //
+    .patch(uid)
+    .set({ eliteCollections: '' })
+    .commit();
+}
