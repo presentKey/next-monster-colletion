@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
-import styles from './css/BookmarkResetButton.module.css';
+import styles from './css/ResetButton.module.css';
 
 export default function BookmarkResetButton() {
   const { data: session } = useSession();

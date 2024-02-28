@@ -1,8 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
-
 import { toast } from 'react-toastify';
-import styles from './css/EliteResetButton.module.css';
+import styles from './css/ResetButton.module.css';
 import { resetEliteCollections } from '@/service/request/eliteCollection';
 import { useRouter } from 'next/navigation';
 
