@@ -51,3 +51,15 @@ export async function saveEliteCollections(eliteList: EliteCollections[]) {
     throw new Error(data.message || '서버 요청 실패');
   }
 }
+
+export async function resetEliteCollections() {
+  const response = await fetch('/api/elite/reset', {
+    method: 'PUT',
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || '서버 요청 실패');
+  }
+}
