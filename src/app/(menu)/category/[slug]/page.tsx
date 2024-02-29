@@ -1,6 +1,6 @@
 import { service } from '@/service/pickService';
 import TableOfContents from '@/components/routes/category/layout/TableOfContents';
-import RegisterByCategory from '@/components/routes/category/RegisterByCategory';
+import InformationByCategory from '@/components/routes/category/InformationByCategory';
 import { Metadata } from 'next';
 
 type Props = {
@@ -10,12 +10,14 @@ type Props = {
 };
 
 export default async function CategoryDetailPage({ params }: Props) {
-  const detail = await service.category.getCategoryDetailInfo(params.slug);
-  const subCategories = detail.subCategory.map((sub) => ({ title: sub.title }));
+  const detailInfo = await service.category.getCategoryDetailInfo(params.slug);
+  const subCategories = detailInfo.subCategory.map((sub) => ({
+    title: sub.title,
+  }));
 
   return (
     <>
-      <RegisterByCategory detail={detail} path={params.slug} />
+      <InformationByCategory detailInfo={detailInfo} path={params.slug} />
       <TableOfContents subCategories={subCategories} />
     </>
   );

@@ -1,6 +1,6 @@
 import { CategoryDetailInformation } from '@/model/category';
 import InformationGroup from './InformationGroup';
-import TOCHeading from '@/components/routes/category/RegisterByCategory/TOCHeading';
+import TOCHeading from '@/components/routes/category/InformationByCategory/TOCHeading';
 import styles from './css/index.module.css';
 import Notice from '@/components/common/Notice/Notice';
 
@@ -12,17 +12,18 @@ const TIP_TEXT = [
 ];
 
 type Props = {
-  detail: CategoryDetailInformation;
+  detailInfo: CategoryDetailInformation;
   path: string;
 };
 
-export default function RegisterByCategory({ detail, path }: Props) {
+export default function InformationByCategory({ detailInfo, path }: Props) {
   return (
     <div className={styles.container}>
       {path === 'friends' && (
         <Notice type='tip' textList={TIP_TEXT} margin='1rem' />
       )}
-      {detail.subCategory.map((sub, index) => (
+
+      {detailInfo.subCategory.map((sub, index) => (
         <article key={sub.title}>
           <TOCHeading title={sub.title} index={index} />
           <InformationGroup information={sub.information} />
