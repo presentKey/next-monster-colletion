@@ -6,7 +6,7 @@ import Quest from './Quest';
 import Location from './Location';
 import TimerInfo from './TimerInfo';
 import Descriptions from './Descriptions';
-import ExplanationIndex from '@/components/common/ExplanationIndex/ExplanationIndex';
+import ExplanationIndex from '@/components/common/ExplanationIndex';
 import YoutubeButton from './YoutubeButton';
 
 type Props = {

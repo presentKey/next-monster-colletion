@@ -1,4 +1,4 @@
-import styles from './css/ExplanationIndex.module.css';
+import styles from './css/index.module.css';
 
 type Props = {
   length: number;
