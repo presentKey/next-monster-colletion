@@ -1,6 +1,6 @@
 import { RegisterInfoByCategory } from '@/model/information';
 import MonsterCardList from '../../../common/MonsterCardList/MonsterCardList';
-import Registration from '../../../common/Registration/Registration';
+import RegistrationAct from '../../../common/RegistrationAct';
 import styles from './css/SubCategoryGroup.module.css';
 
 type Props = {
@@ -13,7 +13,7 @@ export default function SubCategoryGroup({ information }: Props) {
       {information.map((info, index) => (
         <div className={styles.container} key={index}>
           <MonsterCardList monsters={info.monsters} />
-          <Registration
+          <RegistrationAct
             registers={info.registers}
             monsterName={info.monsters[0].name}
             youtube={info.monsters[0].youtube}

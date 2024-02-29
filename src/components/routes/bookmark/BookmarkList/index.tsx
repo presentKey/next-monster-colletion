@@ -2,7 +2,7 @@
 import { getSavedBookmarkInfo } from '@/service/request/bookmark';
 import { useQuery } from '@tanstack/react-query';
 import MonsterCardList from '../../../common/MonsterCardList/MonsterCardList';
-import Registration from '../../../common/Registration/Registration';
+import RegistrationAct from '../../../common/RegistrationAct';
 import styles from './css/index.module.css';
 import ExplanationIndex from '../../../common/ExplanationIndex/ExplanationIndex';
 import { useSession } from 'next-auth/react';
@@ -34,7 +34,7 @@ export default function BookmarkList() {
                 length={bookmark.information.length}
                 index={index}
               />
-              <Registration
+              <RegistrationAct
                 registers={info.registers}
                 monsterName={bookmark.monsters.name}
                 youtube={bookmark.monsters.youtube}

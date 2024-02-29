@@ -1,5 +1,5 @@
 import { Register } from '@/model/information';
-import styles from './css/Registration.module.css';
+import styles from './css/index.module.css';
 import Boss from './Boss';
 import Label from './Label';
 import Quest from './Quest';
@@ -17,7 +17,7 @@ type Props = {
 
 const labelTags = ['PQ', 'B', 'O', 'TD', 'M'];
 
-export default function Registration({
+export default function RegistrationAct({
   registers,
   monsterName,
   youtube,
