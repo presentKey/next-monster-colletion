@@ -1,5 +1,5 @@
 import { CategoryDetailInformation } from '@/model/category';
-import InformationGroup from './InformationGroup';
+import SubCategoryGroup from './SubCategoryGroup';
 import TOCHeading from '@/components/routes/category/InformationByCategory/TOCHeading';
 import styles from './css/index.module.css';
 import Notice from '@/components/common/Notice/Notice';
@@ -26,7 +26,7 @@ export default function InformationByCategory({ detailInfo, path }: Props) {
       {detailInfo.subCategory.map((sub, index) => (
         <article key={sub.title}>
           <TOCHeading title={sub.title} index={index} />
-          <InformationGroup information={sub.information} />
+          <SubCategoryGroup information={sub.information} />
         </article>
       ))}
     </div>

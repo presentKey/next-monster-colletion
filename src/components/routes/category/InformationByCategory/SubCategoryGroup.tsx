@@ -1,13 +1,13 @@
 import { RegisterInfoByCategory } from '@/model/information';
 import MonsterCardList from '../../../common/MonsterCardList/MonsterCardList';
 import Registration from '../../../common/Registration/Registration';
-import styles from './css/InformationGroup.module.css';
+import styles from './css/SubCategoryGroup.module.css';
 
 type Props = {
   information: RegisterInfoByCategory[];
 };
 
-export default function InformationGroup({ information }: Props) {
+export default function SubCategoryGroup({ information }: Props) {
   return (
     <>
       {information.map((info, index) => (
