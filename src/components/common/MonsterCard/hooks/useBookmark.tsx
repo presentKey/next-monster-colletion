@@ -9,7 +9,7 @@ export default function useBookmark(monsterId: string) {
   const pathname = usePathname();
   const queryClient = useQueryClient();
   const { data: session } = useSession();
-  const { isLoading, data: bookmark } = useQuery(
+  const { isLoading, data: myBookmark } = useQuery(
     ['bookmark', session?.user.uid],
     () => getBookmarkList(),
     {
@@ -18,9 +18,11 @@ export default function useBookmark(monsterId: string) {
     }
   );
 
+  // 북마크 여부 반환
   const isBookmarked =
-    bookmark?.bookmarks.some((item) => item.id === monsterId) ?? false;
+    myBookmark?.bookmarks.some((item) => item.id === monsterId) ?? false;
 
+  // 북마크 mutation
   const { mutate: bookmarkMutate } = useMutation(
     () => updateBookmark(monsterId, isBookmarked),
     {
@@ -49,6 +51,7 @@ export default function useBookmark(monsterId: string) {
         previousBookmark: BookmarkList;
         previousSavedBookmark: SavedBookmarkInfo;
       }) => {
+        // 오류 발생 시, 이전 데이터로 복구
         queryClient.setQueryData(
           ['bookmark', session?.user.uid],
           context.previousBookmark
@@ -61,11 +64,14 @@ export default function useBookmark(monsterId: string) {
     }
   );
 
+  /** 북마크 카드 쿼리의 optimistic update */
   function bookmarkOptimistic() {
     queryClient.setQueryData(
       ['bookmark', session?.user.uid],
       // @ts-expect-error
       (old: BookmarkList) => {
+        // 북마크가 되어 있다면, 북마크 해제
+        // 북마크가 되어 있지 않다면, 북마크 등록
         const newBookmark = isBookmarked
           ? {
               bookmarks: old.bookmarks.filter((item) => item.id !== monsterId),
@@ -79,11 +85,13 @@ export default function useBookmark(monsterId: string) {
     );
   }
 
+  /** bookmark page 쿼리의 optimistic update */
   function savedBookmarkOptimistic() {
     queryClient.setQueryData(
       ['SavedBookmark', session?.user.uid],
       // @ts-expect-error
       (old: SavedBookmarkInfo) => {
+        // 북마크가 되어 있다면, 북마크 해제
         const newSavedBookmark = isBookmarked && {
           bookmarks: old.bookmarks.filter((item) => item.id !== monsterId),
         };
