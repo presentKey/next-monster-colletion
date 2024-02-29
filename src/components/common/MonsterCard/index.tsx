@@ -1,7 +1,7 @@
 'use client';
 import { Monster } from '@/model/monster';
 import Image from 'next/image';
-import styles from './css/MonsterCard.module.css';
+import styles from './css/index.module.css';
 import Bookmark from './Bookmark';
 import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
