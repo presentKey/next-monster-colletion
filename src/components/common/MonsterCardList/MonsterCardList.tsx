@@ -1,6 +1,6 @@
 import { Monster } from '@/model/monster';
 import styles from './css/MonsterCardList.module.css';
-import MonsterCard from '../MonsterCard/MonsterCard';
+import MonsterCard from '../MonsterCard';
 import { Suspense } from 'react';
 
 type Props = {

@@ -1,12 +1,12 @@
 import { Register } from '@/model/information';
-import styles from './css/Registration.module.css';
+import styles from './css/index.module.css';
 import Boss from './Boss';
 import Label from './Label';
 import Quest from './Quest';
 import Location from './Location';
 import TimerInfo from './TimerInfo';
 import Descriptions from './Descriptions';
-import ExplanationIndex from '@/components/common/ExplanationIndex/ExplanationIndex';
+import ExplanationIndex from '@/components/common/ExplanationIndex';
 import YoutubeButton from './YoutubeButton';
 
 type Props = {
@@ -17,7 +17,7 @@ type Props = {
 
 const labelTags = ['PQ', 'B', 'O', 'TD', 'M'];
 
-export default function Registration({
+export default function RegistrationAct({
   registers,
   monsterName,
   youtube,
@@ -25,6 +25,7 @@ export default function Registration({
   return (
     <>
       {youtube && <YoutubeButton youtube={youtube} />}
+
       {registers.map((register, index) => (
         <div className={styles.container} key={index}>
           <ExplanationIndex length={registers.length} index={index} />
