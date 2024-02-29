@@ -25,6 +25,7 @@ export default function RegistrationAct({
   return (
     <>
       {youtube && <YoutubeButton youtube={youtube} />}
+
       {registers.map((register, index) => (
         <div className={styles.container} key={index}>
           <ExplanationIndex length={registers.length} index={index} />
