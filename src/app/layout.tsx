@@ -18,7 +18,7 @@ import MobileTimerBar from '@/components/layout/MobileTimerBar';
 import MobileSearchBar from '@/components/layout/MobileSearchBar';
 import Footer from '@/components/layout/Footer';
 import { Metadata } from 'next';
-import GoogleAnalytics from '@/components/layout/GoogleAnalytics/GoogleAnalytics';
+import GoogleAnalytics from '@/components/layout/GoogleAnalytics';
 
 export const metadata: Metadata = {
   title: {
