@@ -6,7 +6,7 @@ import RegistrationAct from '../../../common/RegistrationAct';
 import styles from './css/index.module.css';
 import ExplanationIndex from '../../../common/ExplanationIndex';
 import { useSession } from 'next-auth/react';
-import LoadingSpinner from '../../../common/LoadingSpinner/LoadingSpinner';
+import LoadingSpinner from '../../../common/LoadingSpinner';
 import EmptyList from './EmptyList';
 import { Fragment } from 'react';
 import YoutubeButton from '@/components/common/YoutubeButton';

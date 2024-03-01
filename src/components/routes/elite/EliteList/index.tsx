@@ -5,7 +5,7 @@ import styles from './css/index.module.css';
 import { useSession } from 'next-auth/react';
 import { getUserEliteCollections } from '@/service/request/eliteCollection';
 import { useQuery } from '@tanstack/react-query';
-import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
+import LoadingSpinner from '@/components/common/LoadingSpinner';
 import { useCallback, useEffect, useState } from 'react';
 import SettingBar from './SettingBar';
 import useCheckButton from './hooks/useCheckButton';
