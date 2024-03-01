@@ -3,7 +3,7 @@ import '../styles/reset.css';
 import '../styles/responsive.css';
 import '../styles/globals.css';
 import styles from './layout.module.css';
-import GlobalHeader from '@/components/layout/GlobalHeader/GlobalHeader';
+import GlobalHeader from '@/components/layout/GlobalHeader';
 import AuthContext from '@/context/AuthContext';
 import { DarkModeProvider } from '@/context/DarkModeContext';
 import RecoilContext from '@/context/RecoilContext';

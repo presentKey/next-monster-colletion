@@ -1,4 +1,4 @@
-import styles from './css/GlobalHeader.module.css';
+import styles from './css/index.module.css';
 import Link from 'next/link';
 import GlobalNav from './GlobalNav';
 import HamburgerMenu from './HamburgerMenu';
