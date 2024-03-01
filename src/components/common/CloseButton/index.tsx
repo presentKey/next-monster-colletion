@@ -1,5 +1,5 @@
 import CloseIcon from '../icons/CloseIcon';
-import styles from './css/CloseButton.module.css';
+import styles from './css/index.module.css';
 
 type Props = {
   onClick: () => void;

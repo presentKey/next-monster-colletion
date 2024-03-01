@@ -6,7 +6,7 @@ import useTimerList from '@/recoil/TimerBar/useTimerList';
 import Timer from './Timer';
 import TimerIcon from '@/components/common/icons/TimerIcon';
 import TimerBadge from '@/components/common/TimerBadge';
-import CloseButton from '@/components/common/CloseButton/CloseButton';
+import CloseButton from '@/components/common/CloseButton';
 
 export default function MobileTimerBar() {
   const { open, toggleTimerBar } = useTimerBar();

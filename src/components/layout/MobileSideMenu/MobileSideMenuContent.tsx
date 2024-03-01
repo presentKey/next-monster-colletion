@@ -5,7 +5,7 @@ import useMobileSideMenu from '@/recoil/MobileSideMenu/useMobileSideMenu';
 import { MainCategory } from '@/model/category';
 import CategoryCard from '../../common/CategoryCard';
 import BackgroundOverlay from '@/components/common/BackgroundOverlay';
-import CloseButton from '@/components/common/CloseButton/CloseButton';
+import CloseButton from '@/components/common/CloseButton';
 
 type Props = {
   categories: MainCategory[];
