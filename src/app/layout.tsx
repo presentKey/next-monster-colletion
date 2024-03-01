@@ -16,7 +16,7 @@ import QueryDevtools from '@/context/QueryDevtools';
 import InitialSetup from '@/components/InitialSetup/InitialSetup';
 import MobileTimerBar from '@/components/layout/MobileTimerBar';
 import MobileSearchBar from '@/components/layout/MobileSearchBar';
-import Footer from '@/components/layout/Footer/Footer';
+import Footer from '@/components/layout/Footer';
 import { Metadata } from 'next';
 import GoogleAnalytics from '@/components/layout/GoogleAnalytics/GoogleAnalytics';
 
