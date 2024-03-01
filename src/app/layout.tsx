@@ -10,7 +10,7 @@ import RecoilContext from '@/context/RecoilContext';
 import MobileSideMenu from '@/components/layout/MobileSideMenu';
 import { sans } from '@/utils/fonts';
 import MobileBottomNav from '@/components/layout/MobileBottomNav';
-import ToastNotification from '@/components/common/ToastNotification/ToastNotification';
+import ToastNotification from '@/components/common/ToastNotification';
 import QueryProvider from '@/context/QueryContext';
 import QueryDevtools from '@/context/QueryDevtools';
 import InitialSetup from '@/components/InitialSetup/InitialSetup';
