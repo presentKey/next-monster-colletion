@@ -1,6 +1,6 @@
 import BookmarkList from '@/components/routes/bookmark/BookmarkList';
 import styles from './page.module.css';
-import Notice from '@/components/common/Notice/Notice';
+import Notice from '@/components/common/Notice';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
