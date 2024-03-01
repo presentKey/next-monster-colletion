@@ -2,7 +2,7 @@ import { EliteCollections } from '@/model/monster';
 import { saveEliteCollections } from '@/service/request/eliteCollection';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
-import { toast } from 'react-toastify';
+import { ToastOptions, toast } from 'react-toastify';
 import styles from './css/SettingBar.module.css';
 import { useState } from 'react';
 import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
@@ -45,17 +45,22 @@ export default function SettingBar({
 
   /** 변경된 엘리트 리스트를 저장 */
   const handleSaveClick = () => {
+    const toastPosition: ToastOptions<{}> = {
+      position: 'top-center',
+    };
+
     setLoading(true);
     if (!session) {
       toast.dismiss();
-      toast.warn('구글 및 비회원 로그인을 해주세요.');
+      toast.warn('구글 및 비회원 로그인을 해주세요.', toastPosition);
       setLoading(false);
       return;
     }
 
     saveMutate(undefined, {
-      onSuccess: () => toast.success('엘몬 컬렉션이 저장되었습니다.'),
-      onError: () => toast.warn('저장 오류가 발생했습니다.'),
+      onSuccess: () =>
+        toast.success('엘몬 컬렉션이 저장되었습니다.', toastPosition),
+      onError: () => toast.warn('저장 오류가 발생했습니다.', toastPosition),
       onSettled: () => {
         setLoading(false);
         onCardSetButtonToggle();
