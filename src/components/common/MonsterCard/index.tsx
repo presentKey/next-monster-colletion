@@ -17,7 +17,7 @@ export default function MonsterCard({ monster }: Props) {
   const search = sesarchParams.get('search');
 
   useEffect(() => {
-    if (cardRef.current?.innerText === search) {
+    if (cardRef.current?.dataset.monsterName === search) {
       const position = cardRef.current.getBoundingClientRect().top;
 
       window.scrollBy({
@@ -32,6 +32,7 @@ export default function MonsterCard({ monster }: Props) {
       ref={cardRef}
       data-tooltip-id='monster-tooltip' // <MonsterToolTip /> 컴포넌트와 연결
       data-tooltip-content={monster.name}
+      data-monster-name={monster.name}
     >
       <div className={styles['image-wrap']}>
         <Image
