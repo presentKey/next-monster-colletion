@@ -1,4 +1,4 @@
-import styles from './css/BackgroundOverlay.module.css';
+import styles from './css/index.module.css';
 
 type Props = {
   onClose: () => void;

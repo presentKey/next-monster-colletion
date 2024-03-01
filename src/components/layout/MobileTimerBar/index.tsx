@@ -1,5 +1,5 @@
 'use client';
-import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';
+import BackgroundOverlay from '@/components/common/BackgroundOverlay';
 import styles from './css/index.module.css';
 import useTimerBar from '@/recoil/TimerBar/useTimerBar';
 import useTimerList from '@/recoil/TimerBar/useTimerList';
