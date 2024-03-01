@@ -1,5 +1,5 @@
 'use client';
-import ThemeButton from '../../common/ThemeButton/ThemeButton';
+import ThemeButton from '../../common/ThemeButton';
 import styles from './css/MobileSideMenuContent.module.css';
 import useMobileSideMenu from '@/recoil/MobileSideMenu/useMobileSideMenu';
 import { MainCategory } from '@/model/category';
