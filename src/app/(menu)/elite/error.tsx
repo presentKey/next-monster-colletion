@@ -1,5 +1,5 @@
 'use client';
-import ErrorOrNotFound from '@/components/common/ErrorOrNotFound/ErrorOrNotFound';
+import ErrorOrNotFound from '@/components/common/ErrorOrNotFound';
 import EliteResetButton from '@/components/common/ResetButton/EliteResetButton';
 
 export default function Error() {
