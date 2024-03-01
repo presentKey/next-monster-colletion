@@ -1,5 +1,5 @@
 'use client';
-import ErrorOrNotFound from '@/components/common/ErrorOrNotFound/ErrorOrNotFound';
+import ErrorOrNotFound from '@/components/common/ErrorOrNotFound';
 import BookmarkResetButton from '@/components/common/ResetButton/BookmarkResetButton';
 
 export default function Error() {

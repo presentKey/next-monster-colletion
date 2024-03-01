@@ -1,6 +1,6 @@
-import Category from './category';
-import Elite from './elite';
-import Search from './search';
+import Category from './query/category';
+import Elite from './query/elite';
+import Search from './query/search';
 
 export default class Service {
   constructor() {}

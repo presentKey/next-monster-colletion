@@ -2,7 +2,7 @@ import { CategoryDetailInformation } from '@/model/category';
 import SubCategoryGroup from './SubCategoryGroup';
 import TOCHeading from '@/components/routes/category/InformationByCategory/TOCHeading';
 import styles from './css/index.module.css';
-import Notice from '@/components/common/Notice/Notice';
+import Notice from '@/components/common/Notice';
 
 const TIP_TEXT = [
   '프렌즈스토리 구관, 신관 몬스터 레벨은 플레이어의 레벨과 동일(최소 100레벨)',

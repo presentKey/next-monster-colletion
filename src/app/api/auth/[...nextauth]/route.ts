@@ -1,4 +1,4 @@
-import { addMember, addNonMember, findNonmember } from '@/service/member';
+import { addMember, addNonMember, findNonmember } from '@/service/query/member';
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';

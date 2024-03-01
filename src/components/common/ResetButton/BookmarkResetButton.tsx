@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import styles from './css/ResetButton.module.css';
 import { useState } from 'react';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import LoadingSpinner from '../LoadingSpinner';
 
 export default function BookmarkResetButton() {
   const { data: session } = useSession();

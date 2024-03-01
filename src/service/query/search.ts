@@ -1,4 +1,4 @@
-import { client } from './sanity';
+import { client } from '../sanity';
 import { cache } from 'react';
 import { SearchMonster } from '@/model/monster';
 

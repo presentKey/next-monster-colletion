@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 import { ToastOptions, toast } from 'react-toastify';
 import styles from './css/SettingBar.module.css';
 import { useState } from 'react';
-import LoadingSpinner from '@/components/common/LoadingSpinner/LoadingSpinner';
+import LoadingSpinner from '@/components/common/LoadingSpinner';
 import CheckButton from './CheckButton';
 import { ELITE_CARD_SET_BTN } from '.';
 

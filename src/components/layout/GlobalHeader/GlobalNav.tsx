@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './css/GlobalNav.module.css';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import SignButton from './SignButton';
-import ThemeButton from '../../common/ThemeButton/ThemeButton';
+import ThemeButton from '../../common/ThemeButton';
 import { usePathname } from 'next/navigation';
 
 export default function GlobalNav() {

@@ -1,4 +1,4 @@
-import styles from './css/Notice.module.css';
+import styles from './css/index.module.css';
 import CheckIcon from '../icons/CheckIcon';
 import ChevronIcon from '../icons/ChevronIcon';
 import ExclamationIcon from '../icons/ExclamationIcon';

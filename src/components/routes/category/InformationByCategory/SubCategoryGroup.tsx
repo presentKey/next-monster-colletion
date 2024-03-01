@@ -1,5 +1,5 @@
 import { RegisterInfoByCategory } from '@/model/information';
-import MonsterCardList from '../../../common/MonsterCardList/MonsterCardList';
+import MonsterCardList from '../../../common/MonsterCardList';
 import RegistrationAct from '../../../common/RegistrationAct';
 import styles from './css/SubCategoryGroup.module.css';
 import YoutubeButton from '@/components/common/YoutubeButton';
