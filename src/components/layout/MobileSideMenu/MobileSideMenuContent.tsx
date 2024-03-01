@@ -1,11 +1,11 @@
 'use client';
-import ThemeButton from '../../common/ThemeButton/ThemeButton';
+import ThemeButton from '../../common/ThemeButton';
 import styles from './css/MobileSideMenuContent.module.css';
 import useMobileSideMenu from '@/recoil/MobileSideMenu/useMobileSideMenu';
 import { MainCategory } from '@/model/category';
 import CategoryCard from '../../common/CategoryCard';
-import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';
-import CloseButton from '@/components/common/CloseButton/CloseButton';
+import BackgroundOverlay from '@/components/common/BackgroundOverlay';
+import CloseButton from '@/components/common/CloseButton';
 
 type Props = {
   categories: MainCategory[];

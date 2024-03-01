@@ -1,7 +1,10 @@
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../auth/[...nextauth]/route';
 import { NextRequest, NextResponse } from 'next/server';
-import { getEliteCollections, updateEliteCollections } from '@/service/member';
+import {
+  getEliteCollections,
+  updateEliteCollections,
+} from '@/service/query/member';
 import { EliteCollections } from '@/model/monster';
 
 type EliteList = {

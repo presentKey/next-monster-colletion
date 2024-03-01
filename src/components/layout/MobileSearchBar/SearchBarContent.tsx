@@ -3,7 +3,7 @@ import SearchForm from '@/components/common/Search/SearchForm';
 import styles from './css/SearchBarContent.module.css';
 import useSearchBar from '@/recoil/SearchBar/useSearchBar';
 import CloseIcon from '@/components/common/icons/CloseIcon';
-import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';
+import BackgroundOverlay from '@/components/common/BackgroundOverlay';
 import { SearchMonster } from '@/model/monster';
 import SearchList from '../../common/Search/SearchList';
 import useSearch from '@/components/common/Search/hooks/useSearch';

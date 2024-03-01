@@ -1,12 +1,12 @@
 'use client';
-import BackgroundOverlay from '@/components/common/BackgroundOverlay/BackgroundOverlay';
+import BackgroundOverlay from '@/components/common/BackgroundOverlay';
 import styles from './css/index.module.css';
 import useTimerBar from '@/recoil/TimerBar/useTimerBar';
 import useTimerList from '@/recoil/TimerBar/useTimerList';
 import Timer from './Timer';
 import TimerIcon from '@/components/common/icons/TimerIcon';
-import Badge from '@/components/common/Badge/Badge';
-import CloseButton from '@/components/common/CloseButton/CloseButton';
+import TimerBadge from '@/components/common/TimerBadge';
+import CloseButton from '@/components/common/CloseButton';
 
 export default function MobileTimerBar() {
   const { open, toggleTimerBar } = useTimerBar();
@@ -34,7 +34,7 @@ export default function MobileTimerBar() {
             onClick={toggleTimerBar}
           >
             <TimerIcon />
-            <Badge position='desktop' />
+            <TimerBadge position='desktop' />
           </div>
         </aside>
       )}

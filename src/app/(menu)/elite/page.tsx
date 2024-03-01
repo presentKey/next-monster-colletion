@@ -1,8 +1,8 @@
 import { service } from '@/service/pickService';
 import styles from './page.module.css';
 import EliteList from '@/components/routes/elite/EliteList';
-import DragAndDropProvider from '@/components/common/DragAndDrop/DragAndDropProvider';
-import Notice from '@/components/common/Notice/Notice';
+import DragAndDropProvider from '@/context/DragAndDrop/DragAndDropProvider';
+import Notice from '@/components/common/Notice';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

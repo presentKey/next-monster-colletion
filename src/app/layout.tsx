@@ -3,22 +3,22 @@ import '../styles/reset.css';
 import '../styles/responsive.css';
 import '../styles/globals.css';
 import styles from './layout.module.css';
-import GlobalHeader from '@/components/layout/GlobalHeader/GlobalHeader';
+import GlobalHeader from '@/components/layout/GlobalHeader';
 import AuthContext from '@/context/AuthContext';
 import { DarkModeProvider } from '@/context/DarkModeContext';
 import RecoilContext from '@/context/RecoilContext';
 import MobileSideMenu from '@/components/layout/MobileSideMenu';
 import { sans } from '@/utils/fonts';
 import MobileBottomNav from '@/components/layout/MobileBottomNav';
-import ToastNotification from '@/components/common/ToastNotification/ToastNotification';
+import ToastNotification from '@/components/common/ToastNotification';
 import QueryProvider from '@/context/QueryContext';
 import QueryDevtools from '@/context/QueryDevtools';
-import InitialSetup from '@/components/InitialSetup/InitialSetup';
+import InitialSetup from '@/components/InitialSetup';
 import MobileTimerBar from '@/components/layout/MobileTimerBar';
 import MobileSearchBar from '@/components/layout/MobileSearchBar';
-import Footer from '@/components/layout/Footer/Footer';
+import Footer from '@/components/layout/Footer';
 import { Metadata } from 'next';
-import GoogleAnalytics from '@/components/layout/GoogleAnalytics/GoogleAnalytics';
+import GoogleAnalytics from '@/components/layout/GoogleAnalytics';
 
 export const metadata: Metadata = {
   title: {

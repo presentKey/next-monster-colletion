@@ -12,7 +12,7 @@ import BookMarkFillIcon from '../../common/icons/BookMarkIconFill';
 import SwordFillIcon from '../../common/icons/SwordFillIcon';
 import useTimerBar from '@/recoil/TimerBar/useTimerBar';
 import useSearchBar from '@/recoil/SearchBar/useSearchBar';
-import Badge from '@/components/common/Badge/Badge';
+import TimerBadge from '@/components/common/TimerBadge';
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
@@ -38,7 +38,7 @@ export default function MobileBottomNav() {
       >
         <TimerIcon />
         <span className={styles.text}>타이머</span>
-        <Badge />
+        <TimerBadge />
       </button>
 
       <Link className={styles.button} href='/bookmark'>

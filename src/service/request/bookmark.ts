@@ -33,3 +33,15 @@ export async function getSavedBookmarkInfo(): Promise<SavedBookmarkInfo> {
 
   return data;
 }
+
+export async function resetBookmark() {
+  const response = await fetch('/api/bookmark/reset', {
+    method: 'PUT',
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || '서버 요청 실패');
+  }
+}

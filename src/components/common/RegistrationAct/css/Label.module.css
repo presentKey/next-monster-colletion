@@ -1,0 +1,42 @@
+.label {
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+  color: var(--color-dark);
+  background-color: var(--color-green-second);
+  border-radius: 4rem;
+}
+
+.label.small {
+  font-size: var(--font-12);
+}
+
+.label.yellow {
+  background-color: var(--color-yellow);
+}
+
+.label.blue {
+  color: var(--color-white);
+  background-color: var(--color-blue);
+}
+
+.label.green-dark {
+  background-color: var(--color-green);
+}
+
+.label.button {
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--shadow-lg);
+  transition: filter 0.1s ease-in-out;
+}
+
+.label.button.blue {
+  background-color: rgba(110, 177, 221, 0.8);
+  border: 1px solid var(--color-blue);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .label.button:hover {
+    filter: brightness(1.05);
+  }
+}

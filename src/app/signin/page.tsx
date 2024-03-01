@@ -3,7 +3,7 @@ import { authOptions } from '../api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
 import { getCsrfToken, getProviders } from 'next-auth/react';
 import SignIn from '@/components/routes/signin/SignIn';
-import Notice from '@/components/common/Notice/Notice';
+import Notice from '@/components/common/Notice';
 import styles from './page.module.css';
 import { Metadata } from 'next';
 
