@@ -44,6 +44,7 @@ export default function MonsterCard({ monster }: Props) {
       </div>
       <Bookmark monsterId={monster.id} />
       <span className={styles.name}>{monster.name}</span>
+      <h6 className='visually-hidden'>{`${monster.name} 몬컬`}</h6>
     </div>
   );
 }
