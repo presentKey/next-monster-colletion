@@ -9,7 +9,7 @@ import LoadingSpinner from '@/components/common/LoadingSpinner';
 import { useCallback, useEffect, useState } from 'react';
 import SettingBar from './SettingBar';
 import useCheckButton from './hooks/useCheckButton';
-import { ELITENAME, MODIFIER } from '@/components/InitialSetup/InitialSetup';
+import { ELITENAME, MODIFIER } from '@/components/InitialSetup';
 import Tooltip from '@/components/common/Tooltip';
 
 type Props = {

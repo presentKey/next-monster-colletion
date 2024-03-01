@@ -13,7 +13,7 @@ import MobileBottomNav from '@/components/layout/MobileBottomNav';
 import ToastNotification from '@/components/common/ToastNotification';
 import QueryProvider from '@/context/QueryContext';
 import QueryDevtools from '@/context/QueryDevtools';
-import InitialSetup from '@/components/InitialSetup/InitialSetup';
+import InitialSetup from '@/components/InitialSetup';
 import MobileTimerBar from '@/components/layout/MobileTimerBar';
 import MobileSearchBar from '@/components/layout/MobileSearchBar';
 import Footer from '@/components/layout/Footer';
