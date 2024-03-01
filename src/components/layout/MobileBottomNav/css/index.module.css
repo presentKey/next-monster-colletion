@@ -16,9 +16,11 @@
 .button {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
-  height: 100%;
+  width: 3rem;
+  height: 3rem;
   padding: 0.25rem 0.5rem;
   border-radius: 50%;
 }
