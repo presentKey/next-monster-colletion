@@ -1,5 +1,5 @@
 import { CategoryDetailInformation, MainCategory } from '@/model/category';
-import { client } from './sanity';
+import { client } from '../sanity';
 import { cache } from 'react';
 
 export default class Category {

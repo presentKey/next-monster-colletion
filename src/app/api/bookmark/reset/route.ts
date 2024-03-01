@@ -1,6 +1,6 @@
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
-import { memberBookmarkReset } from '@/service/member';
+import { memberBookmarkReset } from '@/service/query/member';
 import { authOptions } from '../../auth/[...nextauth]/route';
 
 export async function PUT() {
