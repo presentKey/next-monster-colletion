@@ -7,25 +7,17 @@ import Location from './Location';
 import TimerInfo from './TimerInfo';
 import Descriptions from './Descriptions';
 import ExplanationIndex from '@/components/common/ExplanationIndex';
-import YoutubeButton from './YoutubeButton';
 
 type Props = {
   registers: Register[];
   monsterName: string;
-  youtube: string | null | undefined;
 };
 
 const labelTags = ['PQ', 'B', 'O', 'TD', 'M'];
 
-export default function RegistrationAct({
-  registers,
-  monsterName,
-  youtube,
-}: Props) {
+export default function RegistrationAct({ registers, monsterName }: Props) {
   return (
     <>
-      {youtube && <YoutubeButton youtube={youtube} />}
-
       {registers.map((register, index) => (
         <div className={styles.container} key={index}>
           <ExplanationIndex length={registers.length} index={index} />
