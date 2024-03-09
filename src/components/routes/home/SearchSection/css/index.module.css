@@ -1,6 +1,7 @@
 .container {
   width: 100%;
 }
+
 @media screen and (min-width: 48rem) {
   .container {
     width: 50%;
