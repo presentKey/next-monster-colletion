@@ -1,6 +1,11 @@
 .search {
   position: relative;
   width: 100%;
-  max-width: 21rem;
   padding: 0 0.5rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .search {
+    max-width: 21rem;
+  }
 }
