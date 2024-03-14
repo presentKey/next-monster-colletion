@@ -1,0 +1,23 @@
+.odometer {
+  display: inline-flex;
+  justify-content: center;
+  height: 2.5rem;
+  overflow: hidden;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-brand);
+}
+
+.odometer.is-loading {
+  width: 4.188rem;
+  animation: question-mark 3s linear infinite;
+}
+
+@keyframes question-mark {
+  25% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+}
