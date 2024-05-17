@@ -102,9 +102,7 @@ export default function TableOfContents({ subCategories }: Props) {
   useEffect(saveHeadingPosition, [youtubeToggle, saveHeadingPosition]);
 
   /** sideCategoryNav 토글 시, TOCHeading 위치 재설정 */
-  useEffect(() => {
-    setTimeout(saveHeadingPosition, 530); // css transition이 끝난 뒤, 실행
-  }, [isSideCategoryNavOpen, saveHeadingPosition]);
+  useEffect(saveHeadingPosition, [isSideCategoryNavOpen, saveHeadingPosition]);
 
   /** 모바일 toc의 가로스크롤을 위해 tocItem Elements를 저장 */
   const SaveTocItemPositionForMobile = useMemo(
