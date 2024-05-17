@@ -333,14 +333,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/client@npm:^6.1.3":
-  version: 6.1.7
-  resolution: "@sanity/client@npm:6.1.7"
+"@sanity/client@npm:6.1.4":
+  version: 6.1.4
+  resolution: "@sanity/client@npm:6.1.4"
   dependencies:
     "@sanity/eventsource": ^5.0.0
     get-it: ^8.1.0
     rxjs: ^7.0.0
-  checksum: 183588a1f970ff0643f58761e7fc27782c4c77d71ad0f1c6c1290ff19116e636d87bc964b2ff13f6788b39697bd6562fb760dd3c546b30938958ffe761855c2b
+  checksum: b3397d824daf19612761f07a07ad99a628f14e2eb73a22ac2a2c3ae2c571c08b8478a40e684eacb64a26bfcfa30de8b16097b91543e2a7671b6f7daac800b52f
   languageName: node
   linkType: hard
 
@@ -2864,7 +2864,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "next-monster-collection@workspace:."
   dependencies:
-    "@sanity/client": ^6.1.3
+    "@sanity/client": 6.1.4
     "@tanstack/react-query": ^4.29.19
     "@tanstack/react-query-devtools": ^4.29.25
     "@types/lodash": ^4.14.196
