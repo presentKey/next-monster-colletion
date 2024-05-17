@@ -4,16 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './css/index.module.css';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef } from 'react';
 
 type Props = {
   category: MainCategory;
   imgSize?: 'small' | 'normal';
   isTitleVisible?: boolean;
   onToggleSideBar?: () => void;
-
-  /** SideCategoyNav 컴포넌트의 linePosition 상태 변경 */
-  onSetLinePosition?: (position: number) => void;
 };
 
 export default function CategoryCard({
@@ -21,23 +17,12 @@ export default function CategoryCard({
   imgSize = 'normal',
   isTitleVisible = true,
   onToggleSideBar,
-  onSetLinePosition,
   ...tooltipOptions
 }: Props) {
   const pathname = usePathname();
-  const cardRef = useRef<HTMLAnchorElement>(null);
   const handleClick = () => {
     onToggleSideBar && onToggleSideBar();
   };
-
-  /** 첫 렌더링 시, 현재 경로에 해당하는 card로 vertical line 위치 설정 */
-  useEffect(() => {
-    if (!onSetLinePosition) return;
-
-    if (pathname.split('/')[2] === path && cardRef.current) {
-      onSetLinePosition(cardRef.current.offsetTop);
-    }
-  }, [pathname]);
 
   return (
     <>
@@ -48,7 +33,6 @@ export default function CategoryCard({
         href={`/category/${path}`}
         prefetch={false}
         onClick={handleClick}
-        ref={cardRef}
         {...tooltipOptions}
       >
         <div className={styles.img}>

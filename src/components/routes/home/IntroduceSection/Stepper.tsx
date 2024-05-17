@@ -13,7 +13,9 @@ export default function Stepper({ stopNumber }: Props) {
     const stepperEl = stepperRef.current;
     if (!stepperEl) return;
 
-    stepperEl.style.top = `-${stepperEl.offsetHeight * stopNumber}px`;
+    stepperEl.style.transform = `translateY(-${
+      stepperEl.offsetHeight * stopNumber
+    }px)`;
     stepperEl.style.transitionDelay = `${100 * (10 - stopNumber)}`;
     stepperEl.style.transitionTimingFunction =
       stopNumber >= 4 ? 'cubic-bezier(.12,.74,.46,1)' : 'ease-in-out';
