@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './css/index.module.css';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef } from 'react';
 
 type Props = {
   category: MainCategory;
@@ -18,11 +17,9 @@ export default function CategoryCard({
   imgSize = 'normal',
   isTitleVisible = true,
   onToggleSideBar,
-
   ...tooltipOptions
 }: Props) {
   const pathname = usePathname();
-  const cardRef = useRef<HTMLAnchorElement>(null);
   const handleClick = () => {
     onToggleSideBar && onToggleSideBar();
   };
@@ -36,7 +33,6 @@ export default function CategoryCard({
         href={`/category/${path}`}
         prefetch={false}
         onClick={handleClick}
-        ref={cardRef}
         {...tooltipOptions}
       >
         <div className={styles.img}>

@@ -3,7 +3,6 @@ import { MainCategory } from '@/model/category';
 import CategoryCard from '../../common/CategoryCard';
 import styles from './css/index.module.css';
 import ArrowBarIcon from '../../common/icons/ArrowBarIcon';
-import { useRef } from 'react';
 import useSideCategoryNav from '@/recoil/SideCategoryNav/useSideCategoryNav';
 import Tooltip from '@/components/common/Tooltip';
 
@@ -13,13 +12,9 @@ type Props = {
 
 export default function SideCategoryNav({ categories }: Props) {
   const [isOpen, handleSideCategoryNavToggle] = useSideCategoryNav();
-  const navRef = useRef<HTMLElement>(null);
 
   return (
-    <nav
-      className={`sm-hidden ${styles.nav} ${isOpen && styles['is-open']}`}
-      ref={navRef}
-    >
+    <nav className={`sm-hidden ${styles.nav} ${isOpen && styles['is-open']}`}>
       <button
         type='button'
         className={styles['toggle-button']}

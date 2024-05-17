@@ -14,7 +14,6 @@
   border: 1px solid var(--color-border);
   border-radius: 0.5rem;
   box-shadow: var(--shadow-lg);
-  transition: width 0.5s ease;
 }
 
 .list {
@@ -52,7 +51,7 @@
   color: var(--color-white);
   background-color: var(--color-blue);
   border-radius: 0.5rem;
-  transition: all 0.5s;
+  transition: transform 0.5s;
   transform: translateX(-50%) rotate(180deg);
 }
 
