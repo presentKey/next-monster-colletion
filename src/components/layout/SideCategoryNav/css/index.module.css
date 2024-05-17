@@ -42,18 +42,6 @@
   margin: 0.25rem 0;
 }
 
-.vertical-line {
-  position: absolute;
-  top: 0.5rem;
-  width: 0.25rem;
-  height: 1.8rem;
-  background-color: var(--color-brand);
-  border-radius: 100px;
-  opacity: 0;
-  transition: transform 0.2s linear,
-    opacity 0.8s cubic-bezier(1, 0.04, 1, -0.43);
-}
-
 .toggle-button {
   position: absolute;
   left: 50%;

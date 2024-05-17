@@ -3,9 +3,7 @@ import { MainCategory } from '@/model/category';
 import CategoryCard from '../../common/CategoryCard';
 import styles from './css/index.module.css';
 import ArrowBarIcon from '../../common/icons/ArrowBarIcon';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { throttle } from 'lodash';
-import { usePathname } from 'next/navigation';
+import { useRef } from 'react';
 import useSideCategoryNav from '@/recoil/SideCategoryNav/useSideCategoryNav';
 import Tooltip from '@/components/common/Tooltip';
 
@@ -14,48 +12,8 @@ type Props = {
 };
 
 export default function SideCategoryNav({ categories }: Props) {
-  const pathname = usePathname();
   const [isOpen, handleSideCategoryNavToggle] = useSideCategoryNav();
-  const [linePosition, setLinePosition] = useState<number | null>(null); // 첫 렌더링 시, 현재 경로에 해당하는 vertical line의 y position
   const navRef = useRef<HTMLElement>(null);
-  const verticalLineRef = useRef<HTMLDivElement>(null);
-
-  /** 클릭한 category item으로 vertical line 위치 조정 */
-  const handleVerticalLineClick = (e: React.MouseEvent<HTMLLIElement>) => {
-    const lineElment = verticalLineRef.current;
-
-    if (lineElment) {
-      lineElment.style.transform = `translateY(${e.currentTarget.offsetTop}px)`;
-      lineElment.style.opacity = '1';
-    }
-  };
-
-  /** 첫 렌더링 시, 현재 경로에 해당하는 category item으로 vertical line 위치 설정 */
-  useEffect(() => {
-    const lineElment = verticalLineRef.current;
-
-    if (lineElment && linePosition) {
-      lineElment.style.transform = `translateY(${linePosition}px)`;
-      lineElment.style.opacity = '1';
-    }
-  }, [linePosition]);
-
-  const throttleHandler = useMemo(
-    () =>
-      throttle(() => {
-        const lineElment = verticalLineRef.current;
-        if (window.matchMedia('(max-width: 48rem)').matches && lineElment) {
-          lineElment.style.opacity = '0';
-        }
-      }, 700),
-    []
-  );
-
-  /** 모바일 사이즈로 변경 시, verticalLine을 숨김 처리 */
-  useEffect(() => {
-    window.addEventListener('resize', throttleHandler);
-    return () => window.removeEventListener('resize', throttleHandler);
-  }, [throttleHandler]);
 
   return (
     <nav
@@ -73,18 +31,11 @@ export default function SideCategoryNav({ categories }: Props) {
 
       <ol className={styles.list}>
         {categories.map((category) => (
-          <li
-            className={styles.item}
-            key={category.path}
-            onClick={(e: React.MouseEvent<HTMLLIElement>) =>
-              handleVerticalLineClick(e)
-            }
-          >
+          <li className={styles.item} key={category.path}>
             <CategoryCard
               category={category}
               imgSize='small'
               isTitleVisible={isOpen}
-              onSetLinePosition={setLinePosition}
               data-tooltip-id='category-tooltip'
               data-tooltip-content={category.title}
             />
@@ -96,13 +47,6 @@ export default function SideCategoryNav({ categories }: Props) {
           hidden={isOpen}
           place='right'
           positionStrategy='fixed'
-        />
-
-        <div
-          className={`${
-            pathname.split('/')[1] === 'category' && styles['vertical-line']
-          }`}
-          ref={verticalLineRef}
         />
       </ol>
     </nav>

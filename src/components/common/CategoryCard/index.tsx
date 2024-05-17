@@ -11,9 +11,6 @@ type Props = {
   imgSize?: 'small' | 'normal';
   isTitleVisible?: boolean;
   onToggleSideBar?: () => void;
-
-  /** SideCategoyNav 컴포넌트의 linePosition 상태 변경 */
-  onSetLinePosition?: (position: number) => void;
 };
 
 export default function CategoryCard({
@@ -21,7 +18,7 @@ export default function CategoryCard({
   imgSize = 'normal',
   isTitleVisible = true,
   onToggleSideBar,
-  onSetLinePosition,
+
   ...tooltipOptions
 }: Props) {
   const pathname = usePathname();
@@ -29,15 +26,6 @@ export default function CategoryCard({
   const handleClick = () => {
     onToggleSideBar && onToggleSideBar();
   };
-
-  /** 첫 렌더링 시, 현재 경로에 해당하는 card로 vertical line 위치 설정 */
-  useEffect(() => {
-    if (!onSetLinePosition) return;
-
-    if (pathname.split('/')[2] === path && cardRef.current) {
-      onSetLinePosition(cardRef.current.offsetTop);
-    }
-  }, [pathname]);
 
   return (
     <>
