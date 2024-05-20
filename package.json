@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sanity/client": "6.1.4",
+    "@sanity/client": "6.15.3",
     "@tanstack/react-query": "^4.29.19",
     "@tanstack/react-query-devtools": "^4.29.25",
     "@types/lodash": "^4.14.196",
@@ -36,5 +36,6 @@
     "stylelint": "^15.7.0",
     "stylelint-config-recess-order": "^4.2.0",
     "stylelint-config-standard": "^33.0.0"
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
