@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sanity/client": "6.1.4",
+    "@sanity/client": "^6.18.2",
     "@tanstack/react-query": "^4.29.19",
     "@tanstack/react-query-devtools": "^4.29.25",
     "@types/lodash": "^4.14.196",
@@ -19,7 +19,7 @@
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",
     "lodash": "^4.17.21",
-    "next": "^13.4.13",
+    "next": "^14.2.3",
     "next-auth": "^4.22.1",
     "rdndmb-html5-to-touch": "^8.0.1",
     "react": "18.2.0",
@@ -36,5 +36,6 @@
     "stylelint": "^15.7.0",
     "stylelint-config-recess-order": "^4.2.0",
     "stylelint-config-standard": "^33.0.0"
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
