@@ -5,6 +5,7 @@ import HamburgerMenu from './HamburgerMenu';
 import { dohyeon } from '@/utils/fonts';
 import SearchFormWithList from '../../common/Search/SearchFormWithList';
 import { service } from '@/service/pickService';
+import { Suspense } from 'react';
 
 export default async function GlobalHeader() {
   const monsters = await service.search.getMonsters();
@@ -16,11 +17,13 @@ export default async function GlobalHeader() {
         <Link href='/' className={`${dohyeon.className} ${styles.title}`}>
           몬스터컬렉션
         </Link>
-        <SearchFormWithList
-          monsters={monsters}
-          responsive='sm-hidden'
-          visuallyHidden
-        />
+        <Suspense>
+          <SearchFormWithList
+            monsters={monsters}
+            responsive='sm-hidden'
+            visuallyHidden
+          />
+        </Suspense>
         <GlobalNav />
       </div>
     </header>
