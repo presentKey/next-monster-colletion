@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useDrag, useDrop } from 'react-dnd';
 import useDndPreviewLine from '@/recoil/DragAndDrop/useDndPreviewLine';
 import { ELITE_CARD_SET_BTN } from '.';
+import imageEncodeURI from '@/utils/imageEncodeURI';
 
 const CARD = 'CARD';
 
@@ -33,6 +34,7 @@ export default function EliteCard({
   ...tooltipOptions
 }: Props) {
   const monsterName = monster.name && monster.name.replace('[★] ', '');
+  const encodeName = imageEncodeURI(monsterName);
   const { previewLine, handlePreviewLine, resetPreviewLine } =
     useDndPreviewLine();
 
@@ -77,7 +79,7 @@ export default function EliteCard({
         <div className={styles['image-wrap']}>
           <Image
             className={styles.image}
-            src={`/images/elite-monsters/${monsterName}.png`}
+            src={`/images/elite-monsters/${encodeName}.png`}
             alt={`${monster.name} 엘몬 몬컬 이미지`}
             fill
             sizes='70px'

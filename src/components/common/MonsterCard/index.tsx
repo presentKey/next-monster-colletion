@@ -6,6 +6,7 @@ import Bookmark from './Bookmark';
 import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import calcScrollAmount from '@/utils/calcScrollAmount';
+import imageEncodeURI from '@/utils/imageEncodeURI';
 
 type Props = {
   monster: Monster;
@@ -15,6 +16,7 @@ export default function MonsterCard({ monster }: Props) {
   const cardRef = useRef<HTMLDivElement | null>(null);
   const sesarchParams = useSearchParams();
   const search = sesarchParams.get('search');
+  const encodeName = imageEncodeURI(monster.name);
 
   useEffect(() => {
     if (cardRef.current?.dataset.monsterName === search) {
@@ -37,7 +39,7 @@ export default function MonsterCard({ monster }: Props) {
       <div className={styles['image-wrap']}>
         <Image
           className={styles.image}
-          src={`/images/monsters/${monster.name}.png`}
+          src={`/images/monsters/${encodeName}.png`}
           alt={`${monster.name} 몬컬 이미지`}
           fill
           sizes='70px'
