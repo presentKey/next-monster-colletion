@@ -1,11 +1,11 @@
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
 import { getCsrfToken, getProviders } from 'next-auth/react';
 import SignIn from '@/components/routes/signin/SignIn';
 import Notice from '@/components/common/Notice';
 import styles from './page.module.css';
 import { Metadata } from 'next';
+import { authOptions } from '@/utils/authOptions';
 
 export const metadata: Metadata = {
   title: '로그인',
