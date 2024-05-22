@@ -1,13 +1,14 @@
-import { Timer } from '@/model/information';
+import { Timer as TimerType } from '@/model/information';
 import Image from 'next/image';
 import styles from './css/Timer.module.css';
 import TimerResetIcon from '@/components/common/icons/TimerResetIcon';
 import RemoveIcon from '@/components/common/icons/RemoveIcon';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import useTimerList from '@/recoil/TimerBar/useTimerList';
+import imageEncodeURI from '@/utils/imageEncodeURI';
 
 type Props = {
-  timer: Timer;
+  timer: TimerType;
 };
 
 export default function Timer({ timer }: Props) {
@@ -18,6 +19,7 @@ export default function Timer({ timer }: Props) {
     min: time.current / 60,
     sec: time.current % 60,
   });
+  const encodeName = imageEncodeURI(timer.monsterName);
 
   const handleStartTimer = useCallback(() => {
     const startedAt = Date.now();
@@ -56,7 +58,7 @@ export default function Timer({ timer }: Props) {
         <div className={styles['image-wrap']}>
           <Image
             className={styles.image}
-            src={`/images/monsters/${timer.monsterName}.png`}
+            src={`/images/monsters/${encodeName}.png`}
             alt={`타이머 ${timer.monsterName} 이미지`}
             width={36}
             height={36}
