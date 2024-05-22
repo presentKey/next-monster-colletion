@@ -1,4 +1,4 @@
-import { Timer } from '@/model/information';
+import { Timer as TimerType } from '@/model/information';
 import Image from 'next/image';
 import styles from './css/Timer.module.css';
 import TimerResetIcon from '@/components/common/icons/TimerResetIcon';
@@ -8,7 +8,7 @@ import useTimerList from '@/recoil/TimerBar/useTimerList';
 import imageEncodeURI from '@/utils/imageEncodeURI';
 
 type Props = {
-  timer: Timer;
+  timer: TimerType;
 };
 
 export default function Timer({ timer }: Props) {
