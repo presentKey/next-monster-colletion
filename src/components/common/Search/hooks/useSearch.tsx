@@ -1,4 +1,5 @@
 import { SearchMonster } from '@/model/monster';
+import calcScrollAmount from '@/utils/calcScrollAmount';
 import { useSearchParams } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
@@ -167,6 +168,22 @@ export default function useSearch(monsters: SearchMonster[]) {
       setText(searchParam);
       setKeyword(searchParam);
       setSelected(selectedMonster);
+    }
+  }, [searchParams]);
+
+  /** 검색한 몬스터 위치로 페이지 스크롤 */
+  useEffect(() => {
+    const searchParam = searchParams.get('search');
+    const cardNodeList = document.querySelectorAll(
+      `[data-monster-name='${searchParam}']`
+    );
+
+    if (cardNodeList.length >= 1) {
+      const position = cardNodeList[0].getBoundingClientRect().top;
+
+      window.scrollBy({
+        top: calcScrollAmount(position),
+      });
     }
   }, [searchParams]);
 

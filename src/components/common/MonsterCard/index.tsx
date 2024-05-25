@@ -3,9 +3,7 @@ import { Monster } from '@/model/monster';
 import Image from 'next/image';
 import styles from './css/index.module.css';
 import Bookmark from './Bookmark';
-import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
-import calcScrollAmount from '@/utils/calcScrollAmount';
 import imageEncodeURI from '@/utils/imageEncodeURI';
 
 type Props = {
@@ -13,25 +11,13 @@ type Props = {
 };
 
 export default function MonsterCard({ monster }: Props) {
-  const cardRef = useRef<HTMLDivElement | null>(null);
   const sesarchParams = useSearchParams();
   const search = sesarchParams.get('search');
   const encodeName = imageEncodeURI(monster.name);
 
-  useEffect(() => {
-    if (cardRef.current?.dataset.monsterName === search) {
-      const position = cardRef.current.getBoundingClientRect().top;
-
-      window.scrollBy({
-        top: calcScrollAmount(position),
-      });
-    }
-  }, [search]);
-
   return (
     <div
       className={`${styles.card} ${search === monster.name && styles.target}`}
-      ref={cardRef}
       data-tooltip-id='monster-tooltip' // <MonsterToolTip /> 컴포넌트와 연결
       data-tooltip-content={monster.name}
       data-monster-name={monster.name}
