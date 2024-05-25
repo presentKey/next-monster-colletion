@@ -17,8 +17,8 @@ export default function SignIn({ providers, callbackUrl, csrfToken }: Props) {
         switch (name) {
           case 'Nonmember':
             return (
-              <Suspense>
-                <NonMemberLogin key={id} csrfToken={csrfToken}>
+              <Suspense key={id}>
+                <NonMemberLogin csrfToken={csrfToken}>
                   <LoginButton
                     name={name}
                     onClick={() =>
@@ -33,9 +33,8 @@ export default function SignIn({ providers, callbackUrl, csrfToken }: Props) {
             );
           default:
             return (
-              <Suspense>
+              <Suspense key={id}>
                 <LoginButton
-                  key={id}
                   name={name}
                   onClick={() => signIn(id, { callbackUrl })}
                 />
